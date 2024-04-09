@@ -18,7 +18,10 @@
   },
   "name":"frank-and-cory",
   "resources":[
+    {"id":{"name":"o_test","path":"objects/o_test/o_test.yy",},},
     {"id":{"name":"rm_main","path":"rooms/rm_main/rm_main.yy",},},
+    {"id":{"name":"sh_test","path":"shaders/sh_test/sh_test.yy",},},
+    {"id":{"name":"spr_test","path":"sprites/spr_test/spr_test.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
