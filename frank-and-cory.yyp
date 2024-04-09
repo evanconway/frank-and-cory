@@ -19,8 +19,10 @@
   "name":"frank-and-cory",
   "resources":[
     {"id":{"name":"o_test","path":"objects/o_test/o_test.yy",},},
+    {"id":{"name":"o_light_switch","path":"objects/o_light_switch/o_light_switch.yy",},},
     {"id":{"name":"rm_main","path":"rooms/rm_main/rm_main.yy",},},
-    {"id":{"name":"sh_test","path":"shaders/sh_test/sh_test.yy",},},
+    {"id":{"name":"State","path":"scripts/State/State.yy",},},
+    {"id":{"name":"spr_light_switch","path":"sprites/spr_light_switch/spr_light_switch.yy",},},
     {"id":{"name":"spr_test","path":"sprites/spr_test/spr_test.yy",},},
   ],
   "resourceType":"GMProject",
