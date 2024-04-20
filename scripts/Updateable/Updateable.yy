@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"Updateable",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Updateable",
+  "parent":{
+    "name":"frank-and-cory",
+    "path":"frank-and-cory.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

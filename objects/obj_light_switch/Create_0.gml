@@ -1,10 +1,9 @@
 event_inherited();
 
-pre_draw = function() {
-	if (global.light_switch_on) image_index = 1;
-	else image_index = 0;
-};
+disabled = true;
 
-on_click = function() {
-	global.light_switch_on = !global.light_switch_on;
+draw = function() {
+	image_index = 0;
+	if (global.light_switch_on) image_index = 1;
+	draw_self();
 };

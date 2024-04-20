@@ -3,3 +3,5 @@
 Time to add a planning file since I'm running into stuff I want to to think through.
 
 Right now I'm struggling again with clickables and ensuring they don't overlap with one-another. I was having trouble figuring out how to sort through them to get the right draw and logic order. But I realized this can't be done in the same loop. An object that visually is on top of other objects must have its logic processed first, but must be drawn last. So we need a different loop for logic and drawing.
+
+I just realized that we'll need to split up the update and draw logic of clickables. That is of course because we'll need to be able to draw them without updating them. For example, during dialog scenes.
