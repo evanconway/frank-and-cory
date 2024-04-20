@@ -2,16 +2,19 @@
   "$GMObject":"",
   "%Name":"o_light_switch",
   "eventList":[
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"o_light_switch",
   "overriddenProperties":[],
   "parent":{
-    "name":"frank-and-cory",
-    "path":"frank-and-cory.yyp",
+    "name":"Clickables",
+    "path":"folders/Clickables.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"o_clickable",
+    "path":"objects/o_clickable/o_clickable.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
