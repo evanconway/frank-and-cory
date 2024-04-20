@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"Clickables",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Clickables",
+  "parent":{
+    "name":"Clickables",
+    "path":"folders/Clickables.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,5 @@
+20th of April, 2024
+
+Time to add a planning file since I'm running into stuff I want to to think through.
+
+Right now I'm struggling again with clickables and ensuring they don't overlap with one-another. I was having trouble figuring out how to sort through them to get the right draw and logic order. But I realized this can't be done in the same loop. An object that visually is on top of other objects must have its logic processed first, but must be drawn last. So we need a different loop for logic and drawing.
