@@ -7,12 +7,11 @@ function __clickables_get_all() {
 	}
 	array_sort(clickable_ids, function(id_a, id_b) {
 		return id_a.depth - id_b.depth;
-	})
+	});
 	return clickable_ids;
 }
 
 function clickables_update() {
-	global.clickable_hovered = noone;
 	var clickable_ids = __clickables_get_all();
 	array_foreach(clickable_ids, function(clickable_id) {
 		with (clickable_id) {

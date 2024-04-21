@@ -7,39 +7,40 @@ global.updateable = {
 };
 global.updateable = undefined;
 
-function updateable_start_dialog(dialog_steps) {
+function updateable_start_dialog(dialog_steps_data) {
+	var dialog_steps = is_array(dialog_steps_data) ? dialog_steps_data : [dialog_steps_data];
 	if (!is_array(dialog_steps)) show_error("dialog_steps must be an array", true);
 	
 	// create a map of updateable objects, each which handles dialog display and interaction
 	var steps = array_map(dialog_steps, function(step) {
 		if (!is_string(step) && !is_struct(step)) show_error("dialog_steps each array value must be string or dialog struct", true);
-		var tds_instance = new TagDecoratedTextDefault(is_string(step) ? step : step.text);
+		var tds_instance = new TagDecoratedTextDefault(is_string(step) ? step : step.text, "f:fnt_ally t:80,2");
 		tag_decorated_text_reset_typing(tds_instance);
-		var on_step = is_struct(step) ? function() {} : step.on_step;
 		
-		/*
-		"b" for binding struct, only used to bind the above values to the functions below.
-		See https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Variable_Functions/method.htm
-		for details on method() and why we need to use it here.
-		*/
-		var b = {
-			tds_instance: tds_instance,
-			on_step: on_step,
-		};
+		tag_decorated_text_set_on_type_callback(tds_instance, function() {
+			play_sfx(snd_type, 1, random_range(0.9, 1.1))
+		});
+		
+		var on_step = is_string(step) ? function() {} : step.on_step;
 		
 		// this must be an updateable with an update() and draw()
 		return {
+			tds_instance: tds_instance,
+			on_step: on_step,
 			next_updateable: undefined,
-			update: method(b, function() {
-				if (tag_decorated_text_get_typing_finished(tds_instance)) {
+			update: function() {
+				var clicked = mouse_check_button_pressed(mb_any);
+				if (tag_decorated_text_get_typing_finished(tds_instance) && clicked) {
 					global.updateable = next_updateable;
+					return
 				}
-				if (mouse_check_button_pressed(mb_any)) tag_decorated_text_advance(tds_instance);
+				if (clicked) tag_decorated_text_advance(tds_instance);
 				on_step();
-			}),
-			draw: method(b, function() {
+			},
+			draw: function() {
+				draw_set_alpha(1); // why do we need this??
 				tag_decorated_text_draw(tds_instance, 0, 0);
-			}),
+			},
 		};
 	});
 	
