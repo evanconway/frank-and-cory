@@ -32,10 +32,8 @@
     {"id":{"name":"obj_frank_chest","path":"objects/obj_frank_chest/obj_frank_chest.yy",},},
     {"id":{"name":"obj_frank_head","path":"objects/obj_frank_head/obj_frank_head.yy",},},
     {"id":{"name":"obj_light_switch","path":"objects/obj_light_switch/obj_light_switch.yy",},},
-    {"id":{"name":"obj_test","path":"objects/obj_test/obj_test.yy",},},
     {"id":{"name":"obj_workshop_cory","path":"objects/obj_workshop_cory/obj_workshop_cory.yy",},},
     {"id":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
-    {"id":{"name":"rm_main","path":"rooms/rm_main/rm_main.yy",},},
     {"id":{"name":"rm_workshop","path":"rooms/rm_workshop/rm_workshop.yy",},},
     {"id":{"name":"Clickables","path":"scripts/Clickables/Clickables.yy",},},
     {"id":{"name":"Darkness","path":"scripts/Darkness/Darkness.yy",},},
@@ -64,7 +62,6 @@
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
-    {"roomId":{"name":"rm_main","path":"rooms/rm_main/rm_main.yy",},},
     {"roomId":{"name":"rm_workshop","path":"rooms/rm_workshop/rm_workshop.yy",},},
   ],
   "templateType":"game",
