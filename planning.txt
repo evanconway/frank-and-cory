@@ -49,7 +49,7 @@ Making progress with logic that's easy to add more steps to. I realized a way to
             }
         },
         function() {
-            // do thrid different stuff
+            // do third different stuff
             if (time > arbitrary_value) {
                 time = 0;
                 step++;
@@ -68,4 +68,4 @@ I also realized we may want to rely more on global values for state than only co
 
 Oh I see how I did it. There's an "on_step" option for individual dialog steps. But this system doesn't account for an on_step() that we want to execute for all dialog steps. Let's try adding an on_step_all() parameter to the function and see how we like that.
 
-Ya, a on_step_all() function made the most sense. The bugs are fixed and are system is working better now.
+Ya, a on_step_all() function made the most sense. The bugs are fixed and are system is working better now. Although we don't have specifics from Jude, I think now we should start fleshing out different dialog delivery for the different characters. It doesn't even need to be correct, just different. That way it'll be easier to edit in correct fonts, sounds, positions, and whatever when we know exactly what we want.
