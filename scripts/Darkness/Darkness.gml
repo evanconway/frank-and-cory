@@ -11,8 +11,10 @@ function darkness(darkness_alpha=1, circle_radius=100) {
 
 	gpu_set_blendmode(bm_subtract);
 
-	draw_set_alpha(0.7);
+	draw_set_alpha(1);
 	draw_circle(mouse_x, mouse_y, circle_radius, false);
+
+	draw_sprite(spr_fank_head_light, 0, 0, 0);
 
 	gpu_set_blendmode(bm_normal);
 
