@@ -7,12 +7,12 @@ global.updateable = {
 };
 global.updateable = undefined;
 
-function updateable_start_dialog(dialog_steps_data, after_dialog_updateable=undefined) {
+function updateable_start_dialog(dialog_steps_data, after_dialog_updateable=undefined, pre_dialog_draw=function() {}) {
 	var dialog_steps = is_array(dialog_steps_data) ? dialog_steps_data : [dialog_steps_data];
 	if (!is_array(dialog_steps)) show_error("dialog_steps must be an array", true);
 	
 	// create a map of updateable objects, each which handles dialog display and interaction
-	var steps = array_map(dialog_steps, function(step) {
+	var steps = array_map(dialog_steps, method({ pre_dialog_draw: pre_dialog_draw }, function(step) {
 		if (!is_string(step) && !is_struct(step)) show_error("dialog_steps each array value must be string or dialog struct", true);
 		var tds_instance = new TagDecoratedTextDefault(is_string(step) ? step : step.text, "f:fnt_ally t:80,2");
 		tag_decorated_text_reset_typing(tds_instance);
@@ -24,9 +24,10 @@ function updateable_start_dialog(dialog_steps_data, after_dialog_updateable=unde
 		var on_step = is_string(step) ? function() {} : step.on_step;
 		
 		// this must be an updateable with an update() and draw()
-		return {
+		var result = {
 			tds_instance: tds_instance,
 			on_step: on_step,
+			pre_dialog_draw: pre_dialog_draw,
 			next_updateable: undefined,
 			update: function() {
 				var clicked = mouse_check_button_pressed(mb_any);
@@ -39,10 +40,13 @@ function updateable_start_dialog(dialog_steps_data, after_dialog_updateable=unde
 			},
 			draw: function() {
 				draw_set_alpha(1); // why do we need this??
+				pre_dialog_draw();
 				tag_decorated_text_draw(tds_instance, 0, 0);
 			},
 		};
-	});
+		
+		return result;
+	}));
 	
 	// map each step to the next step when finished
 	for (var i = 0; i < array_length(steps) - 1; i++) {
