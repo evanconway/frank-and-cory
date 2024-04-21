@@ -5,7 +5,7 @@ if (global.updateable != undefined) {
 	var updateable = global.updateable;
 	updateable.update();
 	clickables_draw();
-	updateable.draw();
+	if (variable_struct_exists(updateable, "draw"))	updateable.draw();
 } else {
 	clickables_update();
 	clickables_draw();

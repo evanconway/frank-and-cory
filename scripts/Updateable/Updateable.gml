@@ -7,7 +7,7 @@ global.updateable = {
 };
 global.updateable = undefined;
 
-function updateable_start_dialog(dialog_steps_data) {
+function updateable_start_dialog(dialog_steps_data, after_dialog_updateable=undefined) {
 	var dialog_steps = is_array(dialog_steps_data) ? dialog_steps_data : [dialog_steps_data];
 	if (!is_array(dialog_steps)) show_error("dialog_steps must be an array", true);
 	
@@ -48,6 +48,8 @@ function updateable_start_dialog(dialog_steps_data) {
 	for (var i = 0; i < array_length(steps) - 1; i++) {
 		steps[i].next_updateable = steps[i + 1];
 	}
+	
+	steps[array_length(steps) - 1].next_updateable = after_dialog_updateable;
 	
 	// set updateable to first dialog step
 	global.updateable = steps[0];
