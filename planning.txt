@@ -5,3 +5,15 @@ Time to add a planning file since I'm running into stuff I want to to think thro
 Right now I'm struggling again with clickables and ensuring they don't overlap with one-another. I was having trouble figuring out how to sort through them to get the right draw and logic order. But I realized this can't be done in the same loop. An object that visually is on top of other objects must have its logic processed first, but must be drawn last. So we need a different loop for logic and drawing.
 
 I just realized that we'll need to split up the update and draw logic of clickables. That is of course because we'll need to be able to draw them without updating them. For example, during dialog scenes.
+
+I just added some basic dialog stuff. We should consider what functions we want in order to add more dialog. Right now I just have a simple function which takes an array of text which starts the logic. But this will have 2 different characters frequently speaking with eachother. We'll need different text bubbles, sounds, and text positions for the different characters, as well as the different scenes. It needs to be easy to declare what kind of speech the line should have when delivered. Furthermore, I think there are situations where we'll want to deliver dialog, perform some sort of small animation or event, then go back to dialog. So we need to be able to easily link dialog updateables to other updateables. For example Jude requested that the opening contain dialog between Frank and Cory which has a small light activation sequence in between lines of dialog. 
+
+Well, right now our dialog logic creates an array of updateables that all link to eachother. What if we added a function which linked the end of a dialog sequence to another updateable? Our dialog function looks like this:
+
+updateable_start_dialog(dialog_steps_data)
+
+Perhaps we could add a "after_dialog_updateable" field?
+
+updateable_start_dialog(dialog_steps_data, after_dialog_updateable=undefined)
+
+Our dialog logic already strings each dialog updateable to the next updateable in the dialog array. So simply supplying this value to the function means we could easily string the last dialog updateable to the given value, or simply keep it undefined. As for stringing updateables to dialog, we could simply invoke the updateable_start_dialog function in the updateable.
