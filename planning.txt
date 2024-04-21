@@ -27,3 +27,45 @@ There should be a better way to declare updateables. Right now I end up with thi
 To link updateables together they must specifically reference one-another. And they must somehow know when they are finished. Perhaps we could just insist that updateables given to this array function have a is_finished() defined. 
 
 Actually let's not worry about this. I changed the updateable_start_dialog function to simply return the first updateable in the chain of dialogs. And I manually set the next updateable, we just do it in reverse order. It's still fairly clearly, gives me flexibility, and doesn't require extra work. We'll do that until there seems to be more of a need.
+
+Making progress with logic that's easy to add more steps to. I realized a way to make time based animations that don't require specifying exact step indexes. It looks like this:
+
+{
+    time: 0,
+    step: 0,
+    steps: [
+        function() {
+            // do stuff
+            if (time > arbitrary_value) {
+                time = 0;
+                step++;
+            }
+        },
+        function() {
+            // do different stuff
+            if (time > arbitrary_value) {
+                time = 0;
+                step++;
+            }
+        },
+        function() {
+            // do thrid different stuff
+            if (time > arbitrary_value) {
+                time = 0;
+                step++;
+            }
+        },
+    ],
+    update: function() {
+        time += 1;
+        steps[step]();
+    },
+}
+
+It might be possible to abstract this away further, but let's just keep using this for now.
+
+I also realized we may want to rely more on global values for state than only controlling it per updateable. For example, I have an updateable that modifies the position of a sprite, and I want it to link directly to a dialog updateable that also modifies the position of that sprite. But our logic doesn't account for this gap well enough, so there is a single frame where the sprite reverts to its original position. Perhaps we could add an entire pre_clickables_logic() function to the dialog function, but that seems clunky? Actually no, let's do that instead. I like the idea of the default world staying consistent and updateables modifying it. 
+
+Oh I see how I did it. There's an "on_step" option for individual dialog steps. But this system doesn't account for an on_step() that we want to execute for all dialog steps. Let's try adding an on_step_all() parameter to the function and see how we like that.
+
+Ya, a on_step_all() function made the most sense. The bugs are fixed and are system is working better now.

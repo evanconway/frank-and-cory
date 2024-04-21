@@ -10,12 +10,12 @@ global.updateable = undefined;
 /**
  * Get updateable instance that is linked to other updateable instance which create a dialog sequence.
  */
-function updateable_start_dialog(dialog_steps_data, after_dialog_updateable=undefined, pre_dialog_draw=function() {}) {
+function updateable_start_dialog(dialog_steps_data, after_dialog_updateable=undefined, pre_dialog_draw=function() {}, on_step_all=function() {}) {
 	var dialog_steps = is_array(dialog_steps_data) ? dialog_steps_data : [dialog_steps_data];
 	if (!is_array(dialog_steps)) show_error("dialog_steps must be an array", true);
 	
 	// create a map of updateable objects, each which handles dialog display and interaction
-	var steps = array_map(dialog_steps, method({ pre_dialog_draw: pre_dialog_draw }, function(step) {
+	var steps = array_map(dialog_steps, method({ pre_dialog_draw, on_step_all }, function(step) {
 		if (!is_string(step) && !is_struct(step)) show_error("dialog_steps each array value must be string or dialog struct", true);
 		var tds_instance = new TagDecoratedTextDefault(is_string(step) ? step : step.text, "f:fnt_ally t:80,2", 1000);
 		tag_decorated_text_reset_typing(tds_instance);
@@ -28,18 +28,20 @@ function updateable_start_dialog(dialog_steps_data, after_dialog_updateable=unde
 		
 		// this must be an updateable with an update() and draw()
 		var result = {
-			tds_instance: tds_instance,
-			on_step: on_step,
+			tds_instance,
+			on_step,
+			on_step_all,
 			pre_dialog_draw,
 			next_updateable: undefined,
 			update: function() {
+				on_step_all();
+				on_step();
 				var clicked = mouse_check_button_pressed(mb_any);
 				if (tag_decorated_text_get_typing_finished(tds_instance) && clicked) {
 					global.updateable = next_updateable;
 					return
 				}
 				if (clicked) tag_decorated_text_advance(tds_instance);
-				on_step();
 			},
 			draw: function() {
 				draw_set_alpha(1); // why do we need this??

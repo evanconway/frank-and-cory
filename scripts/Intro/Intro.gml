@@ -8,7 +8,6 @@ global.intro_blackout_func = function() {
 };
 
 function start_intro() {
-	
 	var cory_knows_somethings_up = updateable_start_dialog([
 		"Okay. Something's not right.",
 		"Hey. What are you doing back there? Get away from me!",
@@ -18,8 +17,9 @@ function start_intro() {
 		"What's a memory?",
 		"Hah. Good one.",
 		"Good what?",
-		"Oh. You're being serious. Never mind. Maybe if I can find the piece that fits in this spot, we'll get you back to your normal self.",
-	], undefined, function() {
+		"Oh. You're being serious. Never mind.",
+		"Maybe if I can find the piece that fits in this spot, we'll get you back to your normal self.",
+	], undefined, function () {}, function() {
 		obj_workshop_cory.image_index = 1;
 	});
 	
@@ -91,7 +91,8 @@ function start_intro() {
 				return floor(position_start.y + get_slope() * (get_x() - position_start.x));
 			},
 			get_subimage: function() {
-				return floor(progress * 20);
+				if (progress > 0.6) return 0;
+				return floor(progress * 7);
 			},
 		},
 		update: function() {
@@ -215,5 +216,5 @@ function start_intro() {
 		draw: global.intro_blackout_func,
 	}
 
-	global.updateable = init;
+	global.updateable = cory_flys_to_head;
 }
