@@ -10,3 +10,11 @@ if (global.updateable != undefined) {
 	clickables_update();
 	clickables_draw();
 }
+
+with (obj_clickable) {
+	if (global.clickable_hovered == id) {
+		shader_set(sh_hovered);
+		draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, 0, c_white, 1);
+		shader_reset();
+	}
+}

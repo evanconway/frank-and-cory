@@ -57,25 +57,39 @@ var find_breaker_mini_game = {
 };
 
 var find_breaker_dialog = updateable_start_dialog([
-	"Oh. I must have fallen asleep.",
-	"Frank!",
-	"Huh?",
-	"Are you alright?",
-	"Where's that voice coming from?",
-	"Frank! Over here!",
 	"Who's Frank?",
 	"Geez, that power outage must have really knocked you out good.",
 	"Why can't I feel my arms?",
 	"One sec, I'm looking for the breaker box."
 ], find_breaker_mini_game, darkness);
 
+var cory_light_fade = {
+	find_breaker_dialog,
+	update: function() {
+		global.cory_light_alpha += 0.01;
+		if (global.cory_light_alpha >= 1) {
+			global.updateable = find_breaker_dialog;
+		}
+	},
+	draw: darkness,
+};
+
+var cory_responds = updateable_start_dialog([
+	"Oh. I must have fallen asleep.",
+	"Frank!",
+	"Huh?",
+	"Are you alright?",
+	"Where's that voice coming from?",
+	"Frank! Over here!",
+], cory_light_fade, darkness);
+
 var fade_in_scene = {
-	find_breaker_dialog: find_breaker_dialog,
+	cory_responds,
 	update: function() {
 		global.intro_blackout_alpha -= 0.01;
 		if (global.intro_blackout_alpha > 0) return;
 		global.intro_blackout_alpha = 0;
-		global.updateable = find_breaker_dialog;
+		global.updateable = cory_responds;
 	},
 	draw: function() {
 		darkness();
@@ -83,15 +97,17 @@ var fade_in_scene = {
 	},
 };
 
+var opening_lines = updateable_start_dialog([
+	"Huh?", 
+	"Oh...",
+	"Where am I?",
+], fade_in_scene, global.intro_blackout_func);
+
 global.updateable = {
-	fade_in_scene,
+	opening_lines,
 	update: function() {
 		if (room != rm_workshop) return;
-		global.updateable = updateable_start_dialog([
-			"Huh?", 
-			"Oh...",
-			"Where am I?",
-		], fade_in_scene, global.intro_blackout_func);
+		global.updateable = opening_lines;
 	},
 	draw: global.intro_blackout_func,
 };
