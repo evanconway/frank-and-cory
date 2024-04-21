@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"Intro",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Intro",
+  "parent":{
+    "name":"frank-and-cory",
+    "path":"frank-and-cory.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

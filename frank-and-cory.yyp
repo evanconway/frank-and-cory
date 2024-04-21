@@ -37,6 +37,7 @@
     {"id":{"name":"rm_workshop","path":"rooms/rm_workshop/rm_workshop.yy",},},
     {"id":{"name":"Clickables","path":"scripts/Clickables/Clickables.yy",},},
     {"id":{"name":"Darkness","path":"scripts/Darkness/Darkness.yy",},},
+    {"id":{"name":"Intro","path":"scripts/Intro/Intro.yy",},},
     {"id":{"name":"Sound","path":"scripts/Sound/Sound.yy",},},
     {"id":{"name":"State","path":"scripts/State/State.yy",},},
     {"id":{"name":"StyleableText","path":"scripts/StyleableText/StyleableText.yy",},},

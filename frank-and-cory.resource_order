@@ -18,6 +18,7 @@
     {"name":"rm_workshop","order":8,"path":"rooms/rm_workshop/rm_workshop.yy",},
     {"name":"Clickables","order":2,"path":"scripts/Clickables/Clickables.yy",},
     {"name":"Darkness","order":13,"path":"scripts/Darkness/Darkness.yy",},
+    {"name":"Intro","order":24,"path":"scripts/Intro/Intro.yy",},
     {"name":"Sound","order":22,"path":"scripts/Sound/Sound.yy",},
     {"name":"State","order":6,"path":"scripts/State/State.yy",},
     {"name":"StyleableText","order":2,"path":"scripts/StyleableText/StyleableText.yy",},
