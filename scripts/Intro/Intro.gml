@@ -1,4 +1,5 @@
 global.intro_blackout_alpha = 1;
+global.light_switch_on = false;
 
 global.intro_blackout_func = function() {
 	draw_set_alpha(global.intro_blackout_alpha);
@@ -7,6 +8,107 @@ global.intro_blackout_func = function() {
 };
 
 function start_intro() {
+	
+	var cory_knows_somethings_up = updateable_start_dialog([
+		"Okay. Something's not right.",
+		"Hey. What are you doing back there? Get away from me!",
+		"Oh. I see it now.",
+		"What is it? What do you see?",
+		"There's a little rectangle back here that says \"memory\".",
+		"What's a memory?",
+		"Hah. Good one.",
+		"Good what?",
+		"Oh. You're being serious. Never mind. Maybe if I can find the piece that fits in this spot, we'll get you back to your normal self.",
+	], undefined, function() {
+		obj_workshop_cory.image_index = 1;
+	});
+	
+	var cory_taps_head = {
+		cory_knows_somethings_up,
+		time: 0,
+		step: 0,
+		steps: [
+			function() {
+				obj_workshop_cory.image_index = 1;
+				if (time > 45) {
+					time = 0;
+					step++;
+					obj_workshop_cory.image_index = 2;
+					play_sfx(snd_type);
+				}
+			},
+			function() {
+				obj_workshop_cory.image_index = 2;
+				if (time > 10) {
+					time = 0;
+					step++;
+				}
+			},
+			function() {
+				obj_workshop_cory.image_index = 1;
+				if (time > 10) {
+					time = 0;
+					step++;
+					obj_workshop_cory.image_index = 2;
+					play_sfx(snd_type);
+				}
+			},
+			function() {
+				obj_workshop_cory.image_index = 2;
+				if (time > 10) {
+					time = 0;
+					step++;
+				}
+			},
+			function() {
+				obj_workshop_cory.image_index = 1;
+				if (time > 60) {
+					global.updateable = cory_knows_somethings_up;
+				}
+			},
+		],
+		update: function() {
+			time += 1;
+			steps[step]();
+		},
+	};
+	
+	var cory_flys_to_head = {
+		cory_taps_head,
+		// flight position is line function
+		flight: {
+			position_start: { x: 2953, y: -234 },
+			position_end: { x: 453,y: 1000 },
+			get_slope: function() {
+				return (position_end.y - position_start.y) / (position_end.x - position_start.x);
+			},
+			progress: 0,
+			get_x: function() {
+				var diff = (position_start.x - position_end.x) * progress * -1;
+				return floor(position_start.x + diff);
+			},
+			get_y: function() {
+				return floor(position_start.y + get_slope() * (get_x() - position_start.x));
+			},
+			get_subimage: function() {
+				return floor(progress * 20);
+			},
+		},
+		update: function() {
+			obj_workshop_cory.visible = false;
+			flight.progress += 0.015;
+			if (flight.progress >= 1) {
+				global.updateable = cory_taps_head;
+			}
+		},
+		draw: function() {
+			var sub_image = flight.get_subimage();
+			var fly_x = flight.get_x();
+			var fly_y = flight.get_y();
+			draw_sprite(spr_cory_flying, sub_image, fly_x, fly_y);
+		},
+	};
+	
 	var oh_no_my_body_dialog = updateable_start_dialog([
 		"Ah! My body! What happened to me?",
 		"Geez, this place could use some spring cleaning, don't you think?",
@@ -16,7 +118,7 @@ function start_intro() {
 		"Do you remember anything before the outage?",
 		"I don't even know who you are.",
 		"Huh?"
-	]);
+	], cory_flys_to_head);
 
 	var brief_pause = {
 		oh_no_my_body_dialog,
@@ -104,12 +206,14 @@ function start_intro() {
 		"Where am I?",
 	], fade_in_scene, global.intro_blackout_func);
 
-	global.updateable = {
+	var init = {
 		opening_lines,
 		update: function() {
 			if (room != rm_workshop) return;
 			global.updateable = opening_lines;
 		},
 		draw: global.intro_blackout_func,
-	};
+	}
+
+	global.updateable = init;
 }

@@ -7,8 +7,9 @@ pre_draw = function() {
 };
 
 draw = function() {
+	if (visible) draw_self();
 	image_index = 0;
-	draw_self();
+	visible = true;
 };
 
 on_click = function() {

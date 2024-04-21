@@ -17,7 +17,7 @@ function updateable_start_dialog(dialog_steps_data, after_dialog_updateable=unde
 	// create a map of updateable objects, each which handles dialog display and interaction
 	var steps = array_map(dialog_steps, method({ pre_dialog_draw: pre_dialog_draw }, function(step) {
 		if (!is_string(step) && !is_struct(step)) show_error("dialog_steps each array value must be string or dialog struct", true);
-		var tds_instance = new TagDecoratedTextDefault(is_string(step) ? step : step.text, "f:fnt_ally t:80,2");
+		var tds_instance = new TagDecoratedTextDefault(is_string(step) ? step : step.text, "f:fnt_ally t:80,2", 1000);
 		tag_decorated_text_reset_typing(tds_instance);
 		
 		tag_decorated_text_set_on_type_callback(tds_instance, function() {
@@ -30,7 +30,7 @@ function updateable_start_dialog(dialog_steps_data, after_dialog_updateable=unde
 		var result = {
 			tds_instance: tds_instance,
 			on_step: on_step,
-			pre_dialog_draw: pre_dialog_draw,
+			pre_dialog_draw,
 			next_updateable: undefined,
 			update: function() {
 				var clicked = mouse_check_button_pressed(mb_any);

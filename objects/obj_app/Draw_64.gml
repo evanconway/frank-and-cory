@@ -1,8 +1,9 @@
 global.clickable_hovered = noone;
 
-if (global.updateable != undefined) {
-	// use different reference so we can change global.updateable in update or draw
+// use different reference so we can change global.updateable in update or draw
 	var updateable = global.updateable;
+
+if (updateable != undefined) {
 	updateable.update();
 	clickables_draw();
 	if (variable_struct_exists(updateable, "draw"))	updateable.draw();
