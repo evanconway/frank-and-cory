@@ -13,7 +13,7 @@ function darkness() {
 	gpu_set_blendmode(bm_subtract);
 
 	draw_set_alpha(global.cory_light_alpha);
-	draw_circle(display_get_gui_width() - 1281, display_get_gui_height() - 2454, 400, false);
+	draw_circle(display_get_gui_width() - 1400, display_get_gui_height() - 2454, 400, false);
 	
 	draw_set_alpha(1);
 	if (global.flashlight_on) draw_circle(mouse_x, mouse_y, 400, false);
