@@ -1,5 +1,5 @@
-
 global.darkness_surface = surface_create(display_get_gui_width(), display_get_gui_height());
+global.flashlight_on = false;
 
 function darkness() {
 	if (!surface_exists(global.darkness_surface)) {
@@ -12,7 +12,7 @@ function darkness() {
 	gpu_set_blendmode(bm_subtract);
 
 	draw_set_alpha(1);
-	draw_circle(mouse_x, mouse_y, 400, false);
+	if (global.flashlight_on) draw_circle(mouse_x, mouse_y, 400, false);
 
 	draw_sprite(spr_fank_head_light, 0, 0, 0);
 

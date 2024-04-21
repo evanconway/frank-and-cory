@@ -17,3 +17,13 @@ Perhaps we could add a "after_dialog_updateable" field?
 updateable_start_dialog(dialog_steps_data, after_dialog_updateable=undefined)
 
 Our dialog logic already strings each dialog updateable to the next updateable in the dialog array. So simply supplying this value to the function means we could easily string the last dialog updateable to the given value, or simply keep it undefined. As for stringing updateables to dialog, we could simply invoke the updateable_start_dialog function in the updateable.
+
+21st of April, 2024
+
+Something I've just realized is we have no way of executing a specific function on each dialog step with our current system. But I don't think this should be too tricky to add. The on_step() function could just be part of the step struct passed into each entry of the dialog array. The nice thing about doing it like this is we don't have to keep track of which step is doing what when deciding on_step logic.
+
+There should be a better way to declare updateables. Right now I end up with this long callback-hell looking string of events. But it should be possible to line stuff up in an array. And have some sort of other function link them all together. But maybe we won't worry about that yet. It may only be a few spots where we have large sequences of events anyway. Ah... but I just went back to adjust one of my sequences and I got frustrated immediately. Let's work on introducting a updateable_set_linked_array function or something which does what we described above.
+
+To link updateables together they must specifically reference one-another. And they must somehow know when they are finished. Perhaps we could just insist that updateables given to this array function have a is_finished() defined. 
+
+Actually let's not worry about this. I changed the updateable_start_dialog function to simply return the first updateable in the chain of dialogs. And I manually set the next updateable, we just do it in reverse order. It's still fairly clearly, gives me flexibility, and doesn't require extra work. We'll do that until there seems to be more of a need.

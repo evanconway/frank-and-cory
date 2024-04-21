@@ -56,5 +56,6 @@ function updateable_start_dialog(dialog_steps_data, after_dialog_updateable=unde
 	steps[array_length(steps) - 1].next_updateable = after_dialog_updateable;
 	
 	// set updateable to first dialog step
-	global.updateable = steps[0];
+	// global.updateable = steps[0];
+	return steps[0];
 }
