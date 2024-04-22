@@ -8,7 +8,9 @@ function darkness() {
 	}
 	surface_resize(global.darkness_surface, display_get_gui_width(), display_get_gui_height());
 	surface_set_target(global.darkness_surface);
-	draw_clear_alpha(c_black, 1);
+	// draw_clear_alpha(c_black, 1);
+	draw_set_alpha(1);
+	draw_sprite(spr_desk_lamp_darkness, 0, 0, 0);
 
 	gpu_set_blendmode(bm_subtract);
 
@@ -18,7 +20,8 @@ function darkness() {
 	draw_set_alpha(1);
 	if (global.flashlight_on) draw_circle(mouse_x, mouse_y, 400, false);
 
-	draw_sprite(spr_desk_lamp_light, 0, 0, 0);
+	//draw_sprite(spr_desk_lamp_light, 0, 0, 0);
+	//draw_sprite(spr_desk_lamp_light, 0, 0, 0);
 
 	gpu_set_blendmode(bm_normal);
 

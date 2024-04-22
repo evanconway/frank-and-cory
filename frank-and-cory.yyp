@@ -74,7 +74,7 @@
     {"id":{"name":"spr_workshop_cory","path":"sprites/spr_workshop_cory/spr_workshop_cory.yy",},},
     {"id":{"name":"spr_workshop_nolight","path":"sprites/spr_workshop_nolight/spr_workshop_nolight.yy",},},
     {"id":{"name":"spr_workshop","path":"sprites/spr_workshop/spr_workshop.yy",},},
-    {"id":{"name":"spr_desk_lamp_light","path":"sprites/spr_desk_lamp_light/spr_desk_lamp_light.yy",},},
+    {"id":{"name":"spr_desk_lamp_darkness","path":"sprites/spr_desk_lamp_darkness/spr_desk_lamp_darkness.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",

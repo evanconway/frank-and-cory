@@ -52,6 +52,6 @@
     {"name":"spr_styleable_text_sprite_default","order":1,"path":"sprites/spr_styleable_text_sprite_default/spr_styleable_text_sprite_default.yy",},
     {"name":"spr_workshop_cory","order":6,"path":"sprites/spr_workshop_cory/spr_workshop_cory.yy",},
     {"name":"spr_workshop_nolight","order":2,"path":"sprites/spr_workshop_nolight/spr_workshop_nolight.yy",},
-    {"name":"spr_desk_lamp_light","order":15,"path":"sprites/spr_desk_lamp_light/spr_desk_lamp_light.yy",},
+    {"name":"spr_desk_lamp_darkness","order":16,"path":"sprites/spr_desk_lamp_darkness/spr_desk_lamp_darkness.yy",},
   ],
 }
