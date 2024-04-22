@@ -1,4 +1,5 @@
 global.intro_blackout_alpha = 1;
+global.breaker_open = false;
 global.light_switch_on = false;
 
 global.intro_frank_speaks = function() {
@@ -175,9 +176,14 @@ function start_intro() {
 				global.flashlight_on = true;
 				play_sfx(snd_button, 1, 0.9);
 			}
-			with (obj_light_switch) {
+			with (obj_breaker) {
 				if (position_meeting(mouse_x, mouse_y, id)) global.clickable_hovered = id;
 				if (mouse_check_button_pressed(mb_any) && global.clickable_hovered == id) {
+					if (!global.breaker_open) {
+						global.breaker_open = true;
+						play_sfx(snd_button, 1, 0.6);
+						return;
+					}
 					global.light_switch_on = true;
 					play_sfx(snd_button, 1, 1.2);
 					global.updateable = other.brief_pause;
@@ -188,7 +194,7 @@ function start_intro() {
 			}
 		},
 		draw: function() {
-			with (obj_light_switch) {
+			with (obj_breaker) {
 				pre_draw();
 				draw();
 				if (global.clickable_hovered == id) {

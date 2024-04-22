@@ -18,7 +18,7 @@ function darkness() {
 	draw_set_alpha(1);
 	if (global.flashlight_on) draw_circle(mouse_x, mouse_y, 400, false);
 
-	draw_sprite(spr_fank_head_light, 0, 0, 0);
+	draw_sprite(spr_desk_lamp_light, 0, 0, 0);
 
 	gpu_set_blendmode(bm_normal);
 

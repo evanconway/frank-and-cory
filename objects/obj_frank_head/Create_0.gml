@@ -11,6 +11,7 @@ on_click = function() {
 original_draw = draw;
 
 draw = function () {
+	if (!global.light_switch_on) image_index = 1;
 	original_draw();
 	draw_set_alpha(1);
 	draw_set_color(c_white);
