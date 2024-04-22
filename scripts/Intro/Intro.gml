@@ -5,8 +5,6 @@ global.intro_frank_speaks = function() {
 	play_sfx(snd_frank_chirp, 1, random_range(0.6, 1));
 }
 
-global.intro_frank_typing_effects = "f:fnt_ally t:160,4";
-
 global.intro_frank_dialog_set_position = function() {
 	global.dialog_position_x = 1490;
 	global.dialog_position_y = 1775;
@@ -34,7 +32,7 @@ function start_intro() {
 			text,
 			on_step: global.intro_frank_dialog_set_position,
 			on_type: global.intro_frank_speaks,
-			default_effects: global.intro_frank_typing_effects,
+			default_effects: "f:fnt_ally t:160,4 cp:,,420 cp:;,420 cp:.,520 cp:!,520 cp:?,520",
 		}
 	};
 	
@@ -42,6 +40,7 @@ function start_intro() {
 		return {
 			text,
 			on_step: position == 0 ? global.intro_cory_dialog_set_position : global.intro_cory_dialog_set_position_head,
+			default_effects: "f:fnt_ally t:80,2 cp:,,420 cp:;,420 cp:.,520 cp:!,520 cp:?,520",
 		}
 	};
 	
