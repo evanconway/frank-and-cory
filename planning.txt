@@ -71,3 +71,5 @@ Oh I see how I did it. There's an "on_step" option for individual dialog steps. 
 Ya, a on_step_all() function made the most sense. The bugs are fixed and are system is working better now. Although we don't have specifics from Jude, I think now we should start fleshing out different dialog delivery for the different characters. It doesn't even need to be correct, just different. That way it'll be easier to edit in correct fonts, sounds, positions, and whatever when we know exactly what we want.
 
 Making a note that I think the dialog function needs to accept a parameter object. We've got too many things it needs and too many combinations of how they might exist.
+
+We got a pretty good system going. I was looking over the code for the intro and realized how straight forward it is for linear game logic. I almost wonder if we should remove the general update function in favor of always insisting some sort of updateable be defined at any point. We could define our linear logic in scripts and name the scripts depending on what's happening in the game story.

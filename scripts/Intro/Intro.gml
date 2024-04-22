@@ -200,7 +200,7 @@ function start_intro() {
 	};
 
 	var find_breaker_dialog = dialog_get_updateable([
-		get_frank_step("Who's Frank?"),
+		get_frank_step("Who is... <wave>Frank<>?"),
 		get_cory_step("Geez, that power outage must have really knocked you out good."),
 		get_frank_step("Why can't I feel my arms?"),
 		get_cory_step("One sec, I'm looking for the breaker box.")
