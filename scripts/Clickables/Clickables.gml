@@ -15,9 +15,9 @@ function clickables_update() {
 	var clickable_ids = __clickables_get_all();
 	array_foreach(clickable_ids, function(clickable_id) {
 		with (clickable_id) {
-			if (clickable_id.disabled) return;
 			if (global.clickable_hovered == noone) {
 				if (position_meeting(mouse_x, mouse_y, id)) global.clickable_hovered = id;
+				if (clickable_id.disabled) return;
 				if (mouse_check_button_pressed(mb_any) && global.clickable_hovered == id) on_click();
 			}
 		}
@@ -33,7 +33,7 @@ function clickables_draw() {
 		with (clickable_id) {
 			pre_draw();
 			draw();
-			if (global.clickable_hovered == id) {
+			if (global.clickable_hovered == id && !clickable_id.disabled) {
 				shader_set(sh_hovered);
 				draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, 0, c_white, 1);
 				shader_reset();

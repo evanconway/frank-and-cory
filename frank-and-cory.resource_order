@@ -39,6 +39,7 @@
     {"name":"snd_type","order":2,"path":"sounds/snd_type/snd_type.yy",},
     {"name":"spr_chips","order":14,"path":"sprites/spr_chips/spr_chips.yy",},
     {"name":"spr_cory_flying","order":7,"path":"sprites/spr_cory_flying/spr_cory_flying.yy",},
+    {"name":"spr_desk_lamp_darkness","order":16,"path":"sprites/spr_desk_lamp_darkness/spr_desk_lamp_darkness.yy",},
     {"name":"spr_desk_lamp","order":10,"path":"sprites/spr_desk_lamp/spr_desk_lamp.yy",},
     {"name":"spr_end","order":1,"path":"sprites/spr_end/spr_end.yy",},
     {"name":"spr_film_cans","order":12,"path":"sprites/spr_film_cans/spr_film_cans.yy",},
@@ -52,6 +53,6 @@
     {"name":"spr_styleable_text_sprite_default","order":1,"path":"sprites/spr_styleable_text_sprite_default/spr_styleable_text_sprite_default.yy",},
     {"name":"spr_workshop_cory","order":6,"path":"sprites/spr_workshop_cory/spr_workshop_cory.yy",},
     {"name":"spr_workshop_nolight","order":2,"path":"sprites/spr_workshop_nolight/spr_workshop_nolight.yy",},
-    {"name":"spr_desk_lamp_darkness","order":16,"path":"sprites/spr_desk_lamp_darkness/spr_desk_lamp_darkness.yy",},
+    {"name":"spr_desk_lamp_light","order":17,"path":"sprites/spr_desk_lamp_light/spr_desk_lamp_light.yy",},
   ],
 }

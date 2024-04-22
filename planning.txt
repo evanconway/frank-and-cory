@@ -77,3 +77,7 @@ We got a pretty good system going. I was looking over the code for the intro and
 Something that's bothering me is the typing doesn't start with character 0. Character 0 is already typed which throws off my plans for things like ellipsis. Let's see if we can dig in and make that work properly.
 
 Fixed it. The system was not setting the time_ms for typing logic to the new time_between_types when a new typing speed was detected. Need to make sure I add this change to the TDS library.
+
+2nd of April, 2024
+
+Allison got us a bunch of assets, so we've been throwing those in. I changed how the desk light scene works so we're drawing a black sprite with a cutout of the lamp light. It was easier to get a shape that looked correct there. Right now I noticed that the disabled lamp asset does not block hovering over the arms behind Frank. So next let's rework the clickable object so disabled objects can still consume hover, just not act on it.
