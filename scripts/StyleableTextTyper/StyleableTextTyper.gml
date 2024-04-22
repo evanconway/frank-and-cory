@@ -152,8 +152,8 @@ function StyleableTextTyper(text, animator) constructor {
 			var chars_typed = 0;
 			while (can_type_chars) {
 				if (character_typing_params[hide.index_current] != current_typing_params) {
-					time_ms = 0;
 					current_typing_params = character_typing_params[hide.index_current];
+					time_ms = current_typing_params.time_between_types_ms;
 					can_type_chars = false;
 				}
 				if (struct_exists(punctuation_pause_map, typer_text.character_array[hide.index_current].char)) {

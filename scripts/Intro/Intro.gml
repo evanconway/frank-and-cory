@@ -272,13 +272,29 @@ function start_intro() {
 		}
 	});
 
-	var init = {
+	var small_pause = {
 		opening_lines,
+		time: 0,
 		update: function() {
-			if (room != rm_workshop) return;
-			global.updateable = opening_lines;
+			time += 1;
+			if (time > 60) global.updateable = opening_lines;
 		},
 		draw: global.intro_blackout_func,
+	};
+
+	var init = {
+		small_pause,
+		tds: new TagDecoratedTextDefault("click to start", "f:fnt_ally fade"),
+		update: function() {
+			if (room != rm_workshop) return;
+			if (mouse_check_button_pressed(mb_any)) global.updateable = small_pause;
+		},
+		draw: function() {
+			global.intro_blackout_func();
+			draw_set_halign(fa_center);
+			draw_set_valign(fa_middle);
+			tag_decorated_text_draw(tds, display_get_gui_width() / 2, display_get_gui_height() / 2);
+		}
 	}
 
 	global.updateable = init;
