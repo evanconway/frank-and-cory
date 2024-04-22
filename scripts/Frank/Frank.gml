@@ -1,0 +1,10 @@
+enum FRANK_EXPRESSION {
+	NEUTRAL,
+	GLOSSY,
+	HAPPY,
+	RIGHT,
+	UP,
+	UNAMUSED,
+}
+
+global.frank_expression = FRANK_EXPRESSION.NEUTRAL;

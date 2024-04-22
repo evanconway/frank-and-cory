@@ -12,8 +12,8 @@
   "duration":0.187528,
   "name":"snd_button",
   "parent":{
-    "name":"frank-and-cory",
-    "path":"frank-and-cory.yyp",
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

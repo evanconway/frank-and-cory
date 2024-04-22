@@ -12,8 +12,8 @@
   "duration":0.115011,
   "name":"snd_frank_chirp",
   "parent":{
-    "name":"frank-and-cory",
-    "path":"frank-and-cory.yyp",
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

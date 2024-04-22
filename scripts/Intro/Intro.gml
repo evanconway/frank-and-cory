@@ -181,6 +181,9 @@ function start_intro() {
 					global.light_switch_on = true;
 					play_sfx(snd_button, 1, 1.2);
 					global.updateable = other.brief_pause;
+					var lay_id = layer_get_id("Background");
+					var back_id = layer_background_get_id(lay_id);
+					layer_background_sprite(back_id, spr_workshop);
 				};
 			}
 		},
@@ -286,7 +289,12 @@ function start_intro() {
 		tds: new TagDecoratedTextDefault("click to start", "f:fnt_ally fade"),
 		update: function() {
 			if (room != rm_workshop) return;
-			if (mouse_check_button_pressed(mb_any)) global.updateable = small_pause;
+			if (mouse_check_button_pressed(mb_any)) {
+				var lay_id = layer_get_id("Background");
+				var back_id = layer_background_get_id(lay_id);
+				layer_background_sprite(back_id, spr_workshop_nolight);
+				global.updateable = small_pause
+			};
 		},
 		draw: function() {
 			global.intro_blackout_func();
