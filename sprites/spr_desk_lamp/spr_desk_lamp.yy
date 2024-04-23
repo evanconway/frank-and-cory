@@ -4,7 +4,7 @@
   "bboxMode":0,
   "bbox_bottom":2696,
   "bbox_left":0,
-  "bbox_right":827,
+  "bbox_right":895,
   "bbox_top":909,
   "collisionKind":0,
   "collisionTolerance":0,
@@ -12,14 +12,14 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"024111ac-c890-4513-9a4b-01e2ee2ddb59","name":"024111ac-c890-4513-9a4b-01e2ee2ddb59","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"f09dda05-2a45-458a-b80e-fc25b2fc2e8b","name":"f09dda05-2a45-458a-b80e-fc25b2fc2e8b","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":2700,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"e54e3c7b-8805-4f1a-a33f-1fed71aec431","blendMode":0,"displayName":"default","isLocked":false,"name":"e54e3c7b-8805-4f1a-a33f-1fed71aec431","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"a12f7529-1382-46d2-99a7-02046cca34bb","blendMode":0,"displayName":"default","isLocked":false,"name":"a12f7529-1382-46d2-99a7-02046cca34bb","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_desk_lamp",
   "nineSlice":null,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"024111ac-c890-4513-9a4b-01e2ee2ddb59","path":"sprites/spr_desk_lamp/spr_desk_lamp.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"d8b1d4e3-dd93-40c5-9449-a005e6c48d81","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"f09dda05-2a45-458a-b80e-fc25b2fc2e8b","path":"sprites/spr_desk_lamp/spr_desk_lamp.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"1d67da84-197c-45f5-88fd-4d5c59a02638","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
