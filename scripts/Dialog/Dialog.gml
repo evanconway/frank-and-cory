@@ -15,7 +15,6 @@ function dialog_get_updateable(
 		on_step_all: function() {},
 	}
 ) {
-	
 	if (global.click_to_continue_message == undefined) global.click_to_continue_message = new TagDecoratedTextDefault("Click to continue...", "f:fnt_ally");
 	
 	var after_dialog_updateable = variable_struct_exists(options, "after_dialog_updateable") ? options.after_dialog_updateable : undefined;

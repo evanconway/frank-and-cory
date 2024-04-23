@@ -128,7 +128,7 @@ function start_intro() {
 		// flight position is line function
 		flight: {
 			position_start: { x: 4080, y: -240 },
-			position_end: { x: 453,y: 1000 },
+			position_end: { x: 645,y: 912 },
 			get_slope: function() {
 				return (position_end.y - position_start.y) / (position_end.x - position_start.x);
 			},
