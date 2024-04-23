@@ -3,7 +3,14 @@ global.breaker_open = false;
 global.light_switch_on = false;
 
 global.intro_frank_speaks = function() {
-	play_sfx(snd_frank_chirp, 1, random_range(0.6, 1));
+	// exclude chirp_0 ? sounds kinda bad...
+	var sounds = [snd_frank_chirp_1, snd_frank_chirp_2, snd_frank_chirp_3, snd_frank_chirp_4];
+	//audio_stop_sound(snd_frank_chirp_0);
+	audio_stop_sound(snd_frank_chirp_1);
+	audio_stop_sound(snd_frank_chirp_2);
+	audio_stop_sound(snd_frank_chirp_3);
+	audio_stop_sound(snd_frank_chirp_4);
+	play_sfx(sounds[irandom_range(0, array_length(sounds) - 1)], 1, random_range(0.6, 1));
 }
 
 global.intro_frank_dialog_set_position = function() {
