@@ -15,8 +15,8 @@ global.intro_frank_speaks = function() {
 }
 
 global.intro_frank_dialog_set_position = function() {
-	global.dialog_position_x = 1490;
-	global.dialog_position_y = 1775;
+	global.dialog_position_x = 1690;
+	global.dialog_position_y = 1975;
 };
 
 global.intro_cory_dialog_set_position = function() {
@@ -127,7 +127,7 @@ function start_intro() {
 		cory_taps_head,
 		// flight position is line function
 		flight: {
-			position_start: { x: 2953, y: -234 },
+			position_start: { x: 4080, y: -240 },
 			position_end: { x: 453,y: 1000 },
 			get_slope: function() {
 				return (position_end.y - position_start.y) / (position_end.x - position_start.x);
@@ -180,7 +180,8 @@ function start_intro() {
 		},
 	}
 
-	var find_breaker_mini_game = {
+	// this feels hacky, review later
+	global.find_breaker_mini_game = {
 		brief_pause,
 		update: function() {
 			global.frank_expression = FRANK_EXPRESSION.NEUTRAL;
@@ -188,9 +189,11 @@ function start_intro() {
 				global.flashlight_on = true;
 				play_sfx(snd_button, 1, 0.9);
 			}
+			var breaker_clicked = false;
 			with (obj_breaker) {
 				if (position_meeting(mouse_x, mouse_y, id)) global.clickable_hovered = id;
 				if (mouse_check_button_pressed(mb_any) && global.clickable_hovered == id) {
+					breaker_clicked = true;
 					if (!global.breaker_open) {
 						global.breaker_open = true;
 						play_sfx(snd_button, 1, 0.6);
@@ -203,6 +206,17 @@ function start_intro() {
 					var back_id = layer_background_get_id(lay_id);
 					layer_background_sprite(back_id, spr_workshop);
 				};
+			}
+			if (!breaker_clicked) with (obj_clickable) {
+				if (position_meeting(mouse_x, mouse_y, id) && mouse_check_button_pressed(mb_any)) {
+					global.updateable = dialog_get_updateable(["I don't think that's right."], {
+						after_dialog_updateable: global.find_breaker_mini_game,
+						pre_dialog_draw: function() {
+							darkness();
+							global.intro_cory_dialog_set_position();
+						},
+					});
+				}
 			}
 		},
 		draw: function() {
@@ -224,7 +238,7 @@ function start_intro() {
 		get_cory_step("Geez, that power outage must have really knocked you out good."),
 		get_frank_step("Why can't I feel my arms?", FRANK_EXPRESSION.UP),
 		get_cory_step("One sec, I'm looking for the breaker box.")
-	], { after_dialog_updateable: find_breaker_mini_game, pre_dialog_draw: darkness });
+	], { after_dialog_updateable: global.find_breaker_mini_game, pre_dialog_draw: darkness });
 
 	var cory_light_fade = {
 		find_breaker_dialog,
