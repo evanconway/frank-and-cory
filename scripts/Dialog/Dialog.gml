@@ -1,5 +1,8 @@
 global.dialog_position_x = 0;
 global.dialog_position_y = 0;
+global.click_to_continue_message = undefined;
+global.click_to_continue_count = 0;
+global.click_to_continue_alpha = 0;
 
 /**
  * Get updateable instance that is linked to other updateable instance which create a dialog sequence.
@@ -12,6 +15,9 @@ function dialog_get_updateable(
 		on_step_all: function() {},
 	}
 ) {
+	
+	if (global.click_to_continue_message == undefined) global.click_to_continue_message = new TagDecoratedTextDefault("Click to continue...", "f:fnt_ally");
+	
 	var after_dialog_updateable = variable_struct_exists(options, "after_dialog_updateable") ? options.after_dialog_updateable : undefined;
 	var pre_dialog_draw = variable_struct_exists(options, "pre_dialog_draw") ? options.pre_dialog_draw : function() {};
 	var on_step_all = variable_struct_exists(options, "on_step_all") ? options.on_step_all : function() {};
@@ -59,6 +65,22 @@ function dialog_get_updateable(
 				// reset to force dialog to always set position
 				global.dialog_position_x = 0;
 				global.dialog_position_y = 0;
+				
+				// continue message
+				if (tag_decorated_text_get_typing_finished(tds_instance)) {
+					global.click_to_continue_count -= 1;
+					if (global.click_to_continue_count <= 0) {
+						draw_set_halign(fa_left);
+						draw_set_valign(fa_bottom);
+						global.click_to_continue_alpha = clamp(global.click_to_continue_alpha + 0.008, 0, 0.4);
+						draw_set_alpha(global.click_to_continue_alpha);
+						tag_decorated_text_draw(global.click_to_continue_message, 0, display_get_gui_height());
+					}
+				} else {
+					global.click_to_continue_count = 240;
+					global.click_to_continue_alpha = 0;
+				}
+				
 				draw_set_halign(fa_left);
 				draw_set_valign(fa_top);
 			},
