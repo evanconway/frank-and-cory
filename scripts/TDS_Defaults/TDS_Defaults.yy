@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"TDS_Defaults",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"TDS_Defaults",
+  "parent":{
+    "name":"frank-and-cory",
+    "path":"frank-and-cory.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

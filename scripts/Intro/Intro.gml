@@ -28,10 +28,13 @@ global.intro_blackout_func = function() {
 };
 
 function start_intro() {
-	var get_frank_step = function(text) {
+	var get_frank_step = function(text, expression) {
 		return {
 			text,
-			on_step: global.intro_frank_dialog_set_position,
+			on_step: method({ expression }, function() {
+				global.intro_frank_dialog_set_position();
+				global.frank_expression = expression;
+			}),
 			on_type: global.intro_frank_speaks,
 			default_effects: "f:fnt_ally t:160,4 cp:,,420 cp:;,420 cp:.,520 cp:!,520 cp:?,520",
 		}
@@ -47,13 +50,13 @@ function start_intro() {
 	
 	var cory_knows_somethings_up = dialog_get_updateable([
 		get_cory_step("Okay. Something's not right.", 1),
-		get_frank_step("Hey. What are you doing back there? Get away from me!"),
+		get_frank_step("Hey. What are you doing back there? Get away from me!", FRANK_EXPRESSION.UP),
 		get_cory_step("Oh. I see it now.", 1),
-		get_frank_step("What is it? What do you see?"),
+		get_frank_step("What is it? What do you see?", FRANK_EXPRESSION.BLANK),
 		get_cory_step("There's a little rectangle back here that says \"memory\".", 1),
-		get_frank_step("What's a memory?"),
+		get_frank_step("What's a memory?", FRANK_EXPRESSION.UP),
 		get_cory_step("Hah. Good one.", 1),
-		get_frank_step("Good what?"),
+		get_frank_step("Good what?", FRANK_EXPRESSION.RIGHT),
 		get_cory_step("Oh. You're being serious. Never mind.", 1),
 		get_cory_step("Maybe if I can find the piece that fits in this spot, we'll get you back to your normal self.", 1)
 	],{
@@ -150,13 +153,13 @@ function start_intro() {
 	};
 	
 	var oh_no_my_body_dialog = dialog_get_updateable([
-		get_frank_step("Ah! My body! What happened to me?"),
+		get_frank_step("Ah! My body! What happened to me?", FRANK_EXPRESSION.BLANK),
 		get_cory_step("Geez, this place could use some spring cleaning, don't you think?"),
-		get_frank_step("Am I dying? Am I dead? Is this death?"),
+		get_frank_step("Am I dying? Am I dead? Is this death?", FRANK_EXPRESSION.UP),
 		get_cory_step("You're going to be okay. Just in a little shock is all. Heh. Get it?"),
-		get_frank_step("I don't."),
+		get_frank_step("I don't.", FRANK_EXPRESSION.UNAMUSED),
 		get_cory_step("Do you remember anything before the outage?"),
-		get_frank_step("I don't even know who you are."),
+		get_frank_step("I don't even know who you are.", FRANK_EXPRESSION.RIGHT),
 		get_cory_step("Huh?")
 	], { after_dialog_updateable: cory_flys_to_head });
 
@@ -172,6 +175,7 @@ function start_intro() {
 	var find_breaker_mini_game = {
 		brief_pause,
 		update: function() {
+			global.frank_expression = FRANK_EXPRESSION.NEUTRAL;
 			if (global.flashlight_on == false) {
 				global.flashlight_on = true;
 				play_sfx(snd_button, 1, 0.9);
@@ -208,15 +212,16 @@ function start_intro() {
 	};
 
 	var find_breaker_dialog = dialog_get_updateable([
-		get_frank_step("Who is... <wave>Frank<>?"),
+		get_frank_step("Who is... Frank?", FRANK_EXPRESSION.BLANK),
 		get_cory_step("Geez, that power outage must have really knocked you out good."),
-		get_frank_step("Why can't I feel my arms?"),
+		get_frank_step("Why can't I feel my arms?", FRANK_EXPRESSION.UP),
 		get_cory_step("One sec, I'm looking for the breaker box.")
 	], { after_dialog_updateable: find_breaker_mini_game, pre_dialog_draw: darkness });
 
 	var cory_light_fade = {
 		find_breaker_dialog,
 		update: function() {
+			global.frank_expression = FRANK_EXPRESSION.RIGHT
 			global.cory_light_alpha += 0.01;
 			if (global.cory_light_alpha >= 1) {
 				global.updateable = find_breaker_dialog;
@@ -226,11 +231,11 @@ function start_intro() {
 	};
 
 	var cory_responds = dialog_get_updateable([
-		get_frank_step("Oh. I must have fallen asleep."),
+		get_frank_step("Oh. I must have fallen asleep.", FRANK_EXPRESSION.UNAMUSED),
 		get_cory_step("Frank!"),
-		get_frank_step("Huh?"),
+		get_frank_step("Huh?", FRANK_EXPRESSION.RIGHT),
 		get_cory_step("Are you alright?"),
-		get_frank_step("Where's that voice coming from?"),
+		get_frank_step("Where's that voice coming from?", FRANK_EXPRESSION.UP),
 		get_cory_step("Frank! Over here!")
 	], { after_dialog_updateable: cory_light_fade, pre_dialog_draw: darkness });
 
@@ -299,7 +304,7 @@ function start_intro() {
 				var lay_id = layer_get_id("Background");
 				var back_id = layer_background_get_id(lay_id);
 				layer_background_sprite(back_id, spr_workshop_nolight);
-				global.updateable = small_pause
+				global.updateable = small_pause;
 			};
 		},
 		draw: function() {
