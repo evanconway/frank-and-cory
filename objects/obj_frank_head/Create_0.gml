@@ -10,16 +10,22 @@ on_click = function() {
 
 original_draw = draw;
 
-idle_expression_options = [FRANK_EXPRESSION.NEUTRAL, FRANK_EXPRESSION.RIGHT, FRANK_EXPRESSION.UP];
+idle_expression_options = [
+	FRANK_EXPRESSION.NEUTRAL,
+	FRANK_EXPRESSION.RIGHT,
+	FRANK_EXPRESSION.UP,
+	FRANK_EXPRESSION.LEFT,
+	FRANK_EXPRESSION.DOWNLEFT
+];
 idle_expression = FRANK_EXPRESSION.NEUTRAL;
-idle_time = 60;
+idle_time = 80;
 
 draw = function () {
 	// organic facial changes while nothing active
 	if (global.updateable == undefined) {
 		idle_time -= 1;
 		if (idle_time < 0) {
-			idle_time = irandom_range(60, 120);
+			idle_time = irandom_range(80, 140);
 			var options = array_filter(idle_expression_options, method({ idle_expression }, function(option) {
 				return option != idle_expression
 			}))
@@ -38,4 +44,6 @@ draw = function () {
 	if (global.frank_expression == FRANK_EXPRESSION.RIGHT) draw_sprite(spr_frank_eyes, 2, 0, 0);
 	if (global.frank_expression == FRANK_EXPRESSION.UNAMUSED) draw_sprite(spr_frank_eyes, 5, 0, 0);
 	if (global.frank_expression == FRANK_EXPRESSION.UP) draw_sprite(spr_frank_eyes, 3, 0, 0);
+	if (global.frank_expression == FRANK_EXPRESSION.DOWNLEFT) draw_sprite(spr_frank_eyes, 6, 0, 0);
+	if (global.frank_expression == FRANK_EXPRESSION.LEFT) draw_sprite(spr_frank_eyes, 7, 0, 0);
 };

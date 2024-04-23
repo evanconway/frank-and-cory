@@ -5,6 +5,8 @@ enum FRANK_EXPRESSION {
 	RIGHT,
 	UP,
 	UNAMUSED,
+	DOWNLEFT,
+	LEFT
 }
 
 global.frank_expression = FRANK_EXPRESSION.BLANK;
