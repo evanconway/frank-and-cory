@@ -10,7 +10,8 @@ global.intro_frank_speaks = function() {
 	audio_stop_sound(snd_frank_chirp_2);
 	audio_stop_sound(snd_frank_chirp_3);
 	audio_stop_sound(snd_frank_chirp_4);
-	play_sfx(sounds[irandom_range(0, array_length(sounds) - 1)], 1, random_range(0.6, 1));
+	var snd_id = play_sfx(sounds[irandom_range(0, array_length(sounds) - 1)], 1, random_range(0.6, 1));
+	audio_sound_gain(snd_id, 0, 120);
 }
 
 global.intro_frank_dialog_set_position = function() {

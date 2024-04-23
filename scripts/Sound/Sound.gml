@@ -2,5 +2,5 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function play_sfx(snd_asset, gain=1, pitch=1) {
 	audio_stop_sound(snd_asset);
-	audio_play_sound(snd_asset, 0, false, gain, 0, pitch);
+	return audio_play_sound(snd_asset, 0, false, gain, 0, pitch);
 }
