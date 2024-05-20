@@ -81,3 +81,21 @@ Fixed it. The system was not setting the time_ms for typing logic to the new tim
 2nd of April, 2024
 
 Allison got us a bunch of assets, so we've been throwing those in. I changed how the desk light scene works so we're drawing a black sprite with a cutout of the lamp light. It was easier to get a shape that looked correct there. Right now I noticed that the disabled lamp asset does not block hovering over the arms behind Frank. So next let's rework the clickable object so disabled objects can still consume hover, just not act on it.
+
+
+20th of May, 2024
+
+We've been so distracted by job hunt stuff. We need to get our head back in the game for this. Last time we though about this seriously we decided the next major code challenge was the story machine. In this mini game the player will be presented with pieces of audio for a story, and the player must assemble them in the correct order. There will be 4 "chapters" to this story, and for each chapter there's going to be dialog, sound effects, and music. That's 3 pieces of audio for each chapter, so a total of 12 pieces of audio in total.
+
+The audio pieces will be represented in game as rolls of tape on a rack. Something like this: https://www.tdiinternational.com/wp-content/uploads/2016/04/5-door-tape-reel-desiccator.jpg or maybe this: https://www.descoindustries.com/Images/Catalog/highResolution/37564.jpg
+
+Jude has suggested having the tapes color coded based on their role (dialog, sfx, music). This may make it too easy, but we'll worry about that later. Right now we have to think through the interface to put this together. Here is my plan.
+
+There will be a rack of audio tapes on one side (I'm imagining the left side in my head). Then there is a machine that's almost the whole screen. There should be 12 slots, 3 rows, 4 slots each row. Click and dragging a reel from the rack to one of these slots will place it in the slot. Above each column of slots there should be a play button. Hitting the play button will play all audio in just that column. Somewhere else there will be a play and stop button that controls all tapes, but from the start of the story. Originally I was thinking we'd need a complex moveable head system, and a place to listen to tapes by themselves, but this may be all we need.
+
+Once all tapes are assembled in the correct order, Jude wants some sort of animation to play out that synchs with the player created audio. This shouldn't be too hard to do.
+
+
+I was about to explain that the most difficult issue in all this is whether or not this will happen in a separate room, or in the same room. However it does not matter. We can create an object that contains all of these elements on its own. We'll simply place that object in any room it needs to be. The "object" will actually contain a bunch of sub-objects. Each of those will be buttons the player will interact with.
+
+Let's start with creating a room we can access with a debug key where this object will exist. That way we can test it and perfect it.
