@@ -29,9 +29,16 @@ function __draggables_update() {
 }
 
 function clickables_update() {
-	__draggables_update();
+	/*
+	We want draggable logic to happen after click logic so drag logic happens the same frame
+	a draggable is clicked. But we don't want clickable logic to happen if a draggable is
+	being dragged.
+	*/
 	
-	if (global.clickable_dragged != noone) return;
+	if (global.clickable_dragged != noone) {
+		__draggables_update();
+		return;
+	}
 	
 	var clickable_ids = __clickables_get_all();
 	array_foreach(clickable_ids, function(clickable_id) {
@@ -39,10 +46,14 @@ function clickables_update() {
 			if (global.clickable_hovered == noone) {
 				if (position_meeting(mouse_x, mouse_y, id)) global.clickable_hovered = id;
 				if (clickable_id.disabled) return;
-				if (mouse_check_button_pressed(mb_left) && global.clickable_hovered == id) on_click();
+				if (mouse_check_button_pressed(mb_left) && global.clickable_hovered == id) {
+					on_click();
+				}
 			}
 		}
 	});
+	
+	__draggables_update();
 }
 
 global.clickable_blackout_alpha = 0;

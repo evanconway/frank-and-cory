@@ -7,6 +7,7 @@ position_snapped = noone;
 draggable_update = function() {
 	position_snapped = noone;
 	if (global.clickable_dragged != id) return;
+	if (global.clickable_hovered == id) global.clickable_hovered = noone; // stop hover highlight from showing for 1 frame
 	with (obj_draggable_position) {
 		var draggable_here = ds_map_find_value(global.position_draggable_map, id);
 		if (draggable_here == noone && distance_to_point(mouse_x, mouse_y) < 150) {
