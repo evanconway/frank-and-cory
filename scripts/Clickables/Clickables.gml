@@ -1,4 +1,5 @@
 global.clickable_hovered = noone;
+global.clickable_dragged = noone;
 
 function __clickables_get_all() {
 	var clickable_ids = [];
@@ -12,13 +13,31 @@ function __clickables_get_all() {
 }
 
 function clickables_update() {
+	with (obj_draggable) {
+		if (mouse_check_button_released(mb_left)) {
+			global.clickable_dragged = noone;
+			var position_close = noone;
+			with (obj_draggable_position) {
+				if (distance_to_point(mouse_x, mouse_y) < 100) position_close = id;
+			}
+			if (position_close != noone) {
+				show_debug_message($"{id} released close to {position_close}");
+				x = position_close.x;
+				y = position_close.y;
+			}
+			on_release();
+		}
+	}
+	
+	if (global.clickable_dragged != noone) return;
+	
 	var clickable_ids = __clickables_get_all();
 	array_foreach(clickable_ids, function(clickable_id) {
 		with (clickable_id) {
 			if (global.clickable_hovered == noone) {
 				if (position_meeting(mouse_x, mouse_y, id)) global.clickable_hovered = id;
 				if (clickable_id.disabled) return;
-				if (mouse_check_button_pressed(mb_any) && global.clickable_hovered == id) on_click();
+				if (mouse_check_button_pressed(mb_left) && global.clickable_hovered == id) on_click();
 			}
 		}
 	});
