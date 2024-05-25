@@ -41,6 +41,7 @@
     {"id":{"name":"obj_franks_camera","path":"objects/obj_franks_camera/obj_franks_camera.yy",},},
     {"id":{"name":"obj_headphones","path":"objects/obj_headphones/obj_headphones.yy",},},
     {"id":{"name":"obj_spider","path":"objects/obj_spider/obj_spider.yy",},},
+    {"id":{"name":"obj_storymaker","path":"objects/obj_storymaker/obj_storymaker.yy",},},
     {"id":{"name":"obj_workshop_cory","path":"objects/obj_workshop_cory/obj_workshop_cory.yy",},},
     {"id":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
     {"id":{"name":"rm_test_storymaker","path":"rooms/rm_test_storymaker/rm_test_storymaker.yy",},},

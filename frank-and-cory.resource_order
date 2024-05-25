@@ -22,6 +22,7 @@
     {"name":"obj_franks_camera","order":13,"path":"objects/obj_franks_camera/obj_franks_camera.yy",},
     {"name":"obj_headphones","order":12,"path":"objects/obj_headphones/obj_headphones.yy",},
     {"name":"obj_spider","order":8,"path":"objects/obj_spider/obj_spider.yy",},
+    {"name":"obj_storymaker","order":33,"path":"objects/obj_storymaker/obj_storymaker.yy",},
     {"name":"obj_workshop_cory","order":6,"path":"objects/obj_workshop_cory/obj_workshop_cory.yy",},
     {"name":"rm_init","order":10,"path":"rooms/rm_init/rm_init.yy",},
     {"name":"rm_test_storymaker","order":32,"path":"rooms/rm_test_storymaker/rm_test_storymaker.yy",},
