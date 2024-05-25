@@ -1,6 +1,15 @@
 global.clickable_hovered = noone;
 global.clickable_dragged = noone;
 
+
+global.draggable_position_map = ds_map_create();
+global.position_draggable_map = ds_map_create();
+
+function draggable_set_position(draggable=noone, position=noone) {
+	ds_map_set(global.draggable_position_map, draggable, position);
+	ds_map_set(global.position_draggable_map, position, draggable);
+}
+
 function __clickables_get_all() {
 	var clickable_ids = [];
 	with (obj_clickable) {
@@ -12,22 +21,15 @@ function __clickables_get_all() {
 	return clickable_ids;
 }
 
-function clickables_update() {
+function __draggables_update() {
+	if (global.clickable_dragged == noone) return;
 	with (obj_draggable) {
-		if (mouse_check_button_released(mb_left)) {
-			global.clickable_dragged = noone;
-			var position_close = noone;
-			with (obj_draggable_position) {
-				if (distance_to_point(mouse_x, mouse_y) < 100) position_close = id;
-			}
-			if (position_close != noone) {
-				show_debug_message($"{id} released close to {position_close}");
-				x = position_close.x;
-				y = position_close.y;
-			}
-			on_release();
-		}
+		draggable_update();
 	}
+}
+
+function clickables_update() {
+	__draggables_update();
 	
 	if (global.clickable_dragged != noone) return;
 	
