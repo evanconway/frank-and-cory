@@ -2,20 +2,11 @@ global.intro_blackout_alpha = 1;
 global.breaker_open = false;
 global.light_switch_on = false;
 
-global.intro_frank_dialog_set_position = function() {
-	global.dialog_position_x = 1690;
-	global.dialog_position_y = 1975;
-};
-
 global.intro_cory_dialog_set_position = function() {
 	global.dialog_position_x = 3100;
 	global.dialog_position_y = 505;
 };
 
-global.intro_cory_dialog_set_position_head = function() {
-	global.dialog_position_x = 1270;
-	global.dialog_position_y = 1080;
-};
 
 global.intro_blackout_func = function() {
 	draw_set_alpha(global.intro_blackout_alpha);
@@ -24,27 +15,31 @@ global.intro_blackout_func = function() {
 };
 
 function start_intro() {
-	var get_frank_step = global.frank_get_dialog_step;
 	
-	var get_cory_step = function(text, position=0) {
-		return {
-			text,
-			on_step: position == 0 ? global.intro_cory_dialog_set_position : global.intro_cory_dialog_set_position_head,
-			default_effects: "f:fnt_ally t:80,2 cp:,,420 cp:;,420 cp:.,520 cp:!,520 cp:?,520",
-		}
+	var cory_set_dialog_position = function() {
+		global.dialog_position_x = 3100;
+		global.dialog_position_y = 505;
 	};
 	
+	var cory_set_dialog_position_head = function() {
+		global.dialog_position_x = 1270;
+		global.dialog_position_y = 1080;
+	};
+	
+	var get_frank_step = global.frank_get_dialog_step;
+	var get_cory_step = global.cory_get_dialog_step;
+	
 	var cory_knows_somethings_up = dialog_get_updateable([
-		get_cory_step("Okay. Something's not right.", 1),
+		get_cory_step("Okay. Something's not right.", CORY_EXPRESSION.NEUTRAL, cory_set_dialog_position_head),
 		get_frank_step("Hey. What are you doing back there? Get away from me!", FRANK_EXPRESSION.UP),
-		get_cory_step("Oh. I see it now.", 1),
+		get_cory_step("Oh. I see it now.", CORY_EXPRESSION.NEUTRAL, cory_set_dialog_position_head),
 		get_frank_step("What is it? What do you see?", FRANK_EXPRESSION.BLANK),
-		get_cory_step("There's a little rectangle back here that says \"memory\".", 1),
+		get_cory_step("There's a little rectangle back here that says \"memory\".", CORY_EXPRESSION.NEUTRAL, cory_set_dialog_position_head),
 		get_frank_step("What's a memory?", FRANK_EXPRESSION.UP),
-		get_cory_step("Hah. Good one.", 1),
+		get_cory_step("Hah. Good one.", CORY_EXPRESSION.NEUTRAL, cory_set_dialog_position_head),
 		get_frank_step("Good what?", FRANK_EXPRESSION.RIGHT),
-		get_cory_step("Oh. You're being serious. Never mind.", 1),
-		get_cory_step("Maybe if I can find the piece that fits in this spot, we'll get you back to your normal self.", 1)
+		get_cory_step("Oh. You're being serious. Never mind.", CORY_EXPRESSION.NEUTRAL, cory_set_dialog_position_head),
+		get_cory_step("Maybe if I can find the piece that fits in this spot, we'll get you back to your normal self.", CORY_EXPRESSION.NEUTRAL, cory_set_dialog_position_head)
 	],{
 		on_step_all:  function() {
 			obj_workshop_cory.image_index = 1;

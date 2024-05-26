@@ -55,6 +55,7 @@
     {"id":{"name":"rm_test_storymaker","path":"rooms/rm_test_storymaker/rm_test_storymaker.yy",},},
     {"id":{"name":"rm_workshop","path":"rooms/rm_workshop/rm_workshop.yy",},},
     {"id":{"name":"Clickables","path":"scripts/Clickables/Clickables.yy",},},
+    {"id":{"name":"Cory","path":"scripts/Cory/Cory.yy",},},
     {"id":{"name":"Darkness","path":"scripts/Darkness/Darkness.yy",},},
     {"id":{"name":"Dialog","path":"scripts/Dialog/Dialog.yy",},},
     {"id":{"name":"Frank","path":"scripts/Frank/Frank.yy",},},

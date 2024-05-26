@@ -1,5 +1,7 @@
 event_inherited();
 
+disabled = true;
+
 on_click = function() {
 	global.updateable = dialog_get_updateable([
 		"Wow you just clicked on my head!",

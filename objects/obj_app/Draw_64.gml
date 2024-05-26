@@ -10,8 +10,8 @@ if keyboard_check_pressed(ord("2")) {
 
 global.clickable_hovered = noone;
 
-// use different reference so we can change global.updateable in update or draw
-	var updateable = global.updateable;
+// maintain updateable reference so we can change global.updateable in update or draw
+var updateable = global.updateable;
 
 if (updateable != undefined) {
 	updateable.update();

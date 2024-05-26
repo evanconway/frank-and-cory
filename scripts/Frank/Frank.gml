@@ -23,12 +23,18 @@ global.frank_speaks = function() {
 	audio_sound_gain(snd_id, 0, 120);
 }
 
-
-global.frank_get_dialog_step = function(text, expression) {
+global.frank_get_dialog_step = function(
+	text,
+	expression=FRANK_EXPRESSION.NEUTRAL,
+	set_position=function() {
+		global.dialog_position_x = 1690;
+		global.dialog_position_y = 1975;
+	},
+) {
 	return {
 		text,
-		on_step: method({ expression }, function() {
-			global.intro_frank_dialog_set_position();
+		on_step: method({ expression, set_position }, function() {
+			set_position();
 			global.frank_expression = expression;
 		}),
 		on_type: global.frank_speaks,
