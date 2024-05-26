@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"snd_emptynoise",
+  "%Name":"snd_reel_10",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,17 +9,17 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":15.0,
-  "name":"snd_emptynoise",
+  "duration":4.0,
+  "name":"snd_reel_10",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"reels",
+    "path":"folders/Sounds/reels.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_emptynoise.wav",
+  "soundFile":"snd_reel_10.wav",
   "type":0,
   "volume":1.0,
 }

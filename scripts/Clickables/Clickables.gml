@@ -28,6 +28,18 @@ function __draggables_update() {
 	}
 }
 
+function update_clickable(clickable_id) {
+	with (clickable_id) {
+		if (global.clickable_hovered == noone) {
+			if (position_meeting(mouse_x, mouse_y, id)) global.clickable_hovered = id;
+			if (clickable_id.disabled) return;
+			if (mouse_check_button_pressed(mb_left) && global.clickable_hovered == id) {
+				on_click();
+			}
+		}
+	}
+}
+
 function clickables_update() {
 	/*
 	We want draggable logic to happen after click logic so drag logic happens the same frame
@@ -41,17 +53,7 @@ function clickables_update() {
 	}
 	
 	var clickable_ids = __clickables_get_all();
-	array_foreach(clickable_ids, function(clickable_id) {
-		with (clickable_id) {
-			if (global.clickable_hovered == noone) {
-				if (position_meeting(mouse_x, mouse_y, id)) global.clickable_hovered = id;
-				if (clickable_id.disabled) return;
-				if (mouse_check_button_pressed(mb_left) && global.clickable_hovered == id) {
-					on_click();
-				}
-			}
-		}
-	});
+	array_foreach(clickable_ids, update_clickable);
 	
 	__draggables_update();
 }
