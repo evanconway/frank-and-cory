@@ -119,3 +119,10 @@ Ah, and I just realized we need to make sure that draggable elements can't be pl
 We have some solid logic now around dragging elements and letting them snap to new positions. We'll have to fuss with sprite origins later but I'm satisfied for now. It's time to start thinking about changing game state when moving pieces around. We can add specific information about draggable elements and positions in their object creation code. Actually, we can probably just use the raw instance values of each draggable and position to determine state values. This is about audio so we need to have audio assets matched with instance ids. But luckily the only time we actually care about that is when the player hits a play button. And when that happens we can just use a basic mapping of audio assets to instance ids. Let's start with just the play and stop button for all assets linked together. I know we've considered a test slot, and ways to play the entire string starting at different spots. But let's not worry about that now.
 
 We finally completed a "play all" button. It will play special empty record sound when there are no reels in any rows of a column, will play all audio in a column if there are reels, and will move from column to column after finishing audio in each row. Next, I'm tempted to focus on something that indicates a column of audio is playing. It might even be worth creating the moveable head I mentioned a while ago. Let's start with getting the reels to spin.
+
+
+26th of May, 2024
+
+I've been organizing the character dialog better so it can be more easily used in different scenarios. It's time to try and start advancing the story as best as possible to get to the podcast maker (story machine?). 
+
+Added more dialog. I realized I should change the dialog step functions for the characters. Right now I can customize what functions are called on each step. And I use that to set position. But that's silly. We should just have global variables that track the game state and determine the position of dialog boxes automatically. Let's change that next.

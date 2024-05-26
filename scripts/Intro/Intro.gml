@@ -7,7 +7,6 @@ global.intro_cory_dialog_set_position = function() {
 	global.dialog_position_y = 505;
 };
 
-
 global.intro_blackout_func = function() {
 	draw_set_alpha(global.intro_blackout_alpha);
 	draw_set_color(c_black);

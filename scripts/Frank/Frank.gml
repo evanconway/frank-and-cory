@@ -1,3 +1,5 @@
+global.frank_memory_chip_added = false;
+
 enum FRANK_EXPRESSION {
 	BLANK,
 	NEUTRAL,

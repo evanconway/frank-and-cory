@@ -9,6 +9,16 @@ enum CORY_EXPRESSION {
 	LEFT
 }
 
+global.cory_set_dialog_position = function() {
+	global.dialog_position_x = 3100;
+	global.dialog_position_y = 505;
+};
+	
+global.cory_set_dialog_position_head = function() {
+	global.dialog_position_x = 1270;
+	global.dialog_position_y = 1080;
+};
+
 global.cory_get_dialog_step = function(
 	text,
 	expression=CORY_EXPRESSION.NEUTRAL,
