@@ -1,11 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_frank_arms",
-  "eventList":[
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"obj_film_cans_1",
+  "eventList":[],
   "managed":true,
-  "name":"obj_frank_arms",
+  "name":"obj_film_cans_1",
   "overriddenProperties":[],
   "parent":{
     "name":"Clickables",
@@ -33,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_frank_arms",
-    "path":"sprites/spr_frank_arms/spr_frank_arms.yy",
+    "name":"spr_film_cans_1",
+    "path":"sprites/spr_film_cans_1/spr_film_cans_1.yy",
   },
   "spriteMaskId":null,
   "visible":true,

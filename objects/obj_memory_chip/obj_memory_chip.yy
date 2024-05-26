@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_film_cans",
+  "%Name":"obj_memory_chip",
   "eventList":[],
   "managed":true,
-  "name":"obj_film_cans",
+  "name":"obj_memory_chip",
   "overriddenProperties":[],
   "parent":{
     "name":"Clickables",
@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_film_cans",
-    "path":"sprites/spr_film_cans/spr_film_cans.yy",
+    "name":"spr_memory_chip",
+    "path":"sprites/spr_memory_chip/spr_memory_chip.yy",
   },
   "spriteMaskId":null,
   "visible":true,
