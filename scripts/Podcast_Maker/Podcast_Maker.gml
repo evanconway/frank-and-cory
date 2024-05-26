@@ -49,6 +49,17 @@ global.podcast_player = {
 		
 		return array_length(audio_undefined_filtered) == 0 ? [snd_emptynoise] : audio_undefined_filtered;
 	},
+	rotate_reels_at_current_column: function() {
+		if (column_to_play < 0) return;
+		podcast_maker_setup();
+		var tape_positions = global.podcast_tape_slots[column_to_play];
+		for (var i = 0; i < array_length(tape_positions); i++) {
+			var draggable_at_position = ds_map_find_value(global.position_draggable_map, tape_positions[i]);
+			if (draggable_at_position != noone) {
+				draggable_at_position.image_angle -= 2;
+			}
+		}
+	},
 	stop_all: function() {
 		var audio_assets = get_audio_at_current_column();
 		for (var i = 0; i < array_length(audio_assets); i++) {
@@ -76,6 +87,8 @@ global.podcast_player = {
 			column_to_play = 0;
 			play_audio_at_current_column();
 		}
+		
+		rotate_reels_at_current_column();
 		
 		if (column_finished()) {
 			column_to_play++;
