@@ -29,16 +29,16 @@ function start_intro() {
 	var get_cory_step = global.cory_get_dialog_step;
 	
 	var cory_knows_somethings_up = dialog_get_updateable([
-		get_cory_step("Okay. Something's not right.", CORY_EXPRESSION.NEUTRAL, cory_set_dialog_position_head),
+		get_cory_step("Okay. Something's not right.", CORY_EXPRESSION.NEUTRAL),
 		get_frank_step("Hey. What are you doing back there? Get away from me!", FRANK_EXPRESSION.UP),
-		get_cory_step("Oh. I see it now.", CORY_EXPRESSION.NEUTRAL, cory_set_dialog_position_head),
+		get_cory_step("Oh. I see it now.", CORY_EXPRESSION.NEUTRAL),
 		get_frank_step("What is it? What do you see?", FRANK_EXPRESSION.BLANK),
-		get_cory_step("There's a little rectangle back here that says \"memory\".", CORY_EXPRESSION.NEUTRAL, cory_set_dialog_position_head),
+		get_cory_step("There's a little rectangle back here that says \"memory\".", CORY_EXPRESSION.NEUTRAL),
 		get_frank_step("What's a memory?", FRANK_EXPRESSION.UP),
-		get_cory_step("Hah. Good one.", CORY_EXPRESSION.NEUTRAL, cory_set_dialog_position_head),
+		get_cory_step("Hah. Good one.", CORY_EXPRESSION.NEUTRAL),
 		get_frank_step("Good what?", FRANK_EXPRESSION.RIGHT),
-		get_cory_step("Oh. You're being serious. Never mind.", CORY_EXPRESSION.NEUTRAL, cory_set_dialog_position_head),
-		get_cory_step("Maybe if I can find the piece that fits in this spot, we'll get you back to your normal self.", CORY_EXPRESSION.NEUTRAL, cory_set_dialog_position_head)
+		get_cory_step("Oh. You're being serious. Never mind.", CORY_EXPRESSION.NEUTRAL),
+		get_cory_step("Maybe if I can find the piece that fits in this spot, we'll get you back to your normal self.", CORY_EXPRESSION.NEUTRAL)
 	],{
 		on_step_all:  function() {
 			obj_workshop_cory.image_index = 1;
@@ -85,6 +85,7 @@ function start_intro() {
 			function() {
 				obj_workshop_cory.image_index = 1;
 				if (time > 60) {
+					global.cory_dialog_position = CORY_DIALOG_POSITION.INTRO_HEAD;
 					global.updateable = cory_knows_somethings_up;
 				}
 			},
