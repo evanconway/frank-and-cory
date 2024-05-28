@@ -109,6 +109,8 @@
     {"id":{"name":"spr_framk_arms_attached","path":"sprites/spr_framk_arms_attached/spr_framk_arms_attached.yy",},},
     {"id":{"name":"spr_frank_arms","path":"sprites/spr_frank_arms/spr_frank_arms.yy",},},
     {"id":{"name":"spr_frank_chest","path":"sprites/spr_frank_chest/spr_frank_chest.yy",},},
+    {"id":{"name":"spr_frank_eyes_left","path":"sprites/spr_frank_eyes_left/spr_frank_eyes_left.yy",},},
+    {"id":{"name":"spr_frank_eyes_right","path":"sprites/spr_frank_eyes_right/spr_frank_eyes_right.yy",},},
     {"id":{"name":"spr_frank_eyes","path":"sprites/spr_frank_eyes/spr_frank_eyes.yy",},},
     {"id":{"name":"spr_frank_head","path":"sprites/spr_frank_head/spr_frank_head.yy",},},
     {"id":{"name":"spr_frank_legs","path":"sprites/spr_frank_legs/spr_frank_legs.yy",},},

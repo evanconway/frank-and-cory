@@ -59,7 +59,7 @@ global.frank_idle_expression_options = [
 global.frank_idle_expression = FRANK_EXPRESSION.NEUTRAL;
 global.frank_idle_expression_time = 80;
 
-function frank_draw_expression(x=0, y=0) {
+function frank_draw_expression(x_left=271, y_left=166, x_right=271, y_right=166) {
 	if (global.updateable == undefined) {
 		global.frank_idle_expression_time -= 1;
 		if (global.frank_idle_expression_time < 0) {
@@ -73,12 +73,24 @@ function frank_draw_expression(x=0, y=0) {
 	}
 	draw_set_alpha(1);
 	draw_set_color(c_white);
-	if (global.frank_expression == FRANK_EXPRESSION.NEUTRAL) draw_sprite(spr_frank_eyes, 4, x, y);
-	if (global.frank_expression == FRANK_EXPRESSION.HAPPY) draw_sprite(spr_frank_eyes, 1, x, y);
-	if (global.frank_expression == FRANK_EXPRESSION.BLANK) draw_sprite(spr_frank_eyes, 0, x, y);
-	if (global.frank_expression == FRANK_EXPRESSION.RIGHT) draw_sprite(spr_frank_eyes, 2, x, y);
-	if (global.frank_expression == FRANK_EXPRESSION.UNAMUSED) draw_sprite(spr_frank_eyes, 5, x, y);
-	if (global.frank_expression == FRANK_EXPRESSION.UP) draw_sprite(spr_frank_eyes, 3, x, y);
-	if (global.frank_expression == FRANK_EXPRESSION.DOWNLEFT) draw_sprite(spr_frank_eyes, 6, x, y);
-	if (global.frank_expression == FRANK_EXPRESSION.LEFT) draw_sprite(spr_frank_eyes, 7, x, y);
+	
+	// left
+	if (global.frank_expression == FRANK_EXPRESSION.NEUTRAL) draw_sprite(spr_frank_eyes_left, 4, x_left, y_left);
+	if (global.frank_expression == FRANK_EXPRESSION.HAPPY) draw_sprite(spr_frank_eyes_left, 1, x_left, y_left);
+	if (global.frank_expression == FRANK_EXPRESSION.BLANK) draw_sprite(spr_frank_eyes_left, 0, x_left, y_left);
+	if (global.frank_expression == FRANK_EXPRESSION.RIGHT) draw_sprite(spr_frank_eyes_left, 2, x_left, y_left);
+	if (global.frank_expression == FRANK_EXPRESSION.UNAMUSED) draw_sprite(spr_frank_eyes_left, 5, x_left, y_left);
+	if (global.frank_expression == FRANK_EXPRESSION.UP) draw_sprite(spr_frank_eyes_left, 3, x_left, y_left);
+	if (global.frank_expression == FRANK_EXPRESSION.DOWNLEFT) draw_sprite(spr_frank_eyes_left, 6, x_left, y_left);
+	if (global.frank_expression == FRANK_EXPRESSION.LEFT) draw_sprite(spr_frank_eyes_left, 7, x_left, y_left);
+	
+	// right
+	if (global.frank_expression == FRANK_EXPRESSION.NEUTRAL) draw_sprite(spr_frank_eyes_right, 4, x_right, y_right);
+	if (global.frank_expression == FRANK_EXPRESSION.HAPPY) draw_sprite(spr_frank_eyes_right, 1, x_right, y_right);
+	if (global.frank_expression == FRANK_EXPRESSION.BLANK) draw_sprite(spr_frank_eyes_right, 0, x_right, y_right);
+	if (global.frank_expression == FRANK_EXPRESSION.RIGHT) draw_sprite(spr_frank_eyes_right, 2, x_right, y_right);
+	if (global.frank_expression == FRANK_EXPRESSION.UNAMUSED) draw_sprite(spr_frank_eyes_right, 5, x_right, y_right);
+	if (global.frank_expression == FRANK_EXPRESSION.UP) draw_sprite(spr_frank_eyes_right, 3, x_right, y_right);
+	if (global.frank_expression == FRANK_EXPRESSION.DOWNLEFT) draw_sprite(spr_frank_eyes_right, 6, x_right, y_right);
+	if (global.frank_expression == FRANK_EXPRESSION.LEFT) draw_sprite(spr_frank_eyes_right, 7, x_right, y_right);
 }

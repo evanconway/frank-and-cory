@@ -14,7 +14,6 @@ global.intro_blackout_func = function() {
 };
 
 function start_intro() {
-	
 	var cory_set_dialog_position = function() {
 		global.dialog_position_x = 3100;
 		global.dialog_position_y = 505;
@@ -23,6 +22,46 @@ function start_intro() {
 	var cory_set_dialog_position_head = function() {
 		global.dialog_position_x = 1270;
 		global.dialog_position_y = 1080;
+	};
+	
+	var cory_flys_back_to_perch = {
+		// flight position is line function
+		flight: {
+			position_start: { x: 1935,y: 1096 },
+			position_end: { x: 4800, y: -120 },
+			get_slope: function() {
+				return (position_end.y - position_start.y) / (position_end.x - position_start.x);
+			},
+			progress: 0,
+			get_x: function() {
+				var diff = (position_start.x - position_end.x) * progress * -1;
+				return floor(position_start.x + diff);
+			},
+			get_y: function() {
+				return floor(position_start.y + get_slope() * (get_x() - position_start.x));
+			},
+			get_subimage: function() {
+				if (progress > 0.6) return 0;
+				return floor(progress * 7);
+			},
+		},
+		update: function() {
+			obj_workshop_cory.visible = false;
+			flight.progress += 0.015;
+			if (flight.progress >= 1) {
+				obj_workshop_cory.image_index = 0;
+				global.updateable = dialog_get_updateable([
+					global.cory_get_dialog_step("Maybe if I can find the piece that fits in that slot, we'll get you back to your normal self.", CORY_EXPRESSION.NEUTRAL)
+				]);
+			}
+		},
+		draw: function() {
+			var sub_image = flight.get_subimage();
+			var fly_x = flight.get_x();
+			var fly_y = flight.get_y();
+			draw_sprite_ext(spr_cory_flying, sub_image, fly_x, fly_y, -1, 1, 0, c_white, 1);
+			//draw_sprite(spr_cory_flying, sub_image, fly_x, fly_y);
+		},
 	};
 	
 	var cory_knows_somethings_up = dialog_get_updateable([
@@ -35,11 +74,11 @@ function start_intro() {
 		global.cory_get_dialog_step("Hah. Good one.", CORY_EXPRESSION.NEUTRAL),
 		global.frank_get_dialog_step("Good what?", FRANK_EXPRESSION.RIGHT),
 		global.cory_get_dialog_step("Oh. You're being serious. Never mind.", CORY_EXPRESSION.NEUTRAL),
-		global.cory_get_dialog_step("Maybe if I can find the piece that fits in this spot, we'll get you back to your normal self.", CORY_EXPRESSION.NEUTRAL)
 	],{
 		on_step_all:  function() {
 			obj_workshop_cory.image_index = 1;
-		}
+		},
+		after_dialog_updateable: cory_flys_back_to_perch
 	});
 	
 	var cory_taps_head = {
@@ -97,8 +136,8 @@ function start_intro() {
 		cory_taps_head,
 		// flight position is line function
 		flight: {
-			position_start: { x: 4080, y: -240 },
-			position_end: { x: 645,y: 912 },
+			position_start: { x: 3912, y: -191 },
+			position_end: { x: 1033,y: 991 },
 			get_slope: function() {
 				return (position_end.y - position_start.y) / (position_end.x - position_start.x);
 			},
@@ -308,4 +347,5 @@ function start_intro() {
 	}
 
 	global.updateable = init;
+	//global.updateable = cory_flys_back_to_perch;
 }
