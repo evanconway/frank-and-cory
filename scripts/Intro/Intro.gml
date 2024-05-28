@@ -50,8 +50,9 @@ function start_intro() {
 			flight.progress += 0.015;
 			if (flight.progress >= 1) {
 				obj_workshop_cory.image_index = 0;
+				global.cory_dialog_position = CORY_DIALOG_POSITION.INTRO_BREAKER;
 				global.updateable = dialog_get_updateable([
-					global.cory_get_dialog_step("Maybe if I can find the piece that fits in that slot, we'll get you back to your normal self.", CORY_EXPRESSION.NEUTRAL)
+					cory_get_dialog_step("Maybe if I can find the piece that fits in that slot, we'll get you back to your normal self.", CORY_EXPRESSION.NEUTRAL)
 				]);
 			}
 		},
@@ -65,15 +66,15 @@ function start_intro() {
 	};
 	
 	var cory_knows_somethings_up = dialog_get_updateable([
-		global.cory_get_dialog_step("Okay. Something's not right.", CORY_EXPRESSION.NEUTRAL),
-		global.frank_get_dialog_step("Hey. What are you doing back there? Get away from me!", FRANK_EXPRESSION.UP),
-		global.cory_get_dialog_step("Oh. I see it now.", CORY_EXPRESSION.NEUTRAL),
-		global.frank_get_dialog_step("What is it? What do you see?", FRANK_EXPRESSION.BLANK),
-		global.cory_get_dialog_step("There's a little rectangle back here that says \"memory\".", CORY_EXPRESSION.NEUTRAL),
-		global.frank_get_dialog_step("What's a memory?", FRANK_EXPRESSION.UP),
-		global.cory_get_dialog_step("Hah. Good one.", CORY_EXPRESSION.NEUTRAL),
-		global.frank_get_dialog_step("Good what?", FRANK_EXPRESSION.RIGHT),
-		global.cory_get_dialog_step("Oh. You're being serious. Never mind.", CORY_EXPRESSION.NEUTRAL),
+		cory_get_dialog_step("Okay. Something's not right.", CORY_EXPRESSION.NEUTRAL),
+		frank_get_dialog_step("Hey. What are you doing back there? Get away from me!", FRANK_EXPRESSION.UP),
+		cory_get_dialog_step("Oh. I see it now.", CORY_EXPRESSION.NEUTRAL),
+		frank_get_dialog_step("What is it? What do you see?", FRANK_EXPRESSION.BLANK),
+		cory_get_dialog_step("There's a little rectangle back here that says \"memory\".", CORY_EXPRESSION.NEUTRAL),
+		frank_get_dialog_step("What's a memory?", FRANK_EXPRESSION.UP),
+		cory_get_dialog_step("Hah. Good one.", CORY_EXPRESSION.NEUTRAL),
+		frank_get_dialog_step("Good what?", FRANK_EXPRESSION.RIGHT),
+		cory_get_dialog_step("Oh. You're being serious. Never mind.", CORY_EXPRESSION.NEUTRAL),
 	],{
 		on_step_all:  function() {
 			obj_workshop_cory.image_index = 1;
@@ -170,14 +171,14 @@ function start_intro() {
 	};
 	
 	var oh_no_my_body_dialog = dialog_get_updateable([
-		global.frank_get_dialog_step("Ah! My body! What happened to me?", FRANK_EXPRESSION.BLANK),
-		global.cory_get_dialog_step("Geez, this place could use some spring cleaning, don't you think?"),
-		global.frank_get_dialog_step("Am I dying? Am I dead? Is this death?", FRANK_EXPRESSION.UP),
-		global.cory_get_dialog_step("You're going to be okay. Just in a little shock is all. Heh. Get it?"),
-		global.frank_get_dialog_step("I don't.", FRANK_EXPRESSION.UNAMUSED),
-		global.cory_get_dialog_step("Do you remember anything before the outage?"),
-		global.frank_get_dialog_step("I don't even know who you are.", FRANK_EXPRESSION.RIGHT),
-		global.cory_get_dialog_step("Huh?")
+		frank_get_dialog_step("Ah! My body! What happened to me?", FRANK_EXPRESSION.BLANK),
+		cory_get_dialog_step("Geez, this place could use some spring cleaning, don't you think?"),
+		frank_get_dialog_step("Am I dying? Am I dead? Is this death?", FRANK_EXPRESSION.UP),
+		cory_get_dialog_step("You're going to be okay. Just in a little shock is all. Heh. Get it?"),
+		frank_get_dialog_step("I don't.", FRANK_EXPRESSION.UNAMUSED),
+		cory_get_dialog_step("Do you remember anything before the outage?"),
+		frank_get_dialog_step("I don't even know who you are.", FRANK_EXPRESSION.RIGHT),
+		cory_get_dialog_step("Huh?")
 	], { after_dialog_updateable: cory_flys_to_head });
 
 	var brief_pause = {
@@ -243,10 +244,10 @@ function start_intro() {
 	};
 
 	var find_breaker_dialog = dialog_get_updateable([
-		global.frank_get_dialog_step("Who is... Frank?", FRANK_EXPRESSION.BLANK),
-		global.cory_get_dialog_step("Geez, that power outage must have really knocked you out good."),
-		global.frank_get_dialog_step("Why can't I feel my arms?", FRANK_EXPRESSION.UP),
-		global.cory_get_dialog_step("One sec, I'm looking for the breaker box.")
+		frank_get_dialog_step("Who is... Frank?", FRANK_EXPRESSION.BLANK),
+		cory_get_dialog_step("Geez, that power outage must have really knocked you out good."),
+		frank_get_dialog_step("Why can't I feel my arms?", FRANK_EXPRESSION.UP),
+		cory_get_dialog_step("One sec, I'm looking for the breaker box.")
 	], { after_dialog_updateable: global.find_breaker_mini_game, pre_dialog_draw: darkness });
 
 	var cory_light_fade = {
@@ -262,12 +263,12 @@ function start_intro() {
 	};
 
 	var cory_responds = dialog_get_updateable([
-		global.frank_get_dialog_step("Oh. I must have fallen asleep.", FRANK_EXPRESSION.UNAMUSED),
-		global.cory_get_dialog_step("Frank!"),
-		global.frank_get_dialog_step("Huh?", FRANK_EXPRESSION.RIGHT),
-		global.cory_get_dialog_step("Are you alright?"),
-		global.frank_get_dialog_step("Where's that voice coming from?", FRANK_EXPRESSION.UP),
-		global.cory_get_dialog_step("Frank! Over here!")
+		frank_get_dialog_step("Oh. I must have fallen asleep.", FRANK_EXPRESSION.UNAMUSED),
+		cory_get_dialog_step("Frank!"),
+		frank_get_dialog_step("Huh?", FRANK_EXPRESSION.RIGHT),
+		cory_get_dialog_step("Are you alright?"),
+		frank_get_dialog_step("Where's that voice coming from?", FRANK_EXPRESSION.UP),
+		cory_get_dialog_step("Frank! Over here!")
 	], { after_dialog_updateable: cory_light_fade, pre_dialog_draw: darkness });
 
 	var fade_in_scene = {

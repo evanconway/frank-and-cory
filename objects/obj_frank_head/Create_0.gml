@@ -3,7 +3,7 @@ event_inherited();
 on_click = function() {
 	if (!global.frank_memory_chip_added) {
 		global.updateable = dialog_get_updateable([
-			global.frank_get_dialog_step("It's me!", FRANK_EXPRESSION.HAPPY),
+			frank_get_dialog_step("It's me!", FRANK_EXPRESSION.HAPPY),
 		]);
 	} else if (!global.frank_attached_head) {
 		global.frank_attached_head = true;

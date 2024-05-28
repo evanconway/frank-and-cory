@@ -136,3 +136,5 @@ Added more dialog and clickable elements. Will need to formulate more of a plan 
 28th of May, 2024
 
 It's going to be easier to fix Frank's eyes myself than demanding a whole new set of assets. Since the left and right eyes don't have the same spacing or angle when the head is on the desk vs attached, we'll have to draw the eyes separately. Let's modify our draw expression function to account for the different eyes, add in different values when on the table vs attached, and assess.
+
+I've noticed something important. Certain elements should disappear when they've been disabled. But simply setting them invisible and disabling them doesn't stop them from interacting with the game world. For example, once Frank's head is on his body, the collision mask of his head sprite still affects mousing over things. We'll have to think of a way to fix this.
