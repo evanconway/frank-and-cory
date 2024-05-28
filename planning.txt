@@ -131,3 +131,8 @@ Added more dialog. I realized I should change the dialog step functions for the 
 27th of May, 2024
 
 Added more dialog and clickable elements. Will need to formulate more of a plan once we have more assets.
+
+
+28th of May, 2024
+
+It's going to be easier to fix Frank's eyes myself than demanding a whole new set of assets. Since the left and right eyes don't have the same spacing or angle when the head is on the desk vs attached, we'll have to draw the eyes separately. Let's modify our draw expression function to account for the different eyes, add in different values when on the table vs attached, and assess.
