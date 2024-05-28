@@ -29,10 +29,7 @@ enum FRANK_DIALOG_POSITION {
 
 global.frank_dialog_position = FRANK_DIALOG_POSITION.INTRO_HEAD;
 
-global.frank_get_dialog_step = function(
-	text,
-	expression=FRANK_EXPRESSION.NEUTRAL,
-) {
+function frank_get_dialog_step(text, expression=FRANK_EXPRESSION.NEUTRAL) {
 	return {
 		text,
 		on_step: method({ expression }, function() {
@@ -51,3 +48,37 @@ global.frank_memory_chip_added = false;
 global.frank_attached_arms = false;
 global.frank_attached_head = false;
 global.frank_attached_legs = false;
+
+global.frank_idle_expression_options = [
+	FRANK_EXPRESSION.NEUTRAL,
+	FRANK_EXPRESSION.RIGHT,
+	FRANK_EXPRESSION.UP,
+	FRANK_EXPRESSION.LEFT,
+	FRANK_EXPRESSION.DOWNLEFT
+];
+global.frank_idle_expression = FRANK_EXPRESSION.NEUTRAL;
+global.frank_idle_expression_time = 80;
+
+function frank_draw_expression(x=0, y=0) {
+	if (global.updateable == undefined) {
+		global.frank_idle_expression_time -= 1;
+		if (global.frank_idle_expression_time < 0) {
+			global.frank_idle_expression_time = irandom_range(80, 140);
+			var options = array_filter(global.frank_idle_expression_options, function(option) {
+				return option != global.frank_idle_expression;
+			});
+			global.frank_idle_expression = options[irandom_range(0, array_length(options) - 1)];
+		}
+		global.frank_expression = global.frank_idle_expression;
+	}
+	draw_set_alpha(1);
+	draw_set_color(c_white);
+	if (global.frank_expression == FRANK_EXPRESSION.NEUTRAL) draw_sprite(spr_frank_eyes, 4, x, y);
+	if (global.frank_expression == FRANK_EXPRESSION.HAPPY) draw_sprite(spr_frank_eyes, 1, x, y);
+	if (global.frank_expression == FRANK_EXPRESSION.BLANK) draw_sprite(spr_frank_eyes, 0, x, y);
+	if (global.frank_expression == FRANK_EXPRESSION.RIGHT) draw_sprite(spr_frank_eyes, 2, x, y);
+	if (global.frank_expression == FRANK_EXPRESSION.UNAMUSED) draw_sprite(spr_frank_eyes, 5, x, y);
+	if (global.frank_expression == FRANK_EXPRESSION.UP) draw_sprite(spr_frank_eyes, 3, x, y);
+	if (global.frank_expression == FRANK_EXPRESSION.DOWNLEFT) draw_sprite(spr_frank_eyes, 6, x, y);
+	if (global.frank_expression == FRANK_EXPRESSION.LEFT) draw_sprite(spr_frank_eyes, 7, x, y);
+}

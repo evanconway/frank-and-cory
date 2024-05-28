@@ -1,51 +1,38 @@
 event_inherited();
 
-disabled = true;
-
 on_click = function() {
-	global.updateable = dialog_get_updateable([
-		"Wow you just clicked on my head!",
-		"Hopefully now you see dialog.",
-		"This should help us setup the rest of the game.",
-	]);
+	if (!global.frank_memory_chip_added) {
+		global.updateable = dialog_get_updateable([
+			global.frank_get_dialog_step("It's me!", FRANK_EXPRESSION.HAPPY),
+		]);
+	} else if (!global.frank_attached_head) {
+		global.frank_attached_head = true;
+		disabled = true;
+		global.updateable = {
+			step: 0,
+			time: 0,
+			steps: [
+				function() {
+					if (time > 60) global.updateable = dialog_get_updateable([
+						frank_get_dialog_step("Yes", FRANK_EXPRESSION.HAPPY),
+						frank_get_dialog_step("Much better.", FRANK_EXPRESSION.RIGHT),
+						frank_get_dialog_step("I can see the room better now.", FRANK_EXPRESSION.NEUTRAL),
+					]);
+				},
+			],
+			update: function() {
+				time += 1;
+				steps[step]();
+			}
+		};
+	}
 };
 
 original_draw = draw;
 
-idle_expression_options = [
-	FRANK_EXPRESSION.NEUTRAL,
-	FRANK_EXPRESSION.RIGHT,
-	FRANK_EXPRESSION.UP,
-	FRANK_EXPRESSION.LEFT,
-	FRANK_EXPRESSION.DOWNLEFT
-];
-idle_expression = FRANK_EXPRESSION.NEUTRAL;
-idle_time = 80;
-
 draw = function () {
-	// organic facial changes while nothing active
-	if (global.updateable == undefined) {
-		idle_time -= 1;
-		if (idle_time < 0) {
-			idle_time = irandom_range(80, 140);
-			var options = array_filter(idle_expression_options, method({ idle_expression }, function(option) {
-				return option != idle_expression
-			}))
-			idle_expression = options[irandom_range(0, array_length(options) - 1)];
-		}
-		global.frank_expression = idle_expression;
-	}
-	
+	if (global.frank_attached_head) return;
 	if (!global.light_switch_on) image_index = 1;
 	original_draw();
-	draw_set_alpha(1);
-	draw_set_color(c_white);
-	if (global.frank_expression == FRANK_EXPRESSION.NEUTRAL) draw_sprite(spr_frank_eyes, 4, 0, 0);
-	if (global.frank_expression == FRANK_EXPRESSION.HAPPY) draw_sprite(spr_frank_eyes, 1, 0, 0);
-	if (global.frank_expression == FRANK_EXPRESSION.BLANK) draw_sprite(spr_frank_eyes, 0, 0, 0);
-	if (global.frank_expression == FRANK_EXPRESSION.RIGHT) draw_sprite(spr_frank_eyes, 2, 0, 0);
-	if (global.frank_expression == FRANK_EXPRESSION.UNAMUSED) draw_sprite(spr_frank_eyes, 5, 0, 0);
-	if (global.frank_expression == FRANK_EXPRESSION.UP) draw_sprite(spr_frank_eyes, 3, 0, 0);
-	if (global.frank_expression == FRANK_EXPRESSION.DOWNLEFT) draw_sprite(spr_frank_eyes, 6, 0, 0);
-	if (global.frank_expression == FRANK_EXPRESSION.LEFT) draw_sprite(spr_frank_eyes, 7, 0, 0);
+	frank_draw_expression();
 };

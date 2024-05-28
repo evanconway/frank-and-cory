@@ -31,8 +31,8 @@ global.assemble_frank = dialog_get_updateable([
 	global.frank_get_dialog_step("Just hurry up.", FRANK_EXPRESSION.DOWNLEFT),
 ]);
 
-
 on_click = function() {
+	disabled = true;
 	global.updateable = dialog_get_updateable([
 		global.frank_get_dialog_step("That looks familiar!", FRANK_EXPRESSION.RIGHT),
 		global.cory_get_dialog_step("I agree.", CORY_EXPRESSION.NEUTRAL),

@@ -26,10 +26,7 @@ enum CORY_DIALOG_POSITION {
 
 global.cory_dialog_position = CORY_DIALOG_POSITION.INTRO_BREAKER;
 
-global.cory_get_dialog_step = function(
-	text,
-	expression=CORY_EXPRESSION.NEUTRAL,
-) {
+function cory_get_dialog_step(text, expression=CORY_EXPRESSION.NEUTRAL) {
 	return {
 		text,
 		on_step: method({ expression }, function() {

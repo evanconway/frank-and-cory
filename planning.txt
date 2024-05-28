@@ -130,4 +130,4 @@ Added more dialog. I realized I should change the dialog step functions for the 
 
 27th of May, 2024
 
-
+Added more dialog and clickable elements. Will need to formulate more of a plan once we have more assets.
