@@ -32,7 +32,7 @@ original_draw = draw;
 
 draw = function () {
 	if (global.frank_attached_head) return;
-	if (!global.light_switch_on) image_index = 1;
+	if (!global.light_switch_on) image_index = 1; // pointless until we add back head lighting
 	original_draw();
 	frank_draw_expression();
 };
