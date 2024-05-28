@@ -6,20 +6,20 @@
   "bbox_left":0,
   "bbox_right":4799,
   "bbox_top":0,
-  "collisionKind":1,
+  "collisionKind":0,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"9cf1ffaa-052d-48c4-a291-11cbfee8a740","name":"9cf1ffaa-052d-48c4-a291-11cbfee8a740","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"de58e5c0-cefb-466d-b566-f798c9b16848","name":"de58e5c0-cefb-466d-b566-f798c9b16848","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":2700,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"5c394681-4c6b-491d-8453-4782c34bfe30","blendMode":0,"displayName":"default","isLocked":false,"name":"5c394681-4c6b-491d-8453-4782c34bfe30","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"78cd7df6-fe3d-4b12-b4aa-35be57229eaf","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"78cd7df6-fe3d-4b12-b4aa-35be57229eaf","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_desk_lamp_darkness",
   "nineSlice":null,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"9cf1ffaa-052d-48c4-a291-11cbfee8a740","path":"sprites/spr_desk_lamp_darkness/spr_desk_lamp_darkness.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"13e29a3b-9b6a-412e-822b-7dc402338d1c","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"de58e5c0-cefb-466d-b566-f798c9b16848","path":"sprites/spr_desk_lamp_darkness/spr_desk_lamp_darkness.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"29b8125e-7499-4bf0-93da-6093a8f9258a","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

@@ -126,3 +126,8 @@ We finally completed a "play all" button. It will play special empty record soun
 I've been organizing the character dialog better so it can be more easily used in different scenarios. It's time to try and start advancing the story as best as possible to get to the podcast maker (story machine?). 
 
 Added more dialog. I realized I should change the dialog step functions for the characters. Right now I can customize what functions are called on each step. And I use that to set position. But that's silly. We should just have global variables that track the game state and determine the position of dialog boxes automatically. Let's change that next.
+
+
+27th of May, 2024
+
+
