@@ -138,3 +138,16 @@ Added more dialog and clickable elements. Will need to formulate more of a plan 
 It's going to be easier to fix Frank's eyes myself than demanding a whole new set of assets. Since the left and right eyes don't have the same spacing or angle when the head is on the desk vs attached, we'll have to draw the eyes separately. Let's modify our draw expression function to account for the different eyes, add in different values when on the table vs attached, and assess.
 
 I've noticed something important. Certain elements should disappear when they've been disabled. But simply setting them invisible and disabling them doesn't stop them from interacting with the game world. For example, once Frank's head is on his body, the collision mask of his head sprite still affects mousing over things. We'll have to think of a way to fix this.
+
+
+4th of June, 2024
+
+Been very distracted by potential job stuff. Need to get some thoughts down before I lose track of things.
+
+We're definitely going to have the machine descend from the ceiling. So we'll have to rig our object logic we created for draggables to be moveable. Actually, that's not necessarily hard. What's hard is figuring out what position these objects should be in. My first thought is to use a room as a place to hand place things and simply record the positions in a script which creates and moves instances. And by "record" I mean literally take screenshots with my phone then hand copy the position of each object over to a script. Tedious but it would work. But perhaps there's a better way? Maybe this should be our excuse to learn sequences in GameMaker, assuming those would even be helpful to us.
+
+My other thought is to place the objects in a room, along with the artwork, then create code which visits this room, captures the location of everything, then uses it for the script. We'd never visit that room again. It would exist solely to for placing items artistically, then using later.
+
+That idea feels resource wasteful in a sense, but I also kind of like it. It let's me be more creative and we could use this technique in later projects. So how would this work?
+
+On game start, we'd have to run some sort of script that visits the room, grabs the info, then leaves. This might be something I can't think through in a txt file. I'll need to just start hacking through some GameMaker stuff to get more used to how switching rooms works.
