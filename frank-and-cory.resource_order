@@ -30,6 +30,7 @@
     {"name":"obj_memory_chip","order":22,"path":"objects/obj_memory_chip/obj_memory_chip.yy",},
     {"name":"obj_microphone","order":23,"path":"objects/obj_microphone/obj_microphone.yy",},
     {"name":"obj_play_all","order":18,"path":"objects/obj_play_all/obj_play_all.yy",},
+    {"name":"obj_podcast_clickable","order":25,"path":"objects/obj_podcast_clickable/obj_podcast_clickable.yy",},
     {"name":"obj_spider","order":8,"path":"objects/obj_spider/obj_spider.yy",},
     {"name":"obj_stop_all","order":19,"path":"objects/obj_stop_all/obj_stop_all.yy",},
     {"name":"obj_tapereel","order":20,"path":"objects/obj_tapereel/obj_tapereel.yy",},

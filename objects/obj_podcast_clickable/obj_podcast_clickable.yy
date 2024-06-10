@@ -1,19 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_tapereel",
-  "eventList":[
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"obj_podcast_clickable",
+  "eventList":[],
   "managed":true,
-  "name":"obj_tapereel",
+  "name":"obj_podcast_clickable",
   "overriddenProperties":[],
   "parent":{
     "name":"Clickables",
     "path":"folders/Clickables.yy",
   },
   "parentObjectId":{
-    "name":"obj_draggable",
-    "path":"objects/obj_draggable/obj_draggable.yy",
+    "name":"obj_clickable",
+    "path":"objects/obj_clickable/obj_clickable.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -32,10 +30,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_tapereel",
-    "path":"sprites/spr_tapereel/spr_tapereel.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

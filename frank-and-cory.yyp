@@ -49,6 +49,7 @@
     {"id":{"name":"obj_memory_chip","path":"objects/obj_memory_chip/obj_memory_chip.yy",},},
     {"id":{"name":"obj_microphone","path":"objects/obj_microphone/obj_microphone.yy",},},
     {"id":{"name":"obj_play_all","path":"objects/obj_play_all/obj_play_all.yy",},},
+    {"id":{"name":"obj_podcast_clickable","path":"objects/obj_podcast_clickable/obj_podcast_clickable.yy",},},
     {"id":{"name":"obj_spider","path":"objects/obj_spider/obj_spider.yy",},},
     {"id":{"name":"obj_stop_all","path":"objects/obj_stop_all/obj_stop_all.yy",},},
     {"id":{"name":"obj_tapereel","path":"objects/obj_tapereel/obj_tapereel.yy",},},
