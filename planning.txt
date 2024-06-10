@@ -151,3 +151,10 @@ My other thought is to place the objects in a room, along with the artwork, then
 That idea feels resource wasteful in a sense, but I also kind of like it. It let's me be more creative and we could use this technique in later projects. So how would this work?
 
 On game start, we'd have to run some sort of script that visits the room, grabs the info, then leaves. This might be something I can't think through in a txt file. I'll need to just start hacking through some GameMaker stuff to get more used to how switching rooms works.
+
+
+10th of June, 2024
+
+Coming back again. We're definitely going to have the machine slide down from the top. It occured to me we could just place everything in the room we're already using, then make a script which offsets everything. This would avoid the entire need for grabbing element locations from a different room. However regardless of how we get the objects into the room. I'm worried about updating only the clickables which are relevant to the game. Ooh, we could simply add a variable to the clickables of the story maker, and only update the clickables which have this quality. Or perhaps we could make another object type of which all story maker objects are children of, and only update those. I know we can make a special script which updates specific clickables. Let's do it that way.
+
+Ok, let's start by revisiting the clickable objects and making them children of a special object type. Let's hand place some elements in the main room and a special layer. Then let's make a script which updates only those elements. We'll have to do some stuff with the story elements so that they're disabled by default, but enabled during story machine.
