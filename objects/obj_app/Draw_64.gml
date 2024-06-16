@@ -5,7 +5,7 @@ if (keyboard_check_pressed(ord("1"))) {
 
 if (keyboard_check_pressed(ord("2"))) {
 	global.updateable = undefined;
-	room_goto(rm_test_storymaker);
+	room_goto(rm_podcast_machine);
 }
 
 if (keyboard_check_pressed(ord("3"))) {

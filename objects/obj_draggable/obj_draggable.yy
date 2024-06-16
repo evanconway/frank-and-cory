@@ -12,8 +12,8 @@
     "path":"folders/Clickables.yy",
   },
   "parentObjectId":{
-    "name":"obj_podcast_clickable",
-    "path":"objects/obj_podcast_clickable/obj_podcast_clickable.yy",
+    "name":"obj_clickable",
+    "path":"objects/obj_clickable/obj_clickable.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

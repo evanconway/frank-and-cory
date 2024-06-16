@@ -6,6 +6,9 @@ global.draggable_position_map = ds_map_create();
 global.position_draggable_map = ds_map_create();
 
 function draggable_set_position(draggable=noone, position=noone) {
+	// undo current mapping
+	var current_position = ds_map_find_value(global.draggable_position_map, draggable);
+	ds_map_set(global.position_draggable_map, current_position, noone);
 	ds_map_set(global.draggable_position_map, draggable, position);
 	ds_map_set(global.position_draggable_map, position, draggable);
 }

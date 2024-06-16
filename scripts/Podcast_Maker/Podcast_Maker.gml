@@ -1,18 +1,3 @@
-global.podcast_updateable = {
-	update: function() {
-
-	},
-	draw: function() {
-		draw_set_color(c_black);
-		draw_set_alpha(1);
-		draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
-		with (obj_podcast_clickable) {
-			draw();
-		}
-	},
-};
-
-
 /* 
 2D array of columns, then row.
 Each entry is a draggable_position instance correlating with the position in the array

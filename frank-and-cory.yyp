@@ -49,13 +49,12 @@
     {"id":{"name":"obj_memory_chip","path":"objects/obj_memory_chip/obj_memory_chip.yy",},},
     {"id":{"name":"obj_microphone","path":"objects/obj_microphone/obj_microphone.yy",},},
     {"id":{"name":"obj_play_all","path":"objects/obj_play_all/obj_play_all.yy",},},
-    {"id":{"name":"obj_podcast_clickable","path":"objects/obj_podcast_clickable/obj_podcast_clickable.yy",},},
     {"id":{"name":"obj_spider","path":"objects/obj_spider/obj_spider.yy",},},
     {"id":{"name":"obj_stop_all","path":"objects/obj_stop_all/obj_stop_all.yy",},},
     {"id":{"name":"obj_tapereel","path":"objects/obj_tapereel/obj_tapereel.yy",},},
     {"id":{"name":"obj_workshop_cory","path":"objects/obj_workshop_cory/obj_workshop_cory.yy",},},
     {"id":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
-    {"id":{"name":"rm_test_storymaker","path":"rooms/rm_test_storymaker/rm_test_storymaker.yy",},},
+    {"id":{"name":"rm_podcast_machine","path":"rooms/rm_podcast_machine/rm_podcast_machine.yy",},},
     {"id":{"name":"rm_workshop","path":"rooms/rm_workshop/rm_workshop.yy",},},
     {"id":{"name":"Assemble_Frank","path":"scripts/Assemble_Frank/Assemble_Frank.yy",},},
     {"id":{"name":"Clickables","path":"scripts/Clickables/Clickables.yy",},},
@@ -133,7 +132,7 @@
   "RoomOrderNodes":[
     {"roomId":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
     {"roomId":{"name":"rm_workshop","path":"rooms/rm_workshop/rm_workshop.yy",},},
-    {"roomId":{"name":"rm_test_storymaker","path":"rooms/rm_test_storymaker/rm_test_storymaker.yy",},},
+    {"roomId":{"name":"rm_podcast_machine","path":"rooms/rm_podcast_machine/rm_podcast_machine.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
