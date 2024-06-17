@@ -166,3 +166,7 @@ I've confused myself. We need to invoke all the logic for clickables, but only f
 
 Had a good chat with a friend about how to handle updating a different set of clickables for the story machine. It's clear that I should definitely use a different room. But how do we handle all the items being in the correct place when the machine drops? The idea we had was to include a global mapping of items to positions. When drawing the descending machine, we'll use these global positions to determine where everything is (tape reels mostly). And in the second room we'll use these global positions to determine where everything spawns. When we transition from the workshop to the machine, we'll drop the image from above, then in a single frame switch to the actual room. So we'll have a sort of screenshot of the room we use to transition. As we update the position of tape reels and such, we can be comfident the position of items in our descending image will be the same. Now, I'm not sure we'll ever need the position of everything again, so this work may be for nothing. But I'm confident it will work.
 
+
+16th of June, 2024
+
+Let's implement a simple transition. For now we won't worry about the art assets. We'll just do a black-fade from workshop to podcast machine. Once we have a fade transition we'll work on using art, and drawing the location of all tape reels.

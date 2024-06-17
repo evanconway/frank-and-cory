@@ -114,3 +114,32 @@ function podcast_machine_stop_all() {
 	global.podcast_player.stop_all();
 	global.updateable = undefined;
 }
+
+function podcast_machine_transition() {
+	global.updateable = {
+		alpha: 0,
+		step: 0,
+		steps: [
+			function() {
+				alpha += 0.01;
+				if (alpha >= 1) step++;
+			},
+			function() {
+				room_goto(room == rm_podcast_machine ? rm_workshop : rm_podcast_machine);
+				step++;
+			},
+			function() {
+				alpha -= 0.01;
+				if (alpha <= 0) global.updateable = undefined;
+			},
+		],
+		update: function() {
+			steps[step]();
+		},
+		draw: function() {
+			draw_set_alpha(alpha);
+			draw_set_color(c_black);
+			draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
+		}
+	};
+}
