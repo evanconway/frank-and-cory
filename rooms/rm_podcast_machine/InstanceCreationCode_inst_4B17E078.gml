@@ -1,1 +1,1 @@
-test_position = inst_65823A46;
+on_click = podcast_play_test;

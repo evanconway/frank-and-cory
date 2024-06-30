@@ -172,19 +172,40 @@ function podcast_machine_transition() {
 
 global.podcast_test_position = inst_65823A46;
 
+function __podcast_ensure_test_position_exists() {
+	var result = instance_exists(global.podcast_test_position);
+	if (!result) show_debug_message("referencing test position when it doesn't exist!");
+	return result;
+}
+
 global.podcast_test_player = {	
 	get_audio_at_test: function() {
 		var reel = ds_map_find_value(global.position_draggable_map, global.podcast_test_position);
+		if (reel == noone) return snd_emptynoise;
 		var sound = ds_map_find_value(global.map_audio_reel_asset, reel);
 		return sound;
 	},
 	update: function() {
 		if (!audio_is_playing(get_audio_at_test())) {
 			global.updateable = undefined;
+		} else {
+			var reel = ds_map_find_value(global.position_draggable_map, global.podcast_test_position);
+			reel.image_angle -= 3;
 		}
+		update_clickable(obj_stop_test);
 	}
 };
 
 function podcast_play_test() {
-	
+	podcast_maker_setup()
+	if (!__podcast_ensure_test_position_exists()) return;
+	play_sfx(global.podcast_test_player.get_audio_at_test());
+	global.updateable = global.podcast_test_player;
+}
+
+function podcast_stop_test() {
+	podcast_maker_setup();
+	if (!__podcast_ensure_test_position_exists()) return;
+	audio_stop_sound(global.podcast_test_player.get_audio_at_test());
+	global.updateable = undefined;
 }
