@@ -63,18 +63,26 @@ function clickables_update() {
 
 global.clickable_blackout_alpha = 0;
 
+function __clickable_draw(clickable = noone) {
+	with (clickable) {
+		pre_draw();
+		draw();
+		if (global.clickable_hovered == id && !clickable.disabled) {
+			shader_set(sh_hovered);
+			draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, 0, c_white, 1);
+			shader_reset();
+		}
+	}
+}
+
 function clickables_draw() {
 	draw_set_alpha(1);
 	var clickable_ids = __clickables_get_all();
 	array_foreach(array_reverse(clickable_ids), function(clickable_id) {
-		with (clickable_id) {
-			pre_draw();
-			draw();
-			if (global.clickable_hovered == id && !clickable_id.disabled) {
-				shader_set(sh_hovered);
-				draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, 0, c_white, 1);
-				shader_reset();
-			}
-		}
+		if (global.clickable_dragged == clickable_id) return;
+		__clickable_draw(clickable_id);
 	});
+	if (global.clickable_dragged != noone) {
+		__clickable_draw(global.clickable_dragged);
+	}
 }

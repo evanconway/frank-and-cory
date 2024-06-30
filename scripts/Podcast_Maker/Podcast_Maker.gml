@@ -190,7 +190,7 @@ global.podcast_test_player = {
 			global.updateable = undefined;
 		} else {
 			var reel = ds_map_find_value(global.position_draggable_map, global.podcast_test_position);
-			reel.image_angle -= 3;
+			if (reel != noone) reel.image_angle -= 3;
 		}
 		update_clickable(obj_stop_test);
 	}
