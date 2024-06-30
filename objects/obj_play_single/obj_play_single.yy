@@ -8,8 +8,8 @@
   "name":"obj_play_single",
   "overriddenProperties":[],
   "parent":{
-    "name":"Clickables",
-    "path":"folders/Clickables.yy",
+    "name":"podcast_machine",
+    "path":"folders/Clickables/podcast_machine.yy",
   },
   "parentObjectId":{
     "name":"obj_clickable",

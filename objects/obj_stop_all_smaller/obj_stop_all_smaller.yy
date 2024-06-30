@@ -6,8 +6,8 @@
   "name":"obj_stop_all_smaller",
   "overriddenProperties":[],
   "parent":{
-    "name":"Clickables",
-    "path":"folders/Clickables.yy",
+    "name":"podcast_machine",
+    "path":"folders/Clickables/podcast_machine.yy",
   },
   "parentObjectId":{
     "name":"obj_stop_all",

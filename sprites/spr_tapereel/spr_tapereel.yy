@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Sprites",
-    "path":"folders/Sprites.yy",
+    "name":"podcast_machine",
+    "path":"folders/Sprites/podcast_machine.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
