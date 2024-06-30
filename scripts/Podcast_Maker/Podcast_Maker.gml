@@ -12,18 +12,36 @@ global.podcast_tape_slots = [
 global.map_audio_reel_asset = ds_map_create();
 
 function podcast_maker_setup() {
-	ds_map_set(global.map_audio_reel_asset, inst_7AAB43BD, snd_reel_vox_1);
-	ds_map_set(global.map_audio_reel_asset, inst_25994B2C, snd_reel_vox_2);
-	ds_map_set(global.map_audio_reel_asset, inst_1772A928, snd_reel_vox_3);
-	ds_map_set(global.map_audio_reel_asset, inst_5AA3BDBA, snd_reel_vox_4);
-	ds_map_set(global.map_audio_reel_asset, inst_2D775EEB, snd_reel_sfx_1);
-	ds_map_set(global.map_audio_reel_asset, inst_2B424FAD, snd_reel_sfx_2);
-	ds_map_set(global.map_audio_reel_asset, inst_20707053, snd_reel_sfx_3);
-	ds_map_set(global.map_audio_reel_asset, inst_586C1312, snd_reel_sfx_4);
-	ds_map_set(global.map_audio_reel_asset, inst_DBB61CD, snd_reel_score_1);
-	ds_map_set(global.map_audio_reel_asset, inst_C74BBA9, snd_reel_score_2);
-	ds_map_set(global.map_audio_reel_asset, inst_344345C4, snd_reel_score_3);
-	ds_map_set(global.map_audio_reel_asset, inst_49F5CA89, snd_reel_score_4);
+	if (ds_map_size(global.map_audio_reel_asset) > 0) return;
+	
+	var audio_arr = array_shuffle([
+		snd_reel_vox_1,
+		snd_reel_vox_2,
+		snd_reel_vox_3,
+		snd_reel_vox_4,
+		snd_reel_sfx_1,
+		snd_reel_sfx_2,
+		snd_reel_sfx_3,
+		snd_reel_sfx_4,
+		snd_reel_score_1,
+		snd_reel_score_2,
+		snd_reel_score_3,
+		snd_reel_score_4,
+	]);
+	
+	ds_map_set(global.map_audio_reel_asset, inst_7AAB43BD, audio_arr[0]);
+	ds_map_set(global.map_audio_reel_asset, inst_25994B2C, audio_arr[1]);
+	ds_map_set(global.map_audio_reel_asset, inst_1772A928, audio_arr[2]);
+	ds_map_set(global.map_audio_reel_asset, inst_5AA3BDBA, audio_arr[3]);
+	ds_map_set(global.map_audio_reel_asset, inst_2D775EEB, audio_arr[4]);
+	ds_map_set(global.map_audio_reel_asset, inst_2B424FAD, audio_arr[5]);
+	ds_map_set(global.map_audio_reel_asset, inst_20707053, audio_arr[6]);
+	ds_map_set(global.map_audio_reel_asset, inst_586C1312, audio_arr[7]);
+	ds_map_set(global.map_audio_reel_asset, inst_DBB61CD, audio_arr[8]);
+	ds_map_set(global.map_audio_reel_asset, inst_C74BBA9, audio_arr[9]);
+	ds_map_set(global.map_audio_reel_asset, inst_344345C4, audio_arr[10]);
+	ds_map_set(global.map_audio_reel_asset, inst_49F5CA89, audio_arr[11]);
+	show_debug_message("assigned audio assets to reel assets");
 }
 
 /*
