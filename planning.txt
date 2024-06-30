@@ -177,3 +177,7 @@ Let's implement a simple transition. For now we won't worry about the art assets
 Really fell off from this due to getting a job (yay). We need to link together finding the memory chip, to putting frank together, to going to the story machine. Even though we don't have a script for all of the way there yet, I think we can at least get it linked up.
 
 Ah, but let's actually add the individual play/stop buttons in the story machine. We should also add the test area. Yes, that's the better thing to do first since work on the script events will have to be redone once Jude gets us the actual script. 
+
+In the podcast player, I don't remember why we had the logic of locking column_to_play to -1 until playing. It looks like we used the -1 value as a trigger to let update() start the audio playing. But this doesn't work when playing a single column because the column value must be something other than -1. I think we need to trigger the audio play function manually in the play_all() or play_single() functions. And the update() function of the podcast updateable will only serve to ensure columns advance on play all, or stop when it's time to (in single play or all play mode).
+
+

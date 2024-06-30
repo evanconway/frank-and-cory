@@ -50,7 +50,8 @@ to the podcast updateable.
 */
 
 global.podcast_player = {
-	column_to_play: -1,
+	play_individual_column: false, // when set true, the player will stop after playing the current column.
+	column_to_play: 0,
 	get_audio_at_current_column: function() {
 		if (column_to_play < 0) return [snd_emptynoise];
 		var tape_positions = global.podcast_tape_slots[column_to_play];
@@ -98,19 +99,17 @@ global.podcast_player = {
 		}
 		return finished;
 	},
-	update: function() {
-		if (column_to_play == -1) {
-			column_to_play = 0;
-			play_audio_at_current_column();
-		}
-		
+	update: function() {		
 		rotate_reels_at_current_column();
 		
 		if (column_finished()) {
-			column_to_play++;
+			// forces end of play logic to trigger on play_individual_column
+			if (play_individual_column) column_to_play = array_length(global.podcast_tape_slots);
+			else column_to_play++;
+			
 			if (column_to_play >= array_length(global.podcast_tape_slots)) {
 				// playing finished
-				global.podcast_player.column_to_play = -1;
+				play_individual_column = false;
 				global.updateable = undefined;
 			} else {
 				play_audio_at_current_column();
@@ -123,14 +122,23 @@ global.podcast_player = {
 
 function podcast_machine_play_all() {
 	podcast_maker_setup();
-	global.podcast_player.column_to_play = -1;
+	global.podcast_player.column_to_play = 0;
 	global.updateable = global.podcast_player;
+	global.podcast_player.play_audio_at_current_column();
 };
 
 function podcast_machine_stop_all() {
 	podcast_maker_setup();
 	global.podcast_player.stop_all();
 	global.updateable = undefined;
+}
+
+function podcast_machine_play_column(column=0) {
+	podcast_maker_setup();
+	global.podcast_player.play_individual_column = true;
+	global.podcast_player.column_to_play = column;
+	global.updateable = global.podcast_player;
+	global.podcast_player.play_audio_at_current_column();
 }
 
 function podcast_machine_transition() {
