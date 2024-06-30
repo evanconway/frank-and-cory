@@ -170,3 +170,10 @@ Had a good chat with a friend about how to handle updating a different set of cl
 16th of June, 2024
 
 Let's implement a simple transition. For now we won't worry about the art assets. We'll just do a black-fade from workshop to podcast machine. Once we have a fade transition we'll work on using art, and drawing the location of all tape reels.
+
+
+30th of June, 2024
+
+Really fell off from this due to getting a job (yay). We need to link together finding the memory chip, to putting frank together, to going to the story machine. Even though we don't have a script for all of the way there yet, I think we can at least get it linked up.
+
+Ah, but let's actually add the individual play/stop buttons in the story machine. We should also add the test area. Yes, that's the better thing to do first since work on the script events will have to be redone once Jude gets us the actual script. 
