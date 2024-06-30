@@ -169,3 +169,22 @@ function podcast_machine_transition() {
 		}
 	};
 }
+
+global.podcast_test_position = inst_65823A46;
+
+global.podcast_test_player = {	
+	get_audio_at_test: function() {
+		var reel = ds_map_find_value(global.position_draggable_map, global.podcast_test_position);
+		var sound = ds_map_find_value(global.map_audio_reel_asset, reel);
+		return sound;
+	},
+	update: function() {
+		if (!audio_is_playing(get_audio_at_test())) {
+			global.updateable = undefined;
+		}
+	}
+};
+
+function podcast_play_test() {
+	
+}
