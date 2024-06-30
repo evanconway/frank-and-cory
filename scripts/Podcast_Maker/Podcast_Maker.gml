@@ -12,18 +12,18 @@ global.podcast_tape_slots = [
 global.map_audio_reel_asset = ds_map_create();
 
 function podcast_maker_setup() {
-	ds_map_set(global.map_audio_reel_asset, inst_7AAB43BD, snd_reel_1);
-	ds_map_set(global.map_audio_reel_asset, inst_25994B2C, snd_reel_2);
-	ds_map_set(global.map_audio_reel_asset, inst_1772A928, snd_reel_3);
-	ds_map_set(global.map_audio_reel_asset, inst_5AA3BDBA, snd_reel_4);
-	ds_map_set(global.map_audio_reel_asset, inst_2D775EEB, snd_reel_5);
-	ds_map_set(global.map_audio_reel_asset, inst_2B424FAD, snd_reel_6);
-	ds_map_set(global.map_audio_reel_asset, inst_20707053, snd_reel_7);
-	ds_map_set(global.map_audio_reel_asset, inst_586C1312, snd_reel_8);
-	ds_map_set(global.map_audio_reel_asset, inst_DBB61CD, snd_reel_9);
-	ds_map_set(global.map_audio_reel_asset, inst_C74BBA9, snd_reel_10);
-	ds_map_set(global.map_audio_reel_asset, inst_344345C4, snd_reel_11);
-	ds_map_set(global.map_audio_reel_asset, inst_49F5CA89, snd_reel_12);
+	ds_map_set(global.map_audio_reel_asset, inst_7AAB43BD, snd_reel_vox_1);
+	ds_map_set(global.map_audio_reel_asset, inst_25994B2C, snd_reel_vox_2);
+	ds_map_set(global.map_audio_reel_asset, inst_1772A928, snd_reel_vox_3);
+	ds_map_set(global.map_audio_reel_asset, inst_5AA3BDBA, snd_reel_vox_4);
+	ds_map_set(global.map_audio_reel_asset, inst_2D775EEB, snd_reel_sfx_1);
+	ds_map_set(global.map_audio_reel_asset, inst_2B424FAD, snd_reel_sfx_2);
+	ds_map_set(global.map_audio_reel_asset, inst_20707053, snd_reel_sfx_3);
+	ds_map_set(global.map_audio_reel_asset, inst_586C1312, snd_reel_sfx_4);
+	ds_map_set(global.map_audio_reel_asset, inst_DBB61CD, snd_reel_score_1);
+	ds_map_set(global.map_audio_reel_asset, inst_C74BBA9, snd_reel_score_2);
+	ds_map_set(global.map_audio_reel_asset, inst_344345C4, snd_reel_score_3);
+	ds_map_set(global.map_audio_reel_asset, inst_49F5CA89, snd_reel_score_4);
 }
 
 /*

@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_reel_sfx_2",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":21.072458,
+  "name":"snd_reel_sfx_2",
+  "parent":{
+    "name":"reels",
+    "path":"folders/Sounds/reels.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_reel_sfx_2.wav",
+  "type":0,
+  "volume":1.0,
+}

@@ -12,8 +12,8 @@
   "duration":4.0,
   "name":"snd_reel_5",
   "parent":{
-    "name":"reels",
-    "path":"folders/Sounds/reels.yy",
+    "name":"test",
+    "path":"folders/Sounds/reels/test.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
