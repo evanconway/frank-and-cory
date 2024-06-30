@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_stop_column_3",
-    "path":"sprites/spr_stop_column_3/spr_stop_column_3.yy",
+    "name":"spr_stop_column_4",
+    "path":"sprites/spr_stop_column_4/spr_stop_column_4.yy",
   },
   "spriteMaskId":null,
   "visible":true,

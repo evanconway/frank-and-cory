@@ -180,4 +180,4 @@ Ah, but let's actually add the individual play/stop buttons in the story machine
 
 In the podcast player, I don't remember why we had the logic of locking column_to_play to -1 until playing. It looks like we used the -1 value as a trigger to let update() start the audio playing. But this doesn't work when playing a single column because the column value must be something other than -1. I think we need to trigger the audio play function manually in the play_all() or play_single() functions. And the update() function of the podcast updateable will only serve to ensure columns advance on play all, or stop when it's time to (in single play or all play mode).
 
-
+That appears to be working now. Let's add the testing area.
