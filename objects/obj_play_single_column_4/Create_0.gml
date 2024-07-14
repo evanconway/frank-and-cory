@@ -1,2 +1,2 @@
 event_inherited();
-column = 4;
+column = 3;
