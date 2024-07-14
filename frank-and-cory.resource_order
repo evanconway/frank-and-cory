@@ -101,6 +101,7 @@
     {"name":"spr_camera","order":15,"path":"sprites/spr_camera/spr_camera.yy",},
     {"name":"spr_chips","order":12,"path":"sprites/spr_chips/spr_chips.yy",},
     {"name":"spr_cory_flying","order":5,"path":"sprites/spr_cory_flying/spr_cory_flying.yy",},
+    {"name":"spr_cory_other_expressions","order":31,"path":"sprites/spr_cory_other_expressions/spr_cory_other_expressions.yy",},
     {"name":"spr_desk_lamp_darkness","order":25,"path":"sprites/spr_desk_lamp_darkness/spr_desk_lamp_darkness.yy",},
     {"name":"spr_desk_lamp_light","order":14,"path":"sprites/spr_desk_lamp_light/spr_desk_lamp_light.yy",},
     {"name":"spr_desk_lamp","order":8,"path":"sprites/spr_desk_lamp/spr_desk_lamp.yy",},

@@ -125,6 +125,7 @@
     {"id":{"name":"spr_camera","path":"sprites/spr_camera/spr_camera.yy",},},
     {"id":{"name":"spr_chips","path":"sprites/spr_chips/spr_chips.yy",},},
     {"id":{"name":"spr_cory_flying","path":"sprites/spr_cory_flying/spr_cory_flying.yy",},},
+    {"id":{"name":"spr_cory_other_expressions","path":"sprites/spr_cory_other_expressions/spr_cory_other_expressions.yy",},},
     {"id":{"name":"spr_desk_lamp_darkness","path":"sprites/spr_desk_lamp_darkness/spr_desk_lamp_darkness.yy",},},
     {"id":{"name":"spr_desk_lamp_light","path":"sprites/spr_desk_lamp_light/spr_desk_lamp_light.yy",},},
     {"id":{"name":"spr_desk_lamp","path":"sprites/spr_desk_lamp/spr_desk_lamp.yy",},},
