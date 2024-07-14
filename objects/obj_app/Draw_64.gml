@@ -20,3 +20,10 @@ if (updateable != undefined) {
 	clickables_update();
 	clickables_draw();
 }
+
+draw_set_alpha(1);
+window_set_cursor(cr_default);
+if (global.chip_cursor) {
+	window_set_cursor(cr_none);
+	draw_sprite(spr_chips_cursor, 0, mouse_x, mouse_y);
+}

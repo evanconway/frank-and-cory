@@ -1,7 +1,9 @@
 {
   "$GMObject":"",
   "%Name":"obj_chips",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"obj_chips",
   "overriddenProperties":[],
@@ -31,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_chips",
-    "path":"sprites/spr_chips/spr_chips.yy",
+    "name":"spr_chips_can",
+    "path":"sprites/spr_chips_can/spr_chips_can.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -32,6 +32,7 @@ on_click = function() {
 		global.updateable = dialog_get_updateable([
 			cory_get_dialog_step("It's out of film now.", CORY_EXPRESSION.SALUTE),
 		]);
+		disabled = true;
 		return;
 	}
 	photos_taken += 1;
