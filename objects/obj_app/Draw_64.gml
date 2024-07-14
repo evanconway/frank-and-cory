@@ -27,3 +27,7 @@ if (global.chip_cursor) {
 	window_set_cursor(cr_none);
 	draw_sprite(spr_chips_cursor, 0, mouse_x, mouse_y);
 }
+if (global.key_cursor) {
+	window_set_cursor(cr_none);
+	draw_sprite(spr_key, 0, mouse_x, mouse_y);
+}

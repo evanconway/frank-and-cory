@@ -2,8 +2,6 @@ event_inherited();
 
 chips_eaten = 0;
 
-global.chip_taken = false;
-
 set_chips_dialog = function() {
 	if (chips_eaten == 1) {
 		global.updateable = dialog_get_updateable([
