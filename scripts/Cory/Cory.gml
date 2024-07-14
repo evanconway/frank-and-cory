@@ -1,13 +1,11 @@
 enum CORY_EXPRESSION {
-	BLANK,
 	NEUTRAL,
-	HAPPY,
-	RIGHT,
-	UP,
-	UNAMUSED,
-	DOWNLEFT,
-	LEFT
+	TAP,
+	SALUTE,
+	BOTH_WINGS,
 }
+
+global.cory_expression = FRANK_EXPRESSION.BLANK;
 
 global.cory_set_dialog_position = function() {
 	global.dialog_position_x = 3100;
@@ -38,8 +36,19 @@ function cory_get_dialog_step(text, expression=CORY_EXPRESSION.NEUTRAL) {
 				global.dialog_position_x = 1270;
 				global.dialog_position_y = 1080;
 			}
-			// global.cory_expression = expression; // we don't have cory expressions yet
+			global.cory_expression = expression; // we don't have cory expressions yet
 		}),
 		default_effects: "f:fnt_ally t:80,2 cp:,,420 cp:;,420 cp:.,520 cp:!,520 cp:?,520",
 	}
 };
+
+function cory_set_expression() {
+	if (global.updateable == undefined) {
+		global.cory_expression = CORY_EXPRESSION.NEUTRAL;
+	}
+	if (!instance_exists(obj_workshop_cory)) return;
+	if (global.cory_expression == CORY_EXPRESSION.NEUTRAL) obj_workshop_cory.image_index = 0;
+	if (global.cory_expression == CORY_EXPRESSION.TAP) obj_workshop_cory.image_index = 1;
+	if (global.cory_expression == CORY_EXPRESSION.SALUTE) obj_workshop_cory.image_index = 2;
+	if (global.cory_expression == CORY_EXPRESSION.BOTH_WINGS) obj_workshop_cory.image_index = 3;
+}

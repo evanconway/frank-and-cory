@@ -186,3 +186,7 @@ That appears to be working now. Let's add the testing area.
 14th of July, 2024
 
 Working on this again. I just ran into an issue with my text system. I can't use arrows. That' kind of funny I forgot to handle that. We'll just work around it for now.
+
+The way I did cory's sprites is wrong. He has flying sprites and position sprites mixed in with expression. Let's redo how we display him at a different location, so it's a sprite offset instead, and reimport all expressions again.
+
+Just realized Cory's "tap" sprite could be used as an expression. It looks like he's looking down to examine something.
