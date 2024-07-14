@@ -2,6 +2,8 @@ event_inherited();
 
 chips_eaten = 0;
 
+global.chip_taken = false;
+
 set_chips_dialog = function() {
 	if (chips_eaten == 1) {
 		global.updateable = dialog_get_updateable([
@@ -27,6 +29,8 @@ set_chips_dialog = function() {
 			after_dialog_updateable: {
 				update: function() {
 					global.chip_cursor = true;
+					global.chip_taken = true;
+					obj_chips.image_index = 1;
 					global.updateable = undefined;
 				}
 			}
@@ -58,4 +62,10 @@ on_click = function() {
 			if (time >= 45) set_chips_dialog();
 		},
 	}
+};
+
+draw = function() {
+	if (global.chip_taken) image_index = 1;
+	if (visible) draw_self();
+	visible = true;
 };
