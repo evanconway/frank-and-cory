@@ -159,6 +159,7 @@
     {"id":{"name":"spr_play_single_4","path":"sprites/spr_play_single_4/spr_play_single_4.yy",},},
     {"id":{"name":"spr_play_single","path":"sprites/spr_play_single/spr_play_single.yy",},},
     {"id":{"name":"spr_podcast_machine","path":"sprites/spr_podcast_machine/spr_podcast_machine.yy",},},
+    {"id":{"name":"spr_shelf_hole","path":"sprites/spr_shelf_hole/spr_shelf_hole.yy",},},
     {"id":{"name":"spr_spider","path":"sprites/spr_spider/spr_spider.yy",},},
     {"id":{"name":"spr_stop_all","path":"sprites/spr_stop_all/spr_stop_all.yy",},},
     {"id":{"name":"spr_stop_column_1","path":"sprites/spr_stop_column_1/spr_stop_column_1.yy",},},
