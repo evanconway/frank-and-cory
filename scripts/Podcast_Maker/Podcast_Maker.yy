@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"Podcast_Maker",
   "isCompatibility":false,
   "isDnD":false,

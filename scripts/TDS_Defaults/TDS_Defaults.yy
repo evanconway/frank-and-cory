@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"TDS_Defaults",
   "isCompatibility":false,
   "isDnD":false,
