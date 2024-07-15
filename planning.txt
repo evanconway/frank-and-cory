@@ -190,3 +190,8 @@ Working on this again. I just ran into an issue with my text system. I can't use
 The way I did cory's sprites is wrong. He has flying sprites and position sprites mixed in with expression. Let's redo how we display him at a different location, so it's a sprite offset instead, and reimport all expressions again.
 
 Just realized Cory's "tap" sprite could be used as an expression. It looks like he's looking down to examine something.
+
+
+15th of July, 2024
+
+Remember to put numbers on the reels. 
