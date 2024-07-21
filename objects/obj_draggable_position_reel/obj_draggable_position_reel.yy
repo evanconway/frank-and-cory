@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_tapereel",
-    "path":"sprites/spr_tapereel/spr_tapereel.yy",
+    "name":"spr_tapereel_position",
+    "path":"sprites/spr_tapereel_position/spr_tapereel_position.yy",
   },
   "spriteMaskId":null,
   "visible":true,

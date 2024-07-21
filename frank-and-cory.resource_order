@@ -156,9 +156,9 @@
     {"name":"spr_stop_column_4","order":13,"path":"sprites/spr_stop_column_4/spr_stop_column_4.yy",},
     {"name":"spr_stop_single","order":4,"path":"sprites/spr_stop_single/spr_stop_single.yy",},
     {"name":"spr_styleable_text_sprite_default","order":1,"path":"sprites/spr_styleable_text_sprite_default/spr_styleable_text_sprite_default.yy",},
+    {"name":"spr_tapereel_position","order":15,"path":"sprites/spr_tapereel_position/spr_tapereel_position.yy",},
     {"name":"spr_tapereel","order":2,"path":"sprites/spr_tapereel/spr_tapereel.yy",},
     {"name":"spr_workshop_cory","order":4,"path":"sprites/spr_workshop_cory/spr_workshop_cory.yy",},
     {"name":"spr_workshop_nolight","order":2,"path":"sprites/spr_workshop_nolight/spr_workshop_nolight.yy",},
-    {"name":"Sprite37","order":5,"path":"sprites/Sprite37/Sprite37.yy",},
   ],
 }
