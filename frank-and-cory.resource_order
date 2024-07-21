@@ -18,6 +18,7 @@
     {"name":"obj_camera","order":12,"path":"objects/obj_camera/obj_camera.yy",},
     {"name":"obj_chips","order":10,"path":"objects/obj_chips/obj_chips.yy",},
     {"name":"obj_desk_lamp","order":9,"path":"objects/obj_desk_lamp/obj_desk_lamp.yy",},
+    {"name":"obj_draggable_position_reel","order":14,"path":"objects/obj_draggable_position_reel/obj_draggable_position_reel.yy",},
     {"name":"obj_draggable_position","order":14,"path":"objects/obj_draggable_position/obj_draggable_position.yy",},
     {"name":"obj_draggable_test","order":17,"path":"objects/obj_draggable_test/obj_draggable_test.yy",},
     {"name":"obj_draggable","order":16,"path":"objects/obj_draggable/obj_draggable.yy",},

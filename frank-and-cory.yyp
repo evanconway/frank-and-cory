@@ -25,7 +25,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.6.1.160",
+    "IDEVersion":"2024.6.2.162",
   },
   "name":"frank-and-cory",
   "resources":[
@@ -37,6 +37,7 @@
     {"id":{"name":"obj_chips","path":"objects/obj_chips/obj_chips.yy",},},
     {"id":{"name":"obj_clickable","path":"objects/obj_clickable/obj_clickable.yy",},},
     {"id":{"name":"obj_desk_lamp","path":"objects/obj_desk_lamp/obj_desk_lamp.yy",},},
+    {"id":{"name":"obj_draggable_position_reel","path":"objects/obj_draggable_position_reel/obj_draggable_position_reel.yy",},},
     {"id":{"name":"obj_draggable_position","path":"objects/obj_draggable_position/obj_draggable_position.yy",},},
     {"id":{"name":"obj_draggable_test","path":"objects/obj_draggable_test/obj_draggable_test.yy",},},
     {"id":{"name":"obj_draggable","path":"objects/obj_draggable/obj_draggable.yy",},},
