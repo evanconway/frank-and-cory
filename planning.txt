@@ -200,3 +200,9 @@ Remember to put numbers on the reels.
 21st of July, 2024
 
 So, we need to see if we can puzzle out how to handle reels changing sprite when getting picked up, and placed on specific positions. On the rack, we should see the half circle of the reels. Everywhere else they should be full reels. I'm wondering if there's a way to inform the draggable to change it's sprite when it's on specific positions.
+
+I think it's going to be too annoying to try and make the position affect the draggable. So I'm guessing we can make the reel objects draw different sprites for themselves if they're in a slot position. I'm not sure how this affects collision detection with the mouse though.
+
+Hmmm... the slot sprites are already perfectly positioned if we draw at 0,0. I wonder if we could make the regular object invisible instead? And just draw the slot sprite.
+
+Perhaps we should focus on making sure our old logic links up correctly first. Right now everything is completely broken again since we removed the old instances.

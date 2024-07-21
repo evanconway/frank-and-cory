@@ -3,10 +3,10 @@
 Each entry is a draggable_position instance correlating with the position in the array
 */
 global.podcast_tape_slots = [
-	[inst_47A5ECE1, inst_441D2DF8, inst_184B9ABB],
-	[inst_DA9FA42, inst_D29D9CA, inst_7A60690D],
-	[inst_46120EEE, inst_284C1728, inst_E709F0E],
-	[inst_32549BBF, inst_2766369, inst_5C163404]
+	[inst_316D019, inst_539A57D8, inst_5E6A593],
+	[inst_BEF507, inst_3A9D56AE, inst_51AF4FDE],
+	[inst_2D0E8C1F, inst_22FEC13C, inst_3183B74B],
+	[inst_4D144C3, inst_1202BE7A, inst_4633AB96]
 ];
 
 global.map_audio_reel_asset = ds_map_create();
@@ -170,7 +170,7 @@ function podcast_machine_transition() {
 	};
 }
 
-global.podcast_test_position = inst_65823A46;
+global.podcast_test_position = inst_14DD30FB;
 
 function __podcast_ensure_test_position_exists() {
 	var result = instance_exists(global.podcast_test_position);
