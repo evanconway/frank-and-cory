@@ -206,3 +206,9 @@ I think it's going to be too annoying to try and make the position affect the dr
 Hmmm... the slot sprites are already perfectly positioned if we draw at 0,0. I wonder if we could make the regular object invisible instead? And just draw the slot sprite.
 
 Perhaps we should focus on making sure our old logic links up correctly first. Right now everything is completely broken again since we removed the old instances.
+
+I'm pretty confident we need to use slot cutouts to hide part of the reels instead of using partial images of the reels. The major reason is eventually we're going to draw text on top of the reels, and it's going to be too tricky to draw the same text on all the different sprite versions. Also, I think we're going to have too hard a time separating our mouse click detection logic from the sprites themselves. We'd have to redo how we handle clicks.
+
+So the tricky thing here will be to draw the cutouts in the correct order relative to the clickables.
+
+Ok, it looks like, given our current logic, we call the clickable update script before we draw. This means we can override the update function in the reel draggables to automatically set their depth based on their current position. I believe we could even use snapped position.

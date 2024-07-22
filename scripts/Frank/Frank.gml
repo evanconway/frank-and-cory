@@ -11,14 +11,20 @@ enum FRANK_EXPRESSION {
 
 global.frank_expression = FRANK_EXPRESSION.BLANK;
 
+global.frank_sounds = [
+	snd_frank_chirp_1,
+	snd_frank_chirp_2,
+	snd_frank_chirp_3,
+	snd_frank_chirp_4,
+];
+
 global.frank_speaks = function() {
-	// exclude chirp_0 ? sounds kinda bad...
-	var sounds = [snd_frank_chirp_1, snd_frank_chirp_2, snd_frank_chirp_3, snd_frank_chirp_4];
-	//audio_stop_sound(snd_frank_chirp_0);
-	audio_stop_sound(snd_frank_chirp_1);
-	audio_stop_sound(snd_frank_chirp_2);
-	audio_stop_sound(snd_frank_chirp_3);
-	audio_stop_sound(snd_frank_chirp_4);
+	var sounds = global.frank_sounds;
+	
+	for (var i = 0; i < array_length(sounds); i++) {
+		audio_stop_sound(sounds[i]);
+	}
+
 	var snd_id = play_sfx(sounds[irandom_range(0, array_length(sounds) - 1)], 1, random_range(0.6, 1));
 	audio_sound_gain(snd_id, 0, 120);
 }

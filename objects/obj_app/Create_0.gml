@@ -4,6 +4,6 @@ global.chip_cursor = false;
 global.key_cursor = false;
 
 set_tds_defaults()
-//start_intro();
+start_intro();
 
-room_goto(rm_podcast_machine);
+room_goto(rm_workshop);
