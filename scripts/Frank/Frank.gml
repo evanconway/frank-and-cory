@@ -12,10 +12,17 @@ enum FRANK_EXPRESSION {
 global.frank_expression = FRANK_EXPRESSION.BLANK;
 
 global.frank_sounds = [
-	snd_frank_chirp_1,
-	snd_frank_chirp_2,
-	snd_frank_chirp_3,
-	snd_frank_chirp_4,
+	snd_jude_frank_chirp_1,
+	snd_jude_frank_chirp_2,
+	snd_jude_frank_chirp_3,
+	snd_jude_frank_chirp_4,
+	snd_jude_frank_chirp_5,
+	snd_jude_frank_chirp_6,
+	snd_jude_frank_chirp_7,
+	snd_jude_frank_chirp_8,
+	snd_jude_frank_chirp_9,
+	snd_jude_frank_chirp_10,
+	snd_jude_frank_chirp_11,
 ];
 
 global.frank_speaks = function() {
@@ -25,8 +32,8 @@ global.frank_speaks = function() {
 		audio_stop_sound(sounds[i]);
 	}
 
-	var snd_id = play_sfx(sounds[irandom_range(0, array_length(sounds) - 1)], 1, random_range(0.6, 1));
-	audio_sound_gain(snd_id, 0, 120);
+	var snd_id = play_sfx(sounds[irandom_range(0, array_length(sounds) - 1)], 1, random_range(1.2, 1.6));
+	//audio_sound_gain(snd_id, 0, 120);
 }
 
 enum FRANK_DIALOG_POSITION {

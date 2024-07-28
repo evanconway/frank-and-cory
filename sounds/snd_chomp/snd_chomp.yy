@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"snd_jude_frank_chirp_7",
+  "%Name":"snd_chomp",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,17 +9,17 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.162245,
-  "name":"snd_jude_frank_chirp_7",
+  "duration":0.3872,
+  "name":"snd_chomp",
   "parent":{
-    "name":"Frank",
-    "path":"folders/Sounds/Jude/Frank.yy",
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_jude_frank_chirp_7.wav",
+  "soundFile":"snd_chomp.mp3",
   "type":0,
   "volume":1.0,
 }
