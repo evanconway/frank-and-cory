@@ -184,11 +184,55 @@ function start_intro() {
 
 	var brief_pause = {
 		oh_no_my_body_dialog,
+		flicker_time: 5,
+		alpha: 0,
 		time: 0,
+		step: 0,
+		steps: [
+			function () {
+				alpha = 0;
+				if (time >= flicker_time) {
+					step++;
+					time = 0;
+				}
+			},
+			function () {
+				alpha = 0.5;
+				if (time >= flicker_time) {
+					step++;
+					time = 0;
+				}
+			},
+			function () {
+				alpha = 0;
+				if (time >= flicker_time) {
+					step++;
+					time = 0;
+				}
+			},
+			function () {
+				alpha = 0.5;
+				if (time >= flicker_time) {
+					step++;
+					time = 0;
+				}
+			},
+			function () {
+				alpha = 0;
+				if (time >= 90) {
+					global.updateable = oh_no_my_body_dialog;
+				}
+			}
+		],
 		update: function() {
 			time += 1;
-			if (time > 60) global.updateable = oh_no_my_body_dialog;
+			steps[step]();
 		},
+		draw: function() {
+			draw_set_color(c_black);
+			draw_set_alpha(alpha);
+			draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
+		}
 	}
 
 	// this feels hacky, review later
@@ -212,7 +256,9 @@ function start_intro() {
 						return;
 					}
 					global.light_switch_on = true;
-					play_sfx(snd_button, 1, 1.2);
+					// play_sfx(snd_button, 1, 1.2);
+					play_sfx(snd_jude_breaker_switch);
+					play_sfx(snd_jude_light_flicker);
 					global.updateable = other.brief_pause;
 					var lay_id = layer_get_id("Background");
 					var back_id = layer_background_get_id(lay_id);
@@ -221,7 +267,7 @@ function start_intro() {
 			}
 			if (!breaker_clicked) with (obj_clickable) {
 				if (position_meeting(mouse_x, mouse_y, id) && mouse_check_button_pressed(mb_any)) {
-					global.updateable = dialog_get_updateable(["I don't think that's right."], {
+					global.updateable = dialog_get_updateable([cory_get_dialog_step("I don't think that's right.", CORY_EXPRESSION.NEUTRAL)], {
 						after_dialog_updateable: global.find_breaker_mini_game,
 						pre_dialog_draw: function() {
 							darkness();

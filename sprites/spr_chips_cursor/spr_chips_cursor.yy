@@ -2,7 +2,7 @@
   "$GMSprite":"",
   "%Name":"spr_chips_cursor",
   "bboxMode":0,
-  "bbox_bottom":217,
+  "bbox_bottom":181,
   "bbox_left":0,
   "bbox_right":412,
   "bbox_top":0,
