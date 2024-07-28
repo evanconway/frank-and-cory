@@ -67,7 +67,6 @@
     {"name":"obj_stop_test","order":2,"path":"objects/obj_stop_test/obj_stop_test.yy",},
     {"name":"obj_tapereel","order":3,"path":"objects/obj_tapereel/obj_tapereel.yy",},
     {"name":"obj_workshop_cory","order":6,"path":"objects/obj_workshop_cory/obj_workshop_cory.yy",},
-    {"name":"Object54","order":34,"path":"objects/Object54/Object54.yy",},
     {"name":"rm_init","order":10,"path":"rooms/rm_init/rm_init.yy",},
     {"name":"rm_podcast_machine","order":32,"path":"rooms/rm_podcast_machine/rm_podcast_machine.yy",},
     {"name":"rm_workshop","order":8,"path":"rooms/rm_workshop/rm_workshop.yy",},

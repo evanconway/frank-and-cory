@@ -24,13 +24,6 @@ function __clickables_get_all() {
 	return clickable_ids;
 }
 
-function __draggables_update() {
-	if (global.clickable_dragged == noone) return;
-	with (obj_draggable) {
-		draggable_update();
-	}
-}
-
 function update_clickable(clickable_id) {
 	with (clickable_id) {
 		if (global.clickable_hovered == noone) {
@@ -50,15 +43,14 @@ function clickables_update() {
 	being dragged.
 	*/
 	
-	if (global.clickable_dragged != noone) {
-		__draggables_update();
-		return;
+	if (global.clickable_dragged == noone) {
+		var clickable_ids = __clickables_get_all();
+		array_foreach(clickable_ids, update_clickable);
 	}
 	
-	var clickable_ids = __clickables_get_all();
-	array_foreach(clickable_ids, update_clickable);
-	
-	__draggables_update();
+	with (obj_draggable) {
+		draggable_update();
+	}
 }
 
 global.clickable_blackout_alpha = 0;

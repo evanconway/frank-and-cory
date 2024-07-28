@@ -16,7 +16,7 @@ draggable_update = function() {
 		*/
 		
 		var draggable_here = ds_map_find_value(global.position_draggable_map, id);
-		if (draggable_here == noone && point_distance(x, y, mouse_x, mouse_y) < 50) {
+		if (draggable_here == noone && point_distance(x, y, mouse_x, mouse_y) < 70) {
 			other.position_snapped = id;
 		}
 	}

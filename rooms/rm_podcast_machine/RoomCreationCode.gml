@@ -1,3 +1,5 @@
+podcast_maker_setup();
+
 var calc_depth = 0;
 
 // slot cover depths
