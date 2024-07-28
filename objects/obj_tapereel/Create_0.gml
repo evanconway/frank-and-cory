@@ -4,7 +4,7 @@ original_update = draggable_update;
 
 set_depth_for_position = function(position=noone) {
 	if (position == noone) {
-		depth = 1;
+		depth = 0;
 		return;
 	}
 	depth = position.depth;
