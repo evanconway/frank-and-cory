@@ -212,3 +212,7 @@ I'm pretty confident we need to use slot cutouts to hide part of the reels inste
 So the tricky thing here will be to draw the cutouts in the correct order relative to the clickables.
 
 Ok, it looks like, given our current logic, we call the clickable update script before we draw. This means we can override the update function in the reel draggables to automatically set their depth based on their current position. I believe we could even use snapped position.
+
+28th of July, 2024
+
+We're going to implement the slot depth logic today. Already made a mistake. I assigned depths to the positions themselves. But we need depths for the slot covers as well. Actually, I think we can assign a depth to both the position and the slot cover, make the position instance invisible, and simply set the assigned reel to the same depth as the position object.

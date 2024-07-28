@@ -1,3 +1,106 @@
+var calc_depth = 0;
+
+// slot cover depths
+with (inst_3CB6C9A5) {
+	depth = calc_depth;
+}
+calc_depth += 2;
+with (inst_477672D0) {
+	depth = calc_depth;
+}
+calc_depth += 2;
+with (inst_70F895D8) {
+	depth = calc_depth;
+}
+calc_depth += 2;
+with (inst_2690E572) {
+	depth = calc_depth;
+}
+calc_depth += 2;
+with (inst_37171C3E) {
+	depth = calc_depth;
+}
+calc_depth += 2;
+with (inst_5743D52E) {
+	depth = calc_depth;
+}
+calc_depth += 2;
+with (inst_431FDB1A) {
+	depth = calc_depth;
+}
+calc_depth += 2;
+with (inst_5208B87C) {
+	depth = calc_depth;
+}
+calc_depth += 2;
+with (inst_CA8BF0E) {
+	depth = calc_depth;
+}
+calc_depth += 2;
+with (inst_A13D79C) {
+	depth = calc_depth;
+}
+calc_depth += 2;
+with (inst_4D3CE6D6) {
+	depth = calc_depth;
+}
+calc_depth += 2;
+with (inst_1DB30491) {
+	depth = calc_depth;
+}
+
+calc_depth = -100000;
+
+// slot position depths
+with (inst_483E17DC) {
+	depth = calc_depth;
+}
+calc_depth += 2;
+with (inst_39A52F5D) {
+	depth = calc_depth;
+}
+calc_depth += 2;
+with (inst_4BA96E74) {
+	depth = calc_depth;
+}
+calc_depth += 2;
+with (inst_74E55344) {
+	depth = calc_depth;
+}
+calc_depth += 2;
+with (inst_2CFDA4DC) {
+	depth = calc_depth;
+}
+calc_depth += 2;
+with (inst_3362F9A) {
+	depth = calc_depth;
+}
+calc_depth += 2;
+with (inst_7E344818) {
+	depth = calc_depth;
+}
+calc_depth += 2;
+with (inst_2ECED215) {
+	depth = calc_depth;
+}
+calc_depth += 2;
+with (inst_613DFC56) {
+	depth = calc_depth;
+}
+calc_depth += 2;
+with (inst_4848D04A) {
+	depth = calc_depth;
+}
+calc_depth += 2;
+with (inst_1C2B79B) {
+	depth = calc_depth;
+}
+calc_depth += 2;
+with (inst_79C6C881) {
+	depth = calc_depth;
+}
+
+// reels
 with (inst_7AAB43BD) {
 	reel_id = 0;
 	draggable_set_position(id, inst_79C6C881);
