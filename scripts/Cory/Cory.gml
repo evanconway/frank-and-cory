@@ -43,8 +43,8 @@ global.cory_speaks = function() {
 		audio_stop_sound(sounds[i]);
 	}
 
-	var snd_id = play_sfx(sounds[irandom_range(0, array_length(sounds) - 1)], 0.8, random_range(1.2, 1.5));
-	audio_sound_gain(snd_id, 0, 90);
+	var snd_id = play_sfx(sounds[irandom_range(0, array_length(sounds) - 1)], 0.7, random_range(1.2, 1.5));
+	audio_sound_gain(snd_id, 0, 60);
 }
 
 function cory_get_dialog_step(text, expression=CORY_EXPRESSION.NEUTRAL) {
@@ -62,7 +62,7 @@ function cory_get_dialog_step(text, expression=CORY_EXPRESSION.NEUTRAL) {
 			global.cory_expression = expression; // we don't have cory expressions yet
 		}),
 		on_type: global.cory_speaks,
-		default_effects: "f:fnt_ally t:80,2 cp:,,420 cp:;,420 cp:.,520 cp:!,520 cp:?,520",
+		default_effects: "f:fnt_ally t:100,2.5 cp:,,420 cp:;,420 cp:.,520 cp:!,520 cp:?,520",
 	}
 };
 
