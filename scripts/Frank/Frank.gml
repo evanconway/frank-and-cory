@@ -33,7 +33,6 @@ global.frank_speaks = function() {
 	}
 
 	var snd_id = play_sfx(sounds[irandom_range(0, array_length(sounds) - 1)], 1, random_range(1.2, 1.6));
-	//audio_sound_gain(snd_id, 0, 120);
 }
 
 enum FRANK_DIALOG_POSITION {

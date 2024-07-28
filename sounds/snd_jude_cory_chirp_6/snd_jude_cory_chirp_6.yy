@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_jude_cory_chirp_6",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":0.155261,
+  "name":"snd_jude_cory_chirp_6",
+  "parent":{
+    "name":"Cory",
+    "path":"folders/Sounds/Jude/Cory.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_jude_cory_chirp_6.wav",
+  "type":0,
+  "volume":1.0,
+}

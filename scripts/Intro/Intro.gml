@@ -75,7 +75,7 @@ function start_intro() {
 		frank_get_dialog_step("What's a memory?", FRANK_EXPRESSION.UP),
 		cory_get_dialog_step("Hah. Good one.", CORY_EXPRESSION.SALUTE),
 		frank_get_dialog_step("Good what?", FRANK_EXPRESSION.RIGHT),
-		cory_get_dialog_step("Oh. You're being serious. Never mind.", CORY_EXPRESSION.NEUTRAL),
+		cory_get_dialog_step("Oh. You're being serious. Never mind.", CORY_EXPRESSION.TILT),
 	],{
 		after_dialog_updateable: cory_flys_back_to_perch
 	});
@@ -177,7 +177,7 @@ function start_intro() {
 		cory_get_dialog_step("You're going to be okay. Just in a little shock is all.", CORY_EXPRESSION.NEUTRAL),
 		cory_get_dialog_step("Heh. Get it?", CORY_EXPRESSION.SALUTE),
 		frank_get_dialog_step("I don't.", FRANK_EXPRESSION.UNAMUSED),
-		cory_get_dialog_step("Do you remember anything before the outage?", CORY_EXPRESSION.NEUTRAL),
+		cory_get_dialog_step("Do you remember anything before the outage?", CORY_EXPRESSION.TILT),
 		frank_get_dialog_step("I don't even know who you are.", FRANK_EXPRESSION.RIGHT),
 		cory_get_dialog_step("Huh?", CORY_EXPRESSION.BOTH_WINGS),
 	], { after_dialog_updateable: cory_flys_to_head });
@@ -247,7 +247,7 @@ function start_intro() {
 
 	var find_breaker_dialog = dialog_get_updateable([
 		frank_get_dialog_step("Who is... Frank?", FRANK_EXPRESSION.BLANK),
-		cory_get_dialog_step("Geez, that power outage must have really knocked you out good.", CORY_EXPRESSION.NEUTRAL),
+		cory_get_dialog_step("Geez, that power outage must have really knocked you out good.", CORY_EXPRESSION.TILT),
 		frank_get_dialog_step("Why can't I feel my arms?", FRANK_EXPRESSION.UP),
 		cory_get_dialog_step("One sec, I'm looking for the breaker box.", CORY_EXPRESSION.NEUTRAL),
 	], { after_dialog_updateable: global.find_breaker_mini_game, pre_dialog_draw: darkness });
