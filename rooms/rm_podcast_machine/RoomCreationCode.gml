@@ -1,57 +1,62 @@
 podcast_maker_setup();
 
+/*
+For all instances, we assign from visually bottom to top. That's because a higher depth
+appears further in the background. This we we can start at 0 for slots and reel positions.
+*/
+
 var calc_depth = 0;
 
 // slot cover depths
-with (inst_3CB6C9A5) {
+with (inst_slot_1) {
 	depth = calc_depth;
 }
 calc_depth += 2;
-with (inst_477672D0) {
+with (inst_slot_2) {
 	depth = calc_depth;
 }
 calc_depth += 2;
-with (inst_70F895D8) {
+with (inst_slot_3) {
 	depth = calc_depth;
 }
 calc_depth += 2;
-with (inst_2690E572) {
+with (inst_slot_4) {
 	depth = calc_depth;
 }
 calc_depth += 2;
-with (inst_37171C3E) {
+with (inst_slot_5) {
 	depth = calc_depth;
 }
 calc_depth += 2;
-with (inst_5743D52E) {
+with (inst_slot_6) {
 	depth = calc_depth;
 }
 calc_depth += 2;
-with (inst_431FDB1A) {
+with (inst_slot_7) {
 	depth = calc_depth;
 }
 calc_depth += 2;
-with (inst_5208B87C) {
+with (inst_slot_8) {
 	depth = calc_depth;
 }
 calc_depth += 2;
-with (inst_CA8BF0E) {
+with (inst_slot_9) {
 	depth = calc_depth;
 }
 calc_depth += 2;
-with (inst_A13D79C) {
+with (inst_slot_10) {
 	depth = calc_depth;
 }
 calc_depth += 2;
-with (inst_4D3CE6D6) {
+with (inst_slot_11) {
 	depth = calc_depth;
 }
 calc_depth += 2;
-with (inst_1DB30491) {
+with (inst_slot_12) {
 	depth = calc_depth;
 }
 
-calc_depth = -100000;
+calc_depth = 1;
 
 // slot position depths
 with (inst_483E17DC) {
