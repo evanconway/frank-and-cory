@@ -1,7 +1,7 @@
 event_inherited();
 
-original_draw = draw;
 draw = function() {
 	image_index = global.spider_pose;
-	original_draw();
+	draw_set_alpha(1);
+	draw_self();
 }

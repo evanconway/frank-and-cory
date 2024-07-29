@@ -62,6 +62,7 @@ on_click = function() {
 		steps: [
 			function() {
 				// beep time
+				obj_photography_camera.image_index = 1;
 				if (time >= 20) {
 					step++;
 					alpha = 0.75;
