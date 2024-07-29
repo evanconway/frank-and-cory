@@ -216,3 +216,7 @@ Ok, it looks like, given our current logic, we call the clickable update script 
 28th of July, 2024
 
 We're going to implement the slot depth logic today. Already made a mistake. I assigned depths to the positions themselves. But we need depths for the slot covers as well. Actually, I think we can assign a depth to both the position and the slot cover, make the position instance invisible, and simply set the assigned reel to the same depth as the position object.
+
+We've added a lot of stuff. We fixed the reel depth issue a while ago. Since then we've added in most sequences left in the workshop, and even got our transition to the story machine implemented. I think the last thing we should do before tomorrow is get word balloons in. They will make the dialog feel less demo and more final.
+
+Ok we have to think about how to handle the balloons since we didn't plan for this. Luckily I think it'll be pretty simple. First, we're going to draw text centered. This means we'll have to redo our positions, but that shouldn't be too bad. Second, we're going to have to make 4 assets given the balloons we were given. A left and right facing balloon for the 2 characters. These balloons will have need center origins. Then, we can simply decide which balloon to draw at a given position, and we can be confident it will all line up well. Let's make the assets next.
