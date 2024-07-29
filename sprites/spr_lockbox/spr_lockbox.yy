@@ -5,7 +5,7 @@
   "bbox_bottom":418,
   "bbox_left":1112,
   "bbox_right":1502,
-  "bbox_top":138,
+  "bbox_top":88,
   "collisionKind":4,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
@@ -13,6 +13,8 @@
   "For3D":false,
   "frames":[
     {"$GMSpriteFrame":"","%Name":"75729c3f-1018-4db6-a28d-4890928f8bcd","name":"75729c3f-1018-4db6-a28d-4890928f8bcd","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"eb5d6bd0-8619-4a1c-a635-70c763ee4bd6","name":"eb5d6bd0-8619-4a1c-a635-70c763ee4bd6","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"126aa242-e225-4829-b8cd-ded3f356c30e","name":"126aa242-e225-4829-b8cd-ded3f356c30e","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
@@ -49,7 +51,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":1.0,
+    "length":3.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -71,6 +73,12 @@
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"75729c3f-1018-4db6-a28d-4890928f8bcd","path":"sprites/spr_lockbox/spr_lockbox.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"ead90557-8f9b-4547-8ba6-03c3b5dfa1d5","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"eb5d6bd0-8619-4a1c-a635-70c763ee4bd6","path":"sprites/spr_lockbox/spr_lockbox.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"f1422c6e-1e70-47e4-b484-2222d71601e0","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"126aa242-e225-4829-b8cd-ded3f356c30e","path":"sprites/spr_lockbox/spr_lockbox.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"8fa396f3-c5e9-4cd6-a622-73d8068a0f02","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

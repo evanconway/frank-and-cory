@@ -26,6 +26,8 @@ if (global.chip_cursor) {
 	draw_sprite(spr_chips_cursor, 0, mouse_x, mouse_y);
 } else if (global.key_cursor) {
 	draw_sprite(spr_key, 0, mouse_x, mouse_y);
+} else if (global.memory_cursor) {
+	draw_sprite(spr_memory_chip, 0, mouse_x, mouse_y);
 } else {
 	draw_sprite(spr_cursor, 0, mouse_x, mouse_y);
 }
