@@ -4,6 +4,11 @@ box_state = "locked";
 
 on_click = function() {
 	if (box_state == "open") {
+		play_sfx(snd_button);
+		obj_lockbox.box_state = "empty";
+		obj_lockbox.disabled = true;
+		global.memory_cursor = true;
+		/*
 		global.updateable = dialog_get_updateable([
 			cory_get_dialog_step("I think this is your chip Frank.", CORY_EXPRESSION.TAP),
 			frank_get_dialog_step("Let's hope so.", FRANK_EXPRESSION.DOWNLEFT),
@@ -18,6 +23,7 @@ on_click = function() {
 				},
 			}
 		});
+		*/
 	} else if (box_state == "locked" && global.key_cursor) {
 		global.key_cursor = false;
 		play_sfx(snd_jude_key_jingle);

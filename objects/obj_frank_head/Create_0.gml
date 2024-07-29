@@ -31,6 +31,29 @@ on_click = function() {
 			frank_get_dialog_step("It's me!", FRANK_EXPRESSION.HAPPY),
 		]);
 	} else if (!global.frank_memory_chip_added) {
+		// feather ignore GM1043
+		global.updateable = {
+			time: 0,
+			step: 0,
+			steps: [
+				function() {
+					global.frank_memory_chip_added = true;
+					global.memory_cursor = false;
+					global.frank_expression = FRANK_EXPRESSION.BLANK;
+					play_sfx(snd_powerup);
+					step++;
+				},
+				function() {
+					if (audio_is_playing(snd_powerup)) return;
+					global.updateable = global.assemble_frank;
+				},
+			],
+			update: function() {
+				time += 1;
+				steps[step]();
+			},
+		};
+		/*
 		global.updateable = dialog_get_updateable([
 			cory_get_dialog_step("Alright.", CORY_EXPRESSION.TILT),
 			cory_get_dialog_step("I hope this works.", CORY_EXPRESSION.TAP),
@@ -59,8 +82,10 @@ on_click = function() {
 				},
 			},
 		});
+		*/
 	} else if (!global.frank_attached_head) {
 		global.frank_attached_head = true;
+		play_sfx(snd_button);
 		disabled = true;
 		global.updateable = {
 			step: 0,
