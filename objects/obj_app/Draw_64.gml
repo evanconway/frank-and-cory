@@ -22,12 +22,10 @@ if (updateable != undefined) {
 }
 
 draw_set_alpha(1);
-window_set_cursor(cr_default);
 if (global.chip_cursor) {
-	window_set_cursor(cr_none);
 	draw_sprite(spr_chips_cursor, 0, mouse_x, mouse_y);
-}
-if (global.key_cursor) {
-	window_set_cursor(cr_none);
+} else if (global.key_cursor) {
 	draw_sprite(spr_key, 0, mouse_x, mouse_y);
+} else {
+	draw_sprite(spr_cursor, 0, mouse_x, mouse_y);
 }
