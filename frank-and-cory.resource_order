@@ -38,7 +38,6 @@
     {"name":"obj_frank_legs","order":7,"path":"objects/obj_frank_legs/obj_frank_legs.yy",},
     {"name":"obj_headphones","order":12,"path":"objects/obj_headphones/obj_headphones.yy",},
     {"name":"obj_lockbox","order":31,"path":"objects/obj_lockbox/obj_lockbox.yy",},
-    {"name":"obj_memory_chip","order":22,"path":"objects/obj_memory_chip/obj_memory_chip.yy",},
     {"name":"obj_microphone","order":23,"path":"objects/obj_microphone/obj_microphone.yy",},
     {"name":"obj_mouse","order":32,"path":"objects/obj_mouse/obj_mouse.yy",},
     {"name":"obj_photography_camera","order":13,"path":"objects/obj_photography_camera/obj_photography_camera.yy",},
