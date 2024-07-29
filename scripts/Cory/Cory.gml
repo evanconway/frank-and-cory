@@ -47,22 +47,29 @@ global.cory_speaks = function() {
 	audio_sound_gain(snd_id, 0, 60);
 }
 
-function cory_get_dialog_step(text, expression=CORY_EXPRESSION.NEUTRAL) {
+function cory_get_dialog_step(text, expression=CORY_EXPRESSION.NEUTRAL) {	
 	return {
 		text,
+		width: 800,
 		on_step: method({ expression }, function() {
 			if (global.cory_dialog_position == CORY_DIALOG_POSITION.INTRO_BREAKER) {
-				global.dialog_position_x = 3100;
-				global.dialog_position_y = 505;
+				global.dialog_position_x = 3546;
+				global.dialog_position_y = 346;
 			}
 			if (global.cory_dialog_position == CORY_DIALOG_POSITION.INTRO_HEAD) {
-				global.dialog_position_x = 1270;
-				global.dialog_position_y = 1080;
+				global.dialog_position_x = 2116;
+				global.dialog_position_y = 1323;
 			}
 			global.cory_expression = expression; // we don't have cory expressions yet
 		}),
 		on_type: global.cory_speaks,
-		default_effects: "f:fnt_ally t:100,2.5 cp:,,420 cp:;,420 cp:.,520 cp:!,520 cp:?,520",
+		default_effects: "black f:fnt_ally t:100,2.5 cp:,,420 cp:;,420 cp:.,520 cp:!,520 cp:?,520",
+		pre_dialog_draw: function() {
+			var word_balloon = undefined;
+			if (global.cory_dialog_position == CORY_DIALOG_POSITION.INTRO_BREAKER) word_balloon = spr_word_balloon_cory_right;
+			if (global.cory_dialog_position == CORY_DIALOG_POSITION.INTRO_HEAD) word_balloon = spr_word_balloon_cory_left;
+			if (word_balloon != undefined) draw_sprite(word_balloon, 0, global.dialog_position_x, global.dialog_position_y);
+		}
 	}
 };
 

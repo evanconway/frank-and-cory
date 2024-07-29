@@ -13,7 +13,6 @@ function dialog_get_updateable(
 		after_dialog_updateable: undefined,
 		pre_dialog_draw: function() {},
 		on_step_all: function() {},
-		word_balloon: undefined,
 	}
 ) {
 	if (global.click_to_continue_message == undefined) global.click_to_continue_message = new TagDecoratedTextDefault("Click to continue...", "f:fnt_ally");
@@ -21,18 +20,19 @@ function dialog_get_updateable(
 	var after_dialog_updateable = variable_struct_exists(options, "after_dialog_updateable") ? options.after_dialog_updateable : undefined;
 	var pre_dialog_draw = variable_struct_exists(options, "pre_dialog_draw") ? options.pre_dialog_draw : function() {};
 	var on_step_all = variable_struct_exists(options, "on_step_all") ? options.on_step_all : function() {};
-	var word_balloon = variable_struct_exists(options, "word_balloon") ? options.word_balloon : undefined;
 	
 	var dialog_steps = is_array(dialog_steps_data) ? dialog_steps_data : [dialog_steps_data];
 	if (!is_array(dialog_steps)) show_error("dialog_steps must be an array", true);
 	
 	// create a map of updateable objects, each which handles dialog display and interaction
-	var steps = array_map(dialog_steps, method({ on_step_all, pre_dialog_draw, word_balloon }, function(step) {
+	var steps = array_map(dialog_steps, method({ on_step_all, pre_dialog_draw }, function(step) {
 		if (!is_string(step) && !is_struct(step)) show_error("dialog_steps each array value must be string or dialog struct", true);
 		
 		var default_effects = (is_struct(step) && variable_struct_exists(step, "default_effects")) ? step.default_effects : "f:fnt_ally t:80,2";
+		var pre_dialog_draw_ind = (is_struct(step) && variable_struct_exists(step, "pre_dialog_draw")) ? step.pre_dialog_draw : function() {};
+		var width = (is_struct(step) && variable_struct_exists(step, "width")) ? step.width : 1000;
 		
-		var tds_instance = new TagDecoratedTextDefault(is_string(step) ? step : step.text, default_effects, 1000);
+		var tds_instance = new TagDecoratedTextDefault(is_string(step) ? step : step.text, default_effects, width);
 		
 		tag_decorated_text_reset_typing(tds_instance);
 		var on_type = (is_struct(step) && variable_struct_exists(step, "on_type")) ? step.on_type : function() {
@@ -48,7 +48,7 @@ function dialog_get_updateable(
 			on_step,
 			on_step_all,
 			pre_dialog_draw,
-			word_balloon,
+			pre_dialog_draw_ind,
 			next_updateable: undefined,
 			update: function() {
 				on_step_all();
@@ -63,9 +63,7 @@ function dialog_get_updateable(
 			draw: function() {
 				draw_set_alpha(1); // why do we need this??
 				pre_dialog_draw();
-				if (word_balloon != undefined) {
-					draw_sprite(word_balloon, 0, global.dialog_position_x, global.dialog_position_y);
-				}
+				pre_dialog_draw_ind();
 				draw_set_halign(fa_center);
 				draw_set_valign(fa_middle);
 				tag_decorated_text_draw(tds_instance, global.dialog_position_x, global.dialog_position_y);

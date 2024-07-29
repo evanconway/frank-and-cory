@@ -14,14 +14,15 @@ global.assemble_frank = dialog_get_updateable([
 	frank_get_dialog_step("Which explains how the memory chip became dislodged.", FRANK_EXPRESSION.UNAMUSED),
 	cory_get_dialog_step("Now you're starting to sound like Frank again.", CORY_EXPRESSION.SALUTE),
 	frank_get_dialog_step("Whew. I don't know what I'd do without you, Cory.", FRANK_EXPRESSION.UP),
-	cory_get_dialog_step("How about we finish cutting this story together and get some fresh air?", CORY_EXPRESSION.NEUTRAL),
+	cory_get_dialog_step("How about we finish cutting this story together", CORY_EXPRESSION.NEUTRAL),
+	cory_get_dialog_step("and get some fresh air?", CORY_EXPRESSION.BOTH_WINGS),
 	frank_get_dialog_step("Like a picnic?", FRANK_EXPRESSION.NEUTRAL),
 	cory_get_dialog_step("Sure, whatever. I just wanna get out of this studio.", CORY_EXPRESSION.TILT),
 	frank_get_dialog_step("Alright, well, if you don't mind giving me a hand.", FRANK_EXPRESSION.UP),
 	cory_get_dialog_step("Of course I'll help.", CORY_EXPRESSION.BOTH_WINGS),
 	frank_get_dialog_step("No. I mean. Literally.", FRANK_EXPRESSION.UNAMUSED),
 	frank_get_dialog_step("Give me one of my arms so I can grab stuff.", FRANK_EXPRESSION.RIGHT),
-	cory_get_dialog_step("How did you even manage to take these off in the first place?", CORY_EXPRESSION.TAP),
+	cory_get_dialog_step("How did you manage to take these off in the first place?", CORY_EXPRESSION.TAP),
 	frank_get_dialog_step("Just hurry up.", FRANK_EXPRESSION.DOWNLEFT),
 ]);
 

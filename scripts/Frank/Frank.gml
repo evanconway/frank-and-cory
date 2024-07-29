@@ -27,11 +27,9 @@ global.frank_sounds = [
 
 global.frank_speaks = function() {
 	var sounds = global.frank_sounds;
-	
 	for (var i = 0; i < array_length(sounds); i++) {
 		audio_stop_sound(sounds[i]);
 	}
-
 	var snd_id = play_sfx(sounds[irandom_range(0, array_length(sounds) - 1)], 1, random_range(1.2, 1.6));
 }
 
@@ -46,13 +44,18 @@ function frank_get_dialog_step(text, expression=FRANK_EXPRESSION.NEUTRAL) {
 		text,
 		on_step: method({ expression }, function() {
 			if (global.frank_dialog_position == FRANK_DIALOG_POSITION.INTRO_HEAD) {
-				global.dialog_position_x = 1690;
-				global.dialog_position_y = 1975;
+				global.dialog_position_x = 2320;
+				global.dialog_position_y = 2171;
 			}
 			global.frank_expression = expression;
 		}),
 		on_type: global.frank_speaks,
-		default_effects: "f:fnt_ally t:160,4 cp:,,420 cp:;,420 cp:.,520 cp:!,520 cp:?,520",
+		default_effects: "black f:fnt_ally t:160,4 cp:,,420 cp:;,420 cp:.,520 cp:!,520 cp:?,520",
+		pre_dialog_draw: function() {
+			var word_balloon = undefined;
+			if (global.frank_dialog_position = FRANK_DIALOG_POSITION.INTRO_HEAD) word_balloon = spr_word_balloon_frank_left;
+			if (word_balloon != undefined) draw_sprite(word_balloon, 0, global.dialog_position_x, global.dialog_position_y);
+		}
 	}
 };
 
