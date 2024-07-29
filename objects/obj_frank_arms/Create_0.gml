@@ -32,6 +32,7 @@ on_click = function() {
 						global.updateable = dialog_get_updateable([
 							frank_get_dialog_step("Ah!", FRANK_EXPRESSION.NEUTRAL),
 							frank_get_dialog_step("That's better.", FRANK_EXPRESSION.HAPPY),
+							cory_get_dialog_step("Now we just need your legs.", CORY_EXPRESSION.BOTH_WINGS),
 						]);
 					}
 				},

@@ -53,36 +53,6 @@ on_click = function() {
 				steps[step]();
 			},
 		};
-		/*
-		global.updateable = dialog_get_updateable([
-			cory_get_dialog_step("Alright.", CORY_EXPRESSION.TILT),
-			cory_get_dialog_step("I hope this works.", CORY_EXPRESSION.TAP),
-			frank_get_dialog_step("I'm ready.", FRANK_EXPRESSION.RIGHT),
-			frank_get_dialog_step("Hit it!", FRANK_EXPRESSION.UP),
-		], {
-			after_dialog_updateable: {
-				time: 0,
-				step: 0,
-				steps: [
-					function() {
-						global.frank_memory_chip_added = true;
-						global.memory_cursor = false;
-						global.frank_expression = FRANK_EXPRESSION.BLANK;
-						play_sfx(snd_powerup);
-						step++;
-					},
-					function() {
-						if (audio_is_playing(snd_powerup)) return;
-						global.updateable = global.assemble_frank;
-					},
-				],
-				update: function() {
-					time += 1;
-					steps[step]();
-				},
-			},
-		});
-		*/
 	} else if (!global.frank_attached_head) {
 		global.frank_attached_head = true;
 		play_sfx(snd_button);
@@ -111,7 +81,7 @@ original_draw = draw;
 
 draw = function () {
 	if (global.frank_attached_head) return;
-	if (!global.light_switch_on) image_index = 1; // pointless until we add back head lighting
+	if (!global.light_switch_on) image_index = 1;
 	original_draw();
 	frank_draw_expression();
 };

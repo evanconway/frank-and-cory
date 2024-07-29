@@ -8,22 +8,6 @@ on_click = function() {
 		obj_lockbox.box_state = "empty";
 		obj_lockbox.disabled = true;
 		global.memory_cursor = true;
-		/*
-		global.updateable = dialog_get_updateable([
-			cory_get_dialog_step("I think this is your chip Frank.", CORY_EXPRESSION.TAP),
-			frank_get_dialog_step("Let's hope so.", FRANK_EXPRESSION.DOWNLEFT),
-		], {
-			after_dialog_updateable:  {
-				update: function() {
-					play_sfx(snd_button);
-					obj_lockbox.box_state = "empty";
-					obj_lockbox.disabled = true;
-					global.memory_cursor = true;
-					global.updateable = undefined;
-				},
-			}
-		});
-		*/
 	} else if (box_state == "locked" && global.key_cursor) {
 		global.key_cursor = false;
 		play_sfx(snd_jude_key_jingle);
@@ -43,8 +27,10 @@ on_click = function() {
 				function() {
 					if (time >= 45) {
 						global.updateable = dialog_get_updateable([
-							cory_get_dialog_step("We opened the box!", CORY_EXPRESSION.SALUTE),
-							frank_get_dialog_step("Hey. That chip looks familiar...", FRANK_EXPRESSION.UP),
+							cory_get_dialog_step("Frank! It's your chip!", CORY_EXPRESSION.BOTH_WINGS),
+							frank_get_dialog_step("Can I eat chips?", FRANK_EXPRESSION.UP),
+							cory_get_dialog_step("Your memory Chip!", CORY_EXPRESSION.SALUTE),
+							frank_get_dialog_step("Oh, right. I forgot what we were doing.", FRANK_EXPRESSION.UNAMUSED),
 						]);
 					}
 				}
