@@ -17,6 +17,7 @@ on_click = function() {
 		visible = false;
 		play_sfx(snd_button);
 		global.frank_attached_legs = true;
+		global.frank_dialog_position = FRANK_DIALOG_POSITION.ASSEMBLED_FULL;
 		global.updateable = {
 			time: 0,
 			update: function() {

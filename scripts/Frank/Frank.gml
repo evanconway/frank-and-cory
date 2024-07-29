@@ -35,6 +35,8 @@ global.frank_speaks = function() {
 
 enum FRANK_DIALOG_POSITION {
 	INTRO_HEAD,
+	ASSEMBLED_PARTLY,
+	ASSEMBLED_FULL,
 }
 
 global.frank_dialog_position = FRANK_DIALOG_POSITION.INTRO_HEAD;
@@ -47,6 +49,14 @@ function frank_get_dialog_step(text, expression=FRANK_EXPRESSION.NEUTRAL) {
 				global.dialog_position_x = 2320;
 				global.dialog_position_y = 2171;
 			}
+			if (global.frank_dialog_position == FRANK_DIALOG_POSITION.ASSEMBLED_PARTLY) {
+				global.dialog_position_x = 2665;
+				global.dialog_position_y = 505;
+			}
+			if (global.frank_dialog_position == FRANK_DIALOG_POSITION.ASSEMBLED_FULL) {
+				global.dialog_position_x = 2100;
+				global.dialog_position_y = 375;
+			}
 			global.frank_expression = expression;
 		}),
 		on_type: global.frank_speaks,
@@ -54,6 +64,8 @@ function frank_get_dialog_step(text, expression=FRANK_EXPRESSION.NEUTRAL) {
 		pre_dialog_draw: function() {
 			var word_balloon = undefined;
 			if (global.frank_dialog_position = FRANK_DIALOG_POSITION.INTRO_HEAD) word_balloon = spr_word_balloon_frank_left;
+			if (global.frank_dialog_position = FRANK_DIALOG_POSITION.ASSEMBLED_PARTLY) word_balloon = spr_word_balloon_frank_left;
+			if (global.frank_dialog_position = FRANK_DIALOG_POSITION.ASSEMBLED_FULL) word_balloon = spr_word_balloon_frank_left;
 			if (word_balloon != undefined) draw_sprite(word_balloon, 0, global.dialog_position_x, global.dialog_position_y);
 		}
 	}
