@@ -17,8 +17,33 @@ on_click = function() {
 		visible = false;
 		play_sfx(snd_button);
 		global.frank_attached_legs = true;
-		global.updateable = dialog_get_updateable([
-			frank_get_dialog_step("LEGS", FRANK_EXPRESSION.BLANK),
-		]);
+		global.updateable = {
+			time: 0,
+			update: function() {
+				time += 1;
+				if (time >= 60) {
+					global.updateable = dialog_get_updateable([
+						frank_get_dialog_step("Ah...", FRANK_EXPRESSION.HAPPY),
+						cory_get_dialog_step("How's that?", CORY_EXPRESSION.BOTH_WINGS),
+						frank_get_dialog_step("Not bad!", FRANK_EXPRESSION.RIGHT),
+						frank_get_dialog_step("I feel like my old self again!", FRANK_EXPRESSION.DOWNLEFT),
+						frank_get_dialog_step("Thanks, buddy.", FRANK_EXPRESSION.RIGHT),
+						frank_get_dialog_step("Now let's activate the story machine!", FRANK_EXPRESSION.HAPPY),
+						cory_get_dialog_step("You got it!", CORY_EXPRESSION.SALUTE),
+					], {
+						after_dialog_updateable: {
+							update: function() {
+								global.updateable = undefined;
+								podcast_machine_transition();
+							}
+						}
+					});
+				}
+			}
+		}
 	}
+};
+
+draw = function() {
+	if (visible) draw_self();
 };

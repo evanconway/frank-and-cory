@@ -21,7 +21,11 @@ on_click = function() {
 };
 
 draw = function() {
-	if (global.frank_attached_head) {
+	if (global.frank_attached_legs) {
+		image_index = 2;
+		draw_self();
+		frank_draw_expression(-93, -1540, -123, -1494);
+	} else if (global.frank_attached_head) {
 		image_index = 1;
 		draw_self();
 		frank_draw_expression(393, -1496, 384, -1453);
