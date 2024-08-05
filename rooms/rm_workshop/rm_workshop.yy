@@ -23,6 +23,7 @@
     {"name":"inst_5A3D17DB","path":"rooms/rm_workshop/rm_workshop.yy",},
     {"name":"inst_6409D936","path":"rooms/rm_workshop/rm_workshop.yy",},
     {"name":"inst_3B92E7A7","path":"rooms/rm_workshop/rm_workshop.yy",},
+    {"name":"inst_7425056C","path":"rooms/rm_workshop/rm_workshop.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -57,6 +58,7 @@
         {"$GMRInstance":"v1","%Name":"inst_6FF9275B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6FF9275B","objectId":{"name":"obj_lockbox","path":"objects/obj_lockbox/obj_lockbox.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},
         {"$GMRInstance":"v1","%Name":"inst_21DF060C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_21DF060C","objectId":{"name":"obj_film_cans_1","path":"objects/obj_film_cans_1/obj_film_cans_1.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},
         {"$GMRInstance":"v1","%Name":"inst_5A58CCE0","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5A58CCE0","objectId":{"name":"obj_film_cans_2","path":"objects/obj_film_cans_2/obj_film_cans_2.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},
+        {"$GMRInstance":"v1","%Name":"inst_7425056C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7425056C","objectId":{"name":"obj_story_machine_lever","path":"objects/obj_story_machine_lever/obj_story_machine_lever.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},
       ],"layers":[],"name":"shelf_back","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRAssetLayer":"","%Name":"assets_background","assets":[
         {"$GMRSpriteGraphic":"","%Name":"graphic_6038C400","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_6038C400","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"spriteId":{"name":"spr_shelf_hole","path":"sprites/spr_shelf_hole/spr_shelf_hole.yy",},"x":0.0,"y":0.0,},

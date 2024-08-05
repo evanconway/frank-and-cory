@@ -220,3 +220,19 @@ We're going to implement the slot depth logic today. Already made a mistake. I a
 We've added a lot of stuff. We fixed the reel depth issue a while ago. Since then we've added in most sequences left in the workshop, and even got our transition to the story machine implemented. I think the last thing we should do before tomorrow is get word balloons in. They will make the dialog feel less demo and more final.
 
 Ok we have to think about how to handle the balloons since we didn't plan for this. Luckily I think it'll be pretty simple. First, we're going to draw text centered. This means we'll have to redo our positions, but that shouldn't be too bad. Second, we're going to have to make 4 assets given the balloons we were given. A left and right facing balloon for the 2 characters. These balloons will have need center origins. Then, we can simply decide which balloon to draw at a given position, and we can be confident it will all line up well. Let's make the assets next.
+
+29th of July, 2024
+
+Script after Frank gets his memory chip back has been changed. Review that.
+
+Jude wants documentary to be on safely storing memory chips.
+
+Apparently the story machine is completely broken. Play All doesn't play all anymore.
+
+See if we can add light dimming and fading effects for the story machine, to imply it takes a lot of power. Jude is going to get steam sounds for the story machine arriving.
+
+Add the shake effect back to the text.
+
+4th of August, 2024
+
+Need to get some work done on this. Let's add Allisons new assets and change the script.

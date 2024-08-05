@@ -31,14 +31,7 @@ on_click = function() {
 						frank_get_dialog_step("Thanks, buddy.", FRANK_EXPRESSION.RIGHT),
 						frank_get_dialog_step("Now let's activate the story machine!", FRANK_EXPRESSION.HAPPY),
 						cory_get_dialog_step("You got it!", CORY_EXPRESSION.SALUTE),
-					], {
-						after_dialog_updateable: {
-							update: function() {
-								global.updateable = undefined;
-								podcast_machine_transition();
-							}
-						}
-					});
+					]);
 				}
 			}
 		}

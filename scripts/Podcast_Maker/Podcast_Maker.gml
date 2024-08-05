@@ -138,7 +138,19 @@ function podcast_machine_play_column(column=0) {
 	global.podcast_player.play_audio_at_current_column();
 }
 
+/*
+This just draws an image that looks like the podcast machine. It isn't the podcast machine itself.
+Used for a descending animation for the transition.
+*/
+function podcast_machine_draw(x=0, y=0) {
+	draw_set_alpha(1);
+	draw_sprite(spr_podcast_machine, 0, x, y);
+}
+
 function podcast_machine_transition() {
+	play_sfx(snd_powerup);
+	
+	// feather disable GM1043
 	global.updateable = {
 		alpha: 0,
 		step: 0,
