@@ -204,6 +204,7 @@
     {"name":"spr_reel_slot_8","order":7,"path":"sprites/spr_reel_slot_8/spr_reel_slot_8.yy",},
     {"name":"spr_reel_slot_9","order":8,"path":"sprites/spr_reel_slot_9/spr_reel_slot_9.yy",},
     {"name":"spr_shelf_hole","order":35,"path":"sprites/spr_shelf_hole/spr_shelf_hole.yy",},
+    {"name":"spr_spider_photo","order":41,"path":"sprites/spr_spider_photo/spr_spider_photo.yy",},
     {"name":"spr_spider","order":11,"path":"sprites/spr_spider/spr_spider.yy",},
     {"name":"spr_stop_all","order":3,"path":"sprites/spr_stop_all/spr_stop_all.yy",},
     {"name":"spr_stop_column_1","order":10,"path":"sprites/spr_stop_column_1/spr_stop_column_1.yy",},

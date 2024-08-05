@@ -9,6 +9,9 @@ set_photo_dialog = function() {
 			cory_get_dialog_step("Nice picture!", CORY_EXPRESSION.BOTH_WINGS),
 			cory_get_dialog_step("Can we get a different pose?", CORY_EXPRESSION.TAP),
 		], {
+			pre_dialog_draw: function() {
+				draw_sprite(spr_spider_photo, 0, 0, 0);
+			},
 			after_dialog_updateable: {
 				update: function() {
 					play_sfx(snd_jude_mouse_run_1);
@@ -23,6 +26,9 @@ set_photo_dialog = function() {
 			cory_get_dialog_step("But what about something more...", CORY_EXPRESSION.TILT),
 			cory_get_dialog_step("Dynamic?", CORY_EXPRESSION.SALUTE),
 		], {
+			pre_dialog_draw: function() {
+				draw_sprite(spr_spider_photo, 1, 0, 0);
+			},
 			after_dialog_updateable: {
 				update: function() {
 					play_sfx(snd_jude_mouse_run_1);
@@ -34,7 +40,11 @@ set_photo_dialog = function() {
 	} else if (photos_taken == 3) {
 		global.updateable = dialog_get_updateable([
 			cory_get_dialog_step("That's more like it!", CORY_EXPRESSION.BOTH_WINGS),
-		]);
+		], {
+			pre_dialog_draw: function() {
+				draw_sprite(spr_spider_photo, 2, 0, 0);
+			},
+		});
 	} else {
 		global.updateable = dialog_get_updateable([
 			cory_get_dialog_step("ERROR. This dialog should not appear. obj_photography_camera"),
