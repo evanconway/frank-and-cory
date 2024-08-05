@@ -145,6 +145,44 @@ Used for a descending animation for the transition.
 function podcast_machine_draw(x=0, y=0) {
 	draw_set_alpha(1);
 	draw_sprite(spr_podcast_machine, 0, x, y);
+	
+	draw_sprite(spr_tapereel, 0, x+793, y+333);
+	draw_sprite(spr_podcast_machine_slot_12, 0, x, y);
+	draw_sprite(spr_tapereel, 0, x+797, y+495);
+	draw_sprite(spr_podcast_machine_slot_11, 0, x, y);
+	draw_sprite(spr_tapereel, 0, x+800, y+671);
+	draw_sprite(spr_podcast_machine_slot_10, 0, x, y);
+	draw_sprite(spr_tapereel, 0, x+800, y+868);
+	draw_sprite(spr_podcast_machine_slot_9, 0, x, y);
+	draw_sprite(spr_tapereel, 0, x+794, y+1075);
+	draw_sprite(spr_podcast_machine_slot_8, 0, x, y);
+	draw_sprite(spr_tapereel, 0, x+799, y+1278);
+	draw_sprite(spr_podcast_machine_slot_7, 0, x, y);
+	draw_sprite(spr_tapereel, 0, x+788, y+1472);
+	draw_sprite(spr_podcast_machine_slot_6, 0, x, y);
+	draw_sprite(spr_tapereel, 0, x+794, y+1643);
+	draw_sprite(spr_podcast_machine_slot_5, 0, x, y);
+	draw_sprite(spr_tapereel, 0, x+794, y+1848);
+	draw_sprite(spr_podcast_machine_slot_4, 0, x, y);
+	draw_sprite(spr_tapereel, 0, x+795, y+2072);
+	draw_sprite(spr_podcast_machine_slot_3, 0, x, y);
+	draw_sprite(spr_tapereel, 0, x+785, y+2271);
+	draw_sprite(spr_podcast_machine_slot_2, 0, x, y);
+	draw_sprite(spr_tapereel, 0, x+787, y+2457);
+	draw_sprite(spr_podcast_machine_slot_1, 0, x, y);
+	
+	draw_sprite(spr_play_single_1, 0, x, y);
+	draw_sprite(spr_play_single_2, 0, x, y);
+	draw_sprite(spr_play_single_3, 0, x, y);
+	draw_sprite(spr_play_single_4, 0, x, y);
+	draw_sprite(spr_stop_column_1, 0, x, y);
+	draw_sprite(spr_stop_column_2, 0, x, y);
+	draw_sprite(spr_stop_column_3, 0, x, y);
+	draw_sprite(spr_stop_column_4, 0, x, y);
+	draw_sprite(spr_play_all, 0, x, y);
+	draw_sprite(spr_stop_all, 0, x, y);
+	draw_sprite(spr_play_single, 0, x, y);
+	draw_sprite(spr_stop_single, 0, x, y);
 }
 
 function podcast_machine_transition() {
@@ -152,29 +190,29 @@ function podcast_machine_transition() {
 	
 	// feather disable GM1043
 	global.updateable = {
-		alpha: 0,
 		step: 0,
+		vertical_offset: display_get_gui_height(),
 		steps: [
 			function() {
-				alpha += 0.01;
-				if (alpha >= 1) step++;
+				vertical_offset *= 0.95;
+				if (abs(vertical_offset) < 1) {
+					vertical_offset = 0;
+					step += 1;
+				}
 			},
 			function() {
 				room_goto(room == rm_podcast_machine ? rm_workshop : rm_podcast_machine);
 				step++;
 			},
 			function() {
-				alpha -= 0.01;
-				if (alpha <= 0) global.updateable = undefined;
+				if (room == rm_podcast_machine) global.updateable = undefined;
 			},
 		],
 		update: function() {
 			steps[step]();
 		},
 		draw: function() {
-			draw_set_alpha(alpha);
-			draw_set_color(c_black);
-			draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
+			podcast_machine_draw(0, vertical_offset * -1);
 		}
 	};
 }

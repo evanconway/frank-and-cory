@@ -1,8 +1,11 @@
 event_inherited();
 
+flipped = false;
+
 on_click = function() {
 	var frank_is_assembled = global.frank_attached_arms && global.frank_attached_head && global.frank_attached_legs;
 	if (frank_is_assembled) {
+		flipped = true;
 		play_sfx(snd_button);
 		global.updateable = {
 			time: 0,
@@ -20,3 +23,8 @@ on_click = function() {
 		]);
 	}
 };
+
+draw = function() {
+	image_index = flipped ? 1 : 0;
+	draw_self();
+}

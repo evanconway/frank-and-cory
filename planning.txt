@@ -236,3 +236,5 @@ Add the shake effect back to the text.
 4th of August, 2024
 
 Need to get some work done on this. Let's add Allisons new assets and change the script.
+
+Managed to add the machine descending effect. I just hand placed all the sprite images. Annoying and bad programming practice, but I think it's fine for this.
