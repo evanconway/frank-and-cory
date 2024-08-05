@@ -24,13 +24,12 @@ on_click = function() {
 				time += 1;
 				if (time >= 60) {
 					global.updateable = dialog_get_updateable([
-						frank_get_dialog_step("Ah...", FRANK_EXPRESSION.HAPPY),
+						frank_get_dialog_step("Ow!", FRANK_EXPRESSION.BLANK),
+						cory_get_dialog_step("Oops.", CORY_EXPRESSION.SALUTE),
 						cory_get_dialog_step("How's that?", CORY_EXPRESSION.BOTH_WINGS),
-						frank_get_dialog_step("Not bad!", FRANK_EXPRESSION.RIGHT),
-						frank_get_dialog_step("I feel like my old self again!", FRANK_EXPRESSION.DOWNLEFT),
+						frank_get_dialog_step("Not bad!", FRANK_EXPRESSION.HAPPY),
 						frank_get_dialog_step("Thanks, buddy.", FRANK_EXPRESSION.RIGHT),
-						frank_get_dialog_step("Now let's activate the story machine!", FRANK_EXPRESSION.HAPPY),
-						cory_get_dialog_step("You got it!", CORY_EXPRESSION.SALUTE),
+						frank_get_dialog_step("Now pull the lever to activate the story machine!", FRANK_EXPRESSION.HAPPY),
 					]);
 				}
 			}
