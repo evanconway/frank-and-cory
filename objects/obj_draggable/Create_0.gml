@@ -5,7 +5,7 @@ ds_map_set(global.draggable_position_map, id, noone);
 position_snapped = noone;
 
 draggable_update = function() {
-	var current_position_snapped = position_snapped;
+	var previous_position_snapped = position_snapped;
 	position_snapped = noone;
 	if (global.clickable_dragged != id) return;
 	if (global.clickable_hovered == id) global.clickable_hovered = noone; // stop hover highlight from showing for 1 frame
@@ -38,7 +38,7 @@ draggable_update = function() {
 		show_debug_message($"draggable \"{id}\" move from \"{position_old}\" to \"{position_new}\"");
 	}
 	
-	if (position_snapped != noone && current_position_snapped == noone) {
+	if (position_snapped != noone && previous_position_snapped != position_snapped) {
 		play_sfx(snd_jude_reel_snap_1, 0.9, 1.1);
 	}
 };
