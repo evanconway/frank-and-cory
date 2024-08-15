@@ -186,7 +186,7 @@ function podcast_machine_draw(x=0, y=0) {
 }
 
 function podcast_machine_transition() {
-	play_sfx(snd_powerup);
+	play_sfx(snd_jude_podcast_machine_descend);
 	
 	// feather disable GM1043
 	global.updateable = {
@@ -194,7 +194,8 @@ function podcast_machine_transition() {
 		vertical_offset: display_get_gui_height(),
 		steps: [
 			function() {
-				vertical_offset *= 0.95;
+				vertical_offset -= min(6, vertical_offset * 0.1);
+				
 				if (abs(vertical_offset) < 1) {
 					vertical_offset = 0;
 					step += 1;

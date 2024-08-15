@@ -33,12 +33,14 @@ draggable_update = function() {
 			position_snapped = noone;
 		}
 		
+		play_sfx(snd_jude_reel_snap_3, 0.9);
 		show_debug_message($"draggable \"{id}\" move from \"{position_old}\" to \"{position_new}\"");
 	}
 };
 
 on_click = function() {
 	global.clickable_dragged = id;
+	play_sfx(snd_jude_reel_snap_2);
 };
 
 draw = function() {

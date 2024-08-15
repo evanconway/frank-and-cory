@@ -10,7 +10,7 @@ on_click = function() {
 		global.memory_cursor = true;
 	} else if (box_state == "locked" && global.key_cursor) {
 		global.key_cursor = false;
-		play_sfx(snd_jude_key_jingle);
+		play_sfx(snd_jude_box_unlock);
 		// feather ignore GM1043
 		global.updateable = {
 			time: 0,

@@ -22,7 +22,7 @@ on_click = function() {
 	} else {
 		global.frank_attached_arms = true;
 		disabled = true;
-		play_sfx(snd_button);
+		play_sfx(snd_jude_attach_arms);
 		global.updateable = {
 			step: 0,
 			time: 0,

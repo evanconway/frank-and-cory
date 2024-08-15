@@ -15,7 +15,7 @@ on_click = function() {
 	} else {
 		disabled = true;
 		visible = false;
-		play_sfx(snd_button);
+		play_sfx(snd_jude_attach_legs);
 		global.frank_attached_legs = true;
 		global.frank_dialog_position = FRANK_DIALOG_POSITION.ASSEMBLED_FULL;
 		global.updateable = {

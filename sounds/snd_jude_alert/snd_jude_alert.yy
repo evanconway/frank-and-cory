@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.0,
+  "duration":1.244989,
   "name":"snd_jude_alert",
   "parent":{
     "name":"Misc",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_jude_alert",
+  "soundFile":"snd_jude_alert.wav",
   "type":0,
   "volume":1.0,
 }

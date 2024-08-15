@@ -54,7 +54,7 @@ on_click = function() {
 		};
 	} else if (!global.frank_attached_head) {
 		global.frank_attached_head = true;
-		play_sfx(snd_button);
+		play_sfx(snd_jude_attach_head);
 		disabled = true;
 		global.frank_dialog_position = FRANK_DIALOG_POSITION.ASSEMBLED_PARTLY;
 		global.updateable = {
