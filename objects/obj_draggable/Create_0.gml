@@ -5,6 +5,7 @@ ds_map_set(global.draggable_position_map, id, noone);
 position_snapped = noone;
 
 draggable_update = function() {
+	var current_position_snapped = position_snapped;
 	position_snapped = noone;
 	if (global.clickable_dragged != id) return;
 	if (global.clickable_hovered == id) global.clickable_hovered = noone; // stop hover highlight from showing for 1 frame
@@ -16,7 +17,7 @@ draggable_update = function() {
 		*/
 		
 		var draggable_here = ds_map_find_value(global.position_draggable_map, id);
-		if (draggable_here == noone && point_distance(x, y, mouse_x, mouse_y) < 70) {
+		if (draggable_here == noone && point_distance(x, y, mouse_x, mouse_y) < 90) {
 			other.position_snapped = id;
 		}
 	}
@@ -36,6 +37,10 @@ draggable_update = function() {
 		play_sfx(snd_jude_reel_snap_3, 0.9);
 		show_debug_message($"draggable \"{id}\" move from \"{position_old}\" to \"{position_new}\"");
 	}
+	
+	if (position_snapped != noone && current_position_snapped == noone) {
+		play_sfx(snd_jude_reel_snap_1, 0.9, 1.1);
+	}
 };
 
 on_click = function() {
@@ -48,8 +53,11 @@ draw = function() {
 	if (!visible) return;
 	
 	if (global.clickable_dragged == id) {		
-		if (position_snapped != noone) draw_sprite(sprite_index, image_index, position_snapped.x, position_snapped.y);
-		else draw_sprite(sprite_index, image_index, mouse_x, mouse_y);
+		draw_set_alpha(0.6);
+		if (position_snapped != noone) {
+			draw_set_alpha(1);
+			draw_sprite(sprite_index, image_index, position_snapped.x, position_snapped.y);
+		} else draw_sprite(sprite_index, image_index, mouse_x, mouse_y);
 	} else {
 		draw_self();
 	}
