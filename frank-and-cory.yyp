@@ -210,6 +210,7 @@
     {"id":{"name":"spr_key","path":"sprites/spr_key/spr_key.yy",},},
     {"id":{"name":"spr_lamp2","path":"sprites/spr_lamp2/spr_lamp2.yy",},},
     {"id":{"name":"spr_lockbox","path":"sprites/spr_lockbox/spr_lockbox.yy",},},
+    {"id":{"name":"spr_memchip_inbox","path":"sprites/spr_memchip_inbox/spr_memchip_inbox.yy",},},
     {"id":{"name":"spr_memory_chip","path":"sprites/spr_memory_chip/spr_memory_chip.yy",},},
     {"id":{"name":"spr_microphone","path":"sprites/spr_microphone/spr_microphone.yy",},},
     {"id":{"name":"spr_mouse","path":"sprites/spr_mouse/spr_mouse.yy",},},

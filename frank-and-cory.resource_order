@@ -183,6 +183,7 @@
     {"name":"spr_key","order":36,"path":"sprites/spr_key/spr_key.yy",},
     {"name":"spr_lamp2","order":34,"path":"sprites/spr_lamp2/spr_lamp2.yy",},
     {"name":"spr_lockbox","order":32,"path":"sprites/spr_lockbox/spr_lockbox.yy",},
+    {"name":"spr_memchip_inbox","order":42,"path":"sprites/spr_memchip_inbox/spr_memchip_inbox.yy",},
     {"name":"spr_memory_chip","order":21,"path":"sprites/spr_memory_chip/spr_memory_chip.yy",},
     {"name":"spr_microphone","order":24,"path":"sprites/spr_microphone/spr_microphone.yy",},
     {"name":"spr_mouse","order":33,"path":"sprites/spr_mouse/spr_mouse.yy",},
