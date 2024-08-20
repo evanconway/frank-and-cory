@@ -8,5 +8,4 @@ on_click = function() {
 		show_debug_message("Cannot play test audio, draggable position has not been set!");
 		return;
 	}
-	
 }

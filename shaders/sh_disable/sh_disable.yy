@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"sh_disable",
+  "name":"sh_disable",
+  "parent":{
+    "name":"frank-and-cory",
+    "path":"frank-and-cory.yyp",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}

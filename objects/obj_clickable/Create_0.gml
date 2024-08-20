@@ -12,6 +12,11 @@ draw = function() {
 	visible = true;
 };
 
+pre_update = function() {
+	// default does nothing
+	// as of now, just adding so play/stop buttons can set themselves disabled
+};
+
 on_click = function() {
 	show_debug_message($"instance {id} clicked");
 };

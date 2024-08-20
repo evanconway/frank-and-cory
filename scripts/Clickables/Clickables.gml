@@ -1,7 +1,6 @@
 global.clickable_hovered = noone;
 global.clickable_dragged = noone;
 
-
 global.draggable_position_map = ds_map_create();
 global.position_draggable_map = ds_map_create();
 
@@ -28,6 +27,7 @@ function update_clickable(clickable_id) {
 	with (clickable_id) {
 		if (global.clickable_hovered == noone) {
 			if (position_meeting(mouse_x, mouse_y, id)) global.clickable_hovered = id;
+			clickable_id.pre_update();
 			if (clickable_id.disabled) return;
 			if (mouse_check_button_pressed(mb_left) && global.clickable_hovered == id) {
 				on_click();
@@ -36,13 +36,7 @@ function update_clickable(clickable_id) {
 	}
 }
 
-function clickables_update() {
-	/*
-	We want draggable logic to happen after click logic so drag logic happens the same frame
-	a draggable is clicked. But we don't want clickable logic to happen if a draggable is
-	being dragged.
-	*/
-	
+function clickables_update() {	
 	if (global.clickable_dragged == noone) {
 		var clickable_ids = __clickables_get_all();
 		array_foreach(clickable_ids, update_clickable);
