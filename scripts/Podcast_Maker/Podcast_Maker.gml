@@ -109,7 +109,6 @@ global.podcast_player = {
 			
 			if (column_to_play >= array_length(global.podcast_tape_slots)) {
 				// playing finished
-				play_individual_column = false;
 				global.updateable = undefined;
 			} else {
 				play_audio_at_current_column();
@@ -122,6 +121,7 @@ global.podcast_player = {
 
 function podcast_machine_play_all() {
 	global.podcast_player.column_to_play = 0;
+	global.podcast_player.play_individual_column = false;
 	global.updateable = global.podcast_player;
 	global.podcast_player.play_audio_at_current_column();
 };
