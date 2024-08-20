@@ -243,6 +243,7 @@ global.podcast_test_player = {
 
 function podcast_play_test() {
 	if (!__podcast_ensure_test_position_exists()) return;
+	play_sfx(snd_jude_button_play, 1);
 	play_sfx(global.podcast_test_player.get_audio_at_test());
 	global.podcast_player.column_to_play = -2;
 	global.updateable = global.podcast_test_player;
