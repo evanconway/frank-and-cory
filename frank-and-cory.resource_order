@@ -43,6 +43,7 @@
     {"name":"obj_mouse","order":32,"path":"objects/obj_mouse/obj_mouse.yy",},
     {"name":"obj_photography_camera","order":13,"path":"objects/obj_photography_camera/obj_photography_camera.yy",},
     {"name":"obj_play_all","order":4,"path":"objects/obj_play_all/obj_play_all.yy",},
+    {"name":"obj_play_base","order":17,"path":"objects/obj_play_base/obj_play_base.yy",},
     {"name":"obj_play_single_column_1","order":6,"path":"objects/obj_play_single_column_1/obj_play_single_column_1.yy",},
     {"name":"obj_play_single_column_2","order":7,"path":"objects/obj_play_single_column_2/obj_play_single_column_2.yy",},
     {"name":"obj_play_single_column_3","order":8,"path":"objects/obj_play_single_column_3/obj_play_single_column_3.yy",},

@@ -238,3 +238,9 @@ Add the shake effect back to the text.
 Need to get some work done on this. Let's add Allisons new assets and change the script.
 
 Managed to add the machine descending effect. I just hand placed all the sprite images. Annoying and bad programming practice, but I think it's fine for this.
+
+19th of August, 2024
+
+Managed to get more assets in and finally fix the auto play bug on play all. We've also added some good disabled visual cues. We're only missing the test slot. I was looking over the logic and the test slot is a bit scuffed. Instead of having the podcast player object actually handle playing the audio, when clicking the play test button we simply play the audio and assign the podcast player to the global updateable. But we do this without starting any of the play logic in the podcast player. For this game, and this situation, let's leave it like that. It'd take too much time to do something more elegant. The only thing is we should also set the column of the podcast player when playing the test slot so the play/stop buttons know whether to be marked disabled. 
+
+Wait, I was completely wrong. I mis-read my own code. There is a podcast_test_player object. This is how the test play works.

@@ -6,7 +6,6 @@ on_click = podcast_machine_stop_all;
 Determines which column this stop button applies to
 0-3: columns
 -1: stop all
--2: stop test
 */
 column = -1;
 
@@ -14,7 +13,7 @@ pre_update = function() {
 	disabled = true;
 	// play_individual_column: false, // when set true, the player will stop after playing the current column.
 	// column_to_play: 0,
-	if (global.updateable != global.podcast_player) return;
+	if (global.updateable != global.podcast_player || global.updateable == global.podcast_test_player) return;
 	
 	var is_playing_individual_col = global.podcast_player.play_individual_column;
 	

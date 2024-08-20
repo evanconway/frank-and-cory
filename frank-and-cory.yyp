@@ -62,6 +62,7 @@
     {"id":{"name":"obj_mouse","path":"objects/obj_mouse/obj_mouse.yy",},},
     {"id":{"name":"obj_photography_camera","path":"objects/obj_photography_camera/obj_photography_camera.yy",},},
     {"id":{"name":"obj_play_all","path":"objects/obj_play_all/obj_play_all.yy",},},
+    {"id":{"name":"obj_play_base","path":"objects/obj_play_base/obj_play_base.yy",},},
     {"id":{"name":"obj_play_single_column_1","path":"objects/obj_play_single_column_1/obj_play_single_column_1.yy",},},
     {"id":{"name":"obj_play_single_column_2","path":"objects/obj_play_single_column_2/obj_play_single_column_2.yy",},},
     {"id":{"name":"obj_play_single_column_3","path":"objects/obj_play_single_column_3/obj_play_single_column_3.yy",},},
