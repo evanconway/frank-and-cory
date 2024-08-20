@@ -246,3 +246,5 @@ Managed to get more assets in and finally fix the auto play bug on play all. We'
 Wait, I was completely wrong. I mis-read my own code. There is a podcast_test_player object. This is how the test play works.
 
 Got all the disabled play and stop button logic in. The next critical piece is the frank and cory characters. I believe we can just make these objects that we manipulate through updateables, just like in the workshop. We should probably do something to allow them to slide in for the intro.
+
+One more note before we stop for today. I don't like the look of the greyed out play button. I think we should create a green highlight on the play button for the active section.
