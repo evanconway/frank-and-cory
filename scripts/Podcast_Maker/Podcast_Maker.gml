@@ -120,6 +120,7 @@ global.podcast_player = {
 };
 
 function podcast_machine_play_all() {
+	play_sfx(snd_jude_button_play, 1);
 	global.podcast_player.column_to_play = 0;
 	global.podcast_player.play_individual_column = false;
 	global.updateable = global.podcast_player;
@@ -127,6 +128,7 @@ function podcast_machine_play_all() {
 };
 
 function podcast_machine_play_column(column=0) {
+	play_sfx(snd_jude_button_play, 1);
 	global.podcast_player.play_individual_column = true;
 	global.podcast_player.column_to_play = column;
 	global.updateable = global.podcast_player;
@@ -246,14 +248,13 @@ function podcast_play_test() {
 	global.updateable = global.podcast_test_player;
 }
 
-function podcast_stop_test() {
-	if (!__podcast_ensure_test_position_exists()) return;
-	audio_stop_sound(global.podcast_test_player.get_audio_at_test());
-	global.updateable = undefined;
-}
 
 function podcast_machine_stop_all() {
-	podcast_stop_test();
+	play_sfx(snd_jude_button_stop, 1);
+	if (__podcast_ensure_test_position_exists()) {
+		var test_snd = global.podcast_test_player.get_audio_at_test();
+		if (test_snd != undefined) audio_stop_sound(test_snd);
+	}
 	global.podcast_player.stop_all();
 	global.updateable = undefined;
 }

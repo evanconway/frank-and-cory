@@ -128,6 +128,8 @@
     {"id":{"name":"snd_jude_attach_legs","path":"sounds/snd_jude_attach_legs/snd_jude_attach_legs.yy",},},
     {"id":{"name":"snd_jude_box_unlock","path":"sounds/snd_jude_box_unlock/snd_jude_box_unlock.yy",},},
     {"id":{"name":"snd_jude_breaker_switch","path":"sounds/snd_jude_breaker_switch/snd_jude_breaker_switch.yy",},},
+    {"id":{"name":"snd_jude_button_play","path":"sounds/snd_jude_button_play/snd_jude_button_play.yy",},},
+    {"id":{"name":"snd_jude_button_stop","path":"sounds/snd_jude_button_stop/snd_jude_button_stop.yy",},},
     {"id":{"name":"snd_jude_camera","path":"sounds/snd_jude_camera/snd_jude_camera.yy",},},
     {"id":{"name":"snd_jude_chomp","path":"sounds/snd_jude_chomp/snd_jude_chomp.yy",},},
     {"id":{"name":"snd_jude_cory_chirp_1","path":"sounds/snd_jude_cory_chirp_1/snd_jude_cory_chirp_1.yy",},},

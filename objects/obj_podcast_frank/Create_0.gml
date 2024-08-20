@@ -17,5 +17,5 @@ draw = function() {
 	if (expression == FRANK_PODCAST_EXPRESSION.SAD) eye_index = 1;
 	if (expression == FRANK_PODCAST_EXPRESSION.LEFT) eye_index = 2;
 	if (expression == FRANK_PODCAST_EXPRESSION.UPLEFT) eye_index = 3;
-	draw_sprite(spr_podcast_frank_eyes, eye_index, 0, 0);
+	draw_sprite(spr_podcast_frank_eyes, eye_index, x, y);
 };

@@ -105,6 +105,8 @@
     {"name":"snd_jude_attach_head","order":10,"path":"sounds/snd_jude_attach_head/snd_jude_attach_head.yy",},
     {"name":"snd_jude_attach_legs","order":11,"path":"sounds/snd_jude_attach_legs/snd_jude_attach_legs.yy",},
     {"name":"snd_jude_box_unlock","order":8,"path":"sounds/snd_jude_box_unlock/snd_jude_box_unlock.yy",},
+    {"name":"snd_jude_button_play","order":20,"path":"sounds/snd_jude_button_play/snd_jude_button_play.yy",},
+    {"name":"snd_jude_button_stop","order":21,"path":"sounds/snd_jude_button_stop/snd_jude_button_stop.yy",},
     {"name":"snd_jude_camera","order":1,"path":"sounds/snd_jude_camera/snd_jude_camera.yy",},
     {"name":"snd_jude_chomp","order":7,"path":"sounds/snd_jude_chomp/snd_jude_chomp.yy",},
     {"name":"snd_jude_cory_chirp_2","order":1,"path":"sounds/snd_jude_cory_chirp_2/snd_jude_cory_chirp_2.yy",},
