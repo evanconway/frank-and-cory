@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":21.072458,
+  "duration":14.944535,
   "name":"snd_reel_vox_1",
   "parent":{
     "name":"reels",

@@ -183,13 +183,23 @@ function podcast_machine_draw(x=0, y=0) {
 }
 
 function podcast_machine_transition() {
-	play_sfx(snd_jude_podcast_machine_descend);
+	play_sfx(snd_jude_mouse_run_1);
 	
 	// feather disable GM1043
 	global.updateable = {
+		draw_machine: true,
 		step: 0,
 		vertical_offset: display_get_gui_height(),
+		time: 0,
 		steps: [
+			function() {	
+				obj_workshop_cory.x += 100;
+				obj_frank_chest.x -= 100;
+				if (obj_workshop_cory.x > 2000 && obj_frank_chest.x < 2000) {
+					step += 1;
+					play_sfx(snd_jude_podcast_machine_descend);
+				}
+			},
 			function() {
 				vertical_offset -= min(6, vertical_offset * 0.1);
 				
@@ -200,17 +210,37 @@ function podcast_machine_transition() {
 			},
 			function() {
 				room_goto(room == rm_podcast_machine ? rm_workshop : rm_podcast_machine);
-				step++;
+				step += 1;
 			},
 			function() {
-				if (room == rm_podcast_machine) global.updateable = undefined;
+				if (room == rm_podcast_machine) {
+					obj_podcast_cory.x = -1000;
+					obj_podcast_frank.x = 1000;
+					draw_machine = false;
+					step += 1;
+				}
+			},
+			function() {
+				time += 1;
+				if (time > 120) {
+					step += 1;
+					time = 0;
+					play_sfx(snd_jude_mouse_run_1);
+				}
+			},
+			function() {
+				obj_podcast_cory.x = min(0, obj_podcast_cory.x + 50);
+				obj_podcast_frank.x = max(0, obj_podcast_frank.x - 50);
+				if (obj_podcast_cory.x == 0 && obj_podcast_frank.x == 0) {
+					global.updateable = undefined;
+				}
 			},
 		],
 		update: function() {
 			steps[step]();
 		},
 		draw: function() {
-			podcast_machine_draw(0, vertical_offset * -1);
+			if (draw_machine) podcast_machine_draw(0, vertical_offset * -1);
 		}
 	};
 }

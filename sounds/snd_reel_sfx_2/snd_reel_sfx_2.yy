@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":21.072458,
+  "duration":21.072449,
   "name":"snd_reel_sfx_2",
   "parent":{
     "name":"reels",

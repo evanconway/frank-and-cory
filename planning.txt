@@ -248,3 +248,8 @@ Wait, I was completely wrong. I mis-read my own code. There is a podcast_test_pl
 Got all the disabled play and stop button logic in. The next critical piece is the frank and cory characters. I believe we can just make these objects that we manipulate through updateables, just like in the workshop. We should probably do something to allow them to slide in for the intro.
 
 One more note before we stop for today. I don't like the look of the greyed out play button. I think we should create a green highlight on the play button for the active section.
+
+
+1st of September, 2024
+
+Just got the boosted podcast audio assets in. I think next we'll add the character transitions for the podcast machine. We want a swipe out/in from the side for both Cory and Frank.

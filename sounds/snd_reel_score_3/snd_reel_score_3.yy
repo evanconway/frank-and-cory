@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":21.072458,
+  "duration":18.243765,
   "name":"snd_reel_score_3",
   "parent":{
     "name":"reels",
