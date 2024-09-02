@@ -69,36 +69,6 @@ function complete_story() {
 	};
 	
 	/*
-	It was a dark and stormy night.
-
-	I was on my walk home when I spotted a bright red ball in the grass.
-
-	But it wasn't a ball at all. It was a bird.
-
-	He was missing a leg and he wasn't moving.
-
-	It was raining so hard I had to hurry home.
-
-	I brought the little red bird inside from the cold.
-
-	He was shivering, so I covered him with a small blanket.
-
-	He whistled while he slept.
-
-	I noticed his wing was also broken. That gave me an idea.
-
-	All night long, the little bird whistled and slept.
-
-	I gathered what tools and supplies I could find. And I worked all night long (pause) creating what would soon become my best invention.
-
-	By sunrise the bird awoke to discover his brand new wing (pause) and a new foot.
-
-	He stood up and tried them out, flapping and whisteling happily.
-
-	That is how I met my best friend Cory.
-	*/
-	
-	/*
 	He stood up and tried them out, flapping and whisteling happily.
 	That is how I met my best friend Cory.
 	*/
@@ -125,22 +95,21 @@ function complete_story() {
 			function() {
 				if (time >= 130)	 {
 					time = 0;
-					// the pause syntax is broken, fix later.
-					tag_decorated_text = get_new_text("I was on my walk home<p:1000> when I spotted a bright red ball in the grass.");
+					tag_decorated_text = get_new_text("I was on my walk hom<p:1000>e when I spotted a bright red ball in the grass.");
 					step += 1;
 				}
 			},
 			function() {
 				if (time >= 282)	 {
 					time = 0;
-					tag_decorated_text = get_new_text("But it wasn't a ball at all. It was a bird.");
+					tag_decorated_text = get_new_text("But it wasn't a ball at all<p:1100>. It was a bird.");
 					step += 1;
 				}
 			},
 			function() {
 				if (time >= 227)	 {
 					time = 0;
-					tag_decorated_text = get_new_text("He was missing a leg and he wasn't moving.");
+					tag_decorated_text = get_new_text("He was missing a le<p:1200>g and he wasn't moving.");
 					step += 1;
 				}
 			},
@@ -161,7 +130,7 @@ function complete_story() {
 			function() {
 				if (time >= 220)	 {
 					time = 0;
-					tag_decorated_text = get_new_text("He was shivering, so I covered him with a small blanket.");
+					tag_decorated_text = get_new_text("He was shiverin<p:1200>g so I covered him with a small blanket.");
 					step += 1;
 				}
 			},
@@ -175,35 +144,35 @@ function complete_story() {
 			function() {
 				if (time >= 162)	 {
 					time = 0;
-					tag_decorated_text = get_new_text("I noticed his wing was also broken. That gave me an idea.");
+					tag_decorated_text = get_new_text("I noticed his wing was also broken<p:1700>. That gave me an idea.");
 					step += 1;
 				}
 			},
 			function() {
 				if (time >= 388)	 {
 					time = 0;
-					tag_decorated_text = get_new_text("All night long, the little bird whistled and slept.");
+					tag_decorated_text = get_new_text("All night lon<p:750>g the little bird whistled and slept.");
 					step += 1;
 				}
 			},
 			function() {
 				if (time >= 313)	 {
 					time = 0;
-					tag_decorated_text = get_new_text("I gathered what tools and supplies I could find. And I worked all night long (pause) creating what would soon become my best invention.");
+					tag_decorated_text = get_new_text("I gathered what tools and supplies I could find<p:1800>. And I worked all night lon<p:1500>g creating what would soon becom<p:1100>e my best invention.");
 					step += 1;
 				}
 			},
 			function() {
 				if (time >= 759)	 {
 					time = 0;
-					tag_decorated_text = get_new_text("By sunrise the bird awoke to discover his brand new wing (pause) and a new foot.");
+					tag_decorated_text = get_new_text("By sunris<p:500>e the bird awoke to discover his brand new win<p:2000>g and a new foot.");
 					step += 1;
 				}
 			},
 			function() {
 				if (time >= 391)	 {
 					time = 0;
-					tag_decorated_text = get_new_text("He stood up and tried them out, flapping and whistling happily.");
+					tag_decorated_text = get_new_text("He stood up and tried them out<p:1000>, flapping and whistling happily.");
 					step += 1;
 				}
 			},

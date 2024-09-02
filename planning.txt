@@ -264,4 +264,4 @@ We're ready to work on the podcast visual sequence. There are basically 3 things
 
 I've started by just making an updateable the way I usually do. But I wonder if that's not how I should approach this. You see these 3 things feel very separate, and I wonder if instead of trying to coordinate all of this in 1 set of logic, I should split it up. I could have a thing that just deals with deciding what artwork to draw and how to pan, I could have 1 thing that just decides when to fade in and out of black. And I could have a 3rd thing deal with text rendering. Some of these may want to rely on how far along the audio is, others may not. That's why I'm tempted to separate them out. Let's try that first and see how it feels.
 
-Unfortunately we just learned our pause feature in our text isn't working as expected.
+Unfortunately we just learned our pause feature in our text isn't working as expected. Ah, actually I just forgot that we need to put the pause on a non-space character. Most of the text timings for the podcast story are now in.
