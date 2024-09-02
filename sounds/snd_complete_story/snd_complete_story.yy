@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_complete_story",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":74.72656,
+  "name":"snd_complete_story",
+  "parent":{
+    "name":"Jude",
+    "path":"folders/Sounds/Jude.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_complete_story.wav",
+  "type":0,
+  "volume":1.0,
+}

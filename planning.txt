@@ -253,3 +253,5 @@ One more note before we stop for today. I don't like the look of the greyed out 
 1st of September, 2024
 
 Just got the boosted podcast audio assets in. I think next we'll add the character transitions for the podcast machine. We want a swipe out/in from the side for both Cory and Frank.
+
+We got a lot more of the expression logic for the podcast area in. Jude asked for specific dialog to happen the first time a narration track is played. I'm not sure how to handle this tbh. Let's mark this as a stretch goal and focus on the more important features first.

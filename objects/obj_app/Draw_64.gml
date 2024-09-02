@@ -7,6 +7,10 @@ if (keyboard_check_pressed(ord("2"))) {
 	podcast_machine_transition();
 }
 
+if (keyboard_check_pressed(ord("3"))) {
+	complete_story();
+}
+
 global.clickable_hovered = noone;
 
 // maintain updateable reference so we can change global.updateable in update or draw
