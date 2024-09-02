@@ -172,14 +172,14 @@ function complete_story() {
 			function() {
 				if (time >= 391)	 {
 					time = 0;
-					tag_decorated_text = get_new_text("He stood up and tried them out<p:1000>, flapping and whistling happily.");
+					tag_decorated_text = get_new_text("He stood up and tried them out<p:1300>, flapping and whistling happily.");
 					step += 1;
 				}
 			},
 			function() {
 				if (time >= 333)	 {
 					time = 0;
-					tag_decorated_text = get_new_text("That is how I met my best friend Cory.");
+					tag_decorated_text = get_new_text("That is how I me<p:500>t my best friend Cory.");
 					step += 1;
 				}
 			},
