@@ -23,14 +23,6 @@ if (updateable != undefined) {
 } else {
 	clickables_update();
 	clickables_draw();
-	
-	// win condition
-	if (room == rm_podcast_machine) {
-		var complete = podcast_get_is_complete();
-		if (complete) {
-			show_debug_message("complete");
-		}
-	}
 }
 
 draw_set_alpha(1);

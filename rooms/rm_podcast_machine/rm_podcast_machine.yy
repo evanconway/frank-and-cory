@@ -69,6 +69,7 @@
     {"name":"inst_slot_12","path":"rooms/rm_podcast_machine/rm_podcast_machine.yy",},
     {"name":"inst_6022DAD0","path":"rooms/rm_podcast_machine/rm_podcast_machine.yy",},
     {"name":"inst_4359D985","path":"rooms/rm_podcast_machine/rm_podcast_machine.yy",},
+    {"name":"inst_2D9DA359","path":"rooms/rm_podcast_machine/rm_podcast_machine.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -76,6 +77,7 @@
     {"$GMRInstanceLayer":"","%Name":"Characters","depth":100,"effectEnabled":true,"effectType":null,"gridX":100,"gridY":100,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v1","%Name":"inst_6022DAD0","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6022DAD0","objectId":{"name":"obj_podcast_frank","path":"objects/obj_podcast_frank/obj_podcast_frank.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},
         {"$GMRInstance":"v1","%Name":"inst_4359D985","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_4359D985","objectId":{"name":"obj_podcast_cory","path":"objects/obj_podcast_cory/obj_podcast_cory.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},
+        {"$GMRInstance":"v1","%Name":"inst_2D9DA359","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2D9DA359","objectId":{"name":"obj_podcast_win_detector","path":"objects/obj_podcast_win_detector/obj_podcast_win_detector.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},
       ],"layers":[],"name":"Characters","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"SlotCovers","depth":200,"effectEnabled":true,"effectType":null,"gridX":100,"gridY":100,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v1","%Name":"inst_slot_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_slot_1","objectId":{"name":"obj_slot_1","path":"objects/obj_slot_1/obj_slot_1.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},

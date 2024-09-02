@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":74.72656,
+  "duration":75.726555,
   "name":"snd_complete_story",
   "parent":{
     "name":"Jude",

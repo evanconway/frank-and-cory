@@ -1,4 +1,67 @@
+/*
+10.769 Cory Hurt in		646
+16.800 Cory Hurt out	1008
+24.558 Blanket in		1474
+34.453 Blanket out		2067
+43.535 Workbench in		2612
+53.833 Workbench out	3230
+57.562 Finish in		3454
+72.004 Finish out		4320
+*/
+
 function complete_story() {
+	global.podcast_dialog_end = dialog_get_updateable([
+		cory_get_dialog_step("Oh my. That was beautiful, Frank.", CORY_EXPRESSION.PODCAST_WINGS),
+		cory_get_dialog_step("Thank you.", CORY_EXPRESSION.PODCAST_NEUTRAL),
+		frank_get_dialog_step("Thanks for helping me put it together!", FRANK_EXPRESSION.PODCAST_LEFT_UP),
+		cory_get_dialog_step("So weird, I don't remember any of that.", CORY_EXPRESSION.PODCAST_HIP),
+		frank_get_dialog_step("Well, you were pretty little back then.", FRANK_EXPRESSION.PODCAST_LEFT_DOWN),
+		cory_get_dialog_step("Do you remember anything?", CORY_EXPRESSION.PODCAST_WINGS),
+		cory_get_dialog_step("From when you were little?", CORY_EXPRESSION.PODCAST_NEUTRAL),
+		frank_get_dialog_step("Hmm. Now that I think about it...", FRANK_EXPRESSION.PODCAST_UP_DOWN),
+		frank_get_dialog_step("I don't know if I was little.", FRANK_EXPRESSION.PODCAST_LEFT_UP),
+		cory_get_dialog_step("What do you say we go outside and record more stuff?", CORY_EXPRESSION.PODCAST_HIP),
+		frank_get_dialog_step("Sounds fun!", FRANK_EXPRESSION.PODCAST_LEFT_PUMP),
+		frank_get_dialog_step("Let me attach new tape reels!", FRANK_EXPRESSION.PODCAST_BLANK_DOWN),
+		cory_get_dialog_step("Looking good! Let's go!", CORY_EXPRESSION.PODCAST_WINGS),
+	], {
+		after_dialog_updateable: {
+			alpha: 0,
+			step: 0,
+			steps: [
+				function() {
+					alpha += 0.01;
+					if (alpha >= 1) {
+						alpha = 1;
+						step += 1 ;
+					}
+				},
+				function() {
+					room_goto(rm_outside);
+					step += 1;
+				},
+				function() {
+					if (room == rm_outside) step += 1;
+				},
+				function() {
+					alpha -= 0.01;
+					if (alpha <= 0) {
+						alpha = 0;
+						global.updateable = undefined;
+					}
+				},
+			],
+			update: function() {
+				steps[step]();
+			},
+			draw: function() {
+				draw_set_color(c_black);
+				draw_set_alpha(alpha);
+				draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
+			},
+		}
+	});
+	
 	var chapter_art = {
 		chapter_spr_offsets: [
 			{ x: -200, y: 0},
@@ -25,16 +88,6 @@ function complete_story() {
 		time: 0,
 		step: 0,
 		steps: [
-			/*
-			10.769 Cory Hurt in		646
-			16.800 Cory Hurt out	1008
-			24.558 Blanket in		1474
-			34.453 Blanket out		2067
-			43.535 Workbench in		2612
-			53.833 Workbench out	3230
-			57.562 Finish in		3454
-			72.004 Finish out		4320
-			*/
 			function() { // sync up with blackout
 				if (time >= 646) step += 1;
 			},
@@ -55,7 +108,7 @@ function complete_story() {
 			},
 			function() {
 				chapter_spr_offsets[3].y -= clamp(abs(chapter_spr_offsets[3].y) * 0.03, 0, pan_speed);
-				draw_chapter_art(3);
+				if (time <= 4600) draw_chapter_art(3);
 			},
 		],
 		draw: function() {
@@ -109,10 +162,13 @@ function complete_story() {
 			},
 			function() {
 				black_alpha = clamp(black_alpha + 0.01, 0, 1);
-				if (time >= 4500) step += 1;
+				if (time >= 4600) step += 1;
 			},
 			function() {
-				global.updateable = undefined;
+				black_alpha = clamp(black_alpha - 0.01, 0, 1);
+				if (black_alpha <= 0) {
+					global.updateable = global.podcast_dialog_end;
+				}
 			},
 		],
 		draw: function() {
@@ -124,10 +180,6 @@ function complete_story() {
 		},
 	};
 	
-	/*
-	He stood up and tried them out, flapping and whisteling happily.
-	That is how I met my best friend Cory.
-	*/
 	var text = {
 		get_new_text: function(text="") {
 			if (string_starts_with(text, "I was on my walk home")) {
@@ -240,7 +292,7 @@ function complete_story() {
 				}
 			},
 			function() {
-				if (time >= 300) {
+				if (time >= 400) {
 					tag_decorated_text = undefined;
 					time = 0;
 					step += 1;
@@ -268,15 +320,4 @@ function complete_story() {
 	};
 	
 	global.updateable = podcast_animation_sequence;
-	
-	/*
-	global.updateable = dialog_get_updateable([
-		frank_get_dialog_step("Why...", FRANK_EXPRESSION.PODCAST_LEFT_UP),
-		frank_get_dialog_step("I think we've got it!", FRANK_EXPRESSION.PODCAST_BLANK_PUMP),
-		cory_get_dialog_step("Ooh!", CORY_EXPRESSION.PODCAST_WINGS),
-		cory_get_dialog_step("Let's see it on the screen!", CORY_EXPRESSION.PODCAST_HIP),
-	], {
-		after_dialog_updateable: podcast_animation_sequence,
-	});
-	*/
 }
