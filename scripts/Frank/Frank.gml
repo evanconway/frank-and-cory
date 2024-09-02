@@ -6,7 +6,11 @@ enum FRANK_EXPRESSION {
 	UP,
 	UNAMUSED,
 	DOWNLEFT,
-	LEFT
+	LEFT,
+	PODCAST_BLANK,
+	PODCAST_SAD,
+	PODCAST_LEFT, 
+	PODCAST_UP
 }
 
 global.frank_expression = FRANK_EXPRESSION.BLANK;
@@ -37,6 +41,7 @@ enum FRANK_DIALOG_POSITION {
 	INTRO_HEAD,
 	ASSEMBLED_PARTLY,
 	ASSEMBLED_FULL,
+	PODCAST,
 }
 
 global.frank_dialog_position = FRANK_DIALOG_POSITION.INTRO_HEAD;
@@ -57,6 +62,10 @@ function frank_get_dialog_step(text, expression=FRANK_EXPRESSION.NEUTRAL) {
 				global.dialog_position_x = 2100;
 				global.dialog_position_y = 375;
 			}
+			if (global.frank_dialog_position == FRANK_DIALOG_POSITION.PODCAST) {
+				global.dialog_position_x = 3109;
+				global.dialog_position_y = 1553;
+			}
 			global.frank_expression = expression;
 		}),
 		on_type: global.frank_speaks,
@@ -66,6 +75,7 @@ function frank_get_dialog_step(text, expression=FRANK_EXPRESSION.NEUTRAL) {
 			if (global.frank_dialog_position = FRANK_DIALOG_POSITION.INTRO_HEAD) word_balloon = spr_word_balloon_frank_left;
 			if (global.frank_dialog_position = FRANK_DIALOG_POSITION.ASSEMBLED_PARTLY) word_balloon = spr_word_balloon_frank_left;
 			if (global.frank_dialog_position = FRANK_DIALOG_POSITION.ASSEMBLED_FULL) word_balloon = spr_word_balloon_frank_left;
+			if (global.frank_dialog_position = FRANK_DIALOG_POSITION.PODCAST) word_balloon = spr_word_balloon_frank_right;
 			if (word_balloon != undefined) draw_sprite(word_balloon, 0, global.dialog_position_x, global.dialog_position_y);
 		}
 	}
@@ -83,6 +93,11 @@ global.frank_idle_expression_options = [
 	FRANK_EXPRESSION.LEFT,
 	FRANK_EXPRESSION.DOWNLEFT
 ];
+global.frank_idle_expression_options_podcast = [
+	FRANK_EXPRESSION.PODCAST_BLANK,
+	FRANK_EXPRESSION.PODCAST_LEFT,
+	FRANK_EXPRESSION.PODCAST_UP,
+];
 global.frank_idle_expression = FRANK_EXPRESSION.NEUTRAL;
 global.frank_idle_expression_time = 80;
 
@@ -91,7 +106,7 @@ function frank_draw_expression(x_left=271, y_left=166, x_right=271, y_right=166)
 		global.frank_idle_expression_time -= 1;
 		if (global.frank_idle_expression_time < 0) {
 			global.frank_idle_expression_time = irandom_range(80, 140);
-			var options = array_filter(global.frank_idle_expression_options, function(option) {
+			var options = array_filter(room == rm_workshop ? global.frank_idle_expression_options : global.frank_idle_expression_options_podcast, function(option) {
 				return option != global.frank_idle_expression;
 			});
 			global.frank_idle_expression = options[irandom_range(0, array_length(options) - 1)];
@@ -120,4 +135,10 @@ function frank_draw_expression(x_left=271, y_left=166, x_right=271, y_right=166)
 	if (global.frank_expression == FRANK_EXPRESSION.UP) draw_sprite(spr_frank_eyes_right, 3, x_right, y_right);
 	if (global.frank_expression == FRANK_EXPRESSION.DOWNLEFT) draw_sprite(spr_frank_eyes_right, 6, x_right, y_right);
 	if (global.frank_expression == FRANK_EXPRESSION.LEFT) draw_sprite(spr_frank_eyes_right, 7, x_right, y_right);
+	
+	// podcast
+	if (global.frank_expression == FRANK_EXPRESSION.PODCAST_BLANK) draw_sprite(spr_podcast_frank_eyes, 0, 0, 0);
+	if (global.frank_expression == FRANK_EXPRESSION.PODCAST_SAD) draw_sprite(spr_podcast_frank_eyes, 1, 0, 0);
+	if (global.frank_expression == FRANK_EXPRESSION.PODCAST_LEFT) draw_sprite(spr_podcast_frank_eyes, 2, 0, 0);
+	if (global.frank_expression == FRANK_EXPRESSION.PODCAST_UP) draw_sprite(spr_podcast_frank_eyes, 3, 0, 0);
 }

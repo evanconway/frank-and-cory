@@ -185,8 +185,15 @@ function podcast_machine_draw(x=0, y=0) {
 function podcast_machine_transition() {
 	play_sfx(snd_jude_mouse_run_1);
 	
+	var tutorial = dialog_get_updateable([
+		cory_get_dialog_step("Pick any reel and drag it to this test area for a listen!", CORY_EXPRESSION.PODCAST_WINGS),
+		frank_get_dialog_step("Oh", FRANK_EXPRESSION.PODCAST_LEFT),
+		frank_get_dialog_step("This is my favorite part!", FRANK_EXPRESSION.PODCAST_UP),
+	]);
+	
 	// feather disable GM1043
 	global.updateable = {
+		tutorial,
 		draw_machine: true,
 		step: 0,
 		vertical_offset: display_get_gui_height(),
@@ -214,6 +221,9 @@ function podcast_machine_transition() {
 			},
 			function() {
 				if (room == rm_podcast_machine) {
+					global.cory_dialog_position = CORY_DIALOG_POSITION.PODCAST;
+					global.frank_dialog_position = FRANK_DIALOG_POSITION.PODCAST;
+					global.frank_expression = FRANK_EXPRESSION.PODCAST_LEFT;
 					obj_podcast_cory.x = -1000;
 					obj_podcast_frank.x = 1000;
 					draw_machine = false;
@@ -232,7 +242,7 @@ function podcast_machine_transition() {
 				obj_podcast_cory.x = min(0, obj_podcast_cory.x + 50);
 				obj_podcast_frank.x = max(0, obj_podcast_frank.x - 50);
 				if (obj_podcast_cory.x == 0 && obj_podcast_frank.x == 0) {
-					global.updateable = undefined;
+					global.updateable = tutorial;
 				}
 			},
 		],

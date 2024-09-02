@@ -11,7 +11,7 @@ on_click = function() {
 	} else {
 		global.updateable = dialog_get_updateable([
 			frank_get_dialog_step("Ah! I remember now.", FRANK_EXPRESSION.BLANK),
-			frank_get_dialog_step("These are the reels we’ll use for the story machine!", FRANK_EXPRESSION.RIGHT),
+			frank_get_dialog_step("These are the reels we'll use for the story machine!", FRANK_EXPRESSION.RIGHT),
 		]);
 	}
 };

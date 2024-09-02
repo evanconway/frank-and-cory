@@ -4,23 +4,17 @@ enum CORY_EXPRESSION {
 	SALUTE,
 	BOTH_WINGS,
 	TILT,
+	PODCAST_NEUTRAL,
+	PODCAST_HIP,
+	PODCAST_WINGS,
 }
 
 global.cory_expression = FRANK_EXPRESSION.BLANK;
 
-global.cory_set_dialog_position = function() {
-	global.dialog_position_x = 3100;
-	global.dialog_position_y = 505;
-};
-	
-global.cory_set_dialog_position_head = function() {
-	global.dialog_position_x = 1270;
-	global.dialog_position_y = 1080;
-};
-
 enum CORY_DIALOG_POSITION {
 	INTRO_BREAKER,
 	INTRO_HEAD,
+	PODCAST,
 }
 
 global.cory_dialog_position = CORY_DIALOG_POSITION.INTRO_BREAKER;
@@ -60,6 +54,10 @@ function cory_get_dialog_step(text, expression=CORY_EXPRESSION.NEUTRAL) {
 				global.dialog_position_x = 2116;
 				global.dialog_position_y = 1323;
 			}
+			if (global.cory_dialog_position == CORY_DIALOG_POSITION.PODCAST) {
+				global.dialog_position_x = 1319;
+				global.dialog_position_y = 2220;
+			}
 			global.cory_expression = expression; // we don't have cory expressions yet
 		}),
 		on_type: global.cory_speaks,
@@ -68,6 +66,7 @@ function cory_get_dialog_step(text, expression=CORY_EXPRESSION.NEUTRAL) {
 			var word_balloon = undefined;
 			if (global.cory_dialog_position == CORY_DIALOG_POSITION.INTRO_BREAKER) word_balloon = spr_word_balloon_cory_right;
 			if (global.cory_dialog_position == CORY_DIALOG_POSITION.INTRO_HEAD) word_balloon = spr_word_balloon_cory_left;
+			if (global.cory_dialog_position == CORY_DIALOG_POSITION.PODCAST) word_balloon = spr_word_balloon_cory_left;
 			if (word_balloon != undefined) draw_sprite(word_balloon, 0, global.dialog_position_x, global.dialog_position_y);
 		}
 	}
@@ -75,12 +74,18 @@ function cory_get_dialog_step(text, expression=CORY_EXPRESSION.NEUTRAL) {
 
 function cory_set_expression() {
 	if (global.updateable == undefined) {
-		global.cory_expression = CORY_EXPRESSION.NEUTRAL;
+		global.cory_expression = room == rm_workshop ? CORY_EXPRESSION.NEUTRAL : CORY_EXPRESSION.PODCAST_NEUTRAL;
 	}
-	if (!instance_exists(obj_workshop_cory)) return;
-	if (global.cory_expression == CORY_EXPRESSION.NEUTRAL) obj_workshop_cory.image_index = 0;
-	if (global.cory_expression == CORY_EXPRESSION.TAP) obj_workshop_cory.image_index = 1;
-	if (global.cory_expression == CORY_EXPRESSION.SALUTE) obj_workshop_cory.image_index = 2;
-	if (global.cory_expression == CORY_EXPRESSION.BOTH_WINGS) obj_workshop_cory.image_index = 3;
-	if (global.cory_expression == CORY_EXPRESSION.TILT) obj_workshop_cory.image_index = 4;
+	if (instance_exists(obj_workshop_cory)) {
+		if (global.cory_expression == CORY_EXPRESSION.NEUTRAL) obj_workshop_cory.image_index = 0;
+		if (global.cory_expression == CORY_EXPRESSION.TAP) obj_workshop_cory.image_index = 1;
+		if (global.cory_expression == CORY_EXPRESSION.SALUTE) obj_workshop_cory.image_index = 2;
+		if (global.cory_expression == CORY_EXPRESSION.BOTH_WINGS) obj_workshop_cory.image_index = 3;
+		if (global.cory_expression == CORY_EXPRESSION.TILT) obj_workshop_cory.image_index = 4;
+	}
+	if (instance_exists(obj_podcast_cory)) {
+		if (global.cory_expression == CORY_EXPRESSION.PODCAST_NEUTRAL) obj_podcast_cory.image_index = 0;
+		if (global.cory_expression == CORY_EXPRESSION.PODCAST_HIP) obj_podcast_cory.image_index = 1;
+		if (global.cory_expression == CORY_EXPRESSION.PODCAST_WINGS) obj_podcast_cory.image_index = 2;
+	}
 }
