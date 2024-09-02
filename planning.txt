@@ -255,3 +255,13 @@ One more note before we stop for today. I don't like the look of the greyed out 
 Just got the boosted podcast audio assets in. I think next we'll add the character transitions for the podcast machine. We want a swipe out/in from the side for both Cory and Frank.
 
 We got a lot more of the expression logic for the podcast area in. Jude asked for specific dialog to happen the first time a narration track is played. I'm not sure how to handle this tbh. Let's mark this as a stretch goal and focus on the more important features first.
+
+We're ready to work on the podcast visual sequence. There are basically 3 things I want to happen in this:
+
+1. fades in and out of black
+2. panning artwork
+3. animated text
+
+I've started by just making an updateable the way I usually do. But I wonder if that's not how I should approach this. You see these 3 things feel very separate, and I wonder if instead of trying to coordinate all of this in 1 set of logic, I should split it up. I could have a thing that just deals with deciding what artwork to draw and how to pan, I could have 1 thing that just decides when to fade in and out of black. And I could have a 3rd thing deal with text rendering. Some of these may want to rely on how far along the audio is, others may not. That's why I'm tempted to separate them out. Let's try that first and see how it feels.
+
+Unfortunately we just learned our pause feature in our text isn't working as expected.
