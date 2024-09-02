@@ -7,10 +7,19 @@ enum FRANK_EXPRESSION {
 	UNAMUSED,
 	DOWNLEFT,
 	LEFT,
-	PODCAST_BLANK,
-	PODCAST_SAD,
-	PODCAST_LEFT, 
-	PODCAST_UP
+	// podcast: eyes, arms
+	PODCAST_BLANK_DOWN,
+	PODCAST_SAD_DOWN,
+	PODCAST_LEFT_DOWN, 
+	PODCAST_UP_DOWN,
+	PODCAST_BLANK_UP,
+	PODCAST_SAD_UP,
+	PODCAST_LEFT_UP, 
+	PODCAST_UP_UP,
+	PODCAST_BLANK_PUMP,
+	PODCAST_SAD_PUMP,
+	PODCAST_LEFT_PUMP, 
+	PODCAST_UP_PUMP,
 }
 
 global.frank_expression = FRANK_EXPRESSION.BLANK;
@@ -94,9 +103,9 @@ global.frank_idle_expression_options = [
 	FRANK_EXPRESSION.DOWNLEFT
 ];
 global.frank_idle_expression_options_podcast = [
-	FRANK_EXPRESSION.PODCAST_BLANK,
-	FRANK_EXPRESSION.PODCAST_LEFT,
-	FRANK_EXPRESSION.PODCAST_UP,
+	FRANK_EXPRESSION.PODCAST_BLANK_DOWN,
+	FRANK_EXPRESSION.PODCAST_LEFT_DOWN,
+	FRANK_EXPRESSION.PODCAST_UP_DOWN,
 ];
 global.frank_idle_expression = FRANK_EXPRESSION.NEUTRAL;
 global.frank_idle_expression_time = 80;
@@ -137,8 +146,9 @@ function frank_draw_expression(x_left=271, y_left=166, x_right=271, y_right=166)
 	if (global.frank_expression == FRANK_EXPRESSION.LEFT) draw_sprite(spr_frank_eyes_right, 7, x_right, y_right);
 	
 	// podcast
-	if (global.frank_expression == FRANK_EXPRESSION.PODCAST_BLANK) draw_sprite(spr_podcast_frank_eyes, 0, obj_podcast_frank.x, obj_podcast_frank.y);
-	if (global.frank_expression == FRANK_EXPRESSION.PODCAST_SAD) draw_sprite(spr_podcast_frank_eyes, 1, obj_podcast_frank.x, obj_podcast_frank.y);
-	if (global.frank_expression == FRANK_EXPRESSION.PODCAST_LEFT) draw_sprite(spr_podcast_frank_eyes, 2, obj_podcast_frank.x, obj_podcast_frank.y);
-	if (global.frank_expression == FRANK_EXPRESSION.PODCAST_UP) draw_sprite(spr_podcast_frank_eyes, 3, obj_podcast_frank.x, obj_podcast_frank.y);
+	if (array_contains([FRANK_EXPRESSION.PODCAST_BLANK_DOWN, FRANK_EXPRESSION.PODCAST_BLANK_PUMP, FRANK_EXPRESSION.PODCAST_BLANK_UP], global.frank_expression)) draw_sprite(spr_podcast_frank_eyes, 0, obj_podcast_frank.x, obj_podcast_frank.y);
+	if (array_contains([FRANK_EXPRESSION.PODCAST_SAD_DOWN, FRANK_EXPRESSION.PODCAST_SAD_PUMP, FRANK_EXPRESSION.PODCAST_SAD_UP], global.frank_expression)) draw_sprite(spr_podcast_frank_eyes, 1, obj_podcast_frank.x, obj_podcast_frank.y);
+	if (array_contains([FRANK_EXPRESSION.PODCAST_LEFT_DOWN, FRANK_EXPRESSION.PODCAST_LEFT_PUMP, FRANK_EXPRESSION.PODCAST_LEFT_UP], global.frank_expression)) draw_sprite(spr_podcast_frank_eyes, 2, obj_podcast_frank.x, obj_podcast_frank.y);
+	if (array_contains([FRANK_EXPRESSION.PODCAST_UP_DOWN, FRANK_EXPRESSION.PODCAST_UP_PUMP, FRANK_EXPRESSION.PODCAST_UP_UP], global.frank_expression)) draw_sprite(spr_podcast_frank_eyes, 3, obj_podcast_frank.x, obj_podcast_frank.y);
+	
 }

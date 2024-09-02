@@ -187,8 +187,8 @@ function podcast_machine_transition() {
 	
 	var tutorial = dialog_get_updateable([
 		cory_get_dialog_step("Pick any reel and drag it to this test area for a listen!", CORY_EXPRESSION.PODCAST_WINGS),
-		frank_get_dialog_step("Oh", FRANK_EXPRESSION.PODCAST_LEFT),
-		frank_get_dialog_step("This is my favorite part!", FRANK_EXPRESSION.PODCAST_UP),
+		frank_get_dialog_step("Oh", FRANK_EXPRESSION.PODCAST_LEFT_DOWN),
+		frank_get_dialog_step("This is my favorite part!", FRANK_EXPRESSION.PODCAST_UP_PUMP),
 	]);
 	
 	// feather disable GM1043
@@ -223,8 +223,8 @@ function podcast_machine_transition() {
 				if (room == rm_podcast_machine) {
 					global.cory_dialog_position = CORY_DIALOG_POSITION.PODCAST;
 					global.frank_dialog_position = FRANK_DIALOG_POSITION.PODCAST;
-					global.frank_expression = FRANK_EXPRESSION.PODCAST_LEFT;
-					global.frank_idle_expression = FRANK_EXPRESSION.PODCAST_LEFT;
+					global.frank_expression = FRANK_EXPRESSION.PODCAST_LEFT_DOWN;
+					global.frank_idle_expression = FRANK_EXPRESSION.PODCAST_LEFT_DOWN;
 					obj_podcast_cory.x = -1000;
 					obj_podcast_frank.x = 1000;
 					draw_machine = false;
