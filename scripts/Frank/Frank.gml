@@ -137,8 +137,8 @@ function frank_draw_expression(x_left=271, y_left=166, x_right=271, y_right=166)
 	if (global.frank_expression == FRANK_EXPRESSION.LEFT) draw_sprite(spr_frank_eyes_right, 7, x_right, y_right);
 	
 	// podcast
-	if (global.frank_expression == FRANK_EXPRESSION.PODCAST_BLANK) draw_sprite(spr_podcast_frank_eyes, 0, 0, 0);
-	if (global.frank_expression == FRANK_EXPRESSION.PODCAST_SAD) draw_sprite(spr_podcast_frank_eyes, 1, 0, 0);
-	if (global.frank_expression == FRANK_EXPRESSION.PODCAST_LEFT) draw_sprite(spr_podcast_frank_eyes, 2, 0, 0);
-	if (global.frank_expression == FRANK_EXPRESSION.PODCAST_UP) draw_sprite(spr_podcast_frank_eyes, 3, 0, 0);
+	if (global.frank_expression == FRANK_EXPRESSION.PODCAST_BLANK) draw_sprite(spr_podcast_frank_eyes, 0, obj_podcast_frank.x, obj_podcast_frank.y);
+	if (global.frank_expression == FRANK_EXPRESSION.PODCAST_SAD) draw_sprite(spr_podcast_frank_eyes, 1, obj_podcast_frank.x, obj_podcast_frank.y);
+	if (global.frank_expression == FRANK_EXPRESSION.PODCAST_LEFT) draw_sprite(spr_podcast_frank_eyes, 2, obj_podcast_frank.x, obj_podcast_frank.y);
+	if (global.frank_expression == FRANK_EXPRESSION.PODCAST_UP) draw_sprite(spr_podcast_frank_eyes, 3, obj_podcast_frank.x, obj_podcast_frank.y);
 }

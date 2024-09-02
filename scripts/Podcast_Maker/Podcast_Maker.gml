@@ -224,6 +224,7 @@ function podcast_machine_transition() {
 					global.cory_dialog_position = CORY_DIALOG_POSITION.PODCAST;
 					global.frank_dialog_position = FRANK_DIALOG_POSITION.PODCAST;
 					global.frank_expression = FRANK_EXPRESSION.PODCAST_LEFT;
+					global.frank_idle_expression = FRANK_EXPRESSION.PODCAST_LEFT;
 					obj_podcast_cory.x = -1000;
 					obj_podcast_frank.x = 1000;
 					draw_machine = false;
@@ -242,9 +243,13 @@ function podcast_machine_transition() {
 				obj_podcast_cory.x = min(0, obj_podcast_cory.x + 50);
 				obj_podcast_frank.x = max(0, obj_podcast_frank.x - 50);
 				if (obj_podcast_cory.x == 0 && obj_podcast_frank.x == 0) {
-					global.updateable = tutorial;
+					step += 1;
 				}
 			},
+			function() {
+				time += 1;
+				if (time > 45) global.updateable = tutorial;
+			}
 		],
 		update: function() {
 			steps[step]();
