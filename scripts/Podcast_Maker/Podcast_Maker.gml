@@ -44,6 +44,33 @@ function podcast_maker_setup() {
 	show_debug_message("assigned audio assets to reel assets");
 }
 
+function podcast_get_audio_at_column(column=0) {
+	if (column < 0) return [snd_emptynoise];
+	var tape_positions = global.podcast_tape_slots[column];
+	var audio_at_position = array_map(tape_positions, function(position=noone) {
+		var draggable_at_position = ds_map_find_value(global.position_draggable_map, position);
+		var sound = ds_map_find_value(global.map_audio_reel_asset, draggable_at_position);
+		return sound;
+	});
+	var audio_undefined_filtered = array_filter(audio_at_position, function(e) {
+		return e != undefined;
+	});
+	return array_length(audio_undefined_filtered) == 0 ? [snd_emptynoise] : audio_undefined_filtered;
+}
+
+function podcast_get_is_complete() {
+	var column_0_audio = podcast_get_audio_at_column(0);
+	var column_1_audio = podcast_get_audio_at_column(1);
+	var column_2_audio = podcast_get_audio_at_column(2);
+	var column_3_audio = podcast_get_audio_at_column(3);
+	var col_0_fin = array_contains_ext(column_0_audio, [snd_reel_vox_1, snd_reel_sfx_1, snd_reel_score_1], true);
+	var col_1_fin = array_contains_ext(column_1_audio, [snd_reel_vox_2, snd_reel_sfx_2, snd_reel_score_2], true);
+	var col_2_fin = array_contains_ext(column_2_audio, [snd_reel_vox_3, snd_reel_sfx_3, snd_reel_score_3], true);
+	var col_3_fin = array_contains_ext(column_3_audio, [snd_reel_vox_4, snd_reel_sfx_4, snd_reel_score_4], true);
+	return col_0_fin && col_1_fin && col_2_fin && col_3_fin;
+};
+
+
 /*
 Playback will be an updateable. The machine is "playing audio" if the app updateable is set
 to the podcast updateable.
