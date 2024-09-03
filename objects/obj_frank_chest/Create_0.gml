@@ -24,11 +24,11 @@ draw = function() {
 	if (global.frank_attached_legs) {
 		image_index = 2;
 		draw_self();
-		frank_draw_expression(-93, -1540, -123, -1494);
+		frank_draw_expression(x - 93, y - 1540, x - 123, y - 1494);
 	} else if (global.frank_attached_head) {
 		image_index = 1;
 		draw_self();
-		frank_draw_expression(393, -1496, 384, -1453);
+		frank_draw_expression(x + 393, y - 1496, x + 384, y - 1453);
 	} else {
 		image_index = 0;
 		draw_self();
