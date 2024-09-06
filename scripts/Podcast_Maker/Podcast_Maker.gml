@@ -70,6 +70,9 @@ function podcast_get_is_complete() {
 	return col_0_fin && col_1_fin && col_2_fin && col_3_fin;
 };
 
+function podcast_get_random_rotation_amount() {
+	return random_range(1.5, 3.5);
+}
 
 /*
 Playback will be an updateable. The machine is "playing audio" if the app updateable is set
@@ -99,8 +102,10 @@ global.podcast_player = {
 		var tape_positions = global.podcast_tape_slots[column_to_play];
 		for (var i = 0; i < array_length(tape_positions); i++) {
 			var draggable_at_position = ds_map_find_value(global.position_draggable_map, tape_positions[i]);
+			var rotate = podcast_get_random_rotation_amount();
+			tape_positions[i].image_angle -= rotate;
 			if (draggable_at_position != noone) {
-				draggable_at_position.image_angle -= 3;
+				draggable_at_position.image_angle -= rotate;
 			}
 		}
 	},
@@ -194,6 +199,24 @@ function podcast_machine_draw(x=0, y=0) {
 	draw_sprite(spr_podcast_machine_slot_2, 0, x, y);
 	draw_sprite(spr_tapereel, 0, x+787, y+2457);
 	draw_sprite(spr_podcast_machine_slot_1, 0, x, y);
+	
+	draw_sprite(spr_empty_reel_slot, 0, x+1972, y+401);
+	
+	draw_sprite(spr_empty_reel_slot, 0, x+1632, y+1280);
+	draw_sprite(spr_empty_reel_slot, 0, x+1623, y+1812);
+	draw_sprite(spr_empty_reel_slot, 0, x+1624, y+2351);
+	
+	draw_sprite(spr_empty_reel_slot, 0, x+2303, y+1280);
+	draw_sprite(spr_empty_reel_slot, 0, x+2302, y+1812);
+	draw_sprite(spr_empty_reel_slot, 0, x+2304, y+2351);
+	
+	draw_sprite(spr_empty_reel_slot, 0, x+2957, y+1281);
+	draw_sprite(spr_empty_reel_slot, 0, x+2956, y+1812);
+	draw_sprite(spr_empty_reel_slot, 0, x+2958, y+2350);
+	
+	draw_sprite(spr_empty_reel_slot, 0, x+3647, y+1280);
+	draw_sprite(spr_empty_reel_slot, 0, x+3646, y+1812);
+	draw_sprite(spr_empty_reel_slot, 0, x+3647, y+2351);
 	
 	draw_sprite(spr_play_single_1, 0, x, y);
 	draw_sprite(spr_play_single_2, 0, x, y);
@@ -306,8 +329,10 @@ global.podcast_test_player = {
 		if (!audio_is_playing(get_audio_at_test())) {
 			global.updateable = undefined;
 		} else {
+			var rotate = podcast_get_random_rotation_amount();
+			global.podcast_test_position.image_angle -= rotate;
 			var reel = ds_map_find_value(global.position_draggable_map, global.podcast_test_position);
-			if (reel != noone) reel.image_angle -= 3;
+			if (reel != noone) reel.image_angle -= rotate;
 		}
 		update_clickable(obj_stop_test);
 	}

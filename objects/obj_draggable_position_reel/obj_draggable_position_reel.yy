@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_tapereel_position",
-    "path":"sprites/spr_tapereel_position/spr_tapereel_position.yy",
+    "name":"spr_empty_reel_slot",
+    "path":"sprites/spr_empty_reel_slot/spr_empty_reel_slot.yy",
   },
   "spriteMaskId":null,
   "visible":true,
