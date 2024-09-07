@@ -1,6 +1,5 @@
 event_inherited();
 
-disabled = true;
 original_draw = draw;
 draw = function() {
 	if (array_contains([
