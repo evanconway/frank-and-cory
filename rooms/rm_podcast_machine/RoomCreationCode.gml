@@ -5,7 +5,9 @@ For all instances, we assign from visually bottom to top. That's because a highe
 appears further in the background. This we we can start at 0 for slots and reel positions.
 */
 
-var calc_depth = 0;
+var anchor_depth = inst_483E17DC.depth;
+
+var calc_depth = anchor_depth;
 
 // slot cover depths
 with (inst_slot_1) {
@@ -56,7 +58,7 @@ with (inst_slot_12) {
 	depth = calc_depth;
 }
 
-calc_depth = 1;
+calc_depth = anchor_depth + 1;
 
 // slot position depths
 with (inst_483E17DC) {
