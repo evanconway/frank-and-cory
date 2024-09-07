@@ -265,6 +265,7 @@ function podcast_machine_transition() {
 	});
 	
 	var tutorial_b = dialog_get_updateable([
+		frank_get_dialog_step("I hope you like the synthesized human voice.", FRANK_EXPRESSION.PODCAST_LEFT_PUMP),
 		frank_get_dialog_step("Click and drag to pick up a reel.", FRANK_EXPRESSION.PODCAST_LEFT_UP),
 		frank_get_dialog_step("Move it to a slot and release to place it.", FRANK_EXPRESSION.PODCAST_LEFT_DOWN),
 	], {
