@@ -67,6 +67,7 @@ function cory_get_dialog_step(text, expression=CORY_EXPRESSION.NEUTRAL) {
 			if (global.cory_dialog_position == CORY_DIALOG_POSITION.INTRO_BREAKER) word_balloon = spr_word_balloon_cory_right;
 			if (global.cory_dialog_position == CORY_DIALOG_POSITION.INTRO_HEAD) word_balloon = spr_word_balloon_cory_left;
 			if (global.cory_dialog_position == CORY_DIALOG_POSITION.PODCAST) word_balloon = spr_word_balloon_cory_left;
+			draw_set_alpha(1);
 			if (word_balloon != undefined) draw_sprite(word_balloon, 0, global.dialog_position_x, global.dialog_position_y);
 		}
 	}

@@ -85,6 +85,7 @@ function frank_get_dialog_step(text, expression=FRANK_EXPRESSION.NEUTRAL) {
 			if (global.frank_dialog_position = FRANK_DIALOG_POSITION.ASSEMBLED_PARTLY) word_balloon = spr_word_balloon_frank_left;
 			if (global.frank_dialog_position = FRANK_DIALOG_POSITION.ASSEMBLED_FULL) word_balloon = spr_word_balloon_frank_left;
 			if (global.frank_dialog_position = FRANK_DIALOG_POSITION.PODCAST) word_balloon = spr_word_balloon_frank_right;
+			draw_set_alpha(1);
 			if (word_balloon != undefined) draw_sprite(word_balloon, 0, global.dialog_position_x, global.dialog_position_y);
 		}
 	}

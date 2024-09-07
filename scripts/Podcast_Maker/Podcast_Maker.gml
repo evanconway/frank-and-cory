@@ -235,15 +235,67 @@ function podcast_machine_draw(x=0, y=0) {
 function podcast_machine_transition() {
 	play_sfx(snd_jude_mouse_run_1);
 	
-	var tutorial = dialog_get_updateable([
-		cory_get_dialog_step("Pick any reel and drag it to this test area for a listen!", CORY_EXPRESSION.PODCAST_WINGS),
+	var tutorial_d = dialog_get_updateable([		
+		frank_get_dialog_step("Once everything's in the right order I'll let you know.", FRANK_EXPRESSION.PODCAST_UP_PUMP),
+		cory_get_dialog_step("Good luck!", CORY_EXPRESSION.PODCAST_WINGS),
+	]);
+	
+	var highlight_test = dialog_get_updateable([
+		cory_get_dialog_step("Drag it to this test area for a listen!", CORY_EXPRESSION.PODCAST_WINGS),
+	], {
+		pre_dialog_draw: function() {
+			draw_set_alpha(0.5);
+			draw_sprite(spr_podcast_machine_highlight_test, 0, 0, 0);
+		},
+		after_dialog_updateable: tutorial_d,
+	})
+	
+	var tutorial_c = dialog_get_updateable([		
+		cory_get_dialog_step("And if you want to hear a reel by itself...", CORY_EXPRESSION.PODCAST_HIP),
+	], {
+		after_dialog_updateable: highlight_test,
+	});
+	
+	var highlight_chapters = dialog_get_updateable([
+		frank_get_dialog_step("Put the reels here to build the story.", FRANK_EXPRESSION.PODCAST_UP_UP),
+	], {
+		pre_dialog_draw: function() {
+			draw_set_alpha(0.5);
+			draw_sprite(spr_podcast_machine_highlight_chapters, 0, 0, 0);
+		},
+		after_dialog_updateable: tutorial_c,
+	});
+	
+	var tutorial_b = dialog_get_updateable([
+		frank_get_dialog_step("Click and drag to pick up a reel.", FRANK_EXPRESSION.PODCAST_LEFT_UP),
+		frank_get_dialog_step("Move it to a slot and release to place it.", FRANK_EXPRESSION.PODCAST_LEFT_DOWN),
+	], {
+		after_dialog_updateable: highlight_chapters,
+	});
+	
+	var highlight_reels = dialog_get_updateable([
+		frank_get_dialog_step("Those reels are right here!", FRANK_EXPRESSION.PODCAST_BLANK_UP),
+	], {
+		pre_dialog_draw: function() {
+			draw_set_alpha(0.5);
+			draw_sprite(spr_podcast_machine_highlight_rack, 0, 0, 0);
+		},
+		after_dialog_updateable: tutorial_b,
+	});
+	
+	var tutorial_a = dialog_get_updateable([
+		cory_get_dialog_step("Let's build this story!", CORY_EXPRESSION.PODCAST_WINGS),
 		frank_get_dialog_step("Oh", FRANK_EXPRESSION.PODCAST_LEFT_DOWN),
 		frank_get_dialog_step("This is my favorite part!", FRANK_EXPRESSION.PODCAST_UP_PUMP),
-	]);
+		cory_get_dialog_step("This story has 4 chapters.", CORY_EXPRESSION.PODCAST_HIP),
+		cory_get_dialog_step("Each needs a voice, music, and sound effects reel.", CORY_EXPRESSION.PODCAST_NEUTRAL),
+	], {
+		after_dialog_updateable: highlight_reels,
+	});
 	
 	// feather disable GM1043
 	global.updateable = {
-		tutorial,
+		tutorial_a,
 		draw_machine: true,
 		step: 0,
 		vertical_offset: display_get_gui_height(),
@@ -298,7 +350,7 @@ function podcast_machine_transition() {
 			},
 			function() {
 				time += 1;
-				if (time > 45) global.updateable = tutorial;
+				if (time > 45) global.updateable = tutorial_a;
 			}
 		],
 		update: function() {
