@@ -19,6 +19,7 @@
   "height":2700,
   "HTile":false,
   "layers":[
+    {"$GMImageLayer":"","%Name":"5bc0a2d6-794d-4a9b-a330-ca4a87753c7a","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"5bc0a2d6-794d-4a9b-a330-ca4a87753c7a","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"ac61ae24-0928-40b9-91b9-3b23fd91c752","blendMode":0,"displayName":"default","isLocked":false,"name":"ac61ae24-0928-40b9-91b9-3b23fd91c752","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_podcast_machine",

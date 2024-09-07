@@ -202,7 +202,7 @@ function podcast_machine_draw(x=0, y=0) {
 	
 	draw_sprite(spr_empty_reel_slot, 0, x+1972, y+401);
 	
-	draw_sprite(spr_empty_reel_slot, 0, x+1632, y+1280);
+	draw_sprite(spr_empty_reel_slot, 0, x+1626, y+1283);
 	draw_sprite(spr_empty_reel_slot, 0, x+1623, y+1812);
 	draw_sprite(spr_empty_reel_slot, 0, x+1624, y+2351);
 	
