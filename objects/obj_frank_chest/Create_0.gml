@@ -17,6 +17,14 @@ on_click = function() {
 		global.updateable = dialog_get_updateable([
 			frank_get_dialog_step("Now if I could just get mobile again...", FRANK_EXPRESSION.BLANK),
 		]);
+	} else {
+		global.updateable = dialog_get_updateable([
+			frank_get_dialog_step("How do I look?", FRANK_EXPRESSION.RIGHT),
+			cory_get_dialog_step("Frankly?", CORY_EXPRESSION.TAP),
+			frank_get_dialog_step("Huh?", FRANK_EXPRESSION.BLANK),
+			cory_get_dialog_step("You look very...", CORY_EXPRESSION.TILT),
+			cory_get_dialog_step("Frank", CORY_EXPRESSION.BOTH_WINGS),
+		]);
 	}
 };
 
