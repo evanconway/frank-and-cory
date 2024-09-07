@@ -57,6 +57,7 @@
     {"name":"obj_play_test","order":16,"path":"objects/obj_play_test/obj_play_test.yy",},
     {"name":"obj_podcast_cory","order":19,"path":"objects/obj_podcast_cory/obj_podcast_cory.yy",},
     {"name":"obj_podcast_frank","order":18,"path":"objects/obj_podcast_frank/obj_podcast_frank.yy",},
+    {"name":"obj_podcast_highlights","order":20,"path":"objects/obj_podcast_highlights/obj_podcast_highlights.yy",},
     {"name":"obj_podcast_win_detector","order":35,"path":"objects/obj_podcast_win_detector/obj_podcast_win_detector.yy",},
     {"name":"obj_puzzle_cube","order":36,"path":"objects/obj_puzzle_cube/obj_puzzle_cube.yy",},
     {"name":"obj_random_stuff","order":38,"path":"objects/obj_random_stuff/obj_random_stuff.yy",},

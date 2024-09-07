@@ -243,9 +243,8 @@ function podcast_machine_transition() {
 	var highlight_test = dialog_get_updateable([
 		cory_get_dialog_step("Drag it to this test area for a listen!", CORY_EXPRESSION.PODCAST_WINGS),
 	], {
-		pre_dialog_draw: function() {
-			draw_set_alpha(0.5);
-			draw_sprite(spr_podcast_machine_highlight_test, 0, 0, 0);
+		on_step_all: function() {
+			obj_podcast_highlights.highlight = spr_podcast_machine_highlight_test;
 		},
 		after_dialog_updateable: tutorial_d,
 	})
@@ -259,9 +258,8 @@ function podcast_machine_transition() {
 	var highlight_chapters = dialog_get_updateable([
 		frank_get_dialog_step("Put the reels here to build the story.", FRANK_EXPRESSION.PODCAST_UP_UP),
 	], {
-		pre_dialog_draw: function() {
-			draw_set_alpha(0.5);
-			draw_sprite(spr_podcast_machine_highlight_chapters, 0, 0, 0);
+		on_step_all: function() {
+			obj_podcast_highlights.highlight = spr_podcast_machine_highlight_chapters;
 		},
 		after_dialog_updateable: tutorial_c,
 	});
@@ -276,9 +274,8 @@ function podcast_machine_transition() {
 	var highlight_reels = dialog_get_updateable([
 		frank_get_dialog_step("Those reels are right here!", FRANK_EXPRESSION.PODCAST_BLANK_UP),
 	], {
-		pre_dialog_draw: function() {
-			draw_set_alpha(0.5);
-			draw_sprite(spr_podcast_machine_highlight_rack, 0, 0, 0);
+		on_step_all: function() {
+			obj_podcast_highlights.highlight = spr_podcast_machine_highlight_rack;
 		},
 		after_dialog_updateable: tutorial_b,
 	});

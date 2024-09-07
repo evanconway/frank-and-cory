@@ -76,6 +76,7 @@
     {"id":{"name":"obj_play_test","path":"objects/obj_play_test/obj_play_test.yy",},},
     {"id":{"name":"obj_podcast_cory","path":"objects/obj_podcast_cory/obj_podcast_cory.yy",},},
     {"id":{"name":"obj_podcast_frank","path":"objects/obj_podcast_frank/obj_podcast_frank.yy",},},
+    {"id":{"name":"obj_podcast_highlights","path":"objects/obj_podcast_highlights/obj_podcast_highlights.yy",},},
     {"id":{"name":"obj_podcast_win_detector","path":"objects/obj_podcast_win_detector/obj_podcast_win_detector.yy",},},
     {"id":{"name":"obj_puzzle_cube","path":"objects/obj_puzzle_cube/obj_puzzle_cube.yy",},},
     {"id":{"name":"obj_random_stuff","path":"objects/obj_random_stuff/obj_random_stuff.yy",},},
