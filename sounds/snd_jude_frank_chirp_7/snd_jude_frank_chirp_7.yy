@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.162245,
+  "duration":0.146395,
   "name":"snd_jude_frank_chirp_7",
   "parent":{
     "name":"Frank",

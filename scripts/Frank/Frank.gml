@@ -26,13 +26,13 @@ global.frank_expression = FRANK_EXPRESSION.BLANK;
 
 global.frank_sounds = [
 	snd_jude_frank_chirp_1,
-	snd_jude_frank_chirp_2,
+	// snd_jude_frank_chirp_2,
 	snd_jude_frank_chirp_3,
 	snd_jude_frank_chirp_4,
 	snd_jude_frank_chirp_5,
 	snd_jude_frank_chirp_6,
-	snd_jude_frank_chirp_7,
-	snd_jude_frank_chirp_8,
+	// snd_jude_frank_chirp_7,
+	// snd_jude_frank_chirp_8,
 	snd_jude_frank_chirp_9,
 	snd_jude_frank_chirp_10,
 	snd_jude_frank_chirp_11,

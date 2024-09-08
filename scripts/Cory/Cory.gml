@@ -21,11 +21,11 @@ global.cory_dialog_position = CORY_DIALOG_POSITION.INTRO_BREAKER;
 
 global.cory_sounds = [
 	snd_jude_cory_chirp_1,
-	snd_jude_cory_chirp_2,
+	// snd_jude_cory_chirp_2,
 	snd_jude_cory_chirp_3,
 	snd_jude_cory_chirp_4,
-	snd_jude_cory_chirp_5,
-	snd_jude_cory_chirp_6,
+	// snd_jude_cory_chirp_5,
+	// snd_jude_cory_chirp_6,
 	snd_jude_cory_chirp_7,
 	snd_jude_cory_chirp_8,
 ];
@@ -37,7 +37,7 @@ global.cory_speaks = function() {
 		audio_stop_sound(sounds[i]);
 	}
 
-	var snd_id = play_sfx(sounds[irandom_range(0, array_length(sounds) - 1)], 0.7, random_range(1.2, 1.5));
+	var snd_id = play_sfx(sounds[irandom_range(0, array_length(sounds) - 1)], 0.65, random_range(1.2, 1.5));
 	audio_sound_gain(snd_id, 0, 60);
 }
 
