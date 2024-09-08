@@ -58,6 +58,7 @@
     {"id":{"name":"obj_draggable","path":"objects/obj_draggable/obj_draggable.yy",},},
     {"id":{"name":"obj_film_cans_1","path":"objects/obj_film_cans_1/obj_film_cans_1.yy",},},
     {"id":{"name":"obj_film_cans_2","path":"objects/obj_film_cans_2/obj_film_cans_2.yy",},},
+    {"id":{"name":"obj_final_credits","path":"objects/obj_final_credits/obj_final_credits.yy",},},
     {"id":{"name":"obj_frank_arms_attached","path":"objects/obj_frank_arms_attached/obj_frank_arms_attached.yy",},},
     {"id":{"name":"obj_frank_arms","path":"objects/obj_frank_arms/obj_frank_arms.yy",},},
     {"id":{"name":"obj_frank_chest","path":"objects/obj_frank_chest/obj_frank_chest.yy",},},

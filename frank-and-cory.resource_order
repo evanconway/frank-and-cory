@@ -38,6 +38,7 @@
     {"name":"obj_draggable","order":16,"path":"objects/obj_draggable/obj_draggable.yy",},
     {"name":"obj_film_cans_1","order":5,"path":"objects/obj_film_cans_1/obj_film_cans_1.yy",},
     {"name":"obj_film_cans_2","order":6,"path":"objects/obj_film_cans_2/obj_film_cans_2.yy",},
+    {"name":"obj_final_credits","order":41,"path":"objects/obj_final_credits/obj_final_credits.yy",},
     {"name":"obj_frank_arms_attached","order":8,"path":"objects/obj_frank_arms_attached/obj_frank_arms_attached.yy",},
     {"name":"obj_frank_arms","order":7,"path":"objects/obj_frank_arms/obj_frank_arms.yy",},
     {"name":"obj_frank_chest","order":9,"path":"objects/obj_frank_chest/obj_frank_chest.yy",},
