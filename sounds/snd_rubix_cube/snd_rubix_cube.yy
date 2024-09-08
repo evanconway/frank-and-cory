@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_rubix_cube",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":1.758685,
+  "name":"snd_rubix_cube",
+  "parent":{
+    "name":"Misc",
+    "path":"folders/Sounds/Jude/Misc.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_rubix_cube.wav",
+  "type":0,
+  "volume":1.0,
+}

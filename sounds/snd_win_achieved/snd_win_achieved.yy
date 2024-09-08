@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_win_achieved",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":2.920975,
+  "name":"snd_win_achieved",
+  "parent":{
+    "name":"Jude",
+    "path":"folders/Sounds/Jude.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_win_achieved.wav",
+  "type":0,
+  "volume":1.0,
+}
