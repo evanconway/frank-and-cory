@@ -8,8 +8,7 @@ global.memory_cursor = false;
 
 set_tds_defaults()
 
-start_intro();
-room_goto(rm_workshop);
+reset_game();
 
-//room_goto(rm_podcast_machine);
-
+//room_goto(rm_outside);
+//global.updateable = global.credits;

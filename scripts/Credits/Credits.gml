@@ -2,6 +2,7 @@
 
 global.credits = {
 	alpha: 0,
+	fade_alpha: 0,
 	time: 0,
 	step: 0,
 	get_text: function(new_text="_") {
@@ -94,7 +95,22 @@ global.credits = {
 			}
 		},
 		function() {
-			if (mouse_check_button_pressed(mb_any)) game_restart();
+			if (mouse_check_button_pressed(mb_any)) {
+				step += 1;
+				time = 0;
+			}
+		},
+		function() {
+			fade_alpha += 0.01;
+			if (fade_alpha >= 1) {
+				global.credits.alpha = 0;
+				global.credits.fade_alpha = 0;
+				global.credits.time = 0;
+				global.credits.step = 0;
+				global.credits.text = new TagDecoratedTextDefault("Art by Allison Conway", "f:fnt_ally black");
+				global.credits.play_again_text = undefined;
+				reset_game();
+			}
 		},
 	],
 	update: function() {
@@ -109,5 +125,8 @@ global.credits = {
 		if (play_again_text != undefined) {
 			tag_decorated_text_draw(play_again_text, display_get_gui_width() / 2, display_get_gui_height() / 2 + 400);
 		}
+		draw_set_alpha(fade_alpha);
+		draw_set_color(c_black);
+		draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
 	},
 }

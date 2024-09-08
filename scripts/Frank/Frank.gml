@@ -147,8 +147,10 @@ function frank_draw_expression(x_left=271, y_left=166, x_right=271, y_right=166)
 	if (global.frank_expression == FRANK_EXPRESSION.LEFT) draw_sprite(spr_frank_eyes_right, 7, x_right, y_right);
 	
 	// podcast
-	if (array_contains([FRANK_EXPRESSION.PODCAST_BLANK_DOWN, FRANK_EXPRESSION.PODCAST_BLANK_PUMP, FRANK_EXPRESSION.PODCAST_BLANK_UP], global.frank_expression)) draw_sprite(spr_podcast_frank_eyes, 0, obj_podcast_frank.x, obj_podcast_frank.y);
-	if (array_contains([FRANK_EXPRESSION.PODCAST_SAD_DOWN, FRANK_EXPRESSION.PODCAST_SAD_PUMP, FRANK_EXPRESSION.PODCAST_SAD_UP], global.frank_expression)) draw_sprite(spr_podcast_frank_eyes, 1, obj_podcast_frank.x, obj_podcast_frank.y);
-	if (array_contains([FRANK_EXPRESSION.PODCAST_LEFT_DOWN, FRANK_EXPRESSION.PODCAST_LEFT_PUMP, FRANK_EXPRESSION.PODCAST_LEFT_UP], global.frank_expression)) draw_sprite(spr_podcast_frank_eyes, 2, obj_podcast_frank.x, obj_podcast_frank.y);
-	if (array_contains([FRANK_EXPRESSION.PODCAST_UP_DOWN, FRANK_EXPRESSION.PODCAST_UP_PUMP, FRANK_EXPRESSION.PODCAST_UP_UP], global.frank_expression)) draw_sprite(spr_podcast_frank_eyes, 3, obj_podcast_frank.x, obj_podcast_frank.y);
+	if (room == rm_podcast_machine) {
+		if (array_contains([FRANK_EXPRESSION.PODCAST_BLANK_DOWN, FRANK_EXPRESSION.PODCAST_BLANK_PUMP, FRANK_EXPRESSION.PODCAST_BLANK_UP], global.frank_expression)) draw_sprite(spr_podcast_frank_eyes, 0, obj_podcast_frank.x, obj_podcast_frank.y);
+		if (array_contains([FRANK_EXPRESSION.PODCAST_SAD_DOWN, FRANK_EXPRESSION.PODCAST_SAD_PUMP, FRANK_EXPRESSION.PODCAST_SAD_UP], global.frank_expression)) draw_sprite(spr_podcast_frank_eyes, 1, obj_podcast_frank.x, obj_podcast_frank.y);
+		if (array_contains([FRANK_EXPRESSION.PODCAST_LEFT_DOWN, FRANK_EXPRESSION.PODCAST_LEFT_PUMP, FRANK_EXPRESSION.PODCAST_LEFT_UP], global.frank_expression)) draw_sprite(spr_podcast_frank_eyes, 2, obj_podcast_frank.x, obj_podcast_frank.y);
+		if (array_contains([FRANK_EXPRESSION.PODCAST_UP_DOWN, FRANK_EXPRESSION.PODCAST_UP_PUMP, FRANK_EXPRESSION.PODCAST_UP_UP], global.frank_expression)) draw_sprite(spr_podcast_frank_eyes, 3, obj_podcast_frank.x, obj_podcast_frank.y);
+	}
 }

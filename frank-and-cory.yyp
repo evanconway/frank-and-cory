@@ -119,6 +119,7 @@
     {"id":{"name":"Frank","path":"scripts/Frank/Frank.yy",},},
     {"id":{"name":"Intro","path":"scripts/Intro/Intro.yy",},},
     {"id":{"name":"Podcast_Maker","path":"scripts/Podcast_Maker/Podcast_Maker.yy",},},
+    {"id":{"name":"Reset_Game","path":"scripts/Reset_Game/Reset_Game.yy",},},
     {"id":{"name":"Sound","path":"scripts/Sound/Sound.yy",},},
     {"id":{"name":"StyleableText","path":"scripts/StyleableText/StyleableText.yy",},},
     {"id":{"name":"StyleableTextAnimator","path":"scripts/StyleableTextAnimator/StyleableTextAnimator.yy",},},

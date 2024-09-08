@@ -12,36 +12,169 @@ global.podcast_tape_slots = [
 global.map_audio_reel_asset = ds_map_create();
 
 function podcast_maker_setup() {
-	if (ds_map_size(global.map_audio_reel_asset) > 0) return;
+	if (ds_map_size(global.map_audio_reel_asset) <= 0) {
+		var audio_arr = array_shuffle([
+			snd_reel_vox_1,
+			snd_reel_vox_2,
+			snd_reel_vox_3,
+			snd_reel_vox_4,
+			snd_reel_sfx_1,
+			snd_reel_sfx_2,
+			snd_reel_sfx_3,
+			snd_reel_sfx_4,
+			snd_reel_score_1,
+			snd_reel_score_2,
+			snd_reel_score_3,
+			snd_reel_score_4,
+		]);
 	
-	var audio_arr = array_shuffle([
-		snd_reel_vox_1,
-		snd_reel_vox_2,
-		snd_reel_vox_3,
-		snd_reel_vox_4,
-		snd_reel_sfx_1,
-		snd_reel_sfx_2,
-		snd_reel_sfx_3,
-		snd_reel_sfx_4,
-		snd_reel_score_1,
-		snd_reel_score_2,
-		snd_reel_score_3,
-		snd_reel_score_4,
-	]);
+		ds_map_set(global.map_audio_reel_asset, inst_7AAB43BD, audio_arr[0]);
+		ds_map_set(global.map_audio_reel_asset, inst_25994B2C, audio_arr[1]);
+		ds_map_set(global.map_audio_reel_asset, inst_1772A928, audio_arr[2]);
+		ds_map_set(global.map_audio_reel_asset, inst_5AA3BDBA, audio_arr[3]);
+		ds_map_set(global.map_audio_reel_asset, inst_2D775EEB, audio_arr[4]);
+		ds_map_set(global.map_audio_reel_asset, inst_2B424FAD, audio_arr[5]);
+		ds_map_set(global.map_audio_reel_asset, inst_20707053, audio_arr[6]);
+		ds_map_set(global.map_audio_reel_asset, inst_586C1312, audio_arr[7]);
+		ds_map_set(global.map_audio_reel_asset, inst_DBB61CD, audio_arr[8]);
+		ds_map_set(global.map_audio_reel_asset, inst_C74BBA9, audio_arr[9]);
+		ds_map_set(global.map_audio_reel_asset, inst_344345C4, audio_arr[10]);
+		ds_map_set(global.map_audio_reel_asset, inst_49F5CA89, audio_arr[11]);
+		show_debug_message("assigned audio assets to reel assets");
+	}
 	
-	ds_map_set(global.map_audio_reel_asset, inst_7AAB43BD, audio_arr[0]);
-	ds_map_set(global.map_audio_reel_asset, inst_25994B2C, audio_arr[1]);
-	ds_map_set(global.map_audio_reel_asset, inst_1772A928, audio_arr[2]);
-	ds_map_set(global.map_audio_reel_asset, inst_5AA3BDBA, audio_arr[3]);
-	ds_map_set(global.map_audio_reel_asset, inst_2D775EEB, audio_arr[4]);
-	ds_map_set(global.map_audio_reel_asset, inst_2B424FAD, audio_arr[5]);
-	ds_map_set(global.map_audio_reel_asset, inst_20707053, audio_arr[6]);
-	ds_map_set(global.map_audio_reel_asset, inst_586C1312, audio_arr[7]);
-	ds_map_set(global.map_audio_reel_asset, inst_DBB61CD, audio_arr[8]);
-	ds_map_set(global.map_audio_reel_asset, inst_C74BBA9, audio_arr[9]);
-	ds_map_set(global.map_audio_reel_asset, inst_344345C4, audio_arr[10]);
-	ds_map_set(global.map_audio_reel_asset, inst_49F5CA89, audio_arr[11]);
-	show_debug_message("assigned audio assets to reel assets");
+	/*
+	For all instances, we assign from visually bottom to top. That's because a higher depth
+	appears further in the background. This we we can start at 0 for slots and reel positions.
+	*/
+
+	var anchor_depth = inst_483E17DC.depth;
+
+	var calc_depth = anchor_depth;
+
+	// slot cover depths
+	with (inst_slot_1) {
+		depth = calc_depth;
+	}
+	calc_depth += 2;
+	with (inst_slot_2) {
+		depth = calc_depth;
+	}
+	calc_depth += 2;
+	with (inst_slot_3) {
+		depth = calc_depth;
+	}
+	calc_depth += 2;
+	with (inst_slot_4) {
+		depth = calc_depth;
+	}
+	calc_depth += 2;
+	with (inst_slot_5) {
+		depth = calc_depth;
+	}
+	calc_depth += 2;
+	with (inst_slot_6) {
+		depth = calc_depth;
+	}
+	calc_depth += 2;
+	with (inst_slot_7) {
+		depth = calc_depth;
+	}
+	calc_depth += 2;
+	with (inst_slot_8) {
+		depth = calc_depth;
+	}
+	calc_depth += 2;
+	with (inst_slot_9) {
+		depth = calc_depth;
+	}
+	calc_depth += 2;
+	with (inst_slot_10) {
+		depth = calc_depth;
+	}
+	calc_depth += 2;
+	with (inst_slot_11) {
+		depth = calc_depth;
+	}
+	calc_depth += 2;
+	with (inst_slot_12) {
+		depth = calc_depth;
+	}
+
+	calc_depth = anchor_depth + 1;
+
+	// slot position depths
+	with (inst_483E17DC) {
+		depth = calc_depth;
+	}
+	calc_depth += 2;
+	with (inst_39A52F5D) {
+		depth = calc_depth;
+	}
+	calc_depth += 2;
+	with (inst_4BA96E74) {
+		depth = calc_depth;
+	}
+	calc_depth += 2;
+	with (inst_74E55344) {
+		depth = calc_depth;
+	}
+	calc_depth += 2;
+	with (inst_2CFDA4DC) {
+		depth = calc_depth;
+	}
+	calc_depth += 2;
+	with (inst_3362F9A) {
+		depth = calc_depth;
+	}
+	calc_depth += 2;
+	with (inst_7E344818) {
+		depth = calc_depth;
+	}
+	calc_depth += 2;
+	with (inst_2ECED215) {
+		depth = calc_depth;
+	}
+	calc_depth += 2;
+	with (inst_613DFC56) {
+		depth = calc_depth;
+	}
+	calc_depth += 2;
+	with (inst_4848D04A) {
+		depth = calc_depth;
+	}
+	calc_depth += 2;
+	with (inst_1C2B79B) {
+		depth = calc_depth;
+	}
+	calc_depth += 2;
+	with (inst_79C6C881) {
+		depth = calc_depth;
+	}
+
+	var set_reel_data = function(reel=noone, reel_new_id=0, position=noone) {
+		with (reel) {
+			reel_id = reel_new_id;
+			draggable_set_position(id, position);
+			x = position.x;
+			y = position.y;
+			depth = position.depth;
+		}
+	};
+
+	// reels
+	set_reel_data(inst_7AAB43BD, 0, inst_79C6C881)
+	set_reel_data(inst_586C1312, 7, inst_1C2B79B)
+	set_reel_data(inst_1772A928, 2, inst_4848D04A)
+	set_reel_data(inst_20707053, 6, inst_613DFC56)
+	set_reel_data(inst_344345C4, 10, inst_2ECED215)
+	set_reel_data(inst_49F5CA89, 11, inst_7E344818)
+	set_reel_data(inst_C74BBA9, 9, inst_3362F9A)
+	set_reel_data(inst_5AA3BDBA, 2, inst_2CFDA4DC)
+	set_reel_data(inst_2B424FAD, 5, inst_74E55344)
+	set_reel_data(inst_25994B2C, 1, inst_4BA96E74)
+	set_reel_data(inst_DBB61CD, 8, inst_39A52F5D)
+	set_reel_data(inst_2D775EEB, 4, inst_483E17DC)
 }
 
 function podcast_get_audio_at_column(column=0) {
@@ -327,6 +460,10 @@ function podcast_machine_transition() {
 					global.frank_idle_expression = FRANK_EXPRESSION.PODCAST_LEFT_DOWN;
 					obj_podcast_cory.x = -1000;
 					obj_podcast_frank.x = 1000;
+					
+					// reset rell positions
+					podcast_maker_setup();
+					
 					draw_machine = false;
 					step += 1;
 				}
