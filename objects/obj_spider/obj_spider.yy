@@ -8,8 +8,8 @@
   "name":"obj_spider",
   "overriddenProperties":[],
   "parent":{
-    "name":"Clickables",
-    "path":"folders/Clickables.yy",
+    "name":"workshop",
+    "path":"folders/Clickables/workshop.yy",
   },
   "parentObjectId":{
     "name":"obj_clickable",

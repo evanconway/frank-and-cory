@@ -1,7 +1,7 @@
 {
   "$GMShader":"",
-  "%Name":"sh_disable",
-  "name":"sh_disable",
+  "%Name":"sh_green",
+  "name":"sh_green",
   "parent":{
     "name":"shaders",
     "path":"folders/shaders.yy",

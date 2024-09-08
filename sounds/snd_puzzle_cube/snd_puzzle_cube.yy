@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"snd_rubix_cube",
+  "%Name":"snd_puzzle_cube",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,7 +10,7 @@
   "compression":0,
   "conversionMode":0,
   "duration":1.758685,
-  "name":"snd_rubix_cube",
+  "name":"snd_puzzle_cube",
   "parent":{
     "name":"Misc",
     "path":"folders/Sounds/Jude/Misc.yy",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_rubix_cube.wav",
+  "soundFile":"snd_puzzle_cube.wav",
   "type":0,
   "volume":1.0,
 }

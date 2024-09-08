@@ -1,13 +1,15 @@
 {
   "$GMObject":"",
   "%Name":"obj_chibi_frank",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"obj_chibi_frank",
   "overriddenProperties":[],
   "parent":{
-    "name":"Clickables",
-    "path":"folders/Clickables.yy",
+    "name":"workshop",
+    "path":"folders/Clickables/workshop.yy",
   },
   "parentObjectId":{
     "name":"obj_clickable",
