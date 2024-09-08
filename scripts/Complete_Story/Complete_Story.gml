@@ -47,7 +47,7 @@ function complete_story() {
 					alpha -= 0.01;
 					if (alpha <= 0) {
 						alpha = 0;
-						global.updateable = undefined;
+						global.updateable = global.credits;
 					}
 				},
 			],

@@ -1,15 +1,13 @@
 // feather ignore GM1043
 
-get_text = function(new_text="_") {
-	return new TagDecoratedTextDefault(new_text, "f:fnt_ally black");
-};
-
-global.updateable = {
+global.credits = {
 	alpha: 0,
 	time: 0,
 	step: 0,
-	get_text,
-	text: get_text("Art by Allison Conway"),
+	get_text: function(new_text="_") {
+		return new TagDecoratedTextDefault(new_text, "f:fnt_ally black");
+	},
+	text: new TagDecoratedTextDefault("Art by Allison Conway", "f:fnt_ally black"),
 	play_again_text: undefined,
 	steps: [
 		function() {
