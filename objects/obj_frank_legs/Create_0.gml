@@ -15,6 +15,7 @@ on_click = function() {
 	} else {
 		disabled = true;
 		visible = false;
+		image_index = 1; // change to empty sprite to invisible legs don't block clickable area
 		play_sfx(snd_jude_attach_legs);
 		global.frank_attached_legs = true;
 		global.frank_dialog_position = FRANK_DIALOG_POSITION.ASSEMBLED_FULL;

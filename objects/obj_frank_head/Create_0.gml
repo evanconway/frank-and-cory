@@ -56,6 +56,7 @@ on_click = function() {
 		global.frank_attached_head = true;
 		play_sfx(snd_jude_attach_head);
 		disabled = true;
+		image_index = 2; // set to blank frame to avoid invisible clickable collision
 		global.frank_dialog_position = FRANK_DIALOG_POSITION.ASSEMBLED_PARTLY;
 		global.updateable = {
 			step: 0,
