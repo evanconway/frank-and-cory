@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_nature",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":60.02498,
+  "name":"snd_nature",
+  "parent":{
+    "name":"Jude",
+    "path":"folders/Sounds/Jude.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_nature.wav",
+  "type":0,
+  "volume":1.0,
+}

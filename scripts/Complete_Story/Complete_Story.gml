@@ -41,7 +41,11 @@ function complete_story() {
 					step += 1;
 				},
 				function() {
-					if (room == rm_outside) step += 1;
+					if (room == rm_outside) {
+						play_sfx(snd_music_peace);
+						audio_sound_gain(play_sfx(snd_nature, 0, 1, true), 0.7, 3000);
+						step += 1;
+					}
 				},
 				function() {
 					alpha -= 0.01;

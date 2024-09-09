@@ -1,4 +1,5 @@
 function reset_game() {
+	audio_stop_all();
 	global.cory_light_alpha = 0;
 	global.flashlight_on = false;
 	global.cory_dialog_position = CORY_DIALOG_POSITION.INTRO_BREAKER;

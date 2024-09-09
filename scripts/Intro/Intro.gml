@@ -236,6 +236,7 @@ function start_intro() {
 				if (position_meeting(mouse_x, mouse_y, id)) global.clickable_hovered = id;
 				if (mouse_check_button_pressed(mb_any) && global.clickable_hovered == id) {
 					breaker_clicked = true;
+					audio_stop_sound(snd_music_darkness);
 					if (!global.breaker_open) {
 						global.breaker_open = true;
 						play_sfx(snd_button, 1, 0.6);
@@ -368,6 +369,8 @@ function start_intro() {
 				var back_id = layer_background_get_id(lay_id);
 				layer_background_sprite(back_id, spr_workshop_nolight);
 				global.updateable = small_pause;
+				//play_sfx(snd_music_darkness, 1, 1, true);
+				//play_sfx(snd_music_darkness_begin);
 			};
 		},
 		draw: function() {
