@@ -277,6 +277,7 @@
     {"id":{"name":"spr_podcast_machine_slot_8","path":"sprites/spr_podcast_machine_slot_8/spr_podcast_machine_slot_8.yy",},},
     {"id":{"name":"spr_podcast_machine_slot_9","path":"sprites/spr_podcast_machine_slot_9/spr_podcast_machine_slot_9.yy",},},
     {"id":{"name":"spr_podcast_machine","path":"sprites/spr_podcast_machine/spr_podcast_machine.yy",},},
+    {"id":{"name":"spr_podcast_musicnotes","path":"sprites/spr_podcast_musicnotes/spr_podcast_musicnotes.yy",},},
     {"id":{"name":"spr_puzzle_cube","path":"sprites/spr_puzzle_cube/spr_puzzle_cube.yy",},},
     {"id":{"name":"spr_random_stuff","path":"sprites/spr_random_stuff/spr_random_stuff.yy",},},
     {"id":{"name":"spr_reel_slot_1","path":"sprites/spr_reel_slot_1/spr_reel_slot_1.yy",},},

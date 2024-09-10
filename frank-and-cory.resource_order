@@ -245,6 +245,7 @@
     {"name":"spr_podcast_machine_slot_8","order":19,"path":"sprites/spr_podcast_machine_slot_8/spr_podcast_machine_slot_8.yy",},
     {"name":"spr_podcast_machine_slot_9","order":20,"path":"sprites/spr_podcast_machine_slot_9/spr_podcast_machine_slot_9.yy",},
     {"name":"spr_podcast_machine","order":3,"path":"sprites/spr_podcast_machine/spr_podcast_machine.yy",},
+    {"name":"spr_podcast_musicnotes","order":2,"path":"sprites/spr_podcast_musicnotes/spr_podcast_musicnotes.yy",},
     {"name":"spr_puzzle_cube","order":32,"path":"sprites/spr_puzzle_cube/spr_puzzle_cube.yy",},
     {"name":"spr_random_stuff","order":35,"path":"sprites/spr_random_stuff/spr_random_stuff.yy",},
     {"name":"spr_reel_slot_10","order":9,"path":"sprites/spr_reel_slot_10/spr_reel_slot_10.yy",},

@@ -92,6 +92,10 @@ function complete_story() {
 		crossfade_alpha: 1,
 		pan_speed: 1,
 		time: 0,
+		get_y_offset: function(index=0) {
+			return sin(time * 0.04 - index * 0.2 * pi) * 30;
+		},
+		notes_alpha: 0,
 		draw_background: false,
 		step: 0,
 		steps: [
@@ -114,6 +118,14 @@ function complete_story() {
 			function() {
 				chapter_spr_offsets[1].y += clamp(abs(chapter_spr_offsets[1].y) * 0.03, 0, pan_speed);
 				draw_chapter_art(1);
+				draw_set_alpha(notes_alpha);
+				if (time >= 1800) notes_alpha = clamp(notes_alpha + 0.01, 0, 1);
+				draw_sprite(spr_podcast_musicnotes, 0, 0, chapter_spr_offsets[1].y + get_y_offset(0));
+				draw_sprite(spr_podcast_musicnotes, 1, 0, chapter_spr_offsets[1].y + get_y_offset(1));
+				draw_sprite(spr_podcast_musicnotes, 2, 0, chapter_spr_offsets[1].y + get_y_offset(2));
+				draw_sprite(spr_podcast_musicnotes, 3, 0, chapter_spr_offsets[1].y + get_y_offset(3));
+				draw_sprite(spr_podcast_musicnotes, 4, 0, chapter_spr_offsets[1].y + get_y_offset(4));
+				draw_sprite(spr_podcast_musicnotes, 5, 0, chapter_spr_offsets[1].y + get_y_offset(5));
 				if (time >= 2612) step += 1;
 			},
 			function() {
