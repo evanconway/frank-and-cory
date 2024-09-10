@@ -136,6 +136,9 @@ function complete_story() {
 			function() {
 				chapter_spr_offsets[3].y -= clamp(abs(chapter_spr_offsets[3].y) * 0.03, 0, pan_speed);
 				if (time <= 4600) draw_chapter_art(3);
+				else {
+					draw_background = false;
+				}
 			},
 		],
 		draw: function() {
