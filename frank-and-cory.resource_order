@@ -225,6 +225,7 @@
     {"name":"spr_play_single_3","order":7,"path":"sprites/spr_play_single_3/spr_play_single_3.yy",},
     {"name":"spr_play_single_4","order":8,"path":"sprites/spr_play_single_4/spr_play_single_4.yy",},
     {"name":"spr_play_single","order":1,"path":"sprites/spr_play_single/spr_play_single.yy",},
+    {"name":"spr_podcast_chapter_art_background","order":1,"path":"sprites/spr_podcast_chapter_art_background/spr_podcast_chapter_art_background.yy",},
     {"name":"spr_podcast_cory","order":16,"path":"sprites/spr_podcast_cory/spr_podcast_cory.yy",},
     {"name":"spr_podcast_frank_eyes","order":17,"path":"sprites/spr_podcast_frank_eyes/spr_podcast_frank_eyes.yy",},
     {"name":"spr_podcast_frank","order":15,"path":"sprites/spr_podcast_frank/spr_podcast_frank.yy",},

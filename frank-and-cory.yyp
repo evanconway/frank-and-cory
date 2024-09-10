@@ -256,6 +256,7 @@
     {"id":{"name":"spr_play_single_3","path":"sprites/spr_play_single_3/spr_play_single_3.yy",},},
     {"id":{"name":"spr_play_single_4","path":"sprites/spr_play_single_4/spr_play_single_4.yy",},},
     {"id":{"name":"spr_play_single","path":"sprites/spr_play_single/spr_play_single.yy",},},
+    {"id":{"name":"spr_podcast_chapter_art_background","path":"sprites/spr_podcast_chapter_art_background/spr_podcast_chapter_art_background.yy",},},
     {"id":{"name":"spr_podcast_chapter_art","path":"sprites/spr_podcast_chapter_art/spr_podcast_chapter_art.yy",},},
     {"id":{"name":"spr_podcast_cory","path":"sprites/spr_podcast_cory/spr_podcast_cory.yy",},},
     {"id":{"name":"spr_podcast_frank_eyes","path":"sprites/spr_podcast_frank_eyes/spr_podcast_frank_eyes.yy",},},

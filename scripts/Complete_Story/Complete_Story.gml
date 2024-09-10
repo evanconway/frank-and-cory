@@ -72,10 +72,11 @@ function complete_story() {
 			{ x: 0, y: -100},
 			{ x: 200, y: 0},
 			{ x: 0, y: 100},
+			{ x: -200, y: 0},
 		],
 		draw_chapter_art: function(chapter=0, alpha=1) {
 			draw_set_alpha(alpha);
-			var scale = 1.1;
+			var scale = 1;
 			draw_sprite_ext(
 				spr_podcast_chapter_art,
 				chapter,
@@ -88,16 +89,26 @@ function complete_story() {
 				alpha
 			);
 		},
+		crossfade_alpha: 1,
 		pan_speed: 1,
 		time: 0,
+		draw_background: false,
 		step: 0,
 		steps: [
 			function() { // sync up with blackout
-				if (time >= 646) step += 1;
+				if (time >= 446) {
+					step += 1;
+					draw_background = true;
+				}
 			},
 			function() {
-				chapter_spr_offsets[0].x += clamp(abs(chapter_spr_offsets[0].x) * 0.05, 0, pan_speed);
-				draw_chapter_art(0);
+				chapter_spr_offsets[0].x += clamp(abs(chapter_spr_offsets[0].x) * 0.02, 0, pan_speed);
+				chapter_spr_offsets[4].x += clamp(abs(chapter_spr_offsets[4].x) * 0.02, 0, pan_speed);
+				if (time >= 646) {
+					crossfade_alpha = clamp(crossfade_alpha - 0.01, 0, 1);
+				}
+				draw_chapter_art(4, crossfade_alpha);
+				draw_chapter_art(0, abs(-1 + crossfade_alpha));
 				if (time >= 1474) step += 1;
 			},
 			function() {
@@ -118,6 +129,7 @@ function complete_story() {
 		draw: function() {
 			time += 1;
 			draw_set_alpha(1);
+			if (draw_background) draw_sprite(spr_podcast_chapter_art_background, 0, 0, 0);
 			steps[step]();
 		},
 	};
@@ -134,7 +146,7 @@ function complete_story() {
 				}
 			},
 			function() {
-				if (time >= 646) step += 1;
+				if (time >= 446) step += 1;
 			},
 			function() {
 				black_alpha = clamp(black_alpha - 0.005, 0, 1);
@@ -189,7 +201,7 @@ function complete_story() {
 			if (string_starts_with(text, "I was on my walk home")) {
 				show_debug_message("debug");
 			}
-			var result = new TagDecoratedTextDefault(text, "f:fnt_ally t:40,1 fadein", 2000, 1000);
+			var result = new TagDecoratedTextDefault(text, "f:fnt_ally t:40,1 fadein", 3000, 1000);
 			tag_decorated_text_reset_typing(result);
 			return result;
 		},
@@ -310,7 +322,7 @@ function complete_story() {
 			draw_set_halign(fa_center);
 			draw_set_valign(fa_bottom);
 			draw_set_alpha(1);
-			if (tag_decorated_text != undefined) tag_decorated_text_draw(tag_decorated_text, display_get_gui_width() / 2, display_get_gui_height() - 300);
+			if (tag_decorated_text != undefined) tag_decorated_text_draw(tag_decorated_text, display_get_gui_width() / 2, display_get_gui_height() - 100);
 		},
 	};
 	
