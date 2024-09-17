@@ -305,6 +305,7 @@
     {"id":{"name":"spr_styleable_text_sprite_default","path":"sprites/spr_styleable_text_sprite_default/spr_styleable_text_sprite_default.yy",},},
     {"id":{"name":"spr_tapereel_position","path":"sprites/spr_tapereel_position/spr_tapereel_position.yy",},},
     {"id":{"name":"spr_tapereel","path":"sprites/spr_tapereel/spr_tapereel.yy",},},
+    {"id":{"name":"spr_vignette","path":"sprites/spr_vignette/spr_vignette.yy",},},
     {"id":{"name":"spr_word_balloon_cory_left","path":"sprites/spr_word_balloon_cory_left/spr_word_balloon_cory_left.yy",},},
     {"id":{"name":"spr_word_balloon_cory_right","path":"sprites/spr_word_balloon_cory_right/spr_word_balloon_cory_right.yy",},},
     {"id":{"name":"spr_word_balloon_frank_left","path":"sprites/spr_word_balloon_frank_left/spr_word_balloon_frank_left.yy",},},

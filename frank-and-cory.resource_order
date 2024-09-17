@@ -272,6 +272,7 @@
     {"name":"spr_styleable_text_sprite_default","order":1,"path":"sprites/spr_styleable_text_sprite_default/spr_styleable_text_sprite_default.yy",},
     {"name":"spr_tapereel_position","order":14,"path":"sprites/spr_tapereel_position/spr_tapereel_position.yy",},
     {"name":"spr_tapereel","order":2,"path":"sprites/spr_tapereel/spr_tapereel.yy",},
+    {"name":"spr_vignette","order":3,"path":"sprites/spr_vignette/spr_vignette.yy",},
     {"name":"spr_word_balloon_cory_left","order":1,"path":"sprites/spr_word_balloon_cory_left/spr_word_balloon_cory_left.yy",},
     {"name":"spr_word_balloon_cory_right","order":3,"path":"sprites/spr_word_balloon_cory_right/spr_word_balloon_cory_right.yy",},
     {"name":"spr_word_balloon_frank_right","order":4,"path":"sprites/spr_word_balloon_frank_right/spr_word_balloon_frank_right.yy",},

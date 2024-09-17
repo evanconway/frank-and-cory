@@ -148,6 +148,27 @@ function complete_story() {
 			steps[step]();
 		},
 	};
+	var vignette = {
+		time: 0,
+		get_alpha: function(rads=0) {
+			return (sin(rads) + 1) / 2;
+		},
+		draw: function() {
+			time += 1;
+			if (time >= 446) {
+				var rads = time * 0.01;
+				var offset = 2 * pi / 3;
+				var alphas = [get_alpha(rads), get_alpha(rads + offset), get_alpha(rads + offset + offset)];
+				show_debug_message($"{alphas[0]} {alphas[1]} {alphas[2]}");
+				draw_set_alpha(alphas[0]);
+				draw_sprite(spr_vignette, 0, 0, 0);
+				draw_set_alpha(alphas[1]);
+				draw_sprite(spr_vignette, 1, 0, 0);
+				draw_set_alpha(alphas[2]);
+				draw_sprite(spr_vignette, 2, 0, 0);
+			}
+		},
+	};
 	var blackout = {
 		black_alpha: 0,
 		time: 0, // don't reset time between steps
@@ -210,7 +231,6 @@ function complete_story() {
 			draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
 		},
 	};
-	
 	var text = {
 		get_new_text: function(text="") {
 			if (string_starts_with(text, "I was on my walk home")) {
@@ -342,8 +362,9 @@ function complete_story() {
 	};
 	
 	var podcast_animation_sequence = {
-		draw: method({ chapter_art, blackout, text }, function() {
+		draw: method({ chapter_art, vignette, blackout, text }, function() {
 			chapter_art.draw();
+			vignette.draw();
 			blackout.draw();
 			text.draw();
 		}),
