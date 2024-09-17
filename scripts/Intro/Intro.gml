@@ -205,7 +205,14 @@ function start_intro() {
 			},
 			function () {
 				alpha = 0;
-				if (time >= 90) {
+				if (time >= 100) {
+					time = 0;
+					step += 1;
+					// play_sfx(snd_music_workshop, 0.7, 1, true);
+				}
+			},
+			function () {
+				if (time >= 60) {
 					global.updateable = oh_no_my_body_dialog;
 				}
 			}
@@ -241,6 +248,7 @@ function start_intro() {
 						play_sfx(snd_button, 1, 0.6);
 						return;
 					}
+					// audio_stop_sound(snd_music_darkness);
 					global.light_switch_on = true;
 					play_sfx(snd_jude_breaker_switch);
 					play_sfx(snd_jude_light_flicker);
@@ -363,6 +371,7 @@ function start_intro() {
 		update: function() {
 			if (room != rm_workshop) return;
 			if (mouse_check_button_pressed(mb_any)) {
+				// play_sfx(snd_music_darkness, 0.7, 1, true);
 				var lay_id = layer_get_id("Background");
 				var back_id = layer_background_get_id(lay_id);
 				layer_background_sprite(back_id, spr_workshop_nolight);
