@@ -9,7 +9,74 @@
 72.004 Finish out		4320
 */
 
+global.frank_podcast_hair_attached = false;
+
 function complete_story() {
+	
+	// feather ignore GM1043
+	global.podcast_attach_hair = {
+		time: 0,
+		step: 0,
+		steps: [
+			function() {
+				global.frank_podcast_hair_attached = true;
+				play_sfx(snd_jude_hair_attach);
+				step += 1;
+			},
+			function() {
+				if (time >= 150) {
+					global.updateable = dialog_get_updateable([
+						cory_get_dialog_step("Looking good! Let's go!", CORY_EXPRESSION.PODCAST_WINGS),
+					], {
+						after_dialog_updateable: {
+							alpha: 0,
+							step: 0,
+							steps: [
+								function() {
+									alpha += 0.01;
+									if (alpha >= 1) {
+										alpha = 1;
+										step += 1 ;
+									}
+								},
+								function() {
+									room_goto(rm_outside);
+									step += 1;
+								},
+								function() {
+									if (room == rm_outside) {
+										play_sfx(snd_music_peace);
+										audio_sound_gain(play_sfx(snd_nature, 0, 1, true), 0.7, 3000);
+										step += 1;
+									}
+								},
+								function() {
+									alpha -= 0.01;
+									if (alpha <= 0) {
+										alpha = 0;
+										global.updateable = global.credits;
+									}
+								},
+							],
+							update: function() {
+								steps[step]();
+							},
+							draw: function() {
+								draw_set_color(c_black);
+								draw_set_alpha(alpha);
+								draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
+							},
+						}
+					});
+				}
+			},
+		],
+		update: function() {
+			time += 1;
+			steps[step]();
+		},
+	};
+	
 	global.podcast_dialog_end = dialog_get_updateable([
 		cory_get_dialog_step("Oh my. That was beautiful, Frank.", CORY_EXPRESSION.PODCAST_WINGS),
 		cory_get_dialog_step("Thank you.", CORY_EXPRESSION.PODCAST_NEUTRAL),
@@ -22,48 +89,10 @@ function complete_story() {
 		frank_get_dialog_step("I don't know if I was little.", FRANK_EXPRESSION.PODCAST_LEFT_UP),
 		cory_get_dialog_step("What do you say we go outside and record more stuff?", CORY_EXPRESSION.PODCAST_HIP),
 		frank_get_dialog_step("Sounds fun!", FRANK_EXPRESSION.PODCAST_LEFT_PUMP),
-		frank_get_dialog_step("Let me attach new tape reels!", FRANK_EXPRESSION.PODCAST_BLANK_DOWN),
-		cory_get_dialog_step("Looking good! Let's go!", CORY_EXPRESSION.PODCAST_WINGS),
+		frank_get_dialog_step("But first.", FRANK_EXPRESSION.PODCAST_UP_UP),
+		frank_get_dialog_step("Let me attach one more tape reel.", FRANK_EXPRESSION.PODCAST_BLANK_DOWN),
 	], {
-		after_dialog_updateable: {
-			alpha: 0,
-			step: 0,
-			steps: [
-				function() {
-					alpha += 0.01;
-					if (alpha >= 1) {
-						alpha = 1;
-						step += 1 ;
-					}
-				},
-				function() {
-					room_goto(rm_outside);
-					step += 1;
-				},
-				function() {
-					if (room == rm_outside) {
-						play_sfx(snd_music_peace);
-						audio_sound_gain(play_sfx(snd_nature, 0, 1, true), 0.7, 3000);
-						step += 1;
-					}
-				},
-				function() {
-					alpha -= 0.01;
-					if (alpha <= 0) {
-						alpha = 0;
-						global.updateable = global.credits;
-					}
-				},
-			],
-			update: function() {
-				steps[step]();
-			},
-			draw: function() {
-				draw_set_color(c_black);
-				draw_set_alpha(alpha);
-				draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
-			},
-		}
+		after_dialog_updateable: global.podcast_attach_hair,
 	});
 	
 	var chapter_art = {
@@ -155,16 +184,14 @@ function complete_story() {
 		},
 		draw: function() {
 			time += 1;
-			if (time >= 446) {
-				var rads = time * 0.01;
+			if (time >= 446 && time <= 4600) {
+				var rads = time * 0.015;
 				var offset = 2 * pi / 3;
-				var alphas = [get_alpha(rads), get_alpha(rads + offset), get_alpha(rads + offset + offset)];
-				show_debug_message($"{alphas[0]} {alphas[1]} {alphas[2]}");
-				draw_set_alpha(alphas[0]);
+				draw_set_alpha(get_alpha(rads));
 				draw_sprite(spr_vignette, 0, 0, 0);
-				draw_set_alpha(alphas[1]);
+				draw_set_alpha(get_alpha(rads + offset));
 				draw_sprite(spr_vignette, 1, 0, 0);
-				draw_set_alpha(alphas[2]);
+				draw_set_alpha(get_alpha(rads + offset + offset));
 				draw_sprite(spr_vignette, 2, 0, 0);
 			}
 		},

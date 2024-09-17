@@ -21,5 +21,9 @@ draw = function() {
 		FRANK_EXPRESSION.PODCAST_UP_PUMP,
 	], global.frank_expression)) image_index = 2;
 	original_draw();
+	if (global.frank_podcast_hair_attached) {
+		draw_set_alpha(1);
+		draw_sprite(spr_podcast_frank_hair, 0, 0, 0);
+	}
 	frank_draw_expression();
 };
