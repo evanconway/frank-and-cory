@@ -280,5 +280,6 @@
     {"name":"spr_word_balloon_frank_right","order":4,"path":"sprites/spr_word_balloon_frank_right/spr_word_balloon_frank_right.yy",},
     {"name":"spr_workshop_cory","order":31,"path":"sprites/spr_workshop_cory/spr_workshop_cory.yy",},
     {"name":"spr_workshop_nolight","order":2,"path":"sprites/spr_workshop_nolight/spr_workshop_nolight.yy",},
+    {"name":"Sprite100","order":2,"path":"sprites/Sprite100/Sprite100.yy",},
   ],
 }

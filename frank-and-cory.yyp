@@ -315,6 +315,7 @@
     {"id":{"name":"spr_workshop_cory","path":"sprites/spr_workshop_cory/spr_workshop_cory.yy",},},
     {"id":{"name":"spr_workshop_nolight","path":"sprites/spr_workshop_nolight/spr_workshop_nolight.yy",},},
     {"id":{"name":"spr_workshop","path":"sprites/spr_workshop/spr_workshop.yy",},},
+    {"id":{"name":"Sprite100","path":"sprites/Sprite100/Sprite100.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
