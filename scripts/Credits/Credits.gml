@@ -113,14 +113,32 @@ global.credits = {
 			}
 		},
 	],
+	ripple_time: 0,
 	update: function() {
 		time += 1;
 		steps[step]();
+		ripple_time += 1;
+	},
+	get_ripple_alpha: function(radian_offset=0) {
+		return sin(ripple_time * 0.005 + radian_offset) * 0.5 + 0.5;
 	},
 	draw: function() {
+		// water
+		draw_set_alpha(get_ripple_alpha(0 * 2 * pi / 3));
+		draw_sprite(spr_water_ripples, 0, 0, 0);
+		draw_set_alpha(get_ripple_alpha(1 * 2 * pi / 3));
+		draw_sprite(spr_water_ripples, 1, 0, 0);
+		draw_set_alpha(get_ripple_alpha(2 * 2 * pi / 3));
+		draw_sprite(spr_water_ripples, 2, 0, 0);
+		
+		draw_set_alpha(1);
+		draw_sprite(spr_finale_frank, 0, 0, 0);
+		draw_sprite(spr_finale_cory, 0, 0, 0);
+		
 		draw_set_alpha(alpha);
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_middle);
+		draw_sprite(spr_brush_stroke, 0, 0, 0);
 		tag_decorated_text_draw(text, display_get_gui_width() / 2, display_get_gui_height() / 2);
 		if (play_again_text != undefined) {
 			tag_decorated_text_draw(play_again_text, display_get_gui_width() / 2, display_get_gui_height() / 2 + 400);

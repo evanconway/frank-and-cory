@@ -10,5 +10,5 @@ set_tds_defaults()
 
 reset_game();
 
-//room_goto(rm_outside);
-//global.updateable = global.credits;
+room_goto(rm_outside);
+global.updateable = global.credits;
