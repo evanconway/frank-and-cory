@@ -23,7 +23,7 @@ shake = {
 		function() {
 			if (time >= 8) {
 				time = 0;
-				if (shakes < 8) {
+				if (shakes < 6) {
 					shakes += 1;
 					randomize_offsets();
 				} else {
