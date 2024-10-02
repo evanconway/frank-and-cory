@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":124.0,
+  "duration":183.27274,
   "name":"snd_music_workshop",
   "parent":{
     "name":"music",

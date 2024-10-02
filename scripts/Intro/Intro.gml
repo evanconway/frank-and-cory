@@ -208,7 +208,7 @@ function start_intro() {
 				if (time >= 100) {
 					time = 0;
 					step += 1;
-					play_sfx(snd_music_workshop, 1, 1, true);
+					play_sfx(snd_music_workshop, 0.8, 1, true);
 				}
 			},
 			function () {
