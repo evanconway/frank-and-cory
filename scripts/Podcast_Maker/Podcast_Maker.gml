@@ -285,6 +285,7 @@ global.podcast_player = {
 };
 
 function podcast_machine_play_all() {
+	audio_stop_sound(snd_music_tutorial);
 	play_sfx(snd_jude_button_play, 1);
 	global.podcast_player.column_to_play = 0;
 	global.podcast_player.play_individual_column = false;
@@ -293,6 +294,7 @@ function podcast_machine_play_all() {
 };
 
 function podcast_machine_play_column(column=0) {
+	audio_stop_sound(snd_music_tutorial);
 	play_sfx(snd_jude_button_play, 1);
 	global.podcast_player.play_individual_column = true;
 	global.podcast_player.column_to_play = column;
@@ -438,6 +440,7 @@ function podcast_machine_transition() {
 				if (obj_workshop_cory.x > 2000 && obj_frank_chest.x < 2000) {
 					step += 1;
 					play_sfx(snd_jude_podcast_machine_descend);
+					play_sfx(snd_music_podcast_transition, 0.9);
 				}
 			},
 			function() {
@@ -485,7 +488,10 @@ function podcast_machine_transition() {
 			},
 			function() {
 				time += 1;
-				if (time > 45) global.updateable = tutorial_a;
+				if (time > 45) {
+					global.updateable = tutorial_a;
+					play_sfx(snd_music_tutorial, 0.7, 1, true);
+				}
 			}
 		],
 		update: function() {
@@ -527,6 +533,7 @@ global.podcast_test_player = {
 
 function podcast_play_test() {
 	if (!__podcast_ensure_test_position_exists()) return;
+	audio_stop_sound(snd_music_tutorial);
 	play_sfx(snd_jude_button_play, 1);
 	play_sfx(global.podcast_test_player.get_audio_at_test());
 	global.podcast_player.column_to_play = -2;

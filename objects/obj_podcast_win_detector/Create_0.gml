@@ -5,6 +5,7 @@ pre_update = function() {
 	if (room != rm_podcast_machine) return;
 	var complete = podcast_get_is_complete();
 	if (complete) {
+		audio_stop_sound(snd_music_tutorial);
 		// feather ignore GM1043
 		global.updateable = {
 			alpha: 0.75,
