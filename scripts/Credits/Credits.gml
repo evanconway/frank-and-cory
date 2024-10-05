@@ -138,10 +138,10 @@ global.credits = {
 		draw_set_alpha(alpha);
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_middle);
-		draw_sprite(spr_brush_stroke, 0, 0, 0);
+		draw_sprite(spr_brush_stroke, 0, display_get_gui_width() / 2, display_get_gui_height() / 2);
 		tag_decorated_text_draw(text, display_get_gui_width() / 2, display_get_gui_height() / 2);
 		if (play_again_text != undefined) {
-			tag_decorated_text_draw(play_again_text, display_get_gui_width() / 2, display_get_gui_height() / 2 + 400);
+			tag_decorated_text_draw(play_again_text, display_get_gui_width() / 2, display_get_gui_height() / 2 + 600);
 		}
 		draw_set_alpha(fade_alpha);
 		draw_set_color(c_black);

@@ -186,6 +186,7 @@
     {"id":{"name":"snd_jude_reel_snap_3","path":"sounds/snd_jude_reel_snap_3/snd_jude_reel_snap_3.yy",},},
     {"id":{"name":"snd_jude_wing_flap_1","path":"sounds/snd_jude_wing_flap_1/snd_jude_wing_flap_1.yy",},},
     {"id":{"name":"snd_jude_wing_flap_2","path":"sounds/snd_jude_wing_flap_2/snd_jude_wing_flap_2.yy",},},
+    {"id":{"name":"snd_music_finale","path":"sounds/snd_music_finale/snd_music_finale.yy",},},
     {"id":{"name":"snd_music_intro","path":"sounds/snd_music_intro/snd_music_intro.yy",},},
     {"id":{"name":"snd_music_peace","path":"sounds/snd_music_peace/snd_music_peace.yy",},},
     {"id":{"name":"snd_music_podcast_transition","path":"sounds/snd_music_podcast_transition/snd_music_podcast_transition.yy",},},

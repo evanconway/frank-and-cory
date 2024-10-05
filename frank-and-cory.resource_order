@@ -159,6 +159,7 @@
     {"name":"snd_jude_reel_snap_3","order":14,"path":"sounds/snd_jude_reel_snap_3/snd_jude_reel_snap_3.yy",},
     {"name":"snd_jude_wing_flap_1","order":17,"path":"sounds/snd_jude_wing_flap_1/snd_jude_wing_flap_1.yy",},
     {"name":"snd_jude_wing_flap_2","order":18,"path":"sounds/snd_jude_wing_flap_2/snd_jude_wing_flap_2.yy",},
+    {"name":"snd_music_finale","order":7,"path":"sounds/snd_music_finale/snd_music_finale.yy",},
     {"name":"snd_music_intro","order":3,"path":"sounds/snd_music_intro/snd_music_intro.yy",},
     {"name":"snd_music_peace","order":2,"path":"sounds/snd_music_peace/snd_music_peace.yy",},
     {"name":"snd_music_podcast_transition","order":5,"path":"sounds/snd_music_podcast_transition/snd_music_podcast_transition.yy",},
