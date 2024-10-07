@@ -30,10 +30,15 @@ function complete_story() {
 					], {
 						after_dialog_updateable: {
 							alpha: 0,
+							alpha_change: 0.005,
 							step: 0,
 							steps: [
 								function() {
-									alpha += 0.01;
+									play_sfx(snd_music_finale, 1, 1, true);
+									step += 1;
+								},
+								function() {
+									alpha += alpha_change;
 									if (alpha >= 1) {
 										alpha = 1;
 										step += 1 ;
@@ -46,13 +51,13 @@ function complete_story() {
 								function() {
 									if (room == rm_outside) {
 										// play_sfx(snd_music_peace);
-										play_sfx(snd_music_finale, 0.8, 1, true);
-										audio_sound_gain(play_sfx(snd_nature, 0, 1, true), 0.7, 3000);
+										// play_sfx(snd_music_finale, 0.8, 1, true);
+										audio_sound_gain(play_sfx(snd_nature, 0, 1, true), 0.5, 3000);
 										step += 1;
 									}
 								},
 								function() {
-									alpha -= 0.01;
+									alpha -= alpha_change;
 									if (alpha <= 0) {
 										alpha = 0;
 										global.updateable = global.credits;

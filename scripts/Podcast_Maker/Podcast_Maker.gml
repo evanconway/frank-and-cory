@@ -440,7 +440,7 @@ function podcast_machine_transition() {
 				if (obj_workshop_cory.x > 2000 && obj_frank_chest.x < 2000) {
 					step += 1;
 					play_sfx(snd_jude_podcast_machine_descend);
-					play_sfx(snd_music_podcast_transition, 0.9);
+					play_sfx(snd_music_podcast_transition, 1);
 				}
 			},
 			function() {
@@ -490,7 +490,7 @@ function podcast_machine_transition() {
 				time += 1;
 				if (time > 45) {
 					global.updateable = tutorial_a;
-					play_sfx(snd_music_tutorial, 0.7, 1, true);
+					play_sfx(snd_music_tutorial, 1, 1, true);
 				}
 			}
 		],

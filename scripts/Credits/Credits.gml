@@ -8,7 +8,7 @@ global.credits = {
 	get_text: function(new_text="_") {
 		return new TagDecoratedTextDefault(new_text, "f:fnt_ally black");
 	},
-	text: new TagDecoratedTextDefault("Art by Allison Conway", "f:fnt_ally black"),
+	text: new TagDecoratedTextDefault("Story and characters by Jude Brewer", "f:fnt_ally black"),
 	play_again_text: undefined,
 	steps: [
 		function() {
@@ -33,7 +33,7 @@ global.credits = {
 		function() {
 			alpha -= 0.01;
 			if (alpha <= 0) {
-				text = get_text("Story and characters by Jude Brewer");
+				text = get_text("Art by Allison Conway");
 				time = 0;
 				step += 1;
 			}
@@ -117,18 +117,26 @@ global.credits = {
 	update: function() {
 		time += 1;
 		steps[step]();
-		ripple_time += 1;
+		ripple_time += 0.7;
 	},
-	get_ripple_alpha: function(radian_offset=0) {
-		return sin(ripple_time * 0.005 + radian_offset) * 0.5 + 0.5;
+	get_ripple_alpha: function(time_offset=0) {
+		var fade_time = 60 * 6;
+		var overlap_time = 60 * 0.5;
+		var total_time = fade_time * 3 - (overlap_time * 3);
+		
+		var unique_time = (ripple_time + time_offset) % total_time;
+		if (unique_time <= fade_time / 2) return unique_time / (fade_time / 2);
+		if (unique_time <= fade_time) return 1 - ((unique_time - fade_time / 2) / (fade_time / 2));
+		return 0;
 	},
 	draw: function() {
 		// water
-		draw_set_alpha(get_ripple_alpha(0 * 2 * pi / 3));
+		show_debug_message(get_ripple_alpha(60 * 0));
+		draw_set_alpha(get_ripple_alpha(60 * 0));
 		draw_sprite(spr_water_ripples, 0, 0, 0);
-		draw_set_alpha(get_ripple_alpha(1 * 2 * pi / 3));
+		draw_set_alpha(get_ripple_alpha(60 * 5.5));
 		draw_sprite(spr_water_ripples, 1, 0, 0);
-		draw_set_alpha(get_ripple_alpha(2 * 2 * pi / 3));
+		draw_set_alpha(get_ripple_alpha(60 * 11));
 		draw_sprite(spr_water_ripples, 2, 0, 0);
 		
 		draw_set_alpha(1);

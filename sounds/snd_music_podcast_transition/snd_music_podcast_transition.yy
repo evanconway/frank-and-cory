@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_music_podcast_transition.wav",
+  "soundFile":"snd_music_podcast_transition.ogg",
   "type":0,
   "volume":1.0,
 }
