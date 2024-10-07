@@ -68,6 +68,12 @@ function complete_story() {
 								steps[step]();
 							},
 							draw: function() {
+								if (room == rm_outside) {
+									draw_set_alpha(1);
+									draw_sprite(spr_water_ripples, 0, 0, 0);
+									draw_sprite(spr_finale_frank, 0, 0, 0);
+									draw_sprite(spr_finale_cory, 0, 0, 0);
+								}
 								draw_set_color(c_black);
 								draw_set_alpha(alpha);
 								draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);

@@ -124,14 +124,14 @@ global.credits = {
 		var overlap_time = 60 * 0.5;
 		var total_time = fade_time * 3 - (overlap_time * 3);
 		
-		var unique_time = (ripple_time + time_offset) % total_time;
+		// we add overlap_time so the animation doesn't start on an overlap
+		var unique_time = (ripple_time + time_offset + fade_time / 2) % total_time;
 		if (unique_time <= fade_time / 2) return unique_time / (fade_time / 2);
 		if (unique_time <= fade_time) return 1 - ((unique_time - fade_time / 2) / (fade_time / 2));
 		return 0;
 	},
 	draw: function() {
 		// water
-		show_debug_message(get_ripple_alpha(60 * 0));
 		draw_set_alpha(get_ripple_alpha(60 * 0));
 		draw_sprite(spr_water_ripples, 0, 0, 0);
 		draw_set_alpha(get_ripple_alpha(60 * 5.5));
