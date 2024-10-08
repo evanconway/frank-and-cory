@@ -34,7 +34,7 @@ function complete_story() {
 							step: 0,
 							steps: [
 								function() {
-									play_sfx(snd_music_finale, 1, 1, true);
+									//play_sfx(snd_music_finale, 1, 1, true);
 									step += 1;
 								},
 								function() {

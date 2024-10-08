@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_music_intro.wav",
-  "type":0,
+  "soundFile":"snd_music_intro.ogg",
+  "type":1,
   "volume":1.0,
 }
