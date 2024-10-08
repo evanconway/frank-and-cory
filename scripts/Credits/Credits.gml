@@ -12,7 +12,7 @@ global.credits = {
 	play_again_text: undefined,
 	steps: [
 		function() {
-			if (time >= 150) {
+			if (time >= 60 * 14) {
 				time = 0;
 				step += 1;
 			}
@@ -54,7 +54,7 @@ global.credits = {
 		function() {
 			alpha -= 0.01;
 			if (alpha <= 0) {
-				text = get_text("Programming by Evan Conway");
+				text = get_text("Programming and Music by Evan Conway");
 				time = 0;
 				step += 1;
 			}

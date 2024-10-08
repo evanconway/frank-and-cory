@@ -18,6 +18,7 @@ function reset_game() {
 	global.light_switch_on = false;
 	global.intro_blackout_alpha = 1;
 	global.breaker_open = false;
+	global.frank_podcast_hair_attached = false;
 	
 	ds_map_clear(global.draggable_position_map);
 	ds_map_clear(global.position_draggable_map);

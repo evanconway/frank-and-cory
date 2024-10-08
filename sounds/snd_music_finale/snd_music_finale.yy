@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":128.0,
+  "duration":176.0,
   "name":"snd_music_finale",
   "parent":{
     "name":"music",
