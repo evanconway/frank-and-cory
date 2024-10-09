@@ -433,6 +433,7 @@ function podcast_machine_transition() {
 		step: 0,
 		vertical_offset: display_get_gui_height(),
 		time: 0,
+		steam_alpha: 0,
 		steps: [
 			function() {	
 				obj_workshop_cory.x += 100;
@@ -440,7 +441,7 @@ function podcast_machine_transition() {
 				if (obj_workshop_cory.x > 2000 && obj_frank_chest.x < 2000) {
 					step += 1;
 					play_sfx(snd_jude_podcast_machine_descend);
-					play_sfx(snd_music_podcast_transition, 1);
+					play_sfx(snd_music_podcast_transition, 0.9);
 				}
 			},
 			function() {
@@ -469,10 +470,12 @@ function podcast_machine_transition() {
 					
 					draw_machine = false;
 					step += 1;
+					steam_alpha = 1;
 				}
 			},
 			function() {
 				time += 1;
+				steam_alpha -= 1/120;
 				if (time > 120) {
 					step += 1;
 					time = 0;
@@ -499,6 +502,8 @@ function podcast_machine_transition() {
 		},
 		draw: function() {
 			if (draw_machine) podcast_machine_draw(0, vertical_offset * -1);
+			draw_set_alpha(steam_alpha);
+			draw_sprite(spr_podcast_machine_steam, 0, 0, 0);
 		}
 	};
 }

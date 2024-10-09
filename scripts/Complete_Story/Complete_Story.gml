@@ -208,6 +208,23 @@ function complete_story() {
 			}
 		},
 	};
+	var tv_static = {
+		time: 0,
+		image_time: 0,
+		image: 0,
+		draw: function() {
+			time += 1;
+			image_time += 1;
+			if (image_time >= 11) {
+				image_time = 0;
+				image += 1;
+				if (image >= 3) image = 0;
+			}
+			if (time >= 446) return;
+			draw_set_alpha(1);
+			draw_sprite(spr_tv_static, image, 0, 0);
+		},
+	};
 	var blackout = {
 		black_alpha: 0,
 		time: 0, // don't reset time between steps
@@ -401,14 +418,18 @@ function complete_story() {
 	};
 	
 	var podcast_animation_sequence = {
-		draw: method({ chapter_art, vignette, blackout, text }, function() {
+		draw: method({ chapter_art, vignette, blackout, tv_static, text }, function() {
 			chapter_art.draw();
 			vignette.draw();
+			tv_static.draw();
 			blackout.draw();
 			text.draw();
 		}),
 		update: function() {},
 	};
+	
+	play_sfx(snd_tv_static, 0.7, 1, false);
+	audio_sound_gain(snd_tv_static, 0, 1600);
 	
 	global.updateable = podcast_animation_sequence;
 }

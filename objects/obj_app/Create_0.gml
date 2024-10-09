@@ -10,5 +10,5 @@ set_tds_defaults()
 
 reset_game();
 
-//room_goto(rm_outside);
+//room_goto(rm_podcast_machine);
 //global.updateable = global.credits;
