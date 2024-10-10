@@ -98,7 +98,7 @@ function complete_story() {
 		cory_get_dialog_step("Do you remember anything?", CORY_EXPRESSION.PODCAST_WINGS),
 		cory_get_dialog_step("From when you were little?", CORY_EXPRESSION.PODCAST_NEUTRAL),
 		frank_get_dialog_step("Hmm. Now that I think about it...", FRANK_EXPRESSION.PODCAST_UP_DOWN),
-		frank_get_dialog_step("I don't know if I was little.", FRANK_EXPRESSION.PODCAST_LEFT_UP),
+		frank_get_dialog_step("I don't know if I was ever \"little.\"", FRANK_EXPRESSION.PODCAST_LEFT_UP),
 		cory_get_dialog_step("What do you say we go outside and record more stuff?", CORY_EXPRESSION.PODCAST_HIP),
 		frank_get_dialog_step("Sounds fun!", FRANK_EXPRESSION.PODCAST_LEFT_PUMP),
 		frank_get_dialog_step("But first.", FRANK_EXPRESSION.PODCAST_UP_UP),
@@ -137,14 +137,11 @@ function complete_story() {
 			return sin(time * 0.04 - index * 0.2 * pi) * 30;
 		},
 		notes_alpha: 0,
-		draw_background: false,
+		draw_background: true,
 		step: 0,
 		steps: [
 			function() { // sync up with blackout
-				if (time >= 446) {
-					step += 1;
-					draw_background = true;
-				}
+				if (time >= 446) step += 1;
 			},
 			function() {
 				chapter_spr_offsets[0].x += clamp(abs(chapter_spr_offsets[0].x) * 0.02, 0, pan_speed);
@@ -196,7 +193,7 @@ function complete_story() {
 		},
 		draw: function() {
 			time += 1;
-			if (time >= 446 && time <= 4600) {
+			if (time >= 446  && time <= 4600) {
 				var rads = time * 0.015;
 				var offset = 2 * pi / 3;
 				draw_set_alpha(get_alpha(rads));
@@ -208,34 +205,14 @@ function complete_story() {
 			}
 		},
 	};
-	var tv_static = {
-		time: 0,
-		image_time: 0,
-		image: 0,
-		draw: function() {
-			time += 1;
-			image_time += 1;
-			if (image_time >= 11) {
-				image_time = 0;
-				image += 1;
-				if (image >= 3) image = 0;
-			}
-			if (time >= 446) return;
-			draw_set_alpha(1);
-			draw_sprite(spr_tv_static, image, 0, 0);
-		},
-	};
 	var blackout = {
-		black_alpha: 0,
+		black_alpha: 1,
 		time: 0, // don't reset time between steps
 		step: 0,
 		steps: [
 			function() {
-				black_alpha = clamp(black_alpha + 0.01, 0, 1);
-				if (black_alpha >= 1) {
-					play_sfx(snd_complete_story);
-					step += 1;
-				}
+				play_sfx(snd_complete_story);
+				step += 1;
 			},
 			function() {
 				if (time >= 446) step += 1;
@@ -289,9 +266,6 @@ function complete_story() {
 	};
 	var text = {
 		get_new_text: function(text="") {
-			if (string_starts_with(text, "I was on my walk home")) {
-				show_debug_message("debug");
-			}
 			var result = new TagDecoratedTextDefault(text, "f:fnt_ally t:40,1 fadein", 3000, 1000);
 			tag_decorated_text_reset_typing(result);
 			return result;
@@ -301,98 +275,98 @@ function complete_story() {
 		step: 0,
 		steps: [
 			function() {
-				if (time >= 190)	 {
+				if (time >= 90) {
 					time = 0;
 					tag_decorated_text = get_new_text("It was a dark and stormy night.");
 					step += 1;
 				}
 			},
 			function() {
-				if (time >= 130)	 {
+				if (time >= 130) {
 					time = 0;
 					tag_decorated_text = get_new_text("I was on my walk hom<p:1000>e when I spotted a bright red ball in the grass.");
 					step += 1;
 				}
 			},
 			function() {
-				if (time >= 282)	 {
+				if (time >= 282) {
 					time = 0;
 					tag_decorated_text = get_new_text("But it wasn't a ball at all<p:1100>. It was a bird.");
 					step += 1;
 				}
 			},
 			function() {
-				if (time >= 227)	 {
+				if (time >= 227) {
 					time = 0;
 					tag_decorated_text = get_new_text("He was missing a le<p:1200>g and he wasn't moving.");
 					step += 1;
 				}
 			},
 			function() {
-				if (time >= 271)	 {
+				if (time >= 271) {
 					time = 0;
 					tag_decorated_text = get_new_text("It was raining so hard I had to hurry home.");
 					step += 1;
 				}
 			},
 			function() {
-				if (time >= 169)	 {
+				if (time >= 169) {
 					time = 0;
 					tag_decorated_text = get_new_text("I brought the little red bird inside from the cold.");
 					step += 1;
 				}
 			},
 			function() {
-				if (time >= 220)	 {
+				if (time >= 220) {
 					time = 0;
 					tag_decorated_text = get_new_text("He was shiverin<p:1200>g so I covered him with a small blanket.");
 					step += 1;
 				}
 			},
 			function() {
-				if (time >= 337)	 {
+				if (time >= 337) {
 					time = 0;
 					tag_decorated_text = get_new_text("He whistled while he slept.");
 					step += 1;
 				}
 			},
 			function() {
-				if (time >= 162)	 {
+				if (time >= 162) {
 					time = 0;
 					tag_decorated_text = get_new_text("I noticed his wing was also broken<p:1700>. That gave me an idea.");
 					step += 1;
 				}
 			},
 			function() {
-				if (time >= 388)	 {
+				if (time >= 388) {
 					time = 0;
-					tag_decorated_text = get_new_text("All night lon<p:750>g the little bird whistled and slept.");
+					tag_decorated_text = get_new_text("All night lon<p:750>g the little bird whistle<p:800>d and slept.");
 					step += 1;
 				}
 			},
 			function() {
-				if (time >= 313)	 {
+				if (time >= 313) {
 					time = 0;
 					tag_decorated_text = get_new_text("I gathered what tools and supplies I could find<p:1800>. And I worked all night lon<p:1500>g creating what would soon becom<p:1100>e my best invention.");
 					step += 1;
 				}
 			},
 			function() {
-				if (time >= 759)	 {
+				if (time >= 759) {
 					time = 0;
 					tag_decorated_text = get_new_text("By sunris<p:500>e the bird awoke to discover his brand new win<p:2000>g and a new foot.");
 					step += 1;
 				}
 			},
 			function() {
-				if (time >= 391)	 {
+				if (time >= 391) {
 					time = 0;
 					tag_decorated_text = get_new_text("He stood up and tried them out<p:1300>, flapping and whistling happily.");
 					step += 1;
 				}
 			},
 			function() {
-				if (time >= 333)	 {
+				if (time >= 333) {
 					time = 0;
 					tag_decorated_text = get_new_text("That is how I me<p:500>t my best friend Cory.");
 					step += 1;
@@ -418,18 +392,58 @@ function complete_story() {
 	};
 	
 	var podcast_animation_sequence = {
-		draw: method({ chapter_art, vignette, blackout, tv_static, text }, function() {
+		draw: method({ chapter_art, vignette, blackout, text }, function() {
 			chapter_art.draw();
 			vignette.draw();
-			tv_static.draw();
 			blackout.draw();
 			text.draw();
 		}),
 		update: function() {},
 	};
+
+	var fade_to_black = {
+		alpha: 0,
+		step: 0,
+		time: 0,
+		image_time: 0,
+		image: 0,
+		podcast_animation_sequence,
+		steps: [
+			function() {
+				audio_sound_gain(play_sfx(snd_tv_static, 0.7, 1, false), 0, 2500);
+				step += 1;
+			},
+			function() {
+				alpha += 0.007;
+				if (alpha >= 1) {
+					step += 1;
+					time = 0;
+				}
+			},
+			function() {
+				if (time >= 70) {
+					global.updateable = podcast_animation_sequence;
+				}
+			},
+		],
+		update: function() {
+			time += 1;
+			image_time += 1;
+			if (image_time >= 11) {
+				image_time = 0;
+				image += 1;
+				if (image >= 3) image = 0;
+			}
+			steps[step]();
+		},
+		draw: function() {
+			draw_set_alpha(1);
+			draw_sprite(spr_tv_static, image, 0, 0);
+			draw_set_color(c_black);
+			draw_set_alpha(alpha);
+			draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
+		},
+	};
 	
-	play_sfx(snd_tv_static, 0.7, 1, false);
-	audio_sound_gain(snd_tv_static, 0, 1600);
-	
-	global.updateable = podcast_animation_sequence;
+	global.updateable = fade_to_black;
 }

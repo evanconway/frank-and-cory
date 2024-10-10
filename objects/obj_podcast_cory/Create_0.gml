@@ -9,5 +9,3 @@ draw = function() {
 	original_draw();
 	image_index = original_image_index;
 };
-
-show_debug_message($"cory depth: {depth}");

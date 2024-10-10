@@ -40,7 +40,6 @@ function podcast_maker_setup() {
 		ds_map_set(global.map_audio_reel_asset, inst_C74BBA9, audio_arr[9]);
 		ds_map_set(global.map_audio_reel_asset, inst_344345C4, audio_arr[10]);
 		ds_map_set(global.map_audio_reel_asset, inst_49F5CA89, audio_arr[11]);
-		show_debug_message("assigned audio assets to reel assets");
 	}
 	
 	/*
@@ -250,7 +249,6 @@ global.podcast_player = {
 		column_to_play = -1;
 	},
 	play_audio_at_current_column: function() {
-		show_debug_message($"playing audio at column {column_to_play}")
 		var audio_assets = get_audio_at_current_column(column_to_play);
 		for (var i = 0; i < array_length(audio_assets); i++) {
 			play_sfx(audio_assets[i]);
@@ -441,7 +439,7 @@ function podcast_machine_transition() {
 				if (obj_workshop_cory.x > 2000 && obj_frank_chest.x < 2000) {
 					step += 1;
 					play_sfx(snd_jude_podcast_machine_descend);
-					play_sfx(snd_music_podcast_transition, 0.9);
+					play_sfx(snd_music_podcast_transition, 0.8);
 				}
 			},
 			function() {

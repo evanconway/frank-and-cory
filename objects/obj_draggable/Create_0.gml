@@ -35,7 +35,6 @@ draggable_update = function() {
 		}
 		
 		play_sfx(snd_jude_reel_snap_3, 0.9);
-		show_debug_message($"draggable \"{id}\" move from \"{position_old}\" to \"{position_new}\"");
 	}
 	
 	if (position_snapped != noone && previous_position_snapped != position_snapped) {
