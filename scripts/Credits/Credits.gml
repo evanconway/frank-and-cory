@@ -6,9 +6,9 @@ global.credits = {
 	time: 0,
 	step: 0,
 	get_text: function(new_text="_") {
-		return new TagDecoratedTextDefault(new_text, "f:fnt_ally black");
+		return new TagDecoratedTextDefault(new_text, "f:fnt_ally black", 1900);
 	},
-	text: new TagDecoratedTextDefault("Story and characters by Jude Brewer", "f:fnt_ally black"),
+	text: new TagDecoratedTextDefault("Art by Allison Conway", "f:fnt_ally black"),
 	play_again_text: undefined,
 	steps: [
 		function() {
@@ -33,7 +33,28 @@ global.credits = {
 		function() {
 			alpha -= 0.01;
 			if (alpha <= 0) {
-				text = get_text("Art by Allison Conway");
+				text = get_text("Characters, story and sound design by Jude Brewer");
+				time = 0;
+				step += 1;
+			}
+		},
+		function() {
+			alpha += 0.01;
+			if (alpha >= 1) {
+				time = 0;
+				step += 1;
+			}
+		},
+		function() {
+			if (time >= 300) {
+				time = 0;
+				step += 1;
+			}
+		},
+		function() {
+			alpha -= 0.01;
+			if (alpha <= 0) {
+				text = get_text("Cory's Story music by John Fio");
 				time = 0;
 				step += 1;
 			}
@@ -88,10 +109,17 @@ global.credits = {
 			}
 		},
 		function() {
-			if (time >= 200) {
+			if (time >= 300) {
 				time = 0;
 				step += 1;
-				play_again_text = new TagDecoratedTextDefault("Click to play again.", "f:fnt_ally black fade");
+			}
+		},
+		function() {
+			alpha -= 0.01;
+			if (alpha <= 0) {
+				time = 0;
+				step += 1;
+				play_again_text = new TagDecoratedTextDefault("Click to play again.", "f:fnt_ally white fade");
 			}
 		},
 		function() {
@@ -149,8 +177,12 @@ global.credits = {
 		draw_sprite(spr_brush_stroke, 0, display_get_gui_width() / 2, display_get_gui_height() / 2);
 		tag_decorated_text_draw(text, display_get_gui_width() / 2, display_get_gui_height() / 2);
 		if (play_again_text != undefined) {
-			tag_decorated_text_draw(play_again_text, display_get_gui_width() / 2, display_get_gui_height() / 2 + 600);
+			draw_set_alpha(1);
+			draw_set_halign(fa_left);
+			draw_set_valign(fa_bottom);
+			tag_decorated_text_draw(play_again_text, 50, display_get_gui_height() - 50);
 		}
+		
 		draw_set_alpha(fade_alpha);
 		draw_set_color(c_black);
 		draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
