@@ -54,7 +54,7 @@ global.credits = {
 		function() {
 			alpha -= 0.01;
 			if (alpha <= 0) {
-				text = get_text("Cory's Story music by John Fio");
+				text = get_text("Cory's story music by John Fio");
 				time = 0;
 				step += 1;
 			}
@@ -75,7 +75,7 @@ global.credits = {
 		function() {
 			alpha -= 0.01;
 			if (alpha <= 0) {
-				text = get_text("Programming and Music by Evan Conway");
+				text = get_text("Programming and music by Evan Conway");
 				time = 0;
 				step += 1;
 			}
