@@ -2,11 +2,14 @@ global.darkness_surface = surface_create(display_get_gui_width(), display_get_gu
 global.cory_light_alpha = 0;
 global.flashlight_on = false;
 
-function darkness() {
+function prepare_darkness() {
 	if (!surface_exists(global.darkness_surface)) {
 		global.darkness_surface = surface_create(display_get_gui_width(), display_get_gui_height());
 	}
 	surface_resize(global.darkness_surface, display_get_gui_width(), display_get_gui_height());
+}
+
+function darkness() {	
 	surface_set_target(global.darkness_surface);
 	
 	draw_set_alpha(1);

@@ -347,7 +347,9 @@ function start_intro() {
 	], {
 		after_dialog_updateable: fade_in_scene,
 		pre_dialog_draw: function() {
-			global.intro_blackout_func();
+			draw_set_alpha(1);
+			draw_set_color(c_black);
+			draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
 			draw_set_halign(fa_center);
 			draw_set_valign(fa_middle);
 			global.dialog_position_x = display_get_gui_width() / 2;
@@ -362,7 +364,11 @@ function start_intro() {
 			time += 1;
 			if (time > 60) global.updateable = opening_lines;
 		},
-		draw: global.intro_blackout_func,
+		draw: function() {
+			draw_set_alpha(1);
+			draw_set_color(c_black);
+			draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
+		},
 	};
 
 	var init = {
@@ -371,6 +377,7 @@ function start_intro() {
 		update: function() {
 			if (room != rm_workshop) return;
 			if (mouse_check_button_pressed(mb_any)) {
+				prepare_darkness();
 				play_sfx(snd_music_intro, 0.5, 1, true);
 				var lay_id = layer_get_id("Background");
 				var back_id = layer_background_get_id(lay_id);
@@ -379,7 +386,9 @@ function start_intro() {
 			};
 		},
 		draw: function() {
-			global.intro_blackout_func();
+			draw_set_alpha(1);
+			draw_set_color(c_black);
+			draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
 			draw_set_halign(fa_center);
 			draw_set_valign(fa_middle);
 			tag_decorated_text_draw(tds, display_get_gui_width() / 2, display_get_gui_height() / 2);
