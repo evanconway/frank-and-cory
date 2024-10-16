@@ -1,6 +1,6 @@
 width = 4800;
 height = 2700;
-multiplier = 1/4;
+multiplier = 1/2;
 setup = function() {
 	view_enabled = true;
 	view_visible[0] = true;

@@ -369,7 +369,7 @@ function podcast_machine_transition() {
 	play_sfx(snd_jude_mouse_run_1);
 	
 	var tutorial_d = dialog_get_updateable([		
-		frank_get_dialog_step("Once everything's in the right order I'll let you know.", FRANK_EXPRESSION.PODCAST_UP_PUMP),
+		frank_get_dialog_step("Once everything's in the right order, I'll let you know.", FRANK_EXPRESSION.PODCAST_UP_PUMP),
 		cory_get_dialog_step("Good luck!", CORY_EXPRESSION.PODCAST_WINGS),
 	]);
 	
@@ -416,9 +416,9 @@ function podcast_machine_transition() {
 	
 	var tutorial_a = dialog_get_updateable([
 		cory_get_dialog_step("Let's build this story!", CORY_EXPRESSION.PODCAST_WINGS),
-		frank_get_dialog_step("Oh", FRANK_EXPRESSION.PODCAST_LEFT_DOWN),
+		frank_get_dialog_step("Oh!", FRANK_EXPRESSION.PODCAST_LEFT_DOWN),
 		frank_get_dialog_step("This is my favorite part!", FRANK_EXPRESSION.PODCAST_UP_PUMP),
-		cory_get_dialog_step("This story has 4 chapters.", CORY_EXPRESSION.PODCAST_HIP),
+		cory_get_dialog_step("This story has four chapters.", CORY_EXPRESSION.PODCAST_HIP),
 		cory_get_dialog_step("Each needs a voice, music, and sound effects reel.", CORY_EXPRESSION.PODCAST_NEUTRAL),
 	], {
 		after_dialog_updateable: highlight_reels,
