@@ -108,6 +108,7 @@
     {"id":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
     {"id":{"name":"rm_outside","path":"rooms/rm_outside/rm_outside.yy",},},
     {"id":{"name":"rm_podcast_machine","path":"rooms/rm_podcast_machine/rm_podcast_machine.yy",},},
+    {"id":{"name":"rm_with_nothing","path":"rooms/rm_with_nothing/rm_with_nothing.yy",},},
     {"id":{"name":"rm_workshop","path":"rooms/rm_workshop/rm_workshop.yy",},},
     {"id":{"name":"Assemble_Frank","path":"scripts/Assemble_Frank/Assemble_Frank.yy",},},
     {"id":{"name":"Clickables","path":"scripts/Clickables/Clickables.yy",},},
@@ -320,6 +321,7 @@
     {"roomId":{"name":"rm_workshop","path":"rooms/rm_workshop/rm_workshop.yy",},},
     {"roomId":{"name":"rm_podcast_machine","path":"rooms/rm_podcast_machine/rm_podcast_machine.yy",},},
     {"roomId":{"name":"rm_outside","path":"rooms/rm_outside/rm_outside.yy",},},
+    {"roomId":{"name":"rm_with_nothing","path":"rooms/rm_with_nothing/rm_with_nothing.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

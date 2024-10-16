@@ -137,7 +137,6 @@ function complete_story() {
 			return sin(time * 0.04 - index * 0.2 * pi) * 30;
 		},
 		notes_alpha: 0,
-		draw_background: true,
 		step: 0,
 		steps: [
 			function() { // sync up with blackout
@@ -174,15 +173,11 @@ function complete_story() {
 			function() {
 				chapter_spr_offsets[3].y -= clamp(abs(chapter_spr_offsets[3].y) * 0.03, 0, pan_speed);
 				if (time <= 4600) draw_chapter_art(3);
-				else {
-					draw_background = false;
-				}
 			},
 		],
 		draw: function() {
 			time += 1;
 			draw_set_alpha(1);
-			if (draw_background) draw_sprite(spr_podcast_chapter_art_background, 0, 0, 0);
 			steps[step]();
 		},
 	};
@@ -247,7 +242,15 @@ function complete_story() {
 			},
 			function() {
 				black_alpha = clamp(black_alpha + 0.01, 0, 1);
-				if (time >= 4600) step += 1;
+				if (time >= 4600) {
+					step += 1;
+					room_goto(rm_podcast_machine);
+				}
+			},
+			function() {
+				if (room == rm_podcast_machine) {
+					step += 1;
+				}
 			},
 			function() {
 				black_alpha = clamp(black_alpha - 0.01, 0, 1);
@@ -416,6 +419,16 @@ function complete_story() {
 			function() {
 				alpha += 0.007;
 				if (alpha >= 1) {
+					step += 1;
+					time = 0;
+				}
+			},
+			function() {
+				room_goto(rm_with_nothing);
+				step += 1;
+			},
+			function() {
+				if (room == rm_with_nothing) {
 					step += 1;
 					time = 0;
 				}

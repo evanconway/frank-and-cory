@@ -87,6 +87,7 @@
     {"name":"rm_init","order":10,"path":"rooms/rm_init/rm_init.yy",},
     {"name":"rm_outside","order":39,"path":"rooms/rm_outside/rm_outside.yy",},
     {"name":"rm_podcast_machine","order":32,"path":"rooms/rm_podcast_machine/rm_podcast_machine.yy",},
+    {"name":"rm_with_nothing","order":45,"path":"rooms/rm_with_nothing/rm_with_nothing.yy",},
     {"name":"rm_workshop","order":8,"path":"rooms/rm_workshop/rm_workshop.yy",},
     {"name":"Assemble_Frank","order":36,"path":"scripts/Assemble_Frank/Assemble_Frank.yy",},
     {"name":"Clickables","order":2,"path":"scripts/Clickables/Clickables.yy",},
