@@ -57,7 +57,7 @@ function start_intro() {
 		frank_get_dialog_step("Hey. What are you doing back there? Get away from me!", FRANK_EXPRESSION.UP),
 		cory_get_dialog_step("Oh. I see it now.", CORY_EXPRESSION.TAP),
 		frank_get_dialog_step("What is it? What do you see?", FRANK_EXPRESSION.BLANK),
-		cory_get_dialog_step("There's a little rectangle back here that says \"memory\".", CORY_EXPRESSION.BOTH_WINGS),
+		cory_get_dialog_step("There's a little rectangle back here that says \"memory.\"", CORY_EXPRESSION.BOTH_WINGS),
 		frank_get_dialog_step("What's a memory?", FRANK_EXPRESSION.UP),
 		cory_get_dialog_step("Hah. Good one.", CORY_EXPRESSION.SALUTE),
 		frank_get_dialog_step("Good what?", FRANK_EXPRESSION.RIGHT),

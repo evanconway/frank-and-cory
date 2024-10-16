@@ -93,7 +93,7 @@ function complete_story() {
 		cory_get_dialog_step("Oh my. That was beautiful, Frank.", CORY_EXPRESSION.PODCAST_WINGS),
 		cory_get_dialog_step("Thank you.", CORY_EXPRESSION.PODCAST_NEUTRAL),
 		frank_get_dialog_step("Thanks for helping me put it together!", FRANK_EXPRESSION.PODCAST_LEFT_UP),
-		cory_get_dialog_step("So weird, I don't remember any of that.", CORY_EXPRESSION.PODCAST_HIP),
+		cory_get_dialog_step("So weird. I don't remember any of that.", CORY_EXPRESSION.PODCAST_HIP),
 		frank_get_dialog_step("Well, you were pretty little back then.", FRANK_EXPRESSION.PODCAST_LEFT_DOWN),
 		cory_get_dialog_step("Do you remember anything?", CORY_EXPRESSION.PODCAST_WINGS),
 		cory_get_dialog_step("From when you were little?", CORY_EXPRESSION.PODCAST_NEUTRAL),
@@ -301,7 +301,7 @@ function complete_story() {
 			function() {
 				if (time >= 227) {
 					time = 0;
-					tag_decorated_text = get_new_text("He was missing a le<p:1200>g and he wasn't moving.");
+					tag_decorated_text = get_new_text("He was missing a leg<p:1200>, and he wasn't moving.");
 					step += 1;
 				}
 			},
@@ -322,7 +322,7 @@ function complete_story() {
 			function() {
 				if (time >= 220) {
 					time = 0;
-					tag_decorated_text = get_new_text("He was shiverin<p:1200>g so I covered him with a small blanket.");
+					tag_decorated_text = get_new_text("He was shivering<p:1200>, so I covered him with a small blanket.");
 					step += 1;
 				}
 			},
@@ -357,7 +357,7 @@ function complete_story() {
 			function() {
 				if (time >= 759) {
 					time = 0;
-					tag_decorated_text = get_new_text("By sunris<p:500>e the bird awoke to discover his brand new win<p:2000>g and a new foot.");
+					tag_decorated_text = get_new_text("By sunrise<p:500>, the bird awoke to discover his brand new win<p:2000>g and a new foot.");
 					step += 1;
 				}
 			},
@@ -371,7 +371,7 @@ function complete_story() {
 			function() {
 				if (time >= 333) {
 					time = 0;
-					tag_decorated_text = get_new_text("That is how I me<p:500>t my best friend Cory.");
+					tag_decorated_text = get_new_text("That is how I me<p:500>t my best friend, Cory.");
 					step += 1;
 				}
 			},
