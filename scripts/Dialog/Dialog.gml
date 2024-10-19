@@ -66,7 +66,8 @@ function dialog_get_updateable(
 				pre_dialog_draw_ind();
 				draw_set_halign(fa_center);
 				draw_set_valign(fa_middle);
-				tag_decorated_text_draw(tds_instance, global.dialog_position_x, global.dialog_position_y);
+				tag_decorated_text_update(tds_instance, delta_time / 1000);
+				tag_decorated_text_draw_no_update(tds_instance, global.dialog_position_x, global.dialog_position_y);
 				// reset to force dialog to always set position
 				global.dialog_position_x = 0;
 				global.dialog_position_y = 0;
