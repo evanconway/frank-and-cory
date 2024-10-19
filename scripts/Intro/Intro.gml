@@ -32,7 +32,7 @@ function start_intro() {
 		},
 		update: function() {
 			obj_workshop_cory.visible = false;
-			flight.progress += 0.015;
+			flight.progress += (0.015 * (delta_time / global.frame_time));
 			if (flight.progress >= 1) {
 				obj_workshop_cory.x = 0;
 				obj_workshop_cory.y = 0;
@@ -112,7 +112,7 @@ function start_intro() {
 			},
 		],
 		update: function() {
-			time += 1;
+			time += (delta_time / global.frame_time);
 			steps[step]();
 		},
 	};
@@ -141,7 +141,7 @@ function start_intro() {
 		},
 		update: function() {
 			obj_workshop_cory.visible = false;
-			flight.progress += 0.015;
+			flight.progress += (0.015 * (delta_time / global.frame_time));
 			if (flight.progress >= 1) {
 				obj_workshop_cory.x = -3206;
 				obj_workshop_cory.y = 1280;
@@ -218,7 +218,7 @@ function start_intro() {
 			}
 		],
 		update: function() {
-			time += 1;
+			time += (delta_time / global.frame_time);
 			steps[step]();
 		},
 		draw: function() {
@@ -292,7 +292,7 @@ function start_intro() {
 		find_breaker_dialog,
 		update: function() {
 			global.frank_expression = FRANK_EXPRESSION.RIGHT
-			global.cory_light_alpha += 0.01;
+			global.cory_light_alpha += (0.01 * (delta_time / global.frame_time));
 			if (global.cory_light_alpha >= 1) {
 				global.updateable = find_breaker_dialog;
 			}
@@ -312,14 +312,14 @@ function start_intro() {
 	var fade_in_scene = {
 		cory_responds,
 		update: function() {
-			global.intro_blackout_alpha -= 0.01;
+			global.intro_blackout_alpha -= (0.01 * (delta_time / global.frame_time));
 			if (global.intro_blackout_alpha > 0) return;
 			global.intro_blackout_alpha = 0;
 			global.updateable = cory_responds;
 		},
 		draw: function() {
 			darkness();
-			global.intro_blackout_func()
+			global.intro_blackout_func();
 		},
 	};
 
@@ -361,7 +361,7 @@ function start_intro() {
 		opening_lines,
 		time: 0,
 		update: function() {
-			time += 1;
+			time += (delta_time / global.frame_time);
 			if (time > 60) global.updateable = opening_lines;
 		},
 		draw: function() {
