@@ -14,4 +14,4 @@ reset_game();
 
 //room_goto(rm_outside);
 //global.updateable = global.credits;
-show_debug_overlay(true);
+//show_debug_overlay(true);

@@ -204,6 +204,10 @@ function complete_story() {
 		black_alpha: 1,
 		time: 0, // don't reset time between steps
 		step: 0,
+		set_reel_position: function(reel_object, position_object) {
+			reel_object.x = position_object.x;
+			reel_object.y = position_object.y;
+		},
 		steps: [
 			function() {
 				play_sfx(snd_complete_story);
@@ -249,6 +253,18 @@ function complete_story() {
 			},
 			function() {
 				if (room == rm_podcast_machine) {
+					set_reel_position(inst_7AAB43BD, inst_316D019);
+					set_reel_position(inst_25994B2C, inst_539A57D8);
+					set_reel_position(inst_1772A928, inst_5E6A593);
+					set_reel_position(inst_5AA3BDBA, inst_BEF507);
+					set_reel_position(inst_2D775EEB, inst_3A9D56AE);
+					set_reel_position(inst_2B424FAD, inst_51AF4FDE);
+					set_reel_position(inst_20707053, inst_2D0E8C1F);
+					set_reel_position(inst_586C1312, inst_22FEC13C);
+					set_reel_position(inst_DBB61CD, inst_3183B74B);
+					set_reel_position(inst_C74BBA9, inst_4D144C3);
+					set_reel_position(inst_344345C4, inst_1202BE7A);
+					set_reel_position(inst_49F5CA89, inst_4633AB96);
 					step += 1;
 				}
 			},
