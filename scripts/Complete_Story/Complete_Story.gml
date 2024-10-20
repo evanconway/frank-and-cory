@@ -177,7 +177,7 @@ function complete_story() {
 			function() {
 				chapter_spr_offsets[2].x -= clamp(abs(chapter_spr_offsets[2].x) * 0.05, 0, pan_speed)  * (delta_time / global.frame_time);
 				draw_chapter_art(2);
-				if (complete_story_get_audio_time() >= 3654) step += 1;
+				if (complete_story_get_audio_time() >= 3454) step += 1;
 			},
 			function() {
 				chapter_spr_offsets[3].y -= clamp(abs(chapter_spr_offsets[3].y) * 0.03, 0, pan_speed) * (delta_time / global.frame_time);
@@ -243,7 +243,7 @@ function complete_story() {
 			},
 			function() {
 				black_alpha = clamp(black_alpha + 0.01, 0, 1) * (delta_time / global.frame_time);
-				if (complete_story_get_audio_time() >= 3254) step += 1;
+				if (complete_story_get_audio_time() >= 3454) step += 1;
 			},
 			function() {
 				black_alpha = clamp(black_alpha - 0.005, 0, 1) * (delta_time / global.frame_time);
