@@ -222,35 +222,35 @@ function complete_story() {
 				if (complete_story_get_audio_time() >= 446) step += 1;
 			},
 			function() {
-				black_alpha = clamp(black_alpha - (0.005 * (delta_time / global.frame_time)), 0, 1);
+				black_alpha = clamp(black_alpha - 0.005, 0, 1) * (delta_time / global.frame_time);
 				if (complete_story_get_audio_time() >= 1008) step += 1;
 			},
 			function() {
-				black_alpha = clamp(black_alpha + (0.01 * (delta_time / global.frame_time)), 0, 1);
+				black_alpha = clamp(black_alpha + 0.01, 0, 1) * (delta_time / global.frame_time);
 				if (complete_story_get_audio_time() >= 1474) step += 1;
 			},
 			function() {
-				black_alpha = clamp(black_alpha - (0.005 * (delta_time / global.frame_time)), 0, 1);
+				black_alpha = clamp(black_alpha - 0.005, 0, 1) * (delta_time / global.frame_time);
 				if (complete_story_get_audio_time() >= 2067) step += 1;
 			},
 			function() {
-				black_alpha = clamp(black_alpha + (0.01 * (delta_time / global.frame_time)), 0, 1);
+				black_alpha = clamp(black_alpha + 0.01, 0, 1) * (delta_time / global.frame_time);
 				if (complete_story_get_audio_time() >= 2612) step += 1;
 			},
 			function() {
-				black_alpha = clamp(black_alpha - (0.005 * (delta_time / global.frame_time)), 0, 1);
+				black_alpha = clamp(black_alpha - 0.005, 0, 1) * (delta_time / global.frame_time);
 				if (complete_story_get_audio_time() >= 3230) step += 1;
 			},
 			function() {
-				black_alpha = clamp(black_alpha + (0.01 * (delta_time / global.frame_time)), 0, 1);
-				if (complete_story_get_audio_time() >= 3654) step += 1;
+				black_alpha = clamp(black_alpha + 0.01, 0, 1) * (delta_time / global.frame_time);
+				if (complete_story_get_audio_time() >= 3254) step += 1;
 			},
 			function() {
-				black_alpha = clamp(black_alpha - (0.005 * (delta_time / global.frame_time)), 0, 1);
+				black_alpha = clamp(black_alpha - 0.005, 0, 1) * (delta_time / global.frame_time);
 				if (complete_story_get_audio_time() >= 4320) step += 1;
 			},
 			function() {
-				black_alpha = clamp(black_alpha + (0.01 * (delta_time / global.frame_time)), 0, 1);
+				black_alpha = clamp(black_alpha + 0.01, 0, 1) * (delta_time / global.frame_time);
 				if (!audio_is_playing(snd_complete_story)) {
 					step += 1;
 					room_goto(rm_podcast_machine);

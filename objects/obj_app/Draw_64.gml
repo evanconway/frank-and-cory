@@ -11,7 +11,22 @@ if (keyboard_check_pressed(ord("2"))) {
 
 if (keyboard_check_pressed(ord("3"))) {
 	audio_stop_all();
-	complete_story();
+	global.updateable = {
+		step: 0,
+		steps: [
+			function() {
+				room_goto(rm_podcast_machine);
+				step += 1;
+			},
+			function() {
+				if (room == rm_podcast_machine) complete_story();
+			},
+		],
+		update: function() {
+			steps[step]();
+		},
+		draw: function() {},
+	}
 }
 
 global.clickable_hovered = noone;
