@@ -54,7 +54,7 @@ function start_intro() {
 	
 	var cory_knows_somethings_up = dialog_get_updateable([
 		cory_get_dialog_step("Okay. Something's not right.", CORY_EXPRESSION.NEUTRAL),
-		frank_get_dialog_step("Hey. What are you doing back there? Get away from me!", FRANK_EXPRESSION.UP),
+		frank_get_dialog_step("Hey. What are you doing up there? Get away from me!", FRANK_EXPRESSION.UP),
 		cory_get_dialog_step("Oh. I see it now.", CORY_EXPRESSION.TAP),
 		frank_get_dialog_step("What is it? What do you see?", FRANK_EXPRESSION.BLANK),
 		cory_get_dialog_step("There's a little rectangle back here that says \"memory.\"", CORY_EXPRESSION.BOTH_WINGS),
