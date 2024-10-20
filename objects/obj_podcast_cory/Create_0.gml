@@ -6,8 +6,7 @@ on_click = function() {
 	if (podcast_get_is_complete()) return;
 	if (clicks == 0) {
 		global.updateable = dialog_get_updateable([
-			cory_get_dialog_step("Hmm...", CORY_EXPRESSION.PODCAST_HIP),
-			cory_get_dialog_step("Not quite right yet", CORY_EXPRESSION.PODCAST_WINGS),
+			cory_get_dialog_step("Not quite right yet.", CORY_EXPRESSION.PODCAST_WINGS),
 		]);
 	} else if (clicks == 1) {
 		global.updateable = dialog_get_updateable([

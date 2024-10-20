@@ -579,3 +579,48 @@ function podcast_machine_stop_all() {
 	global.podcast_player.stop_all();
 	global.updateable = undefined;
 }
+
+global.podcast_message_delivered_1 = false;
+global.podcast_message_delivered_2 = false;
+
+function podcast_machine_check_on_drop() {
+	var count = podcast_get_number_correct();
+	
+	if (count == 4 && !global.podcast_message_delivered_1) {
+		global.podcast_message_delivered_1 = true;
+		global.updateable = {
+			time: 0,
+			update: function() {
+				time += (delta_time / global.frame_time);
+				if (time >= 30) {
+					global.updateable = dialog_get_updateable([
+						frank_get_dialog_step("According to my audio sensors...", FRANK_EXPRESSION.PODCAST_UP_DOWN),
+						frank_get_dialog_step("You've got 4 in the correct spot now.", FRANK_EXPRESSION.PODCAST_LEFT_UP),
+						cory_get_dialog_step("You're getting there. Keep trying!", CORY_EXPRESSION.PODCAST_WINGS),
+					]);
+				}
+			},
+			draw: function() {
+			},
+		};
+	}
+	
+	if (count == 8 && !global.podcast_message_delivered_2) {
+		global.podcast_message_delivered_2 = true;
+		global.updateable = {
+			time: 0,
+			update: function() {
+				time += (delta_time / global.frame_time);
+				if (time >= 30) {
+					global.updateable = dialog_get_updateable([
+						frank_get_dialog_step("Now 8 reels are in the correct spot!", FRANK_EXPRESSION.PODCAST_BLANK_PUMP),
+						cory_get_dialog_step("Just a few more.", CORY_EXPRESSION.PODCAST_HIP),
+						cory_get_dialog_step("Don't give up!", CORY_EXPRESSION.PODCAST_WINGS),
+					]);
+				}
+			},
+			draw: function() {
+			},
+		};
+	}
+}
