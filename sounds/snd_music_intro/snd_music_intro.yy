@@ -7,7 +7,7 @@
   },
   "bitDepth":1,
   "bitRate":128,
-  "compression":3,
+  "compression":0,
   "conversionMode":0,
   "duration":98.0,
   "name":"snd_music_intro",

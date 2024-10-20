@@ -7,7 +7,7 @@
   },
   "bitDepth":1,
   "bitRate":128,
-  "compression":3,
+  "compression":0,
   "conversionMode":0,
   "duration":13.937479,
   "name":"snd_music_podcast_transition",
