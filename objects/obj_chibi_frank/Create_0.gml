@@ -9,7 +9,7 @@ on_click = function() {
 		time: 0,
 		changes: 0,
 		update: function() {
-			time += 1;
+			time += (delta_time / global.frame_time);
 			if (time >= 12) {
 				changes += 1;
 				time = 0;

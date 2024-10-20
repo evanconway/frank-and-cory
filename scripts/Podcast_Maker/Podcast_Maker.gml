@@ -235,9 +235,9 @@ global.podcast_player = {
 		for (var i = 0; i < array_length(tape_positions); i++) {
 			var draggable_at_position = ds_map_find_value(global.position_draggable_map, tape_positions[i]);
 			var rotate = podcast_get_random_rotation_amount();
-			tape_positions[i].image_angle -= rotate;
+			tape_positions[i].image_angle -= (rotate * (delta_time / global.frame_time));
 			if (draggable_at_position != noone) {
-				draggable_at_position.image_angle -= rotate;
+				draggable_at_position.image_angle -= (rotate * (delta_time / global.frame_time));
 			}
 		}
 	},
@@ -443,7 +443,7 @@ function podcast_machine_transition() {
 				}
 			},
 			function() {
-				vertical_offset -= min(6, vertical_offset * 0.1);
+				vertical_offset -= (min(6, vertical_offset * 0.1) * (delta_time / global.frame_time));
 				
 				if (abs(vertical_offset) < 1) {
 					vertical_offset = 0;
@@ -472,8 +472,8 @@ function podcast_machine_transition() {
 				}
 			},
 			function() {
-				time += 1;
-				steam_alpha -= 1/120;
+				time += (delta_time / global.frame_time);
+				steam_alpha -= (1/120 * (delta_time / global.frame_time));
 				if (time > 120) {
 					step += 1;
 					time = 0;
@@ -488,7 +488,7 @@ function podcast_machine_transition() {
 				}
 			},
 			function() {
-				time += 1;
+				time += (delta_time / global.frame_time);
 				if (time > 45) {
 					global.updateable = tutorial_a;
 					play_sfx(snd_music_tutorial, 1, 1, true);
@@ -526,9 +526,9 @@ global.podcast_test_player = {
 			global.updateable = undefined;
 		} else {
 			var rotate = podcast_get_random_rotation_amount();
-			global.podcast_test_position.image_angle -= rotate;
+			global.podcast_test_position.image_angle -= (rotate * (delta_time / global.frame_time));
 			var reel = ds_map_find_value(global.position_draggable_map, global.podcast_test_position);
-			if (reel != noone) reel.image_angle -= rotate;
+			if (reel != noone) reel.image_angle -= (rotate * (delta_time / global.frame_time));
 		}
 		update_clickable(obj_stop_test);
 	}

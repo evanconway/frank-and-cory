@@ -65,7 +65,7 @@ on_click = function() {
 		set_chips_dialog,
 		time: 0,
 		update: function() {
-			time += 1;
+			time += (delta_time / global.frame_time);
 			if (time >= 45) set_chips_dialog();
 		},
 	}

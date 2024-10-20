@@ -80,12 +80,12 @@ on_click = function() {
 			},
 			function () {
 				// flash
-				alpha -= 0.015;
+				alpha -= (0.015 * (delta_time / global.frame_time));
 				if (alpha <= 0) set_photo_dialog()
 			},
 		],
 		update: function() {
-			time += 1;
+			time += (delta_time / global.frame_time);
 			steps[step]();
 		},
 		draw: function() {

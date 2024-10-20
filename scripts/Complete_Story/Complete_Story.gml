@@ -38,7 +38,7 @@ function complete_story() {
 									step += 1;
 								},
 								function() {
-									alpha += alpha_change;
+									alpha += (alpha_change * (delta_time / global.frame_time));
 									if (alpha >= 1) {
 										alpha = 1;
 										step += 1 ;
@@ -57,7 +57,7 @@ function complete_story() {
 									}
 								},
 								function() {
-									alpha -= alpha_change;
+									alpha -= (alpha_change * (delta_time / global.frame_time));
 									if (alpha <= 0) {
 										alpha = 0;
 										global.updateable = global.credits;
@@ -84,7 +84,7 @@ function complete_story() {
 			},
 		],
 		update: function() {
-			time += 1;
+			time += (delta_time / global.frame_time);
 			steps[step]();
 		},
 	};
@@ -176,7 +176,7 @@ function complete_story() {
 			},
 		],
 		draw: function() {
-			time += 1;
+			time += (delta_time / global.frame_time);
 			draw_set_alpha(1);
 			steps[step]();
 		},
@@ -187,7 +187,7 @@ function complete_story() {
 			return (sin(rads) + 1) / 2;
 		},
 		draw: function() {
-			time += 1;
+			time += (delta_time / global.frame_time);
 			if (time >= 446  && time <= 4600) {
 				var rads = time * 0.015;
 				var offset = 2 * pi / 3;
@@ -260,7 +260,7 @@ function complete_story() {
 			},
 		],
 		draw: function() {
-			time += 1;
+			time += (delta_time / global.frame_time);
 			steps[step]();
 			draw_set_color(c_black);
 			draw_set_alpha(black_alpha);
@@ -385,7 +385,7 @@ function complete_story() {
 			function() {},
 		],
 		draw: function() {
-			time += 1;
+			time += (delta_time / global.frame_time);
 			steps[step]();
 			draw_set_halign(fa_center);
 			draw_set_valign(fa_bottom);
@@ -417,7 +417,7 @@ function complete_story() {
 				step += 1;
 			},
 			function() {
-				alpha += 0.007;
+				alpha += (0.007 * (delta_time / global.frame_time));
 				if (alpha >= 1) {
 					step += 1;
 					time = 0;
@@ -440,7 +440,7 @@ function complete_story() {
 			},
 		],
 		update: function() {
-			time += 1;
+			time += (delta_time / global.frame_time);
 			image_time += 1;
 			if (image_time >= 11) {
 				image_time = 0;

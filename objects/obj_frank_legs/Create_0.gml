@@ -22,7 +22,7 @@ on_click = function() {
 		global.updateable = {
 			time: 0,
 			update: function() {
-				time += 1;
+				time += (delta_time / global.frame_time);
 				if (time >= 60) {
 					global.updateable = dialog_get_updateable([
 						frank_get_dialog_step("Ow!", FRANK_EXPRESSION.BLANK),

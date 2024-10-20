@@ -48,7 +48,7 @@ on_click = function() {
 				},
 			],
 			update: function() {
-				time += 1;
+				time += (delta_time / global.frame_time);
 				steps[step]();
 			},
 		};
@@ -71,7 +71,7 @@ on_click = function() {
 				},
 			],
 			update: function() {
-				time += 1;
+				time += (delta_time / global.frame_time);
 				steps[step]();
 			}
 		};

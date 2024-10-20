@@ -16,7 +16,7 @@ pre_update = function() {
 					step += 1;
 				},
 				function() {
-					alpha -= 0.005;
+					alpha -= (0.005 * (delta_time / global.frame_time));
 					if (alpha <= 0) {
 						global.updateable = dialog_get_updateable([
 							frank_get_dialog_step("Why...", FRANK_EXPRESSION.PODCAST_LEFT_UP),
