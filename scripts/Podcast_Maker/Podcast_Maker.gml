@@ -190,6 +190,32 @@ function podcast_get_audio_at_column(column=0) {
 	return array_length(audio_undefined_filtered) == 0 ? [snd_emptynoise] : audio_undefined_filtered;
 }
 
+function podcast_get_number_correct() {
+	var count = 0;
+	var column_0_audio = podcast_get_audio_at_column(0);
+	var column_1_audio = podcast_get_audio_at_column(1);
+	var column_2_audio = podcast_get_audio_at_column(2);
+	var column_3_audio = podcast_get_audio_at_column(3);
+	
+	if (array_contains(column_0_audio, snd_reel_vox_1)) count += 1;
+	if (array_contains(column_0_audio, snd_reel_sfx_1)) count += 1;
+	if (array_contains(column_0_audio, snd_reel_score_1)) count += 1;
+	
+	if (array_contains(column_1_audio, snd_reel_vox_2)) count += 1;
+	if (array_contains(column_1_audio, snd_reel_sfx_2)) count += 1;
+	if (array_contains(column_1_audio, snd_reel_score_2)) count += 1;
+	
+	if (array_contains(column_2_audio, snd_reel_vox_3)) count += 1;
+	if (array_contains(column_2_audio, snd_reel_sfx_3)) count += 1;
+	if (array_contains(column_2_audio, snd_reel_score_3)) count += 1;
+	
+	if (array_contains(column_3_audio, snd_reel_vox_4)) count += 1;
+	if (array_contains(column_3_audio, snd_reel_sfx_4)) count += 1;
+	if (array_contains(column_3_audio, snd_reel_score_4)) count += 1;
+	
+	return count;
+};
+
 function podcast_get_is_complete() {
 	var column_0_audio = podcast_get_audio_at_column(0);
 	var column_1_audio = podcast_get_audio_at_column(1);

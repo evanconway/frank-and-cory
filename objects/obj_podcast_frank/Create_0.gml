@@ -1,5 +1,23 @@
 event_inherited();
 
+on_click = function() {
+	var count = podcast_get_number_correct();
+	
+	var encourage = dialog_get_updateable([
+		frank_get_dialog_step("Listen to them carefully and I'm sure you'll get it.", FRANK_EXPRESSION.PODCAST_BLANK_DOWN),
+	]);
+	
+	if (count >= 4) encourage = dialog_get_updateable([
+		frank_get_dialog_step($"You're getting there. Keep trying!", FRANK_EXPRESSION.PODCAST_LEFT_UP),
+	]);
+	
+	if (count >= 8) encourage = dialog_get_updateable([
+		frank_get_dialog_step($"You're so close. Don't give up!", FRANK_EXPRESSION.PODCAST_BLANK_PUMP),
+	]);
+	
+	global.updateable = encourage;
+};
+
 original_draw = draw;
 draw = function() {
 	if (array_contains([

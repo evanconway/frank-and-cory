@@ -6,7 +6,27 @@ if (keyboard_check_pressed(ord("1"))) {
 
 if (keyboard_check_pressed(ord("2"))) {
 	audio_stop_all();
-	podcast_machine_transition();
+	global.updateable = {
+		step: 0,
+		steps: [
+			function() {
+				room_goto(rm_podcast_machine);
+				step += 1;
+			},
+			function() {
+				if (room == rm_podcast_machine) {
+					podcast_maker_setup();
+					global.cory_dialog_position = CORY_DIALOG_POSITION.PODCAST;
+					global.frank_dialog_position = FRANK_DIALOG_POSITION.PODCAST;
+					global.updateable = undefined;
+				}
+			},
+		],
+		update: function() {
+			steps[step]();
+		},
+		draw: function() {},
+	}
 }
 
 if (keyboard_check_pressed(ord("3"))) {
@@ -27,6 +47,11 @@ if (keyboard_check_pressed(ord("3"))) {
 		},
 		draw: function() {},
 	}
+}
+
+if (keyboard_check_pressed(ord("4"))) {
+	audio_stop_all();
+	podcast_machine_transition();
 }
 
 global.clickable_hovered = noone;
