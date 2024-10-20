@@ -154,8 +154,10 @@ function complete_story() {
 			function() {
 				chapter_spr_offsets[0].x += clamp(abs(chapter_spr_offsets[0].x) * 0.02, 0, pan_speed) * (delta_time / global.frame_time);
 				chapter_spr_offsets[4].x += clamp(abs(chapter_spr_offsets[4].x) * 0.02, 0, pan_speed) * (delta_time / global.frame_time);
+				if (chapter_spr_offsets[0].x >= 0) chapter_spr_offsets[0].x = 0;
+				if (chapter_spr_offsets[4].x >= 0) chapter_spr_offsets[4].x = 0;
 				if (complete_story_get_audio_time() >= 646) {
-					crossfade_alpha = clamp(crossfade_alpha - 0.01, 0, 1);
+					crossfade_alpha = clamp(crossfade_alpha - (0.01 * (delta_time / global.frame_time)), 0, 1);
 				}
 				draw_chapter_art(4, crossfade_alpha);
 				draw_chapter_art(0, abs(-1 + crossfade_alpha));
@@ -163,6 +165,7 @@ function complete_story() {
 			},
 			function() {
 				chapter_spr_offsets[1].y += clamp(abs(chapter_spr_offsets[1].y) * 0.03, 0, pan_speed) * (delta_time / global.frame_time);
+				if (chapter_spr_offsets[1].y >= 0) chapter_spr_offsets[1].y = 0;
 				draw_chapter_art(1);
 				draw_set_alpha(notes_alpha);
 				if (complete_story_get_audio_time() >= 1800) notes_alpha = clamp(notes_alpha + (0.01 * (delta_time / global.frame_time)), 0, 1);
@@ -176,11 +179,13 @@ function complete_story() {
 			},
 			function() {
 				chapter_spr_offsets[2].x -= clamp(abs(chapter_spr_offsets[2].x) * 0.05, 0, pan_speed)  * (delta_time / global.frame_time);
+				if (chapter_spr_offsets[2].x <= 0) chapter_spr_offsets[2].x = 0;
 				draw_chapter_art(2);
 				if (complete_story_get_audio_time() >= 3454) step += 1;
 			},
 			function() {
 				chapter_spr_offsets[3].y -= clamp(abs(chapter_spr_offsets[3].y) * 0.03, 0, pan_speed) * (delta_time / global.frame_time);
+				if (chapter_spr_offsets[3].y <= 0) chapter_spr_offsets[3].y = 0;
 				if (audio_is_playing(global.complete_story_sound_id) && complete_story_get_audio_time() <= 4600) draw_chapter_art(3);
 			},
 		],
@@ -222,35 +227,35 @@ function complete_story() {
 				if (complete_story_get_audio_time() >= 446) step += 1;
 			},
 			function() {
-				black_alpha = clamp(black_alpha - 0.005, 0, 1) * (delta_time / global.frame_time);
+				black_alpha = clamp(black_alpha - (0.005 * (delta_time / global.frame_time)), 0, 1);
 				if (complete_story_get_audio_time() >= 1008) step += 1;
 			},
 			function() {
-				black_alpha = clamp(black_alpha + 0.01, 0, 1) * (delta_time / global.frame_time);
+				black_alpha = clamp(black_alpha + (0.01 * (delta_time / global.frame_time)), 0, 1);
 				if (complete_story_get_audio_time() >= 1474) step += 1;
 			},
 			function() {
-				black_alpha = clamp(black_alpha - 0.005, 0, 1) * (delta_time / global.frame_time);
+				black_alpha = clamp(black_alpha - (0.005 * (delta_time / global.frame_time)), 0, 1);
 				if (complete_story_get_audio_time() >= 2067) step += 1;
 			},
 			function() {
-				black_alpha = clamp(black_alpha + 0.01, 0, 1) * (delta_time / global.frame_time);
+				black_alpha = clamp(black_alpha + (0.01 * (delta_time / global.frame_time)), 0, 1);
 				if (complete_story_get_audio_time() >= 2612) step += 1;
 			},
 			function() {
-				black_alpha = clamp(black_alpha - 0.005, 0, 1) * (delta_time / global.frame_time);
+				black_alpha = clamp(black_alpha - (0.005 * (delta_time / global.frame_time)), 0, 1);
 				if (complete_story_get_audio_time() >= 3230) step += 1;
 			},
 			function() {
-				black_alpha = clamp(black_alpha + 0.01, 0, 1) * (delta_time / global.frame_time);
+				black_alpha = clamp(black_alpha + (0.01 * (delta_time / global.frame_time)), 0, 1);
 				if (complete_story_get_audio_time() >= 3454) step += 1;
 			},
 			function() {
-				black_alpha = clamp(black_alpha - 0.005, 0, 1) * (delta_time / global.frame_time);
+				black_alpha = clamp(black_alpha - (0.005 * (delta_time / global.frame_time)), 0, 1);
 				if (complete_story_get_audio_time() >= 4320) step += 1;
 			},
 			function() {
-				black_alpha = clamp(black_alpha + 0.01, 0, 1) * (delta_time / global.frame_time);
+				black_alpha = clamp(black_alpha + (0.01 * (delta_time / global.frame_time)), 0, 1);
 				if (!audio_is_playing(snd_complete_story)) {
 					step += 1;
 					room_goto(rm_podcast_machine);
