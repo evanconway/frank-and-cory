@@ -44,7 +44,7 @@ function podcast_maker_setup() {
 	
 	/*
 	For all instances, we assign from visually bottom to top. That's because a higher depth
-	appears further in the background. This we we can start at 0 for slots and reel positions.
+	appears further in the background. This way we can start at 0 for slot and reel positions.
 	*/
 
 	var anchor_depth = inst_483E17DC.depth;
@@ -592,7 +592,7 @@ function podcast_machine_check_on_drop() {
 			time: 0,
 			update: function() {
 				time += (delta_time / global.frame_time);
-				if (time >= 30) {
+				if (time >= 20) {
 					global.updateable = dialog_get_updateable([
 						frank_get_dialog_step("According to my audio sensors...", FRANK_EXPRESSION.PODCAST_UP_DOWN),
 						frank_get_dialog_step("You've got 4 in the correct spot now.", FRANK_EXPRESSION.PODCAST_LEFT_UP),
@@ -611,8 +611,9 @@ function podcast_machine_check_on_drop() {
 			time: 0,
 			update: function() {
 				time += (delta_time / global.frame_time);
-				if (time >= 30) {
+				if (time >= 20) {
 					global.updateable = dialog_get_updateable([
+						frank_get_dialog_step("Ooh...", FRANK_EXPRESSION.PODCAST_UP_DOWN),
 						frank_get_dialog_step("Now 8 reels are in the correct spot!", FRANK_EXPRESSION.PODCAST_BLANK_PUMP),
 						cory_get_dialog_step("Just a few more.", CORY_EXPRESSION.PODCAST_HIP),
 						cory_get_dialog_step("Don't give up!", CORY_EXPRESSION.PODCAST_WINGS),
