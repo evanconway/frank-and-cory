@@ -44,7 +44,7 @@ function podcast_maker_setup() {
 	
 	/*
 	For all instances, we assign from visually bottom to top. That's because a higher depth
-	appears further in the background. This we we can start at 0 for slots and reel positions.
+	appears further in the background. This way we can start at 0 for slot and reel positions.
 	*/
 
 	var anchor_depth = inst_483E17DC.depth;
@@ -189,6 +189,32 @@ function podcast_get_audio_at_column(column=0) {
 	});
 	return array_length(audio_undefined_filtered) == 0 ? [snd_emptynoise] : audio_undefined_filtered;
 }
+
+function podcast_get_number_correct() {
+	var count = 0;
+	var column_0_audio = podcast_get_audio_at_column(0);
+	var column_1_audio = podcast_get_audio_at_column(1);
+	var column_2_audio = podcast_get_audio_at_column(2);
+	var column_3_audio = podcast_get_audio_at_column(3);
+	
+	if (array_contains(column_0_audio, snd_reel_vox_1)) count += 1;
+	if (array_contains(column_0_audio, snd_reel_sfx_1)) count += 1;
+	if (array_contains(column_0_audio, snd_reel_score_1)) count += 1;
+	
+	if (array_contains(column_1_audio, snd_reel_vox_2)) count += 1;
+	if (array_contains(column_1_audio, snd_reel_sfx_2)) count += 1;
+	if (array_contains(column_1_audio, snd_reel_score_2)) count += 1;
+	
+	if (array_contains(column_2_audio, snd_reel_vox_3)) count += 1;
+	if (array_contains(column_2_audio, snd_reel_sfx_3)) count += 1;
+	if (array_contains(column_2_audio, snd_reel_score_3)) count += 1;
+	
+	if (array_contains(column_3_audio, snd_reel_vox_4)) count += 1;
+	if (array_contains(column_3_audio, snd_reel_sfx_4)) count += 1;
+	if (array_contains(column_3_audio, snd_reel_score_4)) count += 1;
+	
+	return count;
+};
 
 function podcast_get_is_complete() {
 	var column_0_audio = podcast_get_audio_at_column(0);
@@ -552,4 +578,50 @@ function podcast_machine_stop_all() {
 	}
 	global.podcast_player.stop_all();
 	global.updateable = undefined;
+}
+
+global.podcast_message_delivered_1 = false;
+global.podcast_message_delivered_2 = false;
+
+function podcast_machine_check_on_drop() {
+	var count = podcast_get_number_correct();
+	
+	if (count == 4 && !global.podcast_message_delivered_1) {
+		global.podcast_message_delivered_1 = true;
+		global.updateable = {
+			time: 0,
+			update: function() {
+				time += (delta_time / global.frame_time);
+				if (time >= 20) {
+					global.updateable = dialog_get_updateable([
+						frank_get_dialog_step("According to my audio sensors...", FRANK_EXPRESSION.PODCAST_UP_DOWN),
+						frank_get_dialog_step("You've got 4 in the correct spot now.", FRANK_EXPRESSION.PODCAST_LEFT_UP),
+						cory_get_dialog_step("You're getting there. Keep trying!", CORY_EXPRESSION.PODCAST_WINGS),
+					]);
+				}
+			},
+			draw: function() {
+			},
+		};
+	}
+	
+	if (count == 8 && !global.podcast_message_delivered_2) {
+		global.podcast_message_delivered_2 = true;
+		global.updateable = {
+			time: 0,
+			update: function() {
+				time += (delta_time / global.frame_time);
+				if (time >= 20) {
+					global.updateable = dialog_get_updateable([
+						frank_get_dialog_step("Ooh...", FRANK_EXPRESSION.PODCAST_UP_DOWN),
+						frank_get_dialog_step("Now 8 reels are in the correct spot!", FRANK_EXPRESSION.PODCAST_BLANK_PUMP),
+						cory_get_dialog_step("Just a few more.", CORY_EXPRESSION.PODCAST_HIP),
+						cory_get_dialog_step("Don't give up!", CORY_EXPRESSION.PODCAST_WINGS),
+					]);
+				}
+			},
+			draw: function() {
+			},
+		};
+	}
 }

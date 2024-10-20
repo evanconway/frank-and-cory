@@ -33,7 +33,7 @@ global.credits = {
 		function() {
 			alpha -= (0.01 * (delta_time / global.frame_time));
 			if (alpha <= 0) {
-				text = get_text("Characters, story and sound design by Jude Brewer");
+				text = get_text("Characters, story, and sound design by Jude Brewer");
 				time = 0;
 				step += 1;
 			}

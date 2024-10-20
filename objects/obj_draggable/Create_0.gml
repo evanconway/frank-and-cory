@@ -34,6 +34,8 @@ draggable_update = function() {
 			position_snapped = noone;
 		}
 		
+		podcast_machine_check_on_drop();
+		
 		play_sfx(snd_jude_reel_snap_3, 0.9);
 	}
 	

@@ -20,6 +20,9 @@ function reset_game() {
 	global.breaker_open = false;
 	global.frank_podcast_hair_attached = false;
 	
+	global.podcast_message_delivered_1 = false;
+	global.podcast_message_delivered_2 = false;
+	
 	ds_map_clear(global.draggable_position_map);
 	ds_map_clear(global.position_draggable_map);
 	
