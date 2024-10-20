@@ -2,7 +2,7 @@
   "$GMOperaGXOptions":"",
   "%Name":"Opera GX",
   "name":"Opera GX",
-  "option_operagx_display_cursor":true,
+  "option_operagx_display_cursor":false,
   "option_operagx_editUrl":"https://dev.gx.games/games/8853ef40-be7e-4465-bc27-ef219676ae06/details",
   "option_operagx_game_name":"Frank and Cory",
   "option_operagx_guid":"8853ef40-be7e-4465-bc27-ef219676ae06",

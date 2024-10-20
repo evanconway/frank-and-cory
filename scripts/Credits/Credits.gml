@@ -180,7 +180,8 @@ global.credits = {
 			draw_set_alpha(1);
 			draw_set_halign(fa_left);
 			draw_set_valign(fa_bottom);
-			tag_decorated_text_draw(play_again_text, 50, display_get_gui_height() - 50);
+			tag_decorated_text_update(play_again_text, delta_time / 1000);
+			tag_decorated_text_draw_no_update(play_again_text, 50, display_get_gui_height() - 50);
 		}
 		
 		draw_set_alpha(fade_alpha);

@@ -390,7 +390,10 @@ function complete_story() {
 			draw_set_halign(fa_center);
 			draw_set_valign(fa_bottom);
 			draw_set_alpha(1);
-			if (tag_decorated_text != undefined) tag_decorated_text_draw(tag_decorated_text, display_get_gui_width() / 2, display_get_gui_height() - 100);
+			if (tag_decorated_text != undefined) {
+				tag_decorated_text_update(tag_decorated_text, delta_time / 1000);
+				tag_decorated_text_draw_no_update(tag_decorated_text, display_get_gui_width() / 2, display_get_gui_height() - 100);
+			}
 		},
 	};
 	

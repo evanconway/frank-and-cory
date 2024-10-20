@@ -80,7 +80,8 @@ function dialog_get_updateable(
 						draw_set_valign(fa_bottom);
 						global.click_to_continue_alpha = clamp(global.click_to_continue_alpha + 0.008, 0, 0.4);
 						draw_set_alpha(global.click_to_continue_alpha);
-						tag_decorated_text_draw(global.click_to_continue_message, 0, display_get_gui_height());
+						tag_decorated_text_update(global.click_to_continue_message, delta_time / 1000);
+						tag_decorated_text_draw_no_update(global.click_to_continue_message, 0, display_get_gui_height());
 					}
 				} else {
 					global.click_to_continue_count = 240;
