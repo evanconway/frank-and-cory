@@ -18,7 +18,7 @@ global.credits = {
 			}
 		},
 		function() {
-			alpha += 0.01;
+			alpha += (0.01 * (delta_time / global.frame_time));
 			if (alpha >= 1) {
 				time = 0;
 				step += 1;
@@ -31,7 +31,7 @@ global.credits = {
 			}
 		},
 		function() {
-			alpha -= 0.01;
+			alpha -= (0.01 * (delta_time / global.frame_time));
 			if (alpha <= 0) {
 				text = get_text("Characters, story and sound design by Jude Brewer");
 				time = 0;
@@ -39,7 +39,7 @@ global.credits = {
 			}
 		},
 		function() {
-			alpha += 0.01;
+			alpha += (0.01 * (delta_time / global.frame_time));
 			if (alpha >= 1) {
 				time = 0;
 				step += 1;
@@ -52,7 +52,7 @@ global.credits = {
 			}
 		},
 		function() {
-			alpha -= 0.01;
+			alpha -= (0.01 * (delta_time / global.frame_time));
 			if (alpha <= 0) {
 				text = get_text("Cory's story music by John Fio");
 				time = 0;
@@ -60,7 +60,7 @@ global.credits = {
 			}
 		},
 		function() {
-			alpha += 0.01;
+			alpha += (0.01 * (delta_time / global.frame_time));
 			if (alpha >= 1) {
 				time = 0;
 				step += 1;
@@ -73,7 +73,7 @@ global.credits = {
 			}
 		},
 		function() {
-			alpha -= 0.01;
+			alpha -= (0.01 * (delta_time / global.frame_time));
 			if (alpha <= 0) {
 				text = get_text("Programming and music by Evan Conway");
 				time = 0;
@@ -81,7 +81,7 @@ global.credits = {
 			}
 		},
 		function() {
-			alpha += 0.01;
+			alpha += (0.01 * (delta_time / global.frame_time));
 			if (alpha >= 1) {
 				time = 0;
 				step += 1;
@@ -94,7 +94,7 @@ global.credits = {
 			}
 		},
 		function() {
-			alpha -= 0.01;
+			alpha -= (0.01 * (delta_time / global.frame_time));
 			if (alpha <= 0) {
 				text = get_text("Thank you for playing!");
 				time = 0;
@@ -102,7 +102,7 @@ global.credits = {
 			}
 		},
 		function() {
-			alpha += 0.01;
+			alpha += (0.01 * (delta_time / global.frame_time));
 			if (alpha >= 1) {
 				time = 0;
 				step += 1;
@@ -115,7 +115,7 @@ global.credits = {
 			}
 		},
 		function() {
-			alpha -= 0.01;
+			alpha -= (0.01 * (delta_time / global.frame_time));
 			if (alpha <= 0) {
 				time = 0;
 				step += 1;
@@ -129,7 +129,7 @@ global.credits = {
 			}
 		},
 		function() {
-			fade_alpha += 0.01;
+			fade_alpha += (0.01 * (delta_time / global.frame_time));
 			if (fade_alpha >= 1) {
 				global.credits.alpha = 0;
 				global.credits.fade_alpha = 0;
@@ -143,9 +143,9 @@ global.credits = {
 	],
 	ripple_time: 0,
 	update: function() {
-		time += 1;
+		time += (delta_time / global.frame_time);
 		steps[step]();
-		ripple_time += 0.7;
+		ripple_time += (0.7 * (delta_time / global.frame_time));
 	},
 	get_ripple_alpha: function(time_offset=0) {
 		var fade_time = 60 * 6;
@@ -180,7 +180,8 @@ global.credits = {
 			draw_set_alpha(1);
 			draw_set_halign(fa_left);
 			draw_set_valign(fa_bottom);
-			tag_decorated_text_draw(play_again_text, 50, display_get_gui_height() - 50);
+			tag_decorated_text_update(play_again_text, delta_time / 1000);
+			tag_decorated_text_draw_no_update(play_again_text, 50, display_get_gui_height() - 50);
 		}
 		
 		draw_set_alpha(fade_alpha);

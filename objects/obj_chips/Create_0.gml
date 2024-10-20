@@ -14,12 +14,12 @@ set_chips_dialog = function() {
 		]);
 	} else if (chips_eaten == 3) {
 		global.updateable = dialog_get_updateable([
-			cory_get_dialog_step("Okay. One more then I'm done.", CORY_EXPRESSION.BOTH_WINGS),
+			cory_get_dialog_step("Okay. One more, then I'm done.", CORY_EXPRESSION.BOTH_WINGS),
 			cory_get_dialog_step("Last one. I promise.", CORY_EXPRESSION.SALUTE),
 		]);
 	} else if (chips_eaten == 4) {
 		global.updateable = dialog_get_updateable([
-			cory_get_dialog_step("All right I admit it.", CORY_EXPRESSION.SALUTE),
+			cory_get_dialog_step("All right, I admit it.", CORY_EXPRESSION.SALUTE),
 			cory_get_dialog_step("I want one more...", CORY_EXPRESSION.TILT),
 		]);
 	} else if (chips_eaten == 5) {
@@ -65,7 +65,7 @@ on_click = function() {
 		set_chips_dialog,
 		time: 0,
 		update: function() {
-			time += 1;
+			time += (delta_time / global.frame_time);
 			if (time >= 45) set_chips_dialog();
 		},
 	}

@@ -38,7 +38,7 @@ function complete_story() {
 									step += 1;
 								},
 								function() {
-									alpha += alpha_change;
+									alpha += (alpha_change * (delta_time / global.frame_time));
 									if (alpha >= 1) {
 										alpha = 1;
 										step += 1 ;
@@ -57,7 +57,7 @@ function complete_story() {
 									}
 								},
 								function() {
-									alpha -= alpha_change;
+									alpha -= (alpha_change * (delta_time / global.frame_time));
 									if (alpha <= 0) {
 										alpha = 0;
 										global.updateable = global.credits;
@@ -84,7 +84,7 @@ function complete_story() {
 			},
 		],
 		update: function() {
-			time += 1;
+			time += (delta_time / global.frame_time);
 			steps[step]();
 		},
 	};
@@ -93,7 +93,7 @@ function complete_story() {
 		cory_get_dialog_step("Oh my. That was beautiful, Frank.", CORY_EXPRESSION.PODCAST_WINGS),
 		cory_get_dialog_step("Thank you.", CORY_EXPRESSION.PODCAST_NEUTRAL),
 		frank_get_dialog_step("Thanks for helping me put it together!", FRANK_EXPRESSION.PODCAST_LEFT_UP),
-		cory_get_dialog_step("So weird, I don't remember any of that.", CORY_EXPRESSION.PODCAST_HIP),
+		cory_get_dialog_step("So weird. I don't remember any of that.", CORY_EXPRESSION.PODCAST_HIP),
 		frank_get_dialog_step("Well, you were pretty little back then.", FRANK_EXPRESSION.PODCAST_LEFT_DOWN),
 		cory_get_dialog_step("Do you remember anything?", CORY_EXPRESSION.PODCAST_WINGS),
 		cory_get_dialog_step("From when you were little?", CORY_EXPRESSION.PODCAST_NEUTRAL),
@@ -176,7 +176,7 @@ function complete_story() {
 			},
 		],
 		draw: function() {
-			time += 1;
+			time += (delta_time / global.frame_time);
 			draw_set_alpha(1);
 			steps[step]();
 		},
@@ -187,7 +187,7 @@ function complete_story() {
 			return (sin(rads) + 1) / 2;
 		},
 		draw: function() {
-			time += 1;
+			time += (delta_time / global.frame_time);
 			if (time >= 446  && time <= 4600) {
 				var rads = time * 0.015;
 				var offset = 2 * pi / 3;
@@ -260,7 +260,7 @@ function complete_story() {
 			},
 		],
 		draw: function() {
-			time += 1;
+			time += (delta_time / global.frame_time);
 			steps[step]();
 			draw_set_color(c_black);
 			draw_set_alpha(black_alpha);
@@ -301,7 +301,7 @@ function complete_story() {
 			function() {
 				if (time >= 227) {
 					time = 0;
-					tag_decorated_text = get_new_text("He was missing a le<p:1200>g and he wasn't moving.");
+					tag_decorated_text = get_new_text("He was missing a leg<p:1200>, and he wasn't moving.");
 					step += 1;
 				}
 			},
@@ -322,7 +322,7 @@ function complete_story() {
 			function() {
 				if (time >= 220) {
 					time = 0;
-					tag_decorated_text = get_new_text("He was shiverin<p:1200>g so I covered him with a small blanket.");
+					tag_decorated_text = get_new_text("He was shivering<p:1200>, so I covered him with a small blanket.");
 					step += 1;
 				}
 			},
@@ -357,7 +357,7 @@ function complete_story() {
 			function() {
 				if (time >= 759) {
 					time = 0;
-					tag_decorated_text = get_new_text("By sunris<p:500>e the bird awoke to discover his brand new win<p:2000>g and a new foot.");
+					tag_decorated_text = get_new_text("By sunrise<p:500>, the bird awoke to discover his brand new win<p:2000>g and a new foot.");
 					step += 1;
 				}
 			},
@@ -371,7 +371,7 @@ function complete_story() {
 			function() {
 				if (time >= 333) {
 					time = 0;
-					tag_decorated_text = get_new_text("That is how I me<p:500>t my best friend Cory.");
+					tag_decorated_text = get_new_text("That is how I me<p:500>t my best friend, Cory.");
 					step += 1;
 				}
 			},
@@ -385,12 +385,15 @@ function complete_story() {
 			function() {},
 		],
 		draw: function() {
-			time += 1;
+			time += (delta_time / global.frame_time);
 			steps[step]();
 			draw_set_halign(fa_center);
 			draw_set_valign(fa_bottom);
 			draw_set_alpha(1);
-			if (tag_decorated_text != undefined) tag_decorated_text_draw(tag_decorated_text, display_get_gui_width() / 2, display_get_gui_height() - 100);
+			if (tag_decorated_text != undefined) {
+				tag_decorated_text_update(tag_decorated_text, delta_time / 1000);
+				tag_decorated_text_draw_no_update(tag_decorated_text, display_get_gui_width() / 2, display_get_gui_height() - 100);
+			}
 		},
 	};
 	
@@ -417,7 +420,7 @@ function complete_story() {
 				step += 1;
 			},
 			function() {
-				alpha += 0.007;
+				alpha += (0.007 * (delta_time / global.frame_time));
 				if (alpha >= 1) {
 					step += 1;
 					time = 0;
@@ -440,7 +443,7 @@ function complete_story() {
 			},
 		],
 		update: function() {
-			time += 1;
+			time += (delta_time / global.frame_time);
 			image_time += 1;
 			if (image_time >= 11) {
 				image_time = 0;

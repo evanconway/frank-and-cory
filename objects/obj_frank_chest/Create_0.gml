@@ -4,7 +4,7 @@ on_click = function() {
 	if (!global.frank_memory_chip_added) {
 		global.updateable = dialog_get_updateable([
 			frank_get_dialog_step("Wow.", FRANK_EXPRESSION.UP),
-			frank_get_dialog_step("What a stupid looking machine.", FRANK_EXPRESSION.HAPPY),
+			frank_get_dialog_step("What a stupid-looking machine.", FRANK_EXPRESSION.HAPPY),
 			cory_get_dialog_step("Frank.", CORY_EXPRESSION.TILT),
 			cory_get_dialog_step("That's your own body.", CORY_EXPRESSION.TAP),
 			frank_get_dialog_step("Oh...", FRANK_EXPRESSION.UNAMUSED),

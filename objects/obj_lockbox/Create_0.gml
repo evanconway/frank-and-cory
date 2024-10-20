@@ -29,14 +29,14 @@ on_click = function() {
 						global.updateable = dialog_get_updateable([
 							cory_get_dialog_step("Frank! It's your chip!", CORY_EXPRESSION.BOTH_WINGS),
 							frank_get_dialog_step("Can I eat chips?", FRANK_EXPRESSION.UP),
-							cory_get_dialog_step("Your memory Chip!", CORY_EXPRESSION.SALUTE),
+							cory_get_dialog_step("Your memory chip!", CORY_EXPRESSION.SALUTE),
 							frank_get_dialog_step("Oh, right. I forgot what we were doing.", FRANK_EXPRESSION.UNAMUSED),
 						]);
 					}
 				}
 			],
 			update: function() {
-				time += 1;
+				time += (delta_time / global.frame_time);
 				steps[step]();
 			},
 		}

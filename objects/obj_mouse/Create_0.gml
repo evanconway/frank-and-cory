@@ -48,7 +48,7 @@ global.mouse_fetch_chip = {
 				time = 0;
 				global.updateable = dialog_get_updateable([
 				cory_get_dialog_step("That's a key!", CORY_EXPRESSION.SALUTE),
-					cory_get_dialog_step("Thank you mouse!", CORY_EXPRESSION.BOTH_WINGS),
+					cory_get_dialog_step("Thank you, mouse!", CORY_EXPRESSION.BOTH_WINGS),
 				], {
 					on_step_all: function() {
 						obj_mouse.image_index = 1;
@@ -64,7 +64,7 @@ global.mouse_fetch_chip = {
 		}
 	],
 	update: function() {
-		time += 1;
+		time += (delta_time / global.frame_time);
 		steps[step]();
 	},
 };

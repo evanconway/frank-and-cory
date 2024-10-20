@@ -235,9 +235,9 @@ global.podcast_player = {
 		for (var i = 0; i < array_length(tape_positions); i++) {
 			var draggable_at_position = ds_map_find_value(global.position_draggable_map, tape_positions[i]);
 			var rotate = podcast_get_random_rotation_amount();
-			tape_positions[i].image_angle -= rotate;
+			tape_positions[i].image_angle -= (rotate * (delta_time / global.frame_time));
 			if (draggable_at_position != noone) {
-				draggable_at_position.image_angle -= rotate;
+				draggable_at_position.image_angle -= (rotate * (delta_time / global.frame_time));
 			}
 		}
 	},
@@ -369,7 +369,7 @@ function podcast_machine_transition() {
 	play_sfx(snd_jude_mouse_run_1);
 	
 	var tutorial_d = dialog_get_updateable([		
-		frank_get_dialog_step("Once everything's in the right order I'll let you know.", FRANK_EXPRESSION.PODCAST_UP_PUMP),
+		frank_get_dialog_step("Once everything's in the right order, I'll let you know.", FRANK_EXPRESSION.PODCAST_UP_PUMP),
 		cory_get_dialog_step("Good luck!", CORY_EXPRESSION.PODCAST_WINGS),
 	]);
 	
@@ -416,9 +416,9 @@ function podcast_machine_transition() {
 	
 	var tutorial_a = dialog_get_updateable([
 		cory_get_dialog_step("Let's build this story!", CORY_EXPRESSION.PODCAST_WINGS),
-		frank_get_dialog_step("Oh", FRANK_EXPRESSION.PODCAST_LEFT_DOWN),
+		frank_get_dialog_step("Oh!", FRANK_EXPRESSION.PODCAST_LEFT_DOWN),
 		frank_get_dialog_step("This is my favorite part!", FRANK_EXPRESSION.PODCAST_UP_PUMP),
-		cory_get_dialog_step("This story has 4 chapters.", CORY_EXPRESSION.PODCAST_HIP),
+		cory_get_dialog_step("This story has four chapters.", CORY_EXPRESSION.PODCAST_HIP),
 		cory_get_dialog_step("Each needs a voice, music, and sound effects reel.", CORY_EXPRESSION.PODCAST_NEUTRAL),
 	], {
 		after_dialog_updateable: highlight_reels,
@@ -443,7 +443,7 @@ function podcast_machine_transition() {
 				}
 			},
 			function() {
-				vertical_offset -= min(6, vertical_offset * 0.1);
+				vertical_offset -= (min(6, vertical_offset * 0.1) * (delta_time / global.frame_time));
 				
 				if (abs(vertical_offset) < 1) {
 					vertical_offset = 0;
@@ -472,8 +472,8 @@ function podcast_machine_transition() {
 				}
 			},
 			function() {
-				time += 1;
-				steam_alpha -= 1/120;
+				time += (delta_time / global.frame_time);
+				steam_alpha -= (1/120 * (delta_time / global.frame_time));
 				if (time > 120) {
 					step += 1;
 					time = 0;
@@ -488,7 +488,7 @@ function podcast_machine_transition() {
 				}
 			},
 			function() {
-				time += 1;
+				time += (delta_time / global.frame_time);
 				if (time > 45) {
 					global.updateable = tutorial_a;
 					play_sfx(snd_music_tutorial, 1, 1, true);
@@ -526,9 +526,9 @@ global.podcast_test_player = {
 			global.updateable = undefined;
 		} else {
 			var rotate = podcast_get_random_rotation_amount();
-			global.podcast_test_position.image_angle -= rotate;
+			global.podcast_test_position.image_angle -= (rotate * (delta_time / global.frame_time));
 			var reel = ds_map_find_value(global.position_draggable_map, global.podcast_test_position);
-			if (reel != noone) reel.image_angle -= rotate;
+			if (reel != noone) reel.image_angle -= (rotate * (delta_time / global.frame_time));
 		}
 		update_clickable(obj_stop_test);
 	}

@@ -5,7 +5,7 @@ on_click = function() {
 		global.updateable = dialog_get_updateable([
 			frank_get_dialog_step("Oh right!", FRANK_EXPRESSION.NEUTRAL),
 			frank_get_dialog_step("I made this.", FRANK_EXPRESSION.RIGHT),
-			frank_get_dialog_step("It's a carving of you Cory!", FRANK_EXPRESSION.HAPPY),
+			frank_get_dialog_step("It's a carving of you, Cory!", FRANK_EXPRESSION.HAPPY),
 			cory_get_dialog_step("The resemblence is uncanny.", CORY_EXPRESSION.BOTH_WINGS),
 		]);
 	} else {

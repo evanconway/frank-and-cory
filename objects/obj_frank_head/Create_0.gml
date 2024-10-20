@@ -5,7 +5,7 @@ global.assemble_frank = dialog_get_updateable([
 	cory_get_dialog_step("Don't feel. Just think.", CORY_EXPRESSION.BOTH_WINGS),
 	cory_get_dialog_step("Tell me what we were doing before the power outage.", CORY_EXPRESSION.TAP),
 	frank_get_dialog_step("Um. I'm not sure. I remember... falling?", FRANK_EXPRESSION.DOWNLEFT),
-	cory_get_dialog_step("Come on, I know you got this.", CORY_EXPRESSION.NEUTRAL),
+	cory_get_dialog_step("Come on, I know you've got this.", CORY_EXPRESSION.NEUTRAL),
 	frank_get_dialog_step("We were...um. Oh!", FRANK_EXPRESSION.RIGHT),
 	frank_get_dialog_step("Oh! Now I remember!", FRANK_EXPRESSION.BLANK),
 	frank_get_dialog_step("I was taking off my head to switch out tape reels!", FRANK_EXPRESSION.HAPPY),
@@ -48,7 +48,7 @@ on_click = function() {
 				},
 			],
 			update: function() {
-				time += 1;
+				time += (delta_time / global.frame_time);
 				steps[step]();
 			},
 		};
@@ -64,14 +64,14 @@ on_click = function() {
 			steps: [
 				function() {
 					if (time > 60) global.updateable = dialog_get_updateable([
-						frank_get_dialog_step("Yes", FRANK_EXPRESSION.HAPPY),
+						frank_get_dialog_step("Yes!", FRANK_EXPRESSION.HAPPY),
 						frank_get_dialog_step("Much better.", FRANK_EXPRESSION.RIGHT),
 						frank_get_dialog_step("I can see the room better now.", FRANK_EXPRESSION.NEUTRAL),
 					]);
 				},
 			],
 			update: function() {
-				time += 1;
+				time += (delta_time / global.frame_time);
 				steps[step]();
 			}
 		};

@@ -11,7 +11,7 @@ on_click = function() {
 		global.updateable = {
 			time: 0,
 			update: function() {
-				time += 1;
+				time += (delta_time / global.frame_time);
 				if (time >= 60) {
 					podcast_machine_transition();
 				}
