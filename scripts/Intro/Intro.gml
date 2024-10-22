@@ -370,19 +370,36 @@ function start_intro() {
 			draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
 		},
 	};
+	
+	// solves a bug where html audio doesn't play immediately
+	var music_pause = {
+		small_pause,
+		time: 0,
+		update: function() {
+			time += (delta_time / global.frame_time);
+			if (time >= 2) {
+				play_sfx(snd_music_intro, 0.5, 1, true);
+				global.updateable = small_pause;
+			}
+		},
+		draw: function() {
+			draw_set_alpha(1);
+			draw_set_color(c_black);
+			draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
+		},
+	};
 
 	var init = {
-		small_pause,
+		music_pause,
 		tds: new TagDecoratedTextDefault("click to start", "f:fnt_ally fade"),
 		update: function() {
 			if (room != rm_workshop) return;
 			if (mouse_check_button_pressed(mb_any)) {
 				prepare_darkness();
-				play_sfx(snd_music_intro, 0.5, 1, true);
 				var lay_id = layer_get_id("Background");
 				var back_id = layer_background_get_id(lay_id);
 				layer_background_sprite(back_id, spr_workshop_nolight);
-				global.updateable = small_pause;
+				global.updateable = music_pause;
 			};
 		},
 		draw: function() {
