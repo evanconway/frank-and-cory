@@ -489,7 +489,7 @@ function podcast_machine_transition() {
 					obj_podcast_cory.x = -1000;
 					obj_podcast_frank.x = 1000;
 					
-					// reset rell positions
+					// reset reel positions
 					podcast_maker_setup();
 					
 					draw_machine = false;
@@ -526,8 +526,9 @@ function podcast_machine_transition() {
 		},
 		draw: function() {
 			if (draw_machine) podcast_machine_draw(0, vertical_offset * -1);
-			draw_set_alpha(steam_alpha);
-			draw_sprite(spr_podcast_machine_steam, 0, 0, 0);
+			if (steam_alpha > 0) {
+				draw_sprite_ext(spr_podcast_machine_steam, 0, 0, 0, 1, 1, 0, c_white, steam_alpha);
+			}
 		}
 	};
 }

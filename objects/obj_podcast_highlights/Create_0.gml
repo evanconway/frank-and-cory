@@ -3,8 +3,7 @@ disabled = true;
 highlight = undefined;
 draw = function() {
 	if (highlight != undefined) {
-		draw_set_alpha(0.5);
-		draw_sprite(highlight, 0, 0, 0);
+		draw_sprite_ext(highlight, 0, 0, 0, 1, 1, 0, c_white, 0.5);
 	}
 	highlight = undefined;
 }
