@@ -160,21 +160,16 @@ global.credits = {
 	},
 	draw: function() {
 		// water
-		draw_set_alpha(get_ripple_alpha(60 * 0));
-		draw_sprite(spr_water_ripples, 0, 0, 0);
-		draw_set_alpha(get_ripple_alpha(60 * 5.5));
-		draw_sprite(spr_water_ripples, 1, 0, 0);
-		draw_set_alpha(get_ripple_alpha(60 * 11));
-		draw_sprite(spr_water_ripples, 2, 0, 0);
+		draw_sprite_ext(spr_water_ripples, 0, 0, 0, 1, 1, 0, c_white, get_ripple_alpha(60 * 0));
+		draw_sprite_ext(spr_water_ripples, 1, 0, 0, 1, 1, 0, c_white, get_ripple_alpha(60 * 5.5));
+		draw_sprite_ext(spr_water_ripples, 2, 0, 0, 1, 1, 0, c_white, get_ripple_alpha(60 * 11));
+		draw_sprite_ext(spr_finale_frank, 0, 0, 0, 1, 1, 0, c_white, 1);
+		draw_sprite_ext(spr_finale_cory, 0, 0, 0, 1, 1, 0, c_white, 1);
 		
-		draw_set_alpha(1);
-		draw_sprite(spr_finale_frank, 0, 0, 0);
-		draw_sprite(spr_finale_cory, 0, 0, 0);
-		
-		draw_set_alpha(alpha);
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_middle);
-		draw_sprite(spr_brush_stroke, 0, display_get_gui_width() / 2, display_get_gui_height() / 2);
+		draw_sprite_ext(spr_brush_stroke, 0, display_get_gui_width() / 2, display_get_gui_height() / 2, 1, 1, 0, c_white, alpha);
+		draw_set_alpha(alpha);
 		tag_decorated_text_draw(text, display_get_gui_width() / 2, display_get_gui_height() / 2);
 		if (play_again_text != undefined) {
 			draw_set_alpha(1);

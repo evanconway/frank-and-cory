@@ -167,14 +167,15 @@ function complete_story() {
 				chapter_spr_offsets[1].y += clamp(abs(chapter_spr_offsets[1].y) * 0.03, 0, pan_speed) * (delta_time / global.frame_time);
 				if (chapter_spr_offsets[1].y >= 0) chapter_spr_offsets[1].y = 0;
 				draw_chapter_art(1);
-				draw_set_alpha(notes_alpha);
-				if (complete_story_get_audio_time() >= 1800) notes_alpha = clamp(notes_alpha + (0.01 * (delta_time / global.frame_time)), 0, 1);
-				draw_sprite(spr_podcast_musicnotes, 0, 0, chapter_spr_offsets[1].y + get_y_offset(0));
-				draw_sprite(spr_podcast_musicnotes, 1, 0, chapter_spr_offsets[1].y + get_y_offset(1));
-				draw_sprite(spr_podcast_musicnotes, 2, 0, chapter_spr_offsets[1].y + get_y_offset(2));
-				draw_sprite(spr_podcast_musicnotes, 3, 0, chapter_spr_offsets[1].y + get_y_offset(3));
-				draw_sprite(spr_podcast_musicnotes, 4, 0, chapter_spr_offsets[1].y + get_y_offset(4));
-				draw_sprite(spr_podcast_musicnotes, 5, 0, chapter_spr_offsets[1].y + get_y_offset(5));
+				if (complete_story_get_audio_time() >= 1800) {
+					notes_alpha = clamp(notes_alpha + (0.01 * (delta_time / global.frame_time)), 0, 1);
+					draw_sprite_ext(spr_podcast_musicnotes, 0, 0, chapter_spr_offsets[1].y + get_y_offset(0), 1, 1, 0, c_white, notes_alpha);
+					draw_sprite_ext(spr_podcast_musicnotes, 1, 0, chapter_spr_offsets[1].y + get_y_offset(1), 1, 1, 0, c_white, notes_alpha);
+					draw_sprite_ext(spr_podcast_musicnotes, 2, 0, chapter_spr_offsets[1].y + get_y_offset(2), 1, 1, 0, c_white, notes_alpha);
+					draw_sprite_ext(spr_podcast_musicnotes, 3, 0, chapter_spr_offsets[1].y + get_y_offset(3), 1, 1, 0, c_white, notes_alpha);
+					draw_sprite_ext(spr_podcast_musicnotes, 4, 0, chapter_spr_offsets[1].y + get_y_offset(4), 1, 1, 0, c_white, notes_alpha);
+					draw_sprite_ext(spr_podcast_musicnotes, 5, 0, chapter_spr_offsets[1].y + get_y_offset(5), 1, 1, 0, c_white, notes_alpha);
+				}
 				if (complete_story_get_audio_time() >= 2612) step += 1;
 			},
 			function() {
@@ -202,12 +203,9 @@ function complete_story() {
 			if (complete_story_get_audio_time() >= 446 && complete_story_get_audio_time() <= 4600) {
 				var rads = complete_story_get_audio_time() * 0.015;
 				var offset = 2 * pi / 3;
-				draw_set_alpha(get_alpha(rads));
-				draw_sprite(spr_vignette, 0, 0, 0);
-				draw_set_alpha(get_alpha(rads + offset));
-				draw_sprite(spr_vignette, 1, 0, 0);
-				draw_set_alpha(get_alpha(rads + offset + offset));
-				draw_sprite(spr_vignette, 2, 0, 0);
+				draw_sprite_ext(spr_vignette, 0, 0, 0, 1, 1, 0, c_white, get_alpha(rads));
+				draw_sprite_ext(spr_vignette, 1, 0, 0, 1, 1, 0, c_white, get_alpha(rads + offset));
+				draw_sprite_ext(spr_vignette, 2, 0, 0, 1, 1, 0, c_white, get_alpha(rads + offset + offset));
 			}
 		},
 	};
