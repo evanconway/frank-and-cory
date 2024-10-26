@@ -9,6 +9,10 @@ global.podcast_tape_slots = [
 	[inst_4D144C3, inst_1202BE7A, inst_4633AB96]
 ];
 
+function podcast_get_reel_at_position(pos=inst_316D019) {
+	return ds_map_find_value(global.position_draggable_map, pos);
+}
+
 global.map_audio_reel_asset = ds_map_create();
 
 function podcast_maker_setup() {
@@ -190,41 +194,20 @@ function podcast_get_audio_at_column(column=0) {
 	return array_length(audio_undefined_filtered) == 0 ? [snd_emptynoise] : audio_undefined_filtered;
 }
 
-function podcast_get_number_correct() {
-	var count = 0;
-	var column_0_audio = podcast_get_audio_at_column(0);
-	var column_1_audio = podcast_get_audio_at_column(1);
-	var column_2_audio = podcast_get_audio_at_column(2);
-	var column_3_audio = podcast_get_audio_at_column(3);
-	
-	if (array_contains(column_0_audio, snd_reel_vox_1)) count += 1;
-	if (array_contains(column_0_audio, snd_reel_sfx_1)) count += 1;
-	if (array_contains(column_0_audio, snd_reel_score_1)) count += 1;
-	
-	if (array_contains(column_1_audio, snd_reel_vox_2)) count += 1;
-	if (array_contains(column_1_audio, snd_reel_sfx_2)) count += 1;
-	if (array_contains(column_1_audio, snd_reel_score_2)) count += 1;
-	
-	if (array_contains(column_2_audio, snd_reel_vox_3)) count += 1;
-	if (array_contains(column_2_audio, snd_reel_sfx_3)) count += 1;
-	if (array_contains(column_2_audio, snd_reel_score_3)) count += 1;
-	
-	if (array_contains(column_3_audio, snd_reel_vox_4)) count += 1;
-	if (array_contains(column_3_audio, snd_reel_sfx_4)) count += 1;
-	if (array_contains(column_3_audio, snd_reel_score_4)) count += 1;
-	
-	return count;
-};
+function podcast_get_is_column_correct(col=0) {
+	var col_audio = podcast_get_audio_at_column(col);
+	if (col == 0) return array_contains_ext(col_audio, [snd_reel_vox_1, snd_reel_sfx_1, snd_reel_score_1], true);
+	if (col == 1) return array_contains_ext(col_audio, [snd_reel_vox_2, snd_reel_sfx_2, snd_reel_score_2], true);
+	if (col == 2) return array_contains_ext(col_audio, [snd_reel_vox_3, snd_reel_sfx_3, snd_reel_score_3], true);
+	if (col == 3) return array_contains_ext(col_audio, [snd_reel_vox_4, snd_reel_sfx_4, snd_reel_score_4], true);
+	return false;
+}
 
 function podcast_get_is_complete() {
-	var column_0_audio = podcast_get_audio_at_column(0);
-	var column_1_audio = podcast_get_audio_at_column(1);
-	var column_2_audio = podcast_get_audio_at_column(2);
-	var column_3_audio = podcast_get_audio_at_column(3);
-	var col_0_fin = array_contains_ext(column_0_audio, [snd_reel_vox_1, snd_reel_sfx_1, snd_reel_score_1], true);
-	var col_1_fin = array_contains_ext(column_1_audio, [snd_reel_vox_2, snd_reel_sfx_2, snd_reel_score_2], true);
-	var col_2_fin = array_contains_ext(column_2_audio, [snd_reel_vox_3, snd_reel_sfx_3, snd_reel_score_3], true);
-	var col_3_fin = array_contains_ext(column_3_audio, [snd_reel_vox_4, snd_reel_sfx_4, snd_reel_score_4], true);
+	var col_0_fin = podcast_get_is_column_correct(0);
+	var col_1_fin = podcast_get_is_column_correct(1);
+	var col_2_fin = podcast_get_is_column_correct(2);
+	var col_3_fin = podcast_get_is_column_correct(3);
 	return col_0_fin && col_1_fin && col_2_fin && col_3_fin;
 };
 
@@ -584,45 +567,72 @@ function podcast_machine_stop_all() {
 global.podcast_message_delivered_1 = false;
 global.podcast_message_delivered_2 = false;
 
-function podcast_machine_check_on_drop() {
-	var count = podcast_get_number_correct();
-	
-	if (count == 4 && !global.podcast_message_delivered_1) {
-		global.podcast_message_delivered_1 = true;
-		global.updateable = {
-			time: 0,
-			update: function() {
-				time += (delta_time / global.frame_time);
-				if (time >= 20) {
-					global.updateable = dialog_get_updateable([
-						frank_get_dialog_step("According to my audio sensors...", FRANK_EXPRESSION.PODCAST_UP_DOWN),
-						frank_get_dialog_step("You've got 4 in the correct spot now.", FRANK_EXPRESSION.PODCAST_LEFT_UP),
-						cory_get_dialog_step("You're getting there. Keep trying!", CORY_EXPRESSION.PODCAST_WINGS),
-					]);
-				}
-			},
-			draw: function() {
-			},
-		};
+global.podcast_column_marked_correct = [false, false, false, false];
+
+function podcast_handle_column_completion(col=0, post_animation_dialog) {
+	global.podcast_column_marked_correct[col] = true;
+	play_sfx(snd_win_achieved);
+	global.updateable = {
+		col,
+		post_animation_dialog,
+		alpha: 1,
+		update: function() {},
+		draw: function() {
+			var reel_1 = podcast_get_reel_at_position(global.podcast_tape_slots[col][0]);
+			var reel_2 = podcast_get_reel_at_position(global.podcast_tape_slots[col][1]);
+			var reel_3 = podcast_get_reel_at_position(global.podcast_tape_slots[col][2]);
+			draw_sprite_ext(spr_tapereel_green, 0, reel_1.x, reel_1.y, 1, 1, reel_1.image_angle, c_white, alpha);
+			draw_sprite_ext(spr_tapereel_green, 0, reel_2.x, reel_2.y, 1, 1, reel_2.image_angle, c_white, alpha);
+			draw_sprite_ext(spr_tapereel_green, 0, reel_3.x, reel_3.y, 1, 1, reel_3.image_angle, c_white, alpha);
+			alpha -= (delta_time / global.frame_time) * 0.02;
+			if (alpha <= 0) {
+				global.updateable = post_animation_dialog;
+			}
+		},
 	}
+}
+
+function podcast_machine_check_on_drop() {
+	var column_finished_0 = podcast_get_is_column_correct(0);
+	var column_finished_1 = podcast_get_is_column_correct(1);
+	var column_finished_2 = podcast_get_is_column_correct(2);
+	var column_finished_3 = podcast_get_is_column_correct(3);
 	
-	if (count == 8 && !global.podcast_message_delivered_2) {
-		global.podcast_message_delivered_2 = true;
-		global.updateable = {
-			time: 0,
-			update: function() {
-				time += (delta_time / global.frame_time);
-				if (time >= 20) {
-					global.updateable = dialog_get_updateable([
-						frank_get_dialog_step("Ooh...", FRANK_EXPRESSION.PODCAST_UP_DOWN),
-						frank_get_dialog_step("Now 8 reels are in the correct spot!", FRANK_EXPRESSION.PODCAST_BLANK_PUMP),
-						cory_get_dialog_step("Just a few more.", CORY_EXPRESSION.PODCAST_HIP),
-						cory_get_dialog_step("Don't give up!", CORY_EXPRESSION.PODCAST_WINGS),
-					]);
-				}
-			},
-			draw: function() {
-			},
-		};
+	var num_correct = 0;
+	
+	if (column_finished_0) num_correct += 1;
+	if (column_finished_1) num_correct += 1;
+	if (column_finished_2) num_correct += 1;
+	if (column_finished_3) num_correct += 1;
+	
+	if (num_correct == 4) return;
+	
+	if (!global.podcast_column_marked_correct[0] && column_finished_0) {
+		podcast_handle_column_completion(0, dialog_get_updateable([
+			frank_get_dialog_step("According to my audio sensors...", FRANK_EXPRESSION.PODCAST_UP_DOWN),
+			frank_get_dialog_step("Chapter 1 is correct now.", FRANK_EXPRESSION.PODCAST_LEFT_UP),
+			cory_get_dialog_step("You're getting there. Keep trying!", CORY_EXPRESSION.PODCAST_WINGS),
+		]));
+	}
+	if (!global.podcast_column_marked_correct[1] && column_finished_1) {
+		podcast_handle_column_completion(1, dialog_get_updateable([
+			frank_get_dialog_step("According to my audio sensors...", FRANK_EXPRESSION.PODCAST_UP_DOWN),
+			frank_get_dialog_step("Chapter 2 is correct now.", FRANK_EXPRESSION.PODCAST_LEFT_UP),
+			cory_get_dialog_step("Woo!", CORY_EXPRESSION.PODCAST_WINGS),
+		]));
+	}
+	if (!global.podcast_column_marked_correct[2] && column_finished_2) {
+		podcast_handle_column_completion(2, dialog_get_updateable([
+			frank_get_dialog_step("According to my audio sensors...", FRANK_EXPRESSION.PODCAST_UP_DOWN),
+			frank_get_dialog_step("Chapter 3 is correct now.", FRANK_EXPRESSION.PODCAST_LEFT_UP),
+			cory_get_dialog_step("You're getting there. Keep trying!", CORY_EXPRESSION.PODCAST_WINGS),
+		]));
+	}
+	if (!global.podcast_column_marked_correct[3] && column_finished_3) {
+		podcast_handle_column_completion(3, dialog_get_updateable([
+			frank_get_dialog_step("According to my audio sensors...", FRANK_EXPRESSION.PODCAST_UP_DOWN),
+			frank_get_dialog_step("Chapter 4 is correct now.", FRANK_EXPRESSION.PODCAST_LEFT_UP),
+			cory_get_dialog_step("Woo!", CORY_EXPRESSION.PODCAST_WINGS),
+		]));
 	}
 }

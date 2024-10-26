@@ -20,7 +20,7 @@ function reset_game() {
 	global.intro_blackout_alpha = 1;
 	global.breaker_open = false;
 	global.frank_podcast_hair_attached = false;
-	
+	global.podcast_column_marked_correct = [false, false, false, false];
 	global.podcast_message_delivered_1 = false;
 	global.podcast_message_delivered_2 = false;
 	
