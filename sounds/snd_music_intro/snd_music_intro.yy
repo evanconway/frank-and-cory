@@ -2,8 +2,8 @@
   "$GMSound":"",
   "%Name":"snd_music_intro",
   "audioGroupId":{
-    "name":"audiogroup_default",
-    "path":"audiogroups/audiogroup_default",
+    "name":"audiogroup_intro",
+    "path":"audiogroups/audiogroup_intro",
   },
   "bitDepth":1,
   "bitRate":128,

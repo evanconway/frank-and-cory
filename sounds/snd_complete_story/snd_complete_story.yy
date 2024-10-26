@@ -12,8 +12,8 @@
   "duration":75.726555,
   "name":"snd_complete_story",
   "parent":{
-    "name":"Jude",
-    "path":"folders/Sounds/Jude.yy",
+    "name":"reels",
+    "path":"folders/Sounds/reels.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

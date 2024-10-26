@@ -2,8 +2,8 @@
   "$GMSound":"",
   "%Name":"snd_reel_sfx_3",
   "audioGroupId":{
-    "name":"audiogroup_default",
-    "path":"audiogroups/audiogroup_default",
+    "name":"audiogroup_story_machine",
+    "path":"audiogroups/audiogroup_story_machine",
   },
   "bitDepth":1,
   "bitRate":128,

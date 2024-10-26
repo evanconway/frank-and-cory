@@ -3,6 +3,10 @@
   "%Name":"frank-and-cory",
   "AudioGroups":[
     {"$GMAudioGroup":"","%Name":"audiogroup_default","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
+    {"$GMAudioGroup":"","%Name":"audiogroup_intro","name":"audiogroup_intro","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
+    {"$GMAudioGroup":"","%Name":"audiogroup_workshop","name":"audiogroup_workshop","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
+    {"$GMAudioGroup":"","%Name":"audiogroup_story_machine","name":"audiogroup_story_machine","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
+    {"$GMAudioGroup":"","%Name":"audiogroup_finale","name":"audiogroup_finale","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
   ],
   "configs":{
     "children":[],
@@ -188,7 +192,6 @@
     {"id":{"name":"snd_jude_wing_flap_2","path":"sounds/snd_jude_wing_flap_2/snd_jude_wing_flap_2.yy",},},
     {"id":{"name":"snd_music_finale","path":"sounds/snd_music_finale/snd_music_finale.yy",},},
     {"id":{"name":"snd_music_intro","path":"sounds/snd_music_intro/snd_music_intro.yy",},},
-    {"id":{"name":"snd_music_peace","path":"sounds/snd_music_peace/snd_music_peace.yy",},},
     {"id":{"name":"snd_music_podcast_transition","path":"sounds/snd_music_podcast_transition/snd_music_podcast_transition.yy",},},
     {"id":{"name":"snd_music_tutorial","path":"sounds/snd_music_tutorial/snd_music_tutorial.yy",},},
     {"id":{"name":"snd_music_workshop","path":"sounds/snd_music_workshop/snd_music_workshop.yy",},},

@@ -2,8 +2,8 @@
   "$GMSound":"",
   "%Name":"snd_music_workshop",
   "audioGroupId":{
-    "name":"audiogroup_default",
-    "path":"audiogroups/audiogroup_default",
+    "name":"audiogroup_workshop",
+    "path":"audiogroups/audiogroup_workshop",
   },
   "bitDepth":1,
   "bitRate":128,

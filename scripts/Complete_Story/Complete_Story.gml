@@ -34,7 +34,7 @@ function complete_story() {
 				step += 1;
 			},
 			function() {
-				if (time >= 150) {
+				if (time >= 150 && audio_group_is_loaded(audiogroup_finale)) {
 					global.updateable = dialog_get_updateable([
 						cory_get_dialog_step("Looking good! Let's go!", CORY_EXPRESSION.PODCAST_WINGS),
 					], {
@@ -45,6 +45,7 @@ function complete_story() {
 							steps: [
 								function() {
 									play_sfx(snd_music_finale, 0.8, 1, true);
+									audio_group_unload(audiogroup_story_machine);
 									step += 1;
 								},
 								function() {
@@ -60,8 +61,6 @@ function complete_story() {
 								},
 								function() {
 									if (room == rm_outside) {
-										// play_sfx(snd_music_peace);
-										// play_sfx(snd_music_finale, 0.8, 1, true);
 										audio_sound_gain(play_sfx(snd_nature, 0, 1, true), 0.5, 3000);
 										step += 1;
 									}
