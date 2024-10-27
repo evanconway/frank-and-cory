@@ -9,6 +9,7 @@ pre_update = function() {
 		// feather ignore GM1043
 		global.updateable = {
 			alpha: 0.75,
+			reel_alpha: 1,
 			step: 0,
 			steps: [
 				function() {
@@ -17,7 +18,8 @@ pre_update = function() {
 				},
 				function() {
 					alpha -= (0.005 * (delta_time / global.frame_time));
-					if (alpha <= 0) {
+					reel_alpha -= (0.01 * (delta_time / global.frame_time));
+					if (alpha <= 0 && reel_alpha <= 0) {
 						global.updateable = dialog_get_updateable([
 							frank_get_dialog_step("Why...", FRANK_EXPRESSION.PODCAST_LEFT_UP),
 							frank_get_dialog_step("I think we've got it!", FRANK_EXPRESSION.PODCAST_BLANK_PUMP),
@@ -35,6 +37,23 @@ pre_update = function() {
 				steps[step]();
 			},
 			draw: function() {
+				var reels = [
+					podcast_get_reel_at_position(global.podcast_tape_slots[0][0]),
+					podcast_get_reel_at_position(global.podcast_tape_slots[0][1]),
+					podcast_get_reel_at_position(global.podcast_tape_slots[0][2]),
+					podcast_get_reel_at_position(global.podcast_tape_slots[1][0]),
+					podcast_get_reel_at_position(global.podcast_tape_slots[1][1]),
+					podcast_get_reel_at_position(global.podcast_tape_slots[1][2]),
+					podcast_get_reel_at_position(global.podcast_tape_slots[2][0]),
+					podcast_get_reel_at_position(global.podcast_tape_slots[2][1]),
+					podcast_get_reel_at_position(global.podcast_tape_slots[2][2]),
+					podcast_get_reel_at_position(global.podcast_tape_slots[3][0]),
+					podcast_get_reel_at_position(global.podcast_tape_slots[3][1]),
+					podcast_get_reel_at_position(global.podcast_tape_slots[3][2]),
+				];
+				for (var i = 0; i < array_length(reels); i++) {
+					draw_sprite_ext(spr_tapereel_green, 0, reels[i].x, reels[i].y, 1, 1, reels[i].image_angle, c_white, reel_alpha);	
+				}
 				draw_set_alpha(alpha);
 				draw_set_color(c_white);
 				draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);

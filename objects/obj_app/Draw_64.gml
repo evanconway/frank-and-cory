@@ -11,18 +11,14 @@ if (keyboard_check_pressed(ord("2"))) {
 		steps: [
 			function() {
 				room_goto(rm_podcast_machine);
-				audio_group_load(audiogroup_story_machine);
 				step += 1;
 			},
 			function() {
-				if (room == rm_podcast_machine && audio_group_is_loaded(audiogroup_story_machine)) {
+				if (room == rm_podcast_machine) {
 					podcast_maker_setup();
 					global.cory_dialog_position = CORY_DIALOG_POSITION.PODCAST;
 					global.frank_dialog_position = FRANK_DIALOG_POSITION.PODCAST;
 					global.updateable = undefined;
-					audio_group_unload(audiogroup_intro);
-					audio_group_unload(audiogroup_workshop);
-					audio_group_unload(audiogroup_finale);
 				}
 			},
 		],

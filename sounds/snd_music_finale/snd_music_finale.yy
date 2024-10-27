@@ -2,8 +2,8 @@
   "$GMSound":"",
   "%Name":"snd_music_finale",
   "audioGroupId":{
-    "name":"audiogroup_finale",
-    "path":"audiogroups/audiogroup_finale",
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":1,
   "bitRate":128,

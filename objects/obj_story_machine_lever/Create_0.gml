@@ -7,8 +7,6 @@ on_click = function() {
 	if (frank_is_assembled) {
 		flipped = true;
 		audio_stop_sound(snd_music_workshop);
-		audio_group_unload(audiogroup_workshop);
-		audio_group_load(audiogroup_finale);
 		play_sfx(snd_jude_lever_pull);
 		global.updateable = {
 			time: 0,

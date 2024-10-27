@@ -205,11 +205,10 @@ function start_intro() {
 			},
 			function () {
 				alpha = 0;
-				if (time >= 100 && audio_group_is_loaded(audiogroup_workshop)) {
+				if (time >= 100) {
 					time = 0;
 					step += 1;
 					play_sfx(snd_music_workshop, 0.8, 1, true);
-					audio_group_load(audiogroup_story_machine);
 				}
 			},
 			function () {
@@ -250,7 +249,6 @@ function start_intro() {
 						return;
 					}
 					audio_stop_sound(snd_music_intro);
-					audio_group_unload(audiogroup_intro);
 					global.light_switch_on = true;
 					play_sfx(snd_jude_breaker_switch);
 					play_sfx(snd_jude_light_flicker);
@@ -381,7 +379,6 @@ function start_intro() {
 			time += (delta_time / global.frame_time);
 			if (time >= 2) {
 				play_sfx(snd_music_intro, 0.5, 1, true);
-				audio_group_load(audiogroup_workshop);
 				global.updateable = small_pause;
 			}
 		},
@@ -414,35 +411,7 @@ function start_intro() {
 			tag_decorated_text_draw(tds, display_get_gui_width() / 2, display_get_gui_height() / 2);
 		}
 	}
-	
-	var load_stuff = {
-		init,
-		tds: new TagDecoratedTextDefault("loading", "f:fnt_ally"),
-		step: 0,
-		steps: [
-			function() {
-				audio_group_load(audiogroup_intro);
-				step += 1;
-			},
-			function() {
-				if (audio_group_is_loaded(audiogroup_intro)) {
-					global.updateable = init;
-				}
-			},
-		],
-		update: function() {
-			steps[step]();
-		},
-		draw: function() {
-			draw_set_alpha(1);
-			draw_set_color(c_black);
-			draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
-			draw_set_halign(fa_center);
-			draw_set_valign(fa_middle);
-			tag_decorated_text_draw(tds, display_get_gui_width() / 2, display_get_gui_height() / 2);
-		}
-	};
 
-	global.updateable = load_stuff;
+	global.updateable = init;
 	//global.updateable = cory_flys_back_to_perch;
 }
