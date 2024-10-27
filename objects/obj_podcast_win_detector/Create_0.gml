@@ -51,9 +51,12 @@ pre_update = function() {
 					podcast_get_reel_at_position(global.podcast_tape_slots[3][1]),
 					podcast_get_reel_at_position(global.podcast_tape_slots[3][2]),
 				];
+				shader_set(sh_green);
+				shader_set_uniform_f(shader_get_uniform(sh_green, "alpha"), reel_alpha);
 				for (var i = 0; i < array_length(reels); i++) {
-					draw_sprite_ext(spr_tapereel_green, 0, reels[i].x, reels[i].y, 1, 1, reels[i].image_angle, c_white, reel_alpha);	
+					draw_sprite_ext(spr_tapereel, 0, reels[i].x, reels[i].y, 1, 1, reels[i].image_angle, c_white, 1);	
 				}
+				shader_reset();
 				draw_set_alpha(alpha);
 				draw_set_color(c_white);
 				draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);

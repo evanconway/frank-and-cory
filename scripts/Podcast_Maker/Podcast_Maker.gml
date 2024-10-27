@@ -578,12 +578,17 @@ function podcast_handle_column_completion(col=0, post_animation_dialog) {
 		alpha: 1,
 		update: function() {},
 		draw: function() {
-			var reel_1 = podcast_get_reel_at_position(global.podcast_tape_slots[col][0]);
-			var reel_2 = podcast_get_reel_at_position(global.podcast_tape_slots[col][1]);
-			var reel_3 = podcast_get_reel_at_position(global.podcast_tape_slots[col][2]);
-			draw_sprite_ext(spr_tapereel_green, 0, reel_1.x, reel_1.y, 1, 1, reel_1.image_angle, c_white, alpha);
-			draw_sprite_ext(spr_tapereel_green, 0, reel_2.x, reel_2.y, 1, 1, reel_2.image_angle, c_white, alpha);
-			draw_sprite_ext(spr_tapereel_green, 0, reel_3.x, reel_3.y, 1, 1, reel_3.image_angle, c_white, alpha);
+			var reels = [
+				podcast_get_reel_at_position(global.podcast_tape_slots[col][0]),
+				podcast_get_reel_at_position(global.podcast_tape_slots[col][1]),
+				podcast_get_reel_at_position(global.podcast_tape_slots[col][2]),
+			];
+			shader_set(sh_green);
+			shader_set_uniform_f(shader_get_uniform(sh_green, "alpha"), alpha);
+			for (var i = 0; i < array_length(reels); i++) {
+				draw_sprite_ext(spr_tapereel, 0, reels[i].x, reels[i].y, 1, 1, reels[i].image_angle, c_white, 1);
+			}
+			shader_reset();
 			alpha -= (delta_time / global.frame_time) * 0.01;
 			if (alpha <= 0) {
 				global.updateable = post_animation_dialog;

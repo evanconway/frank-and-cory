@@ -33,6 +33,8 @@ draw = function() {
 	draw_self();
 	if (shader != undefined) {
 		shader_set(shader);
+		var uniform_alpha = shader_get_uniform(shader, "alpha");
+		shader_set_uniform_f(uniform_alpha, 0.5);
 		draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, 0, c_white, 1);
 		shader_reset();
 	}

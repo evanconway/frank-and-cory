@@ -64,7 +64,9 @@ draw = function() {
 	if (podcast_get_is_complete()) disabled = false;
 	
 	if (disabled) {
-		shader_set(sh_disable_light);
+		shader_set(sh_black);
+		var uniform_alpha = shader_get_uniform(sh_black, "alpha");
+		shader_set_uniform_f(uniform_alpha, 0.4);
 		draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, 0, c_white, 1);
 		shader_reset();
 	}

@@ -3,8 +3,8 @@
   "%Name":"sh_hovered",
   "name":"sh_hovered",
   "parent":{
-    "name":"frank-and-cory",
-    "path":"frank-and-cory.yyp",
+    "name":"shaders",
+    "path":"folders/shaders.yy",
   },
   "resourceType":"GMShader",
   "resourceVersion":"2.0",
