@@ -10,6 +10,7 @@ global.credits = {
 	},
 	text: new TagDecoratedTextDefault("Art by Allison Conway", "f:fnt_ally black"),
 	play_again_text: undefined,
+	play_again_alpha: 0,
 	steps: [
 		function() {
 			if (time >= 60 * 14) {
@@ -119,10 +120,13 @@ global.credits = {
 			if (alpha <= 0) {
 				time = 0;
 				step += 1;
-				play_again_text = new TagDecoratedTextDefault("Click to play again.", "f:fnt_ally white fade");
+				play_again_alpha = 0;
+				play_again_text = new TagDecoratedTextDefault("Click to play again.", "f:fnt_ally white");
 			}
 		},
 		function() {
+			play_again_alpha += (0.004 * (delta_time / global.frame_time));
+			if (play_again_alpha > 1) play_again_alpha = 1;
 			if (mouse_check_button_pressed(mb_any)) {
 				step += 1;
 				time = 0;
@@ -172,7 +176,7 @@ global.credits = {
 		draw_set_alpha(alpha);
 		tag_decorated_text_draw(text, display_get_gui_width() / 2, display_get_gui_height() / 2);
 		if (play_again_text != undefined) {
-			draw_set_alpha(1);
+			draw_set_alpha(play_again_alpha);
 			draw_set_halign(fa_left);
 			draw_set_valign(fa_bottom);
 			tag_decorated_text_update(play_again_text, delta_time / 1000);

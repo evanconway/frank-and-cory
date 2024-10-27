@@ -11,7 +11,3 @@ global.memory_cursor = false;
 set_tds_defaults()
 
 reset_game();
-
-//room_goto(rm_outside);
-//global.updateable = global.credits;
-//show_debug_overlay(true);

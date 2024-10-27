@@ -584,7 +584,7 @@ function podcast_handle_column_completion(col=0, post_animation_dialog) {
 			draw_sprite_ext(spr_tapereel_green, 0, reel_1.x, reel_1.y, 1, 1, reel_1.image_angle, c_white, alpha);
 			draw_sprite_ext(spr_tapereel_green, 0, reel_2.x, reel_2.y, 1, 1, reel_2.image_angle, c_white, alpha);
 			draw_sprite_ext(spr_tapereel_green, 0, reel_3.x, reel_3.y, 1, 1, reel_3.image_angle, c_white, alpha);
-			alpha -= (delta_time / global.frame_time) * 0.02;
+			alpha -= (delta_time / global.frame_time) * 0.01;
 			if (alpha <= 0) {
 				global.updateable = post_animation_dialog;
 			}
