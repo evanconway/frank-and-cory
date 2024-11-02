@@ -41,6 +41,7 @@
   },
   "name":"frank-and-cory",
   "resources":[
+    {"id":{"name":"fnt_ally_title","path":"fonts/fnt_ally_title/fnt_ally_title.yy",},},
     {"id":{"name":"fnt_ally","path":"fonts/fnt_ally/fnt_ally.yy",},},
     {"id":{"name":"fnt_styleable_text_font_default","path":"fonts/fnt_styleable_text_font_default/fnt_styleable_text_font_default.yy",},},
     {"id":{"name":"obj_app","path":"objects/obj_app/obj_app.yy",},},
@@ -104,7 +105,9 @@
     {"id":{"name":"obj_stop_test","path":"objects/obj_stop_test/obj_stop_test.yy",},},
     {"id":{"name":"obj_story_machine_lever","path":"objects/obj_story_machine_lever/obj_story_machine_lever.yy",},},
     {"id":{"name":"obj_tapereel","path":"objects/obj_tapereel/obj_tapereel.yy",},},
+    {"id":{"name":"obj_title","path":"objects/obj_title/obj_title.yy",},},
     {"id":{"name":"obj_workshop_cory","path":"objects/obj_workshop_cory/obj_workshop_cory.yy",},},
+    {"id":{"name":"rm_cover_art","path":"rooms/rm_cover_art/rm_cover_art.yy",},},
     {"id":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
     {"id":{"name":"rm_outside","path":"rooms/rm_outside/rm_outside.yy",},},
     {"id":{"name":"rm_podcast_machine","path":"rooms/rm_podcast_machine/rm_podcast_machine.yy",},},
@@ -321,6 +324,7 @@
     {"roomId":{"name":"rm_podcast_machine","path":"rooms/rm_podcast_machine/rm_podcast_machine.yy",},},
     {"roomId":{"name":"rm_outside","path":"rooms/rm_outside/rm_outside.yy",},},
     {"roomId":{"name":"rm_with_nothing","path":"rooms/rm_with_nothing/rm_with_nothing.yy",},},
+    {"roomId":{"name":"rm_cover_art","path":"rooms/rm_cover_art/rm_cover_art.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

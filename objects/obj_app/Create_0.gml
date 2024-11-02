@@ -10,4 +10,6 @@ global.memory_cursor = false;
 
 set_tds_defaults()
 
-reset_game();
+//reset_game();
+
+room_goto(rm_cover_art);

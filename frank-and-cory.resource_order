@@ -24,6 +24,7 @@
     {"name":"TagDecoratedText","order":18,"path":"folders/TagDecoratedText.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"fnt_ally_title","order":48,"path":"fonts/fnt_ally_title/fnt_ally_title.yy",},
     {"name":"fnt_ally","order":20,"path":"fonts/fnt_ally/fnt_ally.yy",},
     {"name":"obj_app","order":11,"path":"objects/obj_app/obj_app.yy",},
     {"name":"obj_breaker","order":1,"path":"objects/obj_breaker/obj_breaker.yy",},
@@ -83,7 +84,9 @@
     {"name":"obj_stop_test","order":2,"path":"objects/obj_stop_test/obj_stop_test.yy",},
     {"name":"obj_story_machine_lever","order":20,"path":"objects/obj_story_machine_lever/obj_story_machine_lever.yy",},
     {"name":"obj_tapereel","order":3,"path":"objects/obj_tapereel/obj_tapereel.yy",},
+    {"name":"obj_title","order":47,"path":"objects/obj_title/obj_title.yy",},
     {"name":"obj_workshop_cory","order":21,"path":"objects/obj_workshop_cory/obj_workshop_cory.yy",},
+    {"name":"rm_cover_art","order":46,"path":"rooms/rm_cover_art/rm_cover_art.yy",},
     {"name":"rm_init","order":10,"path":"rooms/rm_init/rm_init.yy",},
     {"name":"rm_outside","order":39,"path":"rooms/rm_outside/rm_outside.yy",},
     {"name":"rm_podcast_machine","order":32,"path":"rooms/rm_podcast_machine/rm_podcast_machine.yy",},
