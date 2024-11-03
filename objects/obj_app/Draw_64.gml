@@ -1,9 +1,9 @@
+/*
 if (keyboard_check_pressed(ord("1"))) {
 	audio_stop_all();
 	global.updateable = undefined;
 	room_goto(rm_workshop);
 }
-
 if (keyboard_check_pressed(ord("2"))) {
 	audio_stop_all();
 	global.updateable = {
@@ -28,7 +28,6 @@ if (keyboard_check_pressed(ord("2"))) {
 		draw: function() {},
 	}
 }
-
 if (keyboard_check_pressed(ord("3"))) {
 	audio_stop_all();
 	global.updateable = {
@@ -48,11 +47,11 @@ if (keyboard_check_pressed(ord("3"))) {
 		draw: function() {},
 	}
 }
-
 if (keyboard_check_pressed(ord("4"))) {
 	audio_stop_all();
 	podcast_machine_transition();
 }
+*/
 
 global.clickable_hovered = noone;
 
